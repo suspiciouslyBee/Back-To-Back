@@ -16,11 +16,14 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager Instance { get { return _instance; } }
 
     public List<GameObject> enemies;
+    public List<Enemy> enemyScripts;
 
     public List<Vector2> spawnPoints;
 
     [SerializeField] private float interval = 3f;
     private float curTime;
+
+    const float fixedUpdateTime = 1 / 60f;
 
     private void Awake()
     {
@@ -36,6 +39,11 @@ public class EnemyManager : MonoBehaviour
         curTime = 0f;
     }
 
+    void Start()
+    {
+        Time.fixedDeltaTime = fixedUpdateTime;
+    }
+
     // Remove Update as needed
     private void Update()
     {
@@ -47,6 +55,15 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    // tick 60 times per second
+    private void FixedUpdate()
+    {
+        foreach (Enemy enemy in enemyScripts)
+        {
+            enemy.AI();
+        }
+    }
+
     // spawn an enemy somewhere idk
     public void SpawnEnemy()
     {
@@ -55,7 +72,7 @@ public class EnemyManager : MonoBehaviour
         if (enemyTypes.Length > 0)
         {
             // choose random enemy type for now
-            type = Random.Range(0, enemyTypes.Length - 1);
+            type = Random.Range(0, enemyTypes.Length);
 
             if (spawnPoints.Count > 0)
             {
@@ -66,6 +83,7 @@ public class EnemyManager : MonoBehaviour
                 // spawn at 0,1
                 position = new(0, 1);
             }
+            Debug.Log($"Spawning enemy of type {type}");
             SpawnEnemyType(type, position);
         }
 
@@ -78,6 +96,11 @@ public class EnemyManager : MonoBehaviour
         GameObject newEnemy = Instantiate(enemyTypes[index]);
 
         newEnemy.transform.position = position;
+
+        enemies.Add(newEnemy);
+        Enemy enemyScript = newEnemy.GetComponent<Enemy>();
+        enemyScripts.Add(enemyScript);
+        enemyScript.Spawn();
     }
 
 }

@@ -1,12 +1,30 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour
 {
 
+    private Vector2 destination;
+
+
+    // protected values
+    protected float curHP;
+    protected float maxHP;
+
+    protected float speed;
+
+    protected Rigidbody2D rb;
+
+
+    // controls everything of how the enemy works
+    public abstract void AI();              // controls the behavior of this enemy type
+
+    // spawning mechanics
     public abstract void Spawn();           //  initialize a new instance
+
+    // Attack functionality
     public abstract void Attack();          //  Peform the attack that this entity can hold
 
-    public abstract void AI();              // controls the behavior of this enemy type
 
     public abstract void MoveToPoint(Vector2 pos);  // attempt to move towards a destination
 
@@ -25,11 +43,14 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    public void SetDestination(Vector2 pos)
+    {
+        destination = pos;
+    }
+
+    // remove this Enemy from
     public abstract void Die();             // play effects, etc. when this object dies
 
-    // protected values
-    protected float curHP;
-    protected float maxHP;
 
-    protected float speed;
+
 }
