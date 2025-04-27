@@ -61,6 +61,7 @@ public class EnemyManager : MonoBehaviour
         foreach (Enemy enemy in enemyScripts)
         {
             enemy.AI();
+            enemy.CheckIfGrounded();
         }
     }
 

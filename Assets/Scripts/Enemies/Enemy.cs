@@ -4,16 +4,24 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
 
-    private Vector2 destination;
+    [SerializeField] protected Vector2 destination;
 
 
     // protected values
     protected float curHP;
-    protected float maxHP;
+    [SerializeField] protected float maxHP;
 
-    protected float speed;
+    [SerializeField] protected float speed;
+
+    [SerializeField] protected float jumpPower;
+
+    [SerializeField] protected Collider2D groundedChecker;
+
+    [SerializeField] protected bool grounded;
 
     protected Rigidbody2D rb;
+
+    protected LayerMask ground;
 
 
     // controls everything of how the enemy works
@@ -27,6 +35,32 @@ public abstract class Enemy : MonoBehaviour
 
 
     public abstract void MoveToPoint(Vector2 pos);  // attempt to move towards a destination
+
+    public abstract void Jump();
+
+    void Awake()
+    {
+        ground = LayerMask.GetMask("terrain");
+    }
+
+    public void MoveToDestination()
+    {
+        MoveToPoint(destination);
+    }
+
+
+    // check if Enemy is touching the ground
+    public void CheckIfGrounded()
+    {
+        if (groundedChecker != null && groundedChecker.IsTouchingLayers(ground))
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+    }
 
     // damage should be passed as a negative value
     // heals/damages the enemy instance

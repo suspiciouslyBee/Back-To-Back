@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 1764914056}
   - component: {fileID: 1764914055}
   - component: {fileID: 1764914057}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,6 +437,7 @@ MonoBehaviour:
   enemyTypes:
   - {fileID: 51631112781799947, guid: 9344713d97219c84fa9f2956adc4b804, type: 3}
   enemies: []
+  enemyScripts: []
   spawnPoints:
   - {x: -10, y: 0.5}
   - {x: 10, y: 0.5}
