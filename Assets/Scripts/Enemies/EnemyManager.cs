@@ -62,6 +62,7 @@ public class EnemyManager : MonoBehaviour
         {
             enemy.AI();
             enemy.CheckIfGrounded();
+            enemy.VisualUpdate();
         }
     }
 
