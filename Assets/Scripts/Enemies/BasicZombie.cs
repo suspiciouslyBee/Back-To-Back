@@ -34,8 +34,9 @@ public class BasicZombie : Enemy
 
     // death logic
     public override void Die()
-    {
-        throw new System.NotImplementedException();
+    {   
+        //for now, we just need this to dissapear
+        Destroy(gameObject);
     }
 
     // basic movement
