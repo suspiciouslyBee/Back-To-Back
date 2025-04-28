@@ -50,7 +50,6 @@ public class BasicZombie : Enemy
 
     public override void Jump()
     {
-        Debug.Log($"[BasicZombie] Jumping! Jumppower is {jumpPower}");
         rb.linearVelocity = new(rb.linearVelocity.x, jumpPower);
     }
 
