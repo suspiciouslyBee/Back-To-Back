@@ -15,7 +15,7 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] protected float jumpPower;
 
-    [SerializeField] protected Collider2D groundedChecker;
+    [SerializeField] protected Collider2D hitbox;
 
     [SerializeField] protected bool grounded;
 
@@ -52,7 +52,7 @@ public abstract class Enemy : MonoBehaviour
     // check if Enemy is touching the ground
     public void CheckIfGrounded()
     {
-        if (groundedChecker != null && groundedChecker.IsTouchingLayers(ground))
+        if (hitbox != null && hitbox.IsTouchingLayers(ground))
         {
             grounded = true;
         }

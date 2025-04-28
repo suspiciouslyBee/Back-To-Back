@@ -226,6 +226,6 @@ MonoBehaviour:
   maxHP: 100
   speed: 3
   jumpPower: 10
-  groundedChecker: {fileID: 5337627209299289075}
+  hitbox: {fileID: 8973836585353227597}
   grounded: 0
   jumpInterval: 2

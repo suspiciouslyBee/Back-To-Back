@@ -101,4 +101,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxPrefab: {fileID: 5600595807434085970, guid: fae4c80e3405bd8419908cc56fdb533e, type: 3}
-  totalUsesPerReload: 3
+  totalUsesPerReload: 12
