@@ -8,6 +8,13 @@ public class WeaponTesterInputs : MonoBehaviour
     private Weapon meleeWeapon;
     private Weapon rangeWeapon;
 
+
+    [SerializeField] private GameObject 
+
+
+    // SO WE CAN GET THE DAMN THING OUT
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
