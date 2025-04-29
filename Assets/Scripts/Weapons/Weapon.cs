@@ -5,7 +5,8 @@ public class Weapon : MonoBehaviour
   [SerializeField] private GameObject hitboxPrefab; // The Hitbox the weapon deals damage through
   [SerializeField] private int totalUsesPerReload;  // The total attacks the weapon can do before a realod (ammo)
   private int remainingUses;                        // The number of attacks left before a reload is required
-                                                    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+  // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
   {
     Reload();
@@ -91,7 +92,10 @@ public class Weapon : MonoBehaviour
     float hitboxVelocity = hitboxPrefab.GetComponent<WeaponHitBox>().GetVelocity();
     if (hitboxVelocity > 0)
     {
-      myHitbox.GetComponent<Rigidbody2D>().AddForce(new Vector3(hitboxVelocity, 0, 0));
+      float Theta = transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
+      float weaponXVel = Mathf.Cos(Theta) * hitboxVelocity;
+      float weaponYVel = Mathf.Sin(Theta) * hitboxVelocity;
+      myHitbox.GetComponent<Rigidbody2D>().AddForce(new Vector3(weaponXVel, weaponYVel, 0));
     }
   }
 }
