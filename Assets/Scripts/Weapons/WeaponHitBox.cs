@@ -98,10 +98,30 @@ public class WeaponHitBox : MonoBehaviour
   //------------------------- Actions -------------------------
   void Update()
   {
+    // Increase the time alive, then if the time alive is longer than the lifetime, destroy the object
     timeAlive += Time.deltaTime;
     if (timeAlive >= lifeTime)
     {
       Destroy(gameObject);
+    }
+  }
+
+  void OnTriggerEnter2D(Collider2D other)
+  {
+    // Hitbox hit an enemy
+    if(other.CompareTag("Enemy"))
+    {
+      // Deal damage to the enemy
+      Enemy enemyScript = other.GetComponent<Enemy>();
+      enemyScript.ChangeHP(-1 * GetDamage());
+      // Reduce the amount of pierce (Currently 1. If we add Enemies with more "defense", this would be set by that value)
+      bool isPierceLeft;
+      isPierceLeft = ReducePierce(1);
+      // If there is no pierce left, destroy the hitbox
+      if(!isPierceLeft)
+      {
+        Destroy(gameObject);
+      }
     }
   }
 }

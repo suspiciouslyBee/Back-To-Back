@@ -16,8 +16,8 @@ public class WeaponTesterInputs : MonoBehaviour
         rangePrefab = Instantiate(rangePrefab, transform.position, transform.rotation);
 
         // Move the objects apart
-        meleePrefab.transform.Translate(0, 3, 0);
-        rangePrefab.transform.Translate(0, -3, 0);
+        meleePrefab.transform.Translate(-2, -1, 0);
+        rangePrefab.transform.Translate(2, -1, 0);
 
         // Aquire The Object's weapon attributes
         meleeWeapon = meleePrefab.GetComponent<Weapon>();
