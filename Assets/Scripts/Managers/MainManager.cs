@@ -13,6 +13,7 @@ public class MainManager : MonoBehaviour
     //Makes into *global* singleton
     public static MainManager Instance;
 
+
     private void Awake()
     {
         if (Instance != null)
