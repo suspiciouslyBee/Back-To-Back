@@ -41,6 +41,7 @@ public abstract class Enemy : MonoBehaviour
     void Awake()
     {
         ground = LayerMask.GetMask("terrain");
+        curHP = maxHP;
     }
 
     public void MoveToDestination()
@@ -83,13 +84,14 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-  // remove this Enemy from
+    // remove this Enemy from
     public abstract void Die();             // play effects, etc. when this object dies
 
     //This can be overridden, but this gives the ratio of HP
     //helper function basically to help code be a bit more readable.
-    public float HPRatio() {
-        return curHP/maxHP;
+    public float HPRatio()
+    {
+        return curHP / maxHP;
     }
 
     public abstract void VisualUpdate();
