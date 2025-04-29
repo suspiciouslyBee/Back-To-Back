@@ -308,6 +308,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8388412483818444938, guid: ca7645ad9003ed04795bcabdbf21acfd, type: 3}
+      propertyPath: weaponPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388412483818444938, guid: ca7645ad9003ed04795bcabdbf21acfd, type: 3}
+      propertyPath: weaponPoints.Array.data[0].x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388412483818444938, guid: ca7645ad9003ed04795bcabdbf21acfd, type: 3}
+      propertyPath: weaponPoints.Array.data[0].y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388412483818444938, guid: ca7645ad9003ed04795bcabdbf21acfd, type: 3}
+      propertyPath: weaponPoints.Array.data[1].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388412483818444938, guid: ca7645ad9003ed04795bcabdbf21acfd, type: 3}
+      propertyPath: weaponPoints.Array.data[1].y
+      value: -0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
