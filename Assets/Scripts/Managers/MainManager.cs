@@ -52,11 +52,8 @@ public class MainManager : MonoBehaviour
         return LevelManager.LMInstance;
     }
 
-    public void RestartLevel()
-    {
-        ReloadStage();
-    }
-    void ChangeStage(int number)
+    //bounds checking to change the stage relative to current
+    void ChangeStageRelatively(int number)
     {
         int newIndex = SceneManager.GetActiveScene().buildIndex + number;
 
@@ -70,19 +67,10 @@ public class MainManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + number);
     }
 
-    void PreviousStage()
+    //wrapper/macro for restarting the level by reloading the scene
+    public void RestartLevel()
     {
-        ChangeStage(-1);
-    }
-
-    void NextStage()
-    {
-        ChangeStage(1);
-    }
-
-    void ReloadStage()
-    {
-        ChangeStage(0);
+        ChangeStageRelatively(0);
     }
 }
 
