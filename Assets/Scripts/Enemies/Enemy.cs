@@ -87,8 +87,11 @@ public abstract class Enemy : MonoBehaviour
 
     //This can be overridden, but this gives the ratio of HP
     //helper function basically to help code be a bit more readable.
-    public float HPRatio() {
-        return curHP/maxHP;
+    public float HPRatio()
+    {
+        return curHP / maxHP;
     }
+
+    public abstract void VisualUpdate();
 
 }
