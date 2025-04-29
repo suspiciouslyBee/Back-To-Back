@@ -19,10 +19,12 @@
 using System;
 using UnityEngine;
 
-public abstract class LevelManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     //Makes into local/scene-specific singleton
     public static LevelManager LMInstance;
+
+    public static MainManager Instance;
 
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
@@ -69,10 +71,24 @@ public abstract class LevelManager : MonoBehaviour
 
 
     
-    abstract public void FireGun();
-    abstract public void ReloadGun();
-    abstract public void SwingSword();
-    abstract public void SwapChars();
+    public void FireGun()
+    {
+
+    }
+    public void ReloadGun()
+    {
+
+    }
+    public void SwingSword()
+    {
+
+    }
+
+
+    public void SwapChars()
+    {
+
+    }
 
 
 }
