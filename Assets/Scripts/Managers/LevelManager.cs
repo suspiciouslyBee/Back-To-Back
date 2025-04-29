@@ -11,26 +11,28 @@
  * 
  * For each level, populate the prefab with an EM
  * 
- * 
+ * this is rough. will need revision
 */
+
+//TODO: make this not abstract once the PC is drafted
 
 using System;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public abstract class LevelManager : MonoBehaviour
 {
     //Makes into local/scene-specific singleton
-    public static LevelManager Instance;
+    public static LevelManager LMInstance;
 
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
     {
-        if (Instance != null)
+        if (LMInstance != null)
         {
             Destroy(gameObject);
             return;
         }
-        Instance = this;
+        LMInstance = this;
 
 
         //if the EM is not specified we will attempt to fill it
@@ -59,4 +61,18 @@ public class LevelManager : MonoBehaviour
     {
         
     }
+
+    public void RestartLevel()
+    {
+        Instance.RestartLevel();
+    }
+
+
+    
+    abstract public void FireGun();
+    abstract public void ReloadGun();
+    abstract public void SwingSword();
+    abstract public void SwapChars();
+
+
 }

@@ -5,8 +5,10 @@
 */
 
 
+using System;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
@@ -38,6 +40,49 @@ public class MainManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public LevelManager GetLevelManager()
+    {
+        if(LevelManager.LMInstance == null)
+        {
+            throw new NullReferenceException("Scene has no Level Manager!");
+        }
+
+        return LevelManager.LMInstance;
+    }
+
+    public void RestartLevel()
+    {
+        ReloadStage();
+    }
+    void ChangeStage(int number)
+    {
+        int newIndex = SceneManager.GetActiveScene().buildIndex + number;
+
+        //bounds check
+        if (0 > newIndex || newIndex > SceneManager.sceneCountInBuildSettings - 1)
+        {
+            Debug.Log("No more scenes!");
+            return;
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + number);
+    }
+
+    void PreviousStage()
+    {
+        ChangeStage(-1);
+    }
+
+    void NextStage()
+    {
+        ChangeStage(1);
+    }
+
+    void ReloadStage()
+    {
+        ChangeStage(0);
     }
 }
 

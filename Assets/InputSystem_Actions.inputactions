@@ -6,25 +6,7 @@
             "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
             "actions": [
                 {
-                    "name": "FireLeft",
-                    "type": "Button",
-                    "id": "99bdff50-87ea-4b14-b572-22ae4799c633",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ReloadLeft",
-                    "type": "Button",
-                    "id": "aa22e5eb-df34-40d1-8369-2e7941726f66",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "FireRight",
+                    "name": "MeleeAttack",
                     "type": "Button",
                     "id": "7a39d7a9-2ca3-4b4e-8766-81c4c48cdcb1",
                     "expectedControlType": "",
@@ -33,9 +15,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ReloadRight",
+                    "name": "RangedAttack",
                     "type": "Button",
-                    "id": "a971d54c-9a81-4acd-9f0d-01b789bcbc49",
+                    "id": "99bdff50-87ea-4b14-b572-22ae4799c633",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MeleeReload",
+                    "type": "Button",
+                    "id": "b60bfcfd-4936-40de-a688-fb4f412beaf1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RangedReload",
+                    "type": "Button",
+                    "id": "aa22e5eb-df34-40d1-8369-2e7941726f66",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ReloadScene",
+                    "name": "RestartLevel",
                     "type": "Button",
                     "id": "0d8158b2-60f2-459d-8752-a4bc691b7182",
                     "expectedControlType": "",
@@ -68,50 +68,39 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "FireLeft",
+                    "action": "RangedAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "f773b187-8b0c-4de8-a1de-56973830c576",
-                    "path": "",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "ReloadLeft",
+                    "action": "RangedReload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "8abaf39f-5ce4-4b6b-bf76-642eb96bf8b3",
-                    "path": "",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "FireRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "32860002-b2ea-4629-8a8e-97694798dca9",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ReloadRight",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MeleeAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "e9da4d81-0240-4d2c-8f86-3464e90caf98",
-                    "path": "",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "SwapCharacters",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -119,11 +108,22 @@
                 {
                     "name": "",
                     "id": "152612d0-3589-4df4-8625-1988cdd40459",
-                    "path": "",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "ReloadScene",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "RestartLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccf69390-af9e-4723-ab92-944c1e8325d6",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MeleeReload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
