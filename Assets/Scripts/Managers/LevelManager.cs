@@ -11,14 +11,15 @@
  * For each level, populate the prefab with an EM
 */
 
+using System;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    //Makes into *local/scene-specific
+    //Makes into local/scene-specific singleton
     public static LevelManager Instance;
 
-
+    //The extra checks are here incase there is a duplicate by any means
     private void Awake()
     {
         if (Instance != null)
@@ -27,8 +28,22 @@ public class LevelManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+
+        //if the EM is not specified we will attempt to fill it
+        if(enemyManager == null) {
+            Debug.Log("Enemy Manager not explictly specified for this level!\nSearching...");
+            enemyManager = EnemyManager.Instance;
+        }
+
+        //checks again and throws an exception if we still have nothing
+        if(enemyManager == null) {
+            throw new NullReferenceException("Can't find Enemy Manager for Scene!");
+        }
+
     }
 
+    
     [SerializeField] private EnemyManager enemyManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
