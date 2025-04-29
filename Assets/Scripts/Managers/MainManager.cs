@@ -1,3 +1,10 @@
+/*
+ * Main Manager
+ * 
+ * Description: Main Manager is the global singleton that mainly handles inter-level data and logic
+*/
+
+
 using UnityEditor.PackageManager;
 using UnityEngine;
 
