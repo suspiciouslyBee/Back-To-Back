@@ -14,9 +14,14 @@ public class InputManager : MonoBehaviour
 
     //Chances are I may refactor this into an list or something
     InputAction swapCharacters;
-    InputAction fireGun;
-    InputAction swingSword;
-    InputAction reloadLevel;
+    
+    InputAction fireLeft;
+    InputAction reloadLeft;
+    InputAction fireRight;
+    InputAction reloadRight;
+
+    InputAction restartLevel;
+    
 
 
 
