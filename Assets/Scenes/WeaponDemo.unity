@@ -268,6 +268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon Tester
       objectReference: {fileID: 0}
+    - target: {fileID: 3128951357756057597, guid: ca7645ad9003ed04795bcabdbf21acfd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5525658491725404802, guid: ca7645ad9003ed04795bcabdbf21acfd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
