@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LarsonCover_0: -6839523180341468081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

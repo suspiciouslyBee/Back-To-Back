@@ -34,8 +34,9 @@ public class BasicZombie : Enemy
 
     // death logic
     public override void Die()
-    {
-        throw new System.NotImplementedException();
+    {   
+        //for now, we just need this to dissapear
+        Destroy(gameObject);
     }
 
     // basic movement
@@ -54,4 +55,11 @@ public class BasicZombie : Enemy
     }
 
 
+  public override void VisualUpdate()
+  {
+    //for some reason i cant edit alpha directly??
+    Color baseColor = gameObject.GetComponent<SpriteRenderer>().color;
+    baseColor.a = Mathf.Clamp(HPRatio(), 0, 1);
+    gameObject.GetComponent<SpriteRenderer>().color = baseColor;
+  }
 }
