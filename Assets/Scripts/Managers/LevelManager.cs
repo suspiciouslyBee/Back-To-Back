@@ -21,11 +21,12 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public static MainManager Instance;
+
     //Makes into local/scene-specific singleton
     public static LevelManager LMInstance;
 
-    public static MainManager Instance;
-
+    //public PlayerController PCInstance;
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
     {
@@ -69,25 +70,28 @@ public class LevelManager : MonoBehaviour
         Instance.RestartLevel();
     }
 
-
+    //running on assumptions
+    //can be overridden by a class that inherits LM?
     
     public void FireGun()
     {
-
+        //PCInstance.player1.UseWeapon();
     }
     public void ReloadGun()
     {
-
+        //PCInstance.player1.Reload();
     }
     public void SwingSword()
     {
-
+        //PCInstance.player2.UseWeapon();
     }
 
 
     public void SwapChars()
     {
-
+        //PCInstance.player1.Swap();
+        //or maybe
+        //PCInstance.SwapPlayers();
     }
 
 
