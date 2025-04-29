@@ -82,7 +82,8 @@ public abstract class Enemy : MonoBehaviour
         destination = pos;
     }
 
-    // remove this Enemy from
+
+  // remove this Enemy from
     public abstract void Die();             // play effects, etc. when this object dies
 
     //This can be overridden, but this gives the ratio of HP
@@ -90,5 +91,7 @@ public abstract class Enemy : MonoBehaviour
     public float HPRatio() {
         return curHP/maxHP;
     }
+
+    public abstract void VisualUpdate();
 
 }
