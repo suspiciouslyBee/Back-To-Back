@@ -7,8 +7,11 @@
  * The idea is that the LM allows certain levels to have custom logic by promoting decoupling. The 
  * MM shouldn't have to khow each flavor of LM should work; it can manage itself largely? Also,
  * allows each level to specify special/tailored Enemy Managers (EM) if desired.
+ * Override example: It could be useful to override behavior for a non combat scene like a main menu
  * 
  * For each level, populate the prefab with an EM
+ * 
+ * 
 */
 
 using System;

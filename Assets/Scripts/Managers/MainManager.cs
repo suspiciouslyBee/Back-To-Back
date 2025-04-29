@@ -10,6 +10,9 @@ using UnityEngine;
 
 public class MainManager : MonoBehaviour
 {
+    
+    
+    
     //Makes into *global* singleton
     public static MainManager Instance;
 
@@ -36,4 +39,11 @@ public class MainManager : MonoBehaviour
     {
         
     }
+}
+
+//Stub GlobalVariables
+//May consider for 1.1 some inter-session data persistence so I want to keep this
+//done right
+public class GlobalVariables {
+    public int foo;
 }
