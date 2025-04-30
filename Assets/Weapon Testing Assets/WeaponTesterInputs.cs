@@ -63,6 +63,6 @@ public class WeaponTesterInputs : MonoBehaviour
             rangeWeapon.Reload();
         }
 
-        rangePrefab.transform.Rotate(0, 0, 30 * Time.deltaTime);
+        //rangePrefab.transform.Rotate(0, 0, 30 * Time.deltaTime);
     }
 }

@@ -256,6 +256,55 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &834116679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3128951357756057597, guid: ca7645ad9003ed04795bcabdbf21acfd, type: 3}
+  m_PrefabInstance: {fileID: 1093744562}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 834116681}
+  - component: {fileID: 834116682}
+  m_Layer: 0
+  m_Name: Weapon Tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &834116681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5525658491725404802, guid: ca7645ad9003ed04795bcabdbf21acfd, type: 3}
+  m_PrefabInstance: {fileID: 1093744562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834116679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &834116682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834116679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2526d6b1d9e1e1478b308b1028f1a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleePrefab: {fileID: 958472727888426526, guid: 4ad0364555fc1a74ea2083fcdfa654f6, type: 3}
+  rangePrefab: {fileID: 5799826649190332875, guid: 915d1ab7d9e3b564a9198053189a5402, type: 3}
+  weaponPoints:
+  - {x: -1, y: -1}
+  - {x: 1, y: -1}
 --- !u!1001 &1093744562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -328,7 +377,8 @@ PrefabInstance:
       propertyPath: weaponPoints.Array.data[1].y
       value: -0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

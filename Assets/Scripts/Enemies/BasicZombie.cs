@@ -37,6 +37,7 @@ public class BasicZombie : Enemy
     {
         //for now, we just need this to dissapear
         Destroy(gameObject);
+        EnemyManager.Instance.LoseEnemy(gameObject);
     }
 
     // basic movement
