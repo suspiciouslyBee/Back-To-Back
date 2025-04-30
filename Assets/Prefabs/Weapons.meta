@@ -1,5 +1,13 @@
 fileFormatVersion: 2
-guid: 2548d53d1e70ddc489067178f790dd65
+<<<<<<< HEAD
+guid: 2ef6f4621933dc443bbde90bf62511fa
+=======
+<<<<<<<< HEAD:Assets/Scripts/Weapons.meta
+guid: 71ccddf231bf61a48b4a4f81080b819d
+========
+guid: d6219768cc2d0cd46aae41bafca64827
+>>>>>>>> bbeff25dc53d44ab13e2dcc3dce451a9af686ccc:Assets/Prefabs/Weapons.meta
+>>>>>>> bbeff25dc53d44ab13e2dcc3dce451a9af686ccc
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
