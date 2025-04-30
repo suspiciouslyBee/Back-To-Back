@@ -44,40 +44,42 @@ public class LevelManager : MonoBehaviour
 
 
         //if the EM is not specified we will attempt to fill it
-        if(enemyManager == null) {
+        if (enemyManager == null)
+        {
             Debug.Log("Enemy Manager not explictly specified for this level!\nSearching...");
             enemyManager = EnemyManager.Instance;
         }
 
         //checks again and throws an exception if we still have nothing
-        if(enemyManager == null) {
+        if (enemyManager == null)
+        {
             throw new NullReferenceException("Can't find Enemy Manager for Scene!");
         }
 
     }
 
-    
+
     [SerializeField] private EnemyManager enemyManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void RestartLevel()
     {
-        Instance.RestartLevel();
+        MainManager.Instance.RestartLevel();
     }
 
     //running on assumptions
     //can be overridden by a class that inherits LM?
-    
+
     public void FireGun()
     {
         PCInstance.Attack(false);
