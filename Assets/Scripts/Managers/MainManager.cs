@@ -12,9 +12,9 @@ using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
-    
-    
-    
+
+
+
     //Makes into *global* singleton
     public static MainManager Instance;
 
@@ -32,19 +32,19 @@ public class MainManager : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {   
-        
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public LevelManager GetLevelManager()
     {
-        if(LevelManager.LMInstance == null)
+        if (LevelManager.LMInstance == null)
         {
             throw new NullReferenceException("Scene has no Level Manager!");
         }
@@ -72,11 +72,23 @@ public class MainManager : MonoBehaviour
     {
         ChangeStageRelatively(0);
     }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 50), "Controls:");
+        GUI.Label(new Rect(10, 60, 100, 50), $"A: melee weapon");
+        GUI.Label(new Rect(10, 110, 100, 50), $"S: ranged weapon");
+        GUI.Label(new Rect(10, 160, 100, 50), $"D: melee reload");
+        GUI.Label(new Rect(10, 210, 100, 50), $"F: Ranged reload");
+        GUI.Label(new Rect(10, 260, 100, 50), $"SPACE: swap");
+    }
 }
 
 //Stub GlobalVariables
 //May consider for 1.1 some inter-session data persistence so I want to keep this
 //done right
-public class GlobalVariables {
+public class GlobalVariables
+{
     public int foo;
 }
+
