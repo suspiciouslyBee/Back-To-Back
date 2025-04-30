@@ -26,9 +26,9 @@ public class BasicZombie : Enemy
 
 
     // perform an attack
-    public override void Attack()
+    public override void Attack(GameObject player)
     {
-        throw new System.NotImplementedException();
+        player.GetComponent<Player>().Hurt(10);
     }
 
 

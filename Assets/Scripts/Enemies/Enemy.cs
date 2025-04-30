@@ -31,7 +31,7 @@ public abstract class Enemy : MonoBehaviour
     public abstract void Spawn();           //  initialize a new instance
 
     // Attack functionality
-    public abstract void Attack();          //  Peform the attack that this entity can hold
+    public abstract void Attack(GameObject player);          //  Peform the attack that this entity can hold
 
 
     public abstract void MoveToPoint(Vector2 pos);  // attempt to move towards a destination

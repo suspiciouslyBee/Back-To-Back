@@ -18,8 +18,8 @@ public class Player : MonoBehaviour
     // Set variables
     void Start()
     {
-        health = 10f;
-        iframes = 3.0f;
+        health = 100f;
+        iframes = 1.5f;
         invulnrable = false;
         dead = false;
         curPosition = gameObject.transform;
@@ -76,12 +76,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Whenever an enemy touches the player, the have the enemy call the attack function
+    // which will call the player's hurt function.
+    // Could be make a OnCollisionEnter if we fully implement hitboxes for the enemies
+    // which could hopefully reduce how much the players are checking collisions.
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy" && !invulnrable)
+        {
+            col.gameObject.GetComponent<Enemy>().Attack(gameObject);
+            StartCoroutine(IFrameTimer());
+        }
+    }
+
     // Function for the enemies to call so the players can take damage and possibly die
     public void Hurt(int damage)
     {
         if (!invulnrable && !dead)
         {
             health -= damage;
+            Debug.Log(name + " got hit!\nThey only have " + health + " health left...");
             StartCoroutine(IFrameTimer());
             if (health <= 0)
             {
