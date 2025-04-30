@@ -41,6 +41,7 @@ public abstract class Enemy : MonoBehaviour
     void Awake()
     {
         ground = LayerMask.GetMask("terrain");
+        curHP = maxHP;
     }
 
     public void MoveToDestination()
@@ -81,6 +82,7 @@ public abstract class Enemy : MonoBehaviour
     {
         destination = pos;
     }
+
 
     // remove this Enemy from
     public abstract void Die();             // play effects, etc. when this object dies

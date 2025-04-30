@@ -1,22 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/Scripts/Managers.meta
-guid: 2cf35c8954af22c4da837d0db7788d76
+guid: 9d3a350fddc40514d8272313e07ce0e1
 folderAsset: yes
 DefaultImporter:
 ========
 guid: b8edc5fc01f6ef448abb49859831548e
 PrefabImporter:
 >>>>>>>> MainManager-Caleb-Testing:Assets/Resources/Prefabs/Enemies/Managers/LevelManager.prefab.meta
-=======
-<<<<<<<< HEAD:Assets/Scripts/Weapons.meta
-guid: 71ccddf231bf61a48b4a4f81080b819d
-========
-guid: e99c950565fea23a2a3ef0046053bb54
->>>>>>>> MainManager-Caleb-Testing:Assets/Scripts/Managers.meta
-folderAsset: yes
-DefaultImporter:
->>>>>>> MainManager-Caleb-Testing
   externalObjects: {}
   userData: 
   assetBundleName: 

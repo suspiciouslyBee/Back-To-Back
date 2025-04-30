@@ -37,6 +37,7 @@ public class BasicZombie : Enemy
     {
         //for now, we just need this to dissapear
         Destroy(gameObject);
+        EnemyManager.Instance.LoseEnemy(gameObject);
     }
 
     // basic movement
@@ -54,13 +55,11 @@ public class BasicZombie : Enemy
         rb.linearVelocity = new(rb.linearVelocity.x, jumpPower);
     }
 
-
-    // Update the visuals of the enemy
     public override void VisualUpdate()
     {
         //for some reason i cant edit alpha directly??
         Color baseColor = gameObject.GetComponent<SpriteRenderer>().color;
-        baseColor.a = Mathf.Clamp(HPRatio(), 0, 1);
+        baseColor.a = Mathf.Clamp(HPRatio(), 0.2f, 1);
         gameObject.GetComponent<SpriteRenderer>().color = baseColor;
     }
 }

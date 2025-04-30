@@ -105,4 +105,13 @@ public class EnemyManager : MonoBehaviour
         enemyScript.Spawn();
     }
 
+    // stop tracking this enemy
+    public void LoseEnemy(GameObject enemy)
+    {
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
+
+        enemyScripts.Remove(enemyScript);
+        enemies.Remove(enemy);
+    }
+
 }
