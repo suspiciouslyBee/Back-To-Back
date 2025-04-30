@@ -13,7 +13,7 @@ public class BasicZombie : Enemy
             jumpTimer = 0;
             Jump();
         }
-        Debug.Log($"[BasicZombie] moving towards (0,0)");
+        // Debug.Log($"[BasicZombie] moving towards (0,0)");
         MoveToDestination();
     }
 

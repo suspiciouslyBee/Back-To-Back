@@ -85,11 +85,11 @@ public class EnemyManager : MonoBehaviour
                 // spawn at 0,1
                 position = new(0, 1);
             }
-            Debug.Log($"Spawning enemy of type {type}");
+            // Debug.Log($"Spawning enemy of type {type}");
             SpawnEnemyType(type, position);
         }
 
-        Debug.Log("No enemy types available");
+        // Debug.Log("No enemy types available");
     }
 
     // spawn a specific enemy from an index

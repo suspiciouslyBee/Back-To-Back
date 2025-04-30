@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5799826649190332875}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,5 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e6f16f942c8f1488426112dd01ec6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitboxPrefab: {fileID: 5600595807434085970, guid: fae4c80e3405bd8419908cc56fdb533e, type: 3}
+  hitboxPrefab: {fileID: 5600595807434085970, guid: da43f7b9e86380f4791c188bf3be4da3, type: 3}
   totalUsesPerReload: 12
