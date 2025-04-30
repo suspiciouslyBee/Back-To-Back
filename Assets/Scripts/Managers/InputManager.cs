@@ -17,17 +17,17 @@ public class InputManager : MonoBehaviour
 
     //these should be readable by the PC if the PC really needs to see extra data about the IA
     InputAction swapCharacters;
-    
+
     InputAction fireGun;
     InputAction reloadGun;
     InputAction swingSword;
 
     InputAction restartLevel;
 
-  
+
 
     LevelManager LMinstance;
-    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,10 +45,10 @@ public class InputManager : MonoBehaviour
         LMinstance = MainManager.Instance.GetLevelManager();
     }
 
- 
+
     //for now using actions workflow, may consider actions & playerinput workflow sometime
     // Update is called once per frame
-    //its possible this abstraction is unneccisary, but LM could be overridden with custom stuff
+    //its possible this abstraction is unneccesary, but LM could be overridden with custom stuff
     //so we basically bind the actions to a quazi interface here
 
     void Update()
