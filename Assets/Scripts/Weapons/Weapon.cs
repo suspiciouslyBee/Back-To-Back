@@ -88,12 +88,11 @@ public class Weapon : MonoBehaviour
     GameObject myHitbox = Instantiate(hitboxPrefab, hitboxPos, hitboxRot);
 
     // Get the hitbox's velocity and see if a force needs to be applied
-    // TODO: make directional
     float hitboxVelocity = hitboxPrefab.GetComponent<WeaponHitBox>().GetVelocity();
     if (hitboxVelocity > 0)
     {
       float Theta = transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
-      float weaponXVel = Mathf.Cos(Theta) * hitboxVelocity;
+      float weaponXVel = Mathf.Cos(Theta) * hitboxVelocity * transform.localScale.x;
       float weaponYVel = Mathf.Sin(Theta) * hitboxVelocity;
       myHitbox.GetComponent<Rigidbody2D>().AddForce(new Vector3(weaponXVel, weaponYVel, 0));
     }
