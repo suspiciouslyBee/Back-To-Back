@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
     //Makes into local/scene-specific singleton
     public static LevelManager LMInstance;
 
-    //public PlayerController PCInstance;
+    public PlayerManager PCInstance;
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
     {
@@ -36,6 +36,11 @@ public class LevelManager : MonoBehaviour
             return;
         }
         LMInstance = this;
+
+        if (Instance == null)
+        {
+            Instance = MainManager.Instance;
+        }
 
 
         //if the EM is not specified we will attempt to fill it
@@ -75,23 +80,23 @@ public class LevelManager : MonoBehaviour
     
     public void FireGun()
     {
-        //PCInstance.player1.UseWeapon();
+        PCInstance.Attack(false);
     }
+
     public void ReloadGun()
     {
-        //PCInstance.player1.Reload();
+        PCInstance.Reload();
     }
+
     public void SwingSword()
     {
-        //PCInstance.player2.UseWeapon();
+        PCInstance.Attack(true);
     }
 
 
     public void SwapChars()
     {
-        //PCInstance.player1.Swap();
-        //or maybe
-        //PCInstance.SwapPlayers();
+        PCInstance.Swap();
     }
 
 

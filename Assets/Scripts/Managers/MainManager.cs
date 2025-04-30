@@ -72,11 +72,11 @@ public class MainManager : MonoBehaviour
     void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 100, 50), "Controls:");
-        GUI.Label(new Rect(10, 60, 100, 50), $"A: melee weapon");
-        GUI.Label(new Rect(10, 110, 100, 50), $"S: ranged weapon");
-        GUI.Label(new Rect(10, 160, 100, 50), $"D: melee reload");
-        GUI.Label(new Rect(10, 210, 100, 50), $"F: Ranged reload");
-        GUI.Label(new Rect(10, 260, 100, 50), $"SPACE: swap");
+        GUI.Label(new Rect(10, 60, 100, 50), $"A/x: Right Attack");
+        GUI.Label(new Rect(10, 110, 100, 50), $"S/y: Left Attack");
+        GUI.Label(new Rect(10, 160, 100, 50), $"F/b: Reload");
+        GUI.Label(new Rect(10, 210, 100, 50), $"SPACE/a: Swap");
+        GUI.Label(new Rect(10, 260, 100, 50), $"R/start: Restart");
     }
 }
 

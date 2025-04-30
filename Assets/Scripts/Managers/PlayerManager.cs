@@ -15,31 +15,6 @@ public class PlayerManager : MonoBehaviour
         swapped = false;
     }
 
-   //TO TEST INPUTS
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Attack(true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Attack(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reload();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Swap();
-        }
-    }
-
-
     // Calls the individual players to swap and returns whether it was succesful for not
     public bool Swap()
     {

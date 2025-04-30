@@ -24,8 +24,6 @@ public class InputManager : MonoBehaviour
 
     InputAction restartLevel;
 
-
-
     LevelManager LMinstance;
 
 
@@ -33,10 +31,11 @@ public class InputManager : MonoBehaviour
     void Start()
     {
         swapCharacters = InputSystem.actions.FindAction("SwapCharacters");
-        fireGun = InputSystem.actions.FindAction("FireGun");
-        reloadGun = InputSystem.actions.FindAction("ReloadGun");
-        swingSword = InputSystem.actions.FindAction("SwingSword");
+        fireGun = InputSystem.actions.FindAction("RangedAttack");
+        reloadGun = InputSystem.actions.FindAction("RangedReload");
+        swingSword = InputSystem.actions.FindAction("MeleeAttack");
         restartLevel = InputSystem.actions.FindAction("RestartLevel");
+        ChangedActiveScene();
     }
 
     //refresh the PC
@@ -44,7 +43,6 @@ public class InputManager : MonoBehaviour
     {
         LMinstance = MainManager.Instance.GetLevelManager();
     }
-
 
     //for now using actions workflow, may consider actions & playerinput workflow sometime
     // Update is called once per frame
@@ -71,7 +69,7 @@ public class InputManager : MonoBehaviour
         }
         if (restartLevel.IsPressed())
         {
-            LMinstance.SwingSword();
+            LMinstance.RestartLevel();
         }
 
     }

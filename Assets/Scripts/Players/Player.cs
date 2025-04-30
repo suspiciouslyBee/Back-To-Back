@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public string type;                             // "melee" or "range"?
     float health;                                   // Player health
     float experience;                               // For when we add experience and weapon drops
+    bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
+    float attackCooldown;                           // Time between attacks
     float iframes;                                  // How long the player has iframes
     bool invulnrable;                               // Does the player have iframes
     bool dead;                                      // Is the player dead
@@ -21,6 +23,8 @@ public class Player : MonoBehaviour
         health = 100f;
         iframes = 1.5f;
         invulnrable = false;
+        attackCooldown = 0.25f;
+        canAttack = true;
         dead = false;
         curPosition = gameObject.transform;
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
@@ -57,7 +61,12 @@ public class Player : MonoBehaviour
     // Attacks with curWeapon, currently bool if we want to check if the weapon was used.
     public bool UseWeapon()
     {
-        return curWeapon.DoAttack();
+        if (canAttack)
+        {
+            StartCoroutine(AttackTimer());
+            return curWeapon.DoAttack();
+        }
+        return false;
     }
 
     // Reloads curWeapon, currently bool if we need to eventually check if the weapon was reloaded properly
@@ -125,5 +134,12 @@ public class Player : MonoBehaviour
         invulnrable = true;
         yield return new WaitForSeconds(iframes);
         invulnrable = false;
+    }
+
+    IEnumerator AttackTimer()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
     }
 }

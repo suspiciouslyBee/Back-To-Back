@@ -74,11 +74,33 @@
                 },
                 {
                     "name": "",
+                    "id": "0a77f52e-9eeb-403e-afef-a73176f3be32",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RangedAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f773b187-8b0c-4de8-a1de-56973830c576",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "RangedReload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e29121c4-27e8-4cd9-9599-9d2d0cb3677a",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "RangedReload",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -96,6 +118,17 @@
                 },
                 {
                     "name": "",
+                    "id": "01eba460-67a7-4ff7-a5b9-3d165e4ed473",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "MeleeAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e9da4d81-0240-4d2c-8f86-3464e90caf98",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -107,11 +140,33 @@
                 },
                 {
                     "name": "",
+                    "id": "8bd367d3-83b9-4f32-a6ad-229112299375",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwapCharacters",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "152612d0-3589-4df4-8625-1988cdd40459",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "RestartLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f6847f0-7218-46c0-a4b2-46a29d27fd8b",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "RestartLevel",
                     "isComposite": false,
                     "isPartOfComposite": false
