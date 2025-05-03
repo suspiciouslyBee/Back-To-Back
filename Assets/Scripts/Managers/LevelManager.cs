@@ -27,6 +27,8 @@ public class LevelManager : MonoBehaviour
     public static LevelManager LMInstance;
 
     public PlayerManager PCInstance;
+
+    public UIManager UIInstance;
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
     {
@@ -54,6 +56,11 @@ public class LevelManager : MonoBehaviour
         if (enemyManager == null)
         {
             throw new NullReferenceException("Can't find Enemy Manager for Scene!");
+        }
+
+        if (UIManager.Instance == null)
+        {
+            throw new NullReferenceException("Can't find UI Manager for Scene!");
         }
 
     }
