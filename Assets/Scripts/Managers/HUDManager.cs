@@ -14,11 +14,13 @@ public class HUDManager : MonoBehaviour
 {
 
     private static HUDManager HUDMInstance;
-    public PlayerManager PlayerManagerInstance;
+    // public PlayerManager PlayerManagerInstance;
 
     public static HUDManager Instance { get { return HUDMInstance; } }
 
     public bool initialized = false;
+
+    private PlayerManager playerManagerInstance;
 
     private void Awake()
     {
@@ -26,11 +28,16 @@ public class HUDManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        playerManagerInstance = PlayerManager.Instance;
+    }
+
 
     void Update()
     {
         gameObject.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Player1health").text
-            = PlayerManagerInstance.player2.GetHealth().ToString();
+            = playerManagerInstance.player2.GetHealth().ToString();
     }
 
     // currentHealth / maxHealth

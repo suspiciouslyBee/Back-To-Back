@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    private static PlayerManager PMInstance;
+
+    public static PlayerManager Instance { get { return PMInstance; } }
     public Player player1;                // Player 1 aka the melee player
     public Player player2;                // Player 2 aka the ranged player
     float swapCoolDown;                             // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
@@ -81,6 +84,14 @@ public class PlayerManager : MonoBehaviour
 
     public void InitPlayerManager()
     {
+        if (PMInstance != null && PMInstance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            PMInstance = this;
+        }
         swapCoolDown = 5.0f;
         swapped = false;
         initialized = true;

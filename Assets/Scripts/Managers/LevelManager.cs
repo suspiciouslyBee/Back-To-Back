@@ -48,13 +48,14 @@ public class LevelManager : MonoBehaviour
         {
             Instance = MainManager.Instance;
         }
-        //InitDependents();
-        while (!(UIManager.Instance.initialized && enemyManager.initialized && PCInstance.initialized && HUDManager.Instance.initialized))
-        {
-
-        }
 
 
+
+        gameOver = false;
+    }
+
+    private void Start()
+    {
         //if the EM is not specified we will attempt to fill it
         if (enemyManager == null)
         {
@@ -73,10 +74,6 @@ public class LevelManager : MonoBehaviour
 
             throw new NullReferenceException("Can't find UI Manager for Scene!");
         }
-
-
-
-        gameOver = false;
     }
 
 
