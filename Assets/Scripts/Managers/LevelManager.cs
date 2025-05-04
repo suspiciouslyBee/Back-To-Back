@@ -29,6 +29,10 @@ public class LevelManager : MonoBehaviour
     public PlayerManager PCInstance;
 
     public UIManager UIInstance;
+
+    public bool gameOver;                       // if true, the game is over!
+
+
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
     {
@@ -63,20 +67,21 @@ public class LevelManager : MonoBehaviour
             throw new NullReferenceException("Can't find UI Manager for Scene!");
         }
 
+        gameOver = false;
     }
 
 
     [SerializeField] private EnemyManager enemyManager;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+
+    void FixedUpdate()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (!gameOver && PCInstance.playerCount == 0)
+        {
+            // TODO: trigger game over
+            UIInstance.GameOverSequence();
+            gameOver = true;
+        }
     }
 
     public void RestartLevel()

@@ -13,8 +13,10 @@ using UnityEngine.UIElements;
 public class UIManager : MonoBehaviour
 {
     private static UIManager UIMInstance;
-    [SerializeField] private UIDocument gameOverDoc;
+
     [SerializeField] private UIDocument pauseMenuDoc;
+
+    [SerializeField] private GameOverUI gameOverUIScript;
     public static UIManager Instance { get { return UIMInstance; } }
 
     private bool paused;
@@ -38,7 +40,7 @@ public class UIManager : MonoBehaviour
     // animate the GameOver screen
     public void GameOverSequence()
     {
-        
+        gameOverUIScript.GameOverSequence();
     }
 
     public void TogglePause()
@@ -52,7 +54,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-             pauseMenuDoc.rootVisualElement.style.display = DisplayStyle.Flex;
+            pauseMenuDoc.rootVisualElement.style.display = DisplayStyle.Flex;
         }
 
     }
@@ -60,30 +62,17 @@ public class UIManager : MonoBehaviour
     // prepares all variables
     private void InitAll()
     {
-        InitGameOver();
+        gameOverUIScript.InitGameOver();
         InitPause();
     }
 
-    // handles GameOver document initialization
-    private void InitGameOver()
-    {
-        if (gameOverDoc != null)
-        {
-            gameOverUI = gameOverDoc.rootVisualElement.Q<VisualElement>("MainContainer");
-        }
-        else
-        {
-            throw new NullReferenceException("No Game Over UI Document found in scene!");
-        }
 
-
-    }
 
     private void InitPause()
     {
         if (pauseMenuDoc != null)
         {
-            pauseMenuUI = gameOverDoc.rootVisualElement.Q<VisualElement>("MainContainer");
+            pauseMenuUI = pauseMenuDoc.rootVisualElement.Q<VisualElement>("MainContainer");
         }
         else
         {
@@ -94,7 +83,7 @@ public class UIManager : MonoBehaviour
     }
 
     // private UI elements
-    private VisualElement gameOverUI;
+
     private VisualElement pauseMenuUI;
 
 }
