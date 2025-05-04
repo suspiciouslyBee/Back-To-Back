@@ -12,7 +12,7 @@ using UnityEngine.UIElements;
 */
 public class HUDManager : MonoBehaviour
 {
-
+    private UIDocument HUDDocument;
     private static HUDManager HUDMInstance;
     // public PlayerManager PlayerManagerInstance;
 
@@ -36,8 +36,9 @@ public class HUDManager : MonoBehaviour
 
     void Update()
     {
-        gameObject.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Player1health").text
-            = playerManagerInstance.player2.GetHealth().ToString();
+        HUDDocument.rootVisualElement.Q<Label>("Player1health").text
+            = "P1 HP: " + playerManagerInstance.player1.GetHealth().ToString()
+            + "| P2 HP: " + playerManagerInstance.player2.GetHealth().ToString();
     }
 
     // currentHealth / maxHealth
@@ -54,6 +55,8 @@ public class HUDManager : MonoBehaviour
             HUDMInstance = this;
         }
         initialized = true;
+
+        HUDDocument = gameObject.GetComponent<UIDocument>();
     }
 
 
