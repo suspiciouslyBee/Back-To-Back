@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8541fff91711eff46baff16c09127b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerManagerInstance: {fileID: 235900123}
+  initialized: 0
 --- !u!4 &1233741911
 Transform:
   m_ObjectHideFlags: 0
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d052e475b92dafd41bf954229cce9b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverDoc: {fileID: 1520220830}
+  doc: {fileID: 1520220830}
 --- !u!1 &1764914054
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +734,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1957508662}
   - component: {fileID: 1957508661}
-  - component: {fileID: 1957508663}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -756,6 +755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuDoc: {fileID: 0}
   gameOverUIScript: {fileID: 1520220831}
+  initialized: 0
 --- !u!4 &1957508662
 Transform:
   m_ObjectHideFlags: 0
@@ -772,38 +772,6 @@ Transform:
   - {fileID: 1520220829}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1957508663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957508660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 769efeef1e277c64c8934d258cd08cc3, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: a24dbd0a0ab434540b0e1812e23b05b9, type: 3}
-  m_SortingOrder: 0
-  m_WorldSpaceSizeMode: 1
-  m_WorldSpaceWidth: 1920
-  m_WorldSpaceHeight: 1080
---- !u!114 &1957508664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957508660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d052e475b92dafd41bf954229cce9b61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverDoc: {fileID: 0}
 --- !u!1 &1980000985
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +824,7 @@ MonoBehaviour:
   - {x: -10, y: 0.5}
   - {x: 10, y: 0.5}
   interval: 3
+  initialized: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
