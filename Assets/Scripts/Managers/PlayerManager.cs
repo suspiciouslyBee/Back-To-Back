@@ -10,11 +10,17 @@ public class PlayerManager : MonoBehaviour
 
     public int playerCount;
 
+    public bool initialized = false;
+
     // Set variables
+
+    private void Awake()
+    {
+        InitPlayerManager();
+    }
     private void Start()
     {
-        swapCoolDown = 5.0f;
-        swapped = false;
+
     }
 
     private void FixedUpdate()
@@ -71,5 +77,12 @@ public class PlayerManager : MonoBehaviour
         playerCount = 0;
         if (player1 != null) playerCount++;
         if (player2 != null) playerCount++;
+    }
+
+    public void InitPlayerManager()
+    {
+        swapCoolDown = 5.0f;
+        swapped = false;
+        initialized = true;
     }
 }

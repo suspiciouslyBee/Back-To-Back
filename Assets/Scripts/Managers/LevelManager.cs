@@ -18,6 +18,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class LevelManager : MonoBehaviour
 {
@@ -47,6 +48,11 @@ public class LevelManager : MonoBehaviour
         {
             Instance = MainManager.Instance;
         }
+        //InitDependents();
+        while (!(UIManager.Instance.initialized && enemyManager.initialized && PCInstance.initialized && HUDManager.Instance.initialized))
+        {
+
+        }
 
 
         //if the EM is not specified we will attempt to fill it
@@ -64,8 +70,11 @@ public class LevelManager : MonoBehaviour
 
         if (UIManager.Instance == null)
         {
+
             throw new NullReferenceException("Can't find UI Manager for Scene!");
         }
+
+
 
         gameOver = false;
     }
@@ -113,5 +122,14 @@ public class LevelManager : MonoBehaviour
         PCInstance.Swap();
     }
 
+
+    // initialize everything that depends on this
+    private void InitDependents()
+    {
+        UIManager.Instance.InitUIManager();
+        HUDManager.Instance.InitHUDManager();
+        PCInstance.InitPlayerManager();
+        EnemyManager.Instance.InitEnemyManager();
+    }
 
 }

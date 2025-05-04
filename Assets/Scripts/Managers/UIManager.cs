@@ -20,18 +20,11 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get { return UIMInstance; } }
 
     private bool paused;
+
+    public bool initialized = false;
     private void Awake()
     {
-        if (UIMInstance != null && UIMInstance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            UIMInstance = this;
-        }
-        InitAll();
-        paused = false;
+        InitUIManager();
     }
 
 
@@ -85,5 +78,21 @@ public class UIManager : MonoBehaviour
     // private UI elements
 
     private VisualElement pauseMenuUI;
+
+    // does whatever Awake() would do
+    public void InitUIManager()
+    {
+        if (UIMInstance != null && UIMInstance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            UIMInstance = this;
+        }
+        InitAll();
+        paused = false;
+        initialized = true;
+    }
 
 }
