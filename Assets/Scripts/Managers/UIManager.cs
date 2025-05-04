@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
     // animate the GameOver screen
     public void GameOverSequence()
     {
-
+        
     }
 
     public void TogglePause()
@@ -46,14 +46,14 @@ public class UIManager : MonoBehaviour
         paused = !paused;
 
         // hide/show pause menu
-        // if (paused)
-        // {
-        //     gameOverUI.style.opacity = 100f;
-        // }
-        // else
-        // {
-        //     gameOverUI.style.opacity = 0;
-        // }
+        if (paused)
+        {
+            pauseMenuDoc.rootVisualElement.style.display = DisplayStyle.None;
+        }
+        else
+        {
+             pauseMenuDoc.rootVisualElement.style.display = DisplayStyle.Flex;
+        }
 
     }
 
