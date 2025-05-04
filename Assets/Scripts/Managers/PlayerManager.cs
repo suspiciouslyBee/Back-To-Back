@@ -8,11 +8,18 @@ public class PlayerManager : MonoBehaviour
     float swapCoolDown;                             // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
     bool swapped;                                   // Does the player have to wait to swap again
 
+    public int playerCount;
+
     // Set variables
     private void Start()
     {
         swapCoolDown = 5.0f;
         swapped = false;
+    }
+
+    private void FixedUpdate()
+    {
+        UpdatePlayerCount();
     }
 
     // Calls the individual players to swap and returns whether it was succesful for not
@@ -25,7 +32,7 @@ public class PlayerManager : MonoBehaviour
         }
         return false;
     }
-    
+
     // Call the player's attack function
     public bool Attack(bool Left)
     {
@@ -57,5 +64,12 @@ public class PlayerManager : MonoBehaviour
         swapped = true;
         yield return new WaitForSeconds(swapCoolDown);
         swapped = false;
+    }
+
+    public void UpdatePlayerCount()
+    {
+        playerCount = 0;
+        if (player1 != null) playerCount++;
+        if (player2 != null) playerCount++;
     }
 }
