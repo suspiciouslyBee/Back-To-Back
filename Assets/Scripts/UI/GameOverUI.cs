@@ -6,16 +6,16 @@ using UnityEngine.UIElements;
 public class GameOverUI : MonoBehaviour
 {
 
-    [SerializeField] private UIDocument gameOverDoc;
+    [SerializeField] private UIDocument doc;
     private VisualElement gameOverUI;
 
 
     // handles GameOver document initialization
     public void InitGameOver()
     {
-        if (gameOverDoc != null)
+        if (doc != null)
         {
-            gameOverUI = gameOverDoc.rootVisualElement.Q<VisualElement>("MainContainer");
+            gameOverUI = doc.rootVisualElement.Q<VisualElement>("MainContainer");
         }
         else
         {
@@ -27,13 +27,43 @@ public class GameOverUI : MonoBehaviour
         InitButtons();
     }
 
+    public void OnDisable()
+    {
+        DisableButtons();
+    }
+
     public void GameOverSequence()
     {
         gameOverUI.style.display = DisplayStyle.Flex;
     }
 
-    private void InitButtons()
+    private void OnRestartPressed(ClickEvent evt)
+    {
+        LevelManager.LMInstance.RestartLevel();
+    }
+
+    private void OnQuitPressed(ClickEvent evt)
     {
 
     }
+
+    private void InitButtons()
+    {
+        restartButton = doc.rootVisualElement.Q<Button>("restart-button");
+        restartButton.RegisterCallback<ClickEvent>(OnRestartPressed);
+
+        quitButton = doc.rootVisualElement.Q<Button>("quit-button");
+        quitButton.RegisterCallback<ClickEvent>(OnQuitPressed);
+    }
+
+    // disable all callbacks because good practice
+    private void DisableButtons()
+    {
+        restartButton.UnregisterCallback<ClickEvent>(OnRestartPressed);
+        quitButton.UnregisterCallback<ClickEvent>(OnQuitPressed);
+    }
+
+    // private fields
+    Button restartButton;
+    Button quitButton;
 }
