@@ -13,6 +13,7 @@ using UnityEngine.UIElements;
 public class HUDManager : MonoBehaviour {
     
     private static HUDManager HUDMInstance;
+    public PlayerManager PlayerManagerInstance;
 
     public static HUDManager Instance {get {return HUDMInstance;}}
 
@@ -25,6 +26,13 @@ public class HUDManager : MonoBehaviour {
             HUDMInstance = this;
         }
 
+    }
+
+
+    void Update()
+    {
+        gameObject.GetComponent<UIDocument>().rootVisualElement.Q<Label>("Player1health").text 
+            = PlayerManagerInstance.player2.GetHealth().ToString();
     }
 
     // currentHealth / maxHealth

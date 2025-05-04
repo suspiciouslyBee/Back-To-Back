@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour
     private void InitAll()
     {
         gameOverUIScript.InitGameOver();
-        InitPause();
+        //InitPause();
     }
 
 
