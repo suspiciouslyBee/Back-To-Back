@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] Player player1;                // Player 1 aka the melee player
-    [SerializeField] Player player2;                // Player 2 aka the ranged player
+    public Player player1;                // Player 1 aka the melee player
+    public Player player2;                // Player 2 aka the ranged player
     float swapCoolDown;                             // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
     bool swapped;                                   // Does the player have to wait to swap again
 
