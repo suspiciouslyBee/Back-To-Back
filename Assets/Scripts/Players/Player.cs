@@ -142,4 +142,9 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
     }
+
+    public float GetHealth()
+    {
+        return health;
+    }
 }
