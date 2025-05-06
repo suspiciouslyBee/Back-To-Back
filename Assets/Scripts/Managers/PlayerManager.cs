@@ -3,16 +3,33 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] Player player1;                // Player 1 aka the melee player
-    [SerializeField] Player player2;                // Player 2 aka the ranged player
+    private static PlayerManager PMInstance;
+
+    public static PlayerManager Instance { get { return PMInstance; } }
+    public Player player1;                // Player 1 aka the melee player
+    public Player player2;                // Player 2 aka the ranged player
     float swapCoolDown;                             // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
     bool swapped;                                   // Does the player have to wait to swap again
 
+    public int playerCount;
+
+    public bool initialized = false;
+
     // Set variables
+
+    private void Awake()
+    {
+        InitPlayerManager();
+    }
     private void Start()
     {
-        swapCoolDown = 5.0f;
-        swapped = false;
+
+    }
+
+    //
+    private void FixedUpdate()
+    {
+        UpdatePlayerCount();
     }
 
     // Calls the individual players to swap and returns whether it was succesful for not
@@ -25,7 +42,7 @@ public class PlayerManager : MonoBehaviour
         }
         return false;
     }
-    
+
     // Call the player's attack function
     public bool Attack(bool Left)
     {
@@ -58,4 +75,37 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(swapCoolDown);
         swapped = false;
     }
+
+    // naive way of counting number of living players
+    public void UpdatePlayerCount()
+    {
+        playerCount = 0;
+        if (player1 != null) playerCount++;
+        if (player2 != null) playerCount++;
+    }
+
+
+    public void InitPlayerManager()
+    {
+        if (PMInstance != null && PMInstance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            PMInstance = this;
+        }
+        swapCoolDown = 5.0f;
+        swapped = false;
+        initialized = true;
+    }
+
+    // \UnityYAMLMerge.exe
+
+    // [merge]
+    // tool = unityyamlmerge
+
+    // [mergetool "unityyamlmerge"]
+    // trustExitCode = false
+    // cmd = "C:\Users\caleb\6000.0.44f1\Editor\Data\Tools" merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
 }

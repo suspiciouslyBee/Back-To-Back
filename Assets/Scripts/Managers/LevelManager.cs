@@ -18,6 +18,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class LevelManager : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class LevelManager : MonoBehaviour
     public static LevelManager LMInstance;
 
     public PlayerManager PCInstance;
+
+    public UIManager UIInstance;
+
+    public bool gameOver;                       // if true, the game is over!
+
+
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
     {
@@ -43,6 +50,12 @@ public class LevelManager : MonoBehaviour
         }
 
 
+
+        gameOver = false;
+    }
+
+    private void Start()
+    {
         //if the EM is not specified we will attempt to fill it
         if (enemyManager == null)
         {
@@ -56,20 +69,25 @@ public class LevelManager : MonoBehaviour
             throw new NullReferenceException("Can't find Enemy Manager for Scene!");
         }
 
+        if (UIManager.Instance == null)
+        {
+
+            throw new NullReferenceException("Can't find UI Manager for Scene!");
+        }
     }
 
 
     [SerializeField] private EnemyManager enemyManager;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+
+    void FixedUpdate()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (!gameOver && PCInstance.playerCount == 0)
+        {
+            // TODO: trigger game over
+            UIInstance.GameOverSequence();
+            gameOver = true;
+        }
     }
 
     public void RestartLevel()
@@ -101,5 +119,14 @@ public class LevelManager : MonoBehaviour
         PCInstance.Swap();
     }
 
+
+    // initialize everything that depends on this
+    private void InitDependents()
+    {
+        UIManager.Instance.InitUIManager();
+        HUDManager.Instance.InitHUDManager();
+        PCInstance.InitPlayerManager();
+        EnemyManager.Instance.InitEnemyManager();
+    }
 
 }

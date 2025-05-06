@@ -25,18 +25,11 @@ public class EnemyManager : MonoBehaviour
 
     const float fixedUpdateTime = 1 / 60f;
 
+    public bool initialized = false;
+
     private void Awake()
     {
-        // maintain the singleton
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
-        curTime = 0f;
+        InitEnemyManager();
     }
 
     void Start()
@@ -112,6 +105,21 @@ public class EnemyManager : MonoBehaviour
 
         enemyScripts.Remove(enemyScript);
         enemies.Remove(enemy);
+    }
+
+    public void InitEnemyManager()
+    {
+        // maintain the singleton
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+        curTime = 0f;
+        initialized = true;
     }
 
 }
