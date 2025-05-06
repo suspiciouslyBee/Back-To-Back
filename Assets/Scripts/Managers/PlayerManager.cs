@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    //
     private void FixedUpdate()
     {
         UpdatePlayerCount();
@@ -75,12 +76,14 @@ public class PlayerManager : MonoBehaviour
         swapped = false;
     }
 
+    // naive way of counting number of living players
     public void UpdatePlayerCount()
     {
         playerCount = 0;
         if (player1 != null) playerCount++;
         if (player2 != null) playerCount++;
     }
+
 
     public void InitPlayerManager()
     {
@@ -96,4 +99,13 @@ public class PlayerManager : MonoBehaviour
         swapped = false;
         initialized = true;
     }
+
+    // \UnityYAMLMerge.exe
+
+    // [merge]
+    // tool = unityyamlmerge
+
+    // [mergetool "unityyamlmerge"]
+    // trustExitCode = false
+    // cmd = "C:\Users\caleb\6000.0.44f1\Editor\Data\Tools" merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
 }

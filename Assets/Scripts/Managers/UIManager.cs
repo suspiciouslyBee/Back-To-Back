@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-
+    // move to PauseUI.cs when it's created
     private void InitPause()
     {
         if (pauseMenuDoc != null)

@@ -1,5 +1,4 @@
 using System;
-using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -44,7 +43,7 @@ public class GameOverUI : MonoBehaviour
 
     private void OnQuitPressed(ClickEvent evt)
     {
-
+        // quit to main menu
     }
 
     private void InitButtons()
