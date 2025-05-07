@@ -28,8 +28,9 @@ public class HUDManager : MonoBehaviour
         InitHUDManager();
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitUntil(() => PlayerManager.Instance != null && PlayerManager.Instance.initialized);
         playerManagerInstance = PlayerManager.Instance;
     }
 
@@ -71,7 +72,7 @@ public class HUDManager : MonoBehaviour
                 HUDDocument.rootVisualElement.Q<VisualElement>("SwapFill").style.width = Length.Percent(Mathf.Lerp(0, 100, swap.Item2 / swap.Item1));
                 break;
             case 4:
-                HUDDocument.rootVisualElement.Q<Label>("TimeCount").text = ((int) LevelManager.LMInstance.timeSurvived).ToString();
+                HUDDocument.rootVisualElement.Q<Label>("TimeCount").text = ((int)LevelManager.LMInstance.timeSurvived).ToString();
                 break;
         }
     }
