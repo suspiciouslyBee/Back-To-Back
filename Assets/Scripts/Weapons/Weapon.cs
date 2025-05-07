@@ -11,7 +11,34 @@ public class Weapon : MonoBehaviour
   {
     Reload();
   }
+  //------------------------- Getters -------------------------
+  public int GetCurrentUses()
+  {
+    /*
+    Get the current "Ammo" left
 
+    Inputs:
+      * None
+
+    Output:
+      * Returns the number of attack left until a reload is required. Returns -1 if the weapon does not use ammo
+    */
+    return remainingUses;
+  }
+
+  public int GetTotalUses()
+  {
+    /*
+    Get the total "Ammo" left
+
+    Inputs:
+      * None
+
+    Output:
+      * Returns the number of attack per reload. Returns -1 if the weapon does not use ammo
+    */
+    return totalUsesPerReload;
+  }
   //------------------------- Setters -------------------------
   public bool Reload()
   {
@@ -80,19 +107,24 @@ public class Weapon : MonoBehaviour
       * None
     */
 
-    // The position and rotation of the hitbox
+   // The position and rotation of the hitbox
     Vector3 hitboxPos = transform.position;
     Quaternion hitboxRot = transform.rotation;
 
+    // Find Parent's direction
+    float direction = this.transform.parent.localScale.x;
+    direction = direction / Mathf.Abs(direction);
+
     // Create the object
     GameObject myHitbox = Instantiate(hitboxPrefab, hitboxPos, hitboxRot);
+    myHitbox.transform.localScale = new Vector2(myHitbox.transform.localScale.y * direction * -1, myHitbox.transform.localScale.y);
 
     // Get the hitbox's velocity and see if a force needs to be applied
     float hitboxVelocity = hitboxPrefab.GetComponent<WeaponHitBox>().GetVelocity();
     if (hitboxVelocity > 0)
     {
       float Theta = transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
-      float weaponXVel = Mathf.Cos(Theta) * hitboxVelocity * transform.localScale.x;
+      float weaponXVel = Mathf.Cos(Theta) * hitboxVelocity * direction;
       float weaponYVel = Mathf.Sin(Theta) * hitboxVelocity;
       myHitbox.GetComponent<Rigidbody2D>().AddForce(new Vector3(weaponXVel, weaponYVel, 0));
     }

@@ -49,12 +49,12 @@ public class Player : MonoBehaviour
         if (left)
         {
             curPosition.localScale = new Vector2(-1, curPosition.localScale.y);
-            curWeapon.transform.localScale = new Vector2(-1, curWeapon.transform.localScale.y);
+            //curWeapon.transform.localScale = new Vector2(-1, curWeapon.transform.localScale.y);
         }
         else
         {
             curPosition.localScale = new Vector2(1, curPosition.localScale.y);
-            curWeapon.transform.localScale = new Vector2(1, curWeapon.transform.localScale.y);
+            //curWeapon.transform.localScale = new Vector2(1, curWeapon.transform.localScale.y);
         }
     }
 
