@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour
@@ -18,6 +19,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected Collider2D hitbox;
 
     [SerializeField] protected bool grounded;
+    [SerializeField] protected float minStunWaitTime;
+    protected bool isStunned;
 
     protected Rigidbody2D rb;
 
@@ -40,13 +43,18 @@ public abstract class Enemy : MonoBehaviour
 
     void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         ground = LayerMask.GetMask("terrain");
         curHP = maxHP;
+        isStunned = false;
     }
 
     public void MoveToDestination()
     {
-        MoveToPoint(destination);
+        if(!isStunned)
+        {
+            MoveToPoint(destination);
+        }
     }
 
 
@@ -76,6 +84,24 @@ public abstract class Enemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    // Appy a force to the enemy
+    public void ApplyForce(Vector2 force)
+    {
+        isStunned = true;
+        rb.AddForce(force);
+        StartCoroutine(StunWait());
+    }
+
+    // Reset Stun
+    private IEnumerator StunWait()
+    {
+        while(Vector2.Distance(rb.linearVelocity, Vector2.zero) > 0.01 )
+        {
+            yield return new WaitForSeconds(minStunWaitTime);
+        }
+        isStunned = false;
     }
 
     public void SetDestination(Vector2 pos)

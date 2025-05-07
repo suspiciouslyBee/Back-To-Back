@@ -133,6 +133,7 @@ MonoBehaviour:
   lifeTime: 0.5
   pierceCount: 5
   velocity: 0
+  knockback: 5
 --- !u!58 &-7310362767927023869
 CircleCollider2D:
   m_ObjectHideFlags: 0
