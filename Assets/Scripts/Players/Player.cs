@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     Transform curPosition;                          // Player's current position
     public bool left;                               // To keep track of which side the players are on
     public string type;                             // "melee" or "range"?
-    float health;                                   // Player health
+    float maxHealth;                                // Max player health
+    float health;                                   // Current player health
     float experience;                               // For when we add experience and weapon drops
     bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
     float attackCooldown;                           // Time between attacks
@@ -20,7 +21,8 @@ public class Player : MonoBehaviour
     // Set variables
     void Start()
     {
-        health = 100f;
+        maxHealth = 100f;
+        health = maxHealth;
         iframes = 1.5f;
         invulnrable = false;
         attackCooldown = 0.25f;
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
         return true;
     }
 
+    // Helper function to swap to help control the sprite direction
     public void changeDirection(bool inGame)
     {
         if (inGame)
@@ -64,7 +67,12 @@ public class Player : MonoBehaviour
         if (canAttack)
         {
             StartCoroutine(AttackTimer());
-            return curWeapon.DoAttack();
+            bool hasAmmo = curWeapon.DoAttack();
+            if (type == "ranged")
+            {
+                HUDManager.Instance.changeBars(2, !hasAmmo);
+            }
+            return hasAmmo;
         }
         return false;
     }
@@ -104,8 +112,8 @@ public class Player : MonoBehaviour
         if (!invulnrable && !dead)
         {
             health -= damage;
-            Debug.Log(name + " got hit!\nThey only have " + health + " health left...");
             StartCoroutine(IFrameTimer());
+            HUDManager.Instance.changeBars(1, false);
             if (health <= 0)
             {
                 Die();
@@ -125,6 +133,7 @@ public class Player : MonoBehaviour
     public void Die()
     {
         dead = true;
+        PlayerManager.Instance.UpdatePlayerCount();
         Destroy(gameObject);
     }
 
@@ -136,6 +145,7 @@ public class Player : MonoBehaviour
         invulnrable = false;
     }
 
+    // The delay between attacks
     IEnumerator AttackTimer()
     {
         canAttack = false;
@@ -143,8 +153,16 @@ public class Player : MonoBehaviour
         canAttack = true;
     }
 
-    public float GetHealth()
+    // Returns the max and cur health stats
+    public (float, float) GetHealthInfo()
     {
-        return health;
+        return (maxHealth, health);
+    }
+
+    // Returns the max and cur ammo stats
+    public (float, float) GetAmmoInfo()
+    {
+        return (1, 0);
+        // return (curWeapon. , curWeapon. );
     }
 }

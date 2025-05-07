@@ -192,7 +192,7 @@ MonoBehaviour:
   startingWeapon: {fileID: 4877257763695872399, guid: a6c82173298ca784f8970361ede16f92, type: 3}
   curWeapon: {fileID: 0}
   left: 1
-  type: range
+  type: melee
 --- !u!70 &83252352657521727
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -277,10 +277,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54018f2e837bb44094dfbbdfa6f1670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   player1: {fileID: 6226126905157109303}
   player2: {fileID: 6063310104159484725}
   playerCount: 0
   initialized: 0
+=======
+  initialized: 0
+  playerCount: 0
+>>>>>>> UI-Bar-System
 --- !u!50 &6941363339321242638
 Rigidbody2D:
   serializedVersion: 5
@@ -413,7 +418,7 @@ MonoBehaviour:
   startingWeapon: {fileID: 6584704054352460258, guid: c805d61ea26a5c440b5cdfc5ba23b90c, type: 3}
   curWeapon: {fileID: 0}
   left: 0
-  type: melee
+  type: ranged
 --- !u!70 &4880734378682375528
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
