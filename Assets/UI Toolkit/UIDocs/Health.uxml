@@ -1,3 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Label text="Label" name="Player1health" style="height: auto; top: auto; left: auto; right: auto; align-content: center; align-self: center; align-items: center; width: auto; -unity-text-align: middle-center; font-size: 33%; margin-top: 30px;" />
+    <Style src="project://database/Assets/UI%20Toolkit/hud.uss?fileID=7433441132597879392&amp;guid=0678d60baea132548b492f9ed1118712&amp;type=3#hud" />
+    <ui:VisualElement name="top-container" style="flex-grow: 1; flex-direction: row; width: 100%; height: 5%; min-height: auto;">
+        <ui:VisualElement name="left-container" class="hud-top" style="flex-grow: 1;" />
+        <ui:VisualElement name="top-middle-container" class="hud-top" style="flex-grow: 1;">
+            <ui:Label text="Label" name="Player1health" style="height: auto; top: auto; left: auto; right: auto; align-content: center; align-self: center; align-items: center; width: auto; -unity-text-align: middle-center; font-size: 33%; margin-top: 30px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="top-right-container" class="hud-top" style="flex-grow: 1;" />
+    </ui:VisualElement>
 </ui:UXML>

@@ -33,6 +33,8 @@ public class LevelManager : MonoBehaviour
 
     public bool gameOver;                       // if true, the game is over!
 
+    public float timeSurvived;
+
 
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
@@ -50,7 +52,7 @@ public class LevelManager : MonoBehaviour
         }
 
 
-
+        timeSurvived = 0f;
         gameOver = false;
     }
 
@@ -88,6 +90,8 @@ public class LevelManager : MonoBehaviour
             UIInstance.GameOverSequence();
             gameOver = true;
         }
+
+        timeSurvived += Time.deltaTime;
     }
 
     public void RestartLevel()
