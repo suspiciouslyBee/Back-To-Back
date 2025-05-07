@@ -114,7 +114,7 @@ public class WeaponHitBox : MonoBehaviour
     {
       // Deal damage to the enemy
       Enemy enemyScript = other.GetComponent<Enemy>();
-      float direction = Mathf.Abs(transform.localScale.x)/transform.localScale.x * -100;
+      float direction = Mathf.Abs(transform.localScale.x)/transform.localScale.x * 100;
       Vector2 force = new Vector2(knockback * direction, 100);
       enemyScript.ApplyForce(force);
       enemyScript.ChangeHP(-1 * GetDamage());

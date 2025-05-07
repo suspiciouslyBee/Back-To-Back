@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     public bool initialized = false;
     Player player1;                       // Player 1 aka the melee player
     Player player2;                       // Player 2 aka the ranged player
+    [SerializeField] Collider2D knockback;// Push back collider for swapping
     float swapCoolDown;                   // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
     float coolDownRemaining;              // Stores cool down time remaining
 
@@ -25,8 +26,28 @@ public class PlayerManager : MonoBehaviour
     {
         if (coolDownRemaining == 0)
         {
+            bool solo;
+            if (playerCount == 2)
+            {
+                solo = false;
+            }
+            else
+            {
+                solo = true;
+            }
             StartCoroutine(SwapTimer());
-            return (player1.Swap() && player2.Swap());
+            bool p1Swap = false;
+            bool p2Swap = false;
+            if (player1 != null)
+            {
+                p1Swap = player1.Swap(solo);
+            }
+            if (player2 != null)
+            {
+                p2Swap = player2.Swap(solo);
+            }
+            StartCoroutine(pushAway());
+            return (p1Swap && p2Swap);
         }
         return false;
     }
@@ -43,12 +64,20 @@ public class PlayerManager : MonoBehaviour
         */
 
         // Or can be changed to this if we want the inputs to be melee/range instead of left/right
-        if (melee) 
+        if (melee)
         {
-            return player1.UseWeapon();
+            if (player1 != null)
+            {
+                return player1.UseWeapon();
+            }
+            return false;
         }
-        bool needAmmo = player2.UseWeapon();
-        return needAmmo; 
+        bool needAmmo = false;
+        if (player2 != null)
+        {
+            needAmmo = player2.UseWeapon();
+        }
+        return needAmmo;
     }
 
     // Because player2 will be the ranged individual, simply call player2 to always reload
@@ -63,18 +92,38 @@ public class PlayerManager : MonoBehaviour
         coolDownRemaining = swapCoolDown;
         while (coolDownRemaining > 0)
         {
-            HUDManager.Instance.changeBars(3, false);
+            HUDManager.Instance.ChangeBars(3, false);
             coolDownRemaining -= 0.1f;
             yield return new WaitForSeconds(0.1f);
         }
         coolDownRemaining = 0;
-        HUDManager.Instance.changeBars(3, false);
+        HUDManager.Instance.ChangeBars(3, false);
+    }
+
+    IEnumerator pushAway()
+    {
+        knockback.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        knockback.enabled = false;
     }
 
     // naive way of counting number of living players
     public void UpdatePlayerCount()
     {
         playerCount--;
+        if (playerCount == 1)
+        {
+            StartCoroutine(pushAway());
+            swapCoolDown /= 2; 
+            if (player1.dead)
+            {
+                player2.transform.position = new Vector2(0, -1.8f);
+            }
+            else
+            {
+                player1.transform.position = new Vector2(0, -1.8f);
+            }
+        }
         // if (player1 != null) playerCount++;
         // if (player2 != null) playerCount++;
     }
@@ -136,6 +185,7 @@ public class PlayerManager : MonoBehaviour
         coolDownRemaining = 0;
         playerCount = 2;
         initialized = true;
+        knockback.enabled = false;
         player1 = transform.Find("Player1").GetComponent<Player>();
         player2 = transform.Find("Player2").GetComponent<Player>();
     }

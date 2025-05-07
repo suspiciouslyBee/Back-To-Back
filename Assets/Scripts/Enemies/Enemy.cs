@@ -21,11 +21,12 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected bool grounded;
     [SerializeField] protected float minStunWaitTime;
     protected bool isStunned;
+    [SerializeField] float iframes;                                  // How long the enemy has iframes
+    bool invulnrable;                               // Does the enemy have iframes
 
     protected Rigidbody2D rb;
 
     protected LayerMask ground;
-
 
     // controls everything of how the enemy works
     public abstract void AI();              // controls the behavior of this enemy type
@@ -46,11 +47,12 @@ public abstract class Enemy : MonoBehaviour
         ground = LayerMask.GetMask("terrain");
         curHP = maxHP;
         isStunned = false;
+        invulnrable = false;
     }
 
     public void MoveToDestination()
     {
-        if(!isStunned)
+        if (!isStunned)
         {
             MoveToPoint(destination);
         }
@@ -74,29 +76,37 @@ public abstract class Enemy : MonoBehaviour
     // heals/damages the enemy instance
     public void ChangeHP(float amount)
     {
-        curHP += amount;
-        if (curHP > maxHP)
+        if (!invulnrable)
         {
-            curHP = maxHP;
-        }
-        else if (curHP <= 0f)
-        {
-            Die();
+            StartCoroutine(IFrameTimer());
+            curHP += amount;
+            if (curHP > maxHP)
+            {
+                curHP = maxHP;
+            }
+            else if (curHP <= 0f)
+            {
+                Die();
+            }
         }
     }
 
     // Appy a force to the enemy
     public void ApplyForce(Vector2 force)
     {
-        isStunned = true;
-        rb.AddForce(force);
-        StartCoroutine(StunWait());
+        if (!invulnrable)
+        {
+            isStunned = true;
+            rb.AddForce(force);
+            StartCoroutine(StunWait());
+        }
     }
 
     // Reset Stun
     private IEnumerator StunWait()
     {
-        while(Vector2.Distance(rb.linearVelocity, Vector2.zero) > 0.01 )
+        yield return new WaitForSeconds(0.3f);
+        while (Vector2.Distance(rb.linearVelocity, Vector2.zero) > 0.01 )
         {
             yield return new WaitForSeconds(minStunWaitTime);
         }
@@ -121,4 +131,10 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void VisualUpdate();
 
+    IEnumerator IFrameTimer()
+    {
+        invulnrable = true;
+        yield return new WaitForSeconds(iframes);
+        invulnrable = false;
+    }
 }

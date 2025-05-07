@@ -29,6 +29,7 @@ public class BasicZombie : Enemy
     public override void Attack(GameObject player)
     {
         player.GetComponent<Player>().Hurt(10);
+        // ApplyForce(new Vector2(-10 * transform.localScale.x, 0));
     }
 
 
@@ -47,7 +48,8 @@ public class BasicZombie : Enemy
 
         transform.localScale = new Vector3(Mathf.Sign(dir.x), transform.localScale.y, transform.localScale.z);    // allows for inverting of sprite if it moves left
 
-        rb.linearVelocity = new(Mathf.Sign(dir.x) * speed, rb.linearVelocity.y);
+        rb.linearVelocityX = Mathf.Sign(dir.x) * speed;
+        // rb.linearVelocity = new(Mathf.Sign(dir.x) * speed, rb.linearVelocity.y);
     }
 
     public override void Jump()
@@ -59,7 +61,9 @@ public class BasicZombie : Enemy
     {
         //for some reason i cant edit alpha directly??
         Color baseColor = gameObject.GetComponent<SpriteRenderer>().color;
-        baseColor.a = Mathf.Clamp(HPRatio(), 0.2f, 1);
+        //baseColor.a = Mathf.Clamp(HPRatio(), 0.2f, 1);
+        baseColor.g = Mathf.Clamp(HPRatio(), 0.3f, 1);
+        baseColor.b = Mathf.Clamp(HPRatio(), 0.3f, 1);
         gameObject.GetComponent<SpriteRenderer>().color = baseColor;
     }
 }

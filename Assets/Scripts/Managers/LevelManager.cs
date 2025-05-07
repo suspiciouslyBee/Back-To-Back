@@ -90,8 +90,11 @@ public class LevelManager : MonoBehaviour
             UIInstance.GameOverSequence();
             gameOver = true;
         }
-
-        timeSurvived += Time.deltaTime;
+        else if (!gameOver)
+        {
+            timeSurvived += Time.deltaTime;
+            HUDManager.Instance.ChangeBars(4, false);
+        }
     }
 
     public void RestartLevel()

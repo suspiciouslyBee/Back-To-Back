@@ -12,11 +12,11 @@ public class Player : MonoBehaviour
     float maxHealth;                                // Max player health
     float health;                                   // Current player health
     float experience;                               // For when we add experience and weapon drops
-    public bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
-    float attackCooldown;                           // Time between attacks
+    bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
+    [SerializeField] float attackCooldown;          // Time between attacks
     float iframes;                                  // How long the player has iframes
     bool invulnrable;                               // Does the player have iframes
-    bool dead;                                      // Is the player dead
+    public bool dead;                                      // Is the player dead
 
     // Set variables
     void Start()
@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
         health = maxHealth;
         iframes = 1.5f;
         invulnrable = false;
-        attackCooldown = 0.25f;
         canAttack = true;
         dead = false;
         curPosition = gameObject.transform;
@@ -35,9 +34,12 @@ public class Player : MonoBehaviour
     }
 
     // Switches which way the player is facing and which side they are on.
-    public bool Swap()
+    public bool Swap(bool solo)
     {
-        curPosition.position = new Vector2(curPosition.position.x * -1, curPosition.position.y);
+        if (!solo)
+        {
+            curPosition.position = new Vector2(curPosition.position.x * -1, curPosition.position.y);
+        }
         changeDirection(true);
         return true;
     }
@@ -70,7 +72,7 @@ public class Player : MonoBehaviour
             bool hasAmmo = curWeapon.DoAttack();
             if (type == "ranged")
             {
-                HUDManager.Instance.changeBars(2, !hasAmmo);
+                HUDManager.Instance.ChangeBars(2, !hasAmmo);
             }
             return hasAmmo;
         }
@@ -80,6 +82,7 @@ public class Player : MonoBehaviour
     // Reloads curWeapon, currently bool if we need to eventually check if the weapon was reloaded properly
     public bool Reload()
     {
+        HUDManager.Instance.ChangeBars(2, false);
         return curWeapon.Reload();
     }
 
@@ -113,7 +116,7 @@ public class Player : MonoBehaviour
         {
             health -= damage;
             StartCoroutine(IFrameTimer());
-            HUDManager.Instance.changeBars(1, false);
+            HUDManager.Instance.ChangeBars(1, false);
             if (health <= 0)
             {
                 Die();
@@ -162,7 +165,6 @@ public class Player : MonoBehaviour
     // Returns the max and cur ammo stats
     public (float, float) GetAmmoInfo()
     {
-        return (1, 0);
-        // return (curWeapon. , curWeapon. );
+        return (curWeapon.GetTotalUses() , curWeapon.GetCurrentUses());
     }
 }

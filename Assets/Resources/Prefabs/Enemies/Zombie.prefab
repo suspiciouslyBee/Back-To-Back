@@ -160,7 +160,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -229,4 +229,5 @@ MonoBehaviour:
   hitbox: {fileID: 8973836585353227597}
   grounded: 0
   minStunWaitTime: 0.01
+  iframes: 0.3
   jumpInterval: 2

@@ -42,7 +42,7 @@ public class HUDManager : MonoBehaviour
     }
 
     // Function anybody can call to altar the UI
-    public void changeBars(int call, bool shake)
+    public void ChangeBars(int call, bool shake)
     {
         // 1 means healthbar edit
         // 2 means ammo edit
@@ -63,12 +63,15 @@ public class HUDManager : MonoBehaviour
                 HUDDocument.rootVisualElement.Q<VisualElement>("AmmoFill").style.width = Length.Percent(Mathf.Lerp(0, 100, ammo.Item2 / ammo.Item1));
                 if (shake)
                 {
-                    StartCoroutine(shakeBar("AmmoBar", 3f));
+                    StartCoroutine(shakeBar("AmmoBar", 10f));
                 }
                 break;
             case 3:
                 (float, float) swap = playerManagerInstance.GetSwapInfo();
                 HUDDocument.rootVisualElement.Q<VisualElement>("SwapFill").style.width = Length.Percent(Mathf.Lerp(0, 100, swap.Item2 / swap.Item1));
+                break;
+            case 4:
+                HUDDocument.rootVisualElement.Q<Label>("TimeCount").text = ((int) LevelManager.LMInstance.timeSurvived).ToString();
                 break;
         }
     }
@@ -90,7 +93,6 @@ public class HUDManager : MonoBehaviour
         if (!shaking)
         {
             shaking = true;
-            Debug.Log(HUDDocument.rootVisualElement.Q<VisualElement>(bar).style.translate.value.y);
             for (int i = 1; i < 6; i++)
             {
                 HUDDocument.rootVisualElement.Q<VisualElement>(bar).style.translate = new Translate(shakeAmount / i, 0, 0);
@@ -117,6 +119,6 @@ public class HUDManager : MonoBehaviour
         initialized = true;
 
         HUDDocument = gameObject.GetComponent<UIDocument>();
-        changeBars(0, false);
+        ChangeBars(0, false);
     }
 }

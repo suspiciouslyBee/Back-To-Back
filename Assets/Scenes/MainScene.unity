@@ -234,7 +234,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 30
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -261,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 528162234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: -20}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -343,6 +343,7 @@ MonoBehaviour:
   PCInstance: {fileID: 235900123}
   UIInstance: {fileID: 1957508661}
   gameOver: 0
+  timeSurvived: 0
   enemyManager: {fileID: 1980000987}
 --- !u!4 &981990818
 Transform:
@@ -486,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7291840184277444212, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 7291840184277444212, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -821,8 +822,8 @@ MonoBehaviour:
   enemies: []
   enemyScripts: []
   spawnPoints:
-  - {x: -10, y: 0.5}
-  - {x: 10, y: 0.5}
+  - {x: -10.3, y: -1.8}
+  - {x: 10.3, y: -1.8}
   interval: 3
   initialized: 0
 --- !u!1660057539 &9223372036854775807
