@@ -114,14 +114,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5115879239757125922}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: 0, z: -0.04245063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8431485551212906592}
   m_Father: {fileID: 7291840184277444212}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8363579986153958854
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -193,6 +193,7 @@ MonoBehaviour:
   curWeapon: {fileID: 0}
   left: 1
   type: melee
+  canAttack: 0
 --- !u!70 &83252352657521727
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -412,6 +413,7 @@ MonoBehaviour:
   curWeapon: {fileID: 0}
   left: 0
   type: ranged
+  canAttack: 0
 --- !u!70 &4880734378682375528
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

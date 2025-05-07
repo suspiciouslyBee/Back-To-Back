@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     float maxHealth;                                // Max player health
     float health;                                   // Current player health
     float experience;                               // For when we add experience and weapon drops
-    bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
+    public bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
     float attackCooldown;                           // Time between attacks
     float iframes;                                  // How long the player has iframes
     bool invulnrable;                               // Does the player have iframes
