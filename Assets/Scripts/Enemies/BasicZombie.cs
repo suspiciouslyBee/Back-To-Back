@@ -45,7 +45,7 @@ public class BasicZombie : Enemy
     {
         Vector2 dir = pos - (Vector2)transform.position;
 
-        transform.localScale = new Vector3(Mathf.Sign(dir.x) * transform.localScale.x, transform.localScale.y, transform.localScale.z);    // allows for inverting of sprite if it moves left
+        transform.localScale = new Vector3(Mathf.Sign(dir.x), transform.localScale.y, transform.localScale.z);    // allows for inverting of sprite if it moves left
 
         rb.linearVelocity = new(Mathf.Sign(dir.x) * speed, rb.linearVelocity.y);
     }

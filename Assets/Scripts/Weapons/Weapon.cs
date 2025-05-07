@@ -117,7 +117,7 @@ public class Weapon : MonoBehaviour
 
     // Create the object
     GameObject myHitbox = Instantiate(hitboxPrefab, hitboxPos, hitboxRot);
-    myHitbox.transform.localScale = new Vector2(myHitbox.transform.localScale.y * direction * -1, myHitbox.transform.localScale.y);
+    myHitbox.transform.localScale = new Vector2(myHitbox.transform.localScale.y * direction, myHitbox.transform.localScale.y);
 
     // Get the hitbox's velocity and see if a force needs to be applied
     float hitboxVelocity = hitboxPrefab.GetComponent<WeaponHitBox>().GetVelocity();

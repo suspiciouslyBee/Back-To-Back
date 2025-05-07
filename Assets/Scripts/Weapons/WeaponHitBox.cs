@@ -9,6 +9,7 @@ public class WeaponHitBox : MonoBehaviour
   [SerializeField] private float lifeTime;    // How long the weapon hitbox lasts for
   [SerializeField] private int pierceCount;   // How many enemies can the hitbox touch before destroying itself
   [SerializeField] private float velocity;    // How quickly does the hitbox move (0 for melee hitbox)
+  [SerializeField] private float knockback;     // the force applied to an enemy when hit
 
   private float timeAlive;
 
@@ -113,6 +114,9 @@ public class WeaponHitBox : MonoBehaviour
     {
       // Deal damage to the enemy
       Enemy enemyScript = other.GetComponent<Enemy>();
+      float direction = Mathf.Abs(transform.localScale.x)/transform.localScale.x * -100;
+      Vector2 force = new Vector2(knockback * direction, 100);
+      enemyScript.ApplyForce(force);
       enemyScript.ChangeHP(-1 * GetDamage());
       // Reduce the amount of pierce (Currently 1. If we add Enemies with more "defense", this would be set by that value)
       bool isPierceLeft;
