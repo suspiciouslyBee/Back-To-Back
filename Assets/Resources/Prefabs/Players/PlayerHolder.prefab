@@ -277,15 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54018f2e837bb44094dfbbdfa6f1670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  player1: {fileID: 6226126905157109303}
-  player2: {fileID: 6063310104159484725}
-  playerCount: 0
-  initialized: 0
-=======
   initialized: 0
   playerCount: 0
->>>>>>> UI-Bar-System
 --- !u!50 &6941363339321242638
 Rigidbody2D:
   serializedVersion: 5
