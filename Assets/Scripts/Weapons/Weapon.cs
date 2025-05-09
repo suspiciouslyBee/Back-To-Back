@@ -3,6 +3,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
   [SerializeField] private GameObject hitboxPrefab; // The Hitbox the weapon deals damage through
+  [SerializeField] private float useTime;
   [SerializeField] private int totalUsesPerReload;  // The total attacks the weapon can do before a realod (ammo)
   private int remainingUses;                        // The number of attacks left before a reload is required
 
@@ -38,6 +39,20 @@ public class Weapon : MonoBehaviour
       * Returns the number of attack per reload. Returns -1 if the weapon does not use ammo
     */
     return totalUsesPerReload;
+  }
+
+  public float GetuseTime()
+  {
+    /*
+    Get the use time of the weapon
+
+    Inputs:
+      * None
+
+    Output:
+      * Returns the use time for the weapon.
+    */
+    return useTime;
   }
   //------------------------- Setters -------------------------
   public bool Reload()
