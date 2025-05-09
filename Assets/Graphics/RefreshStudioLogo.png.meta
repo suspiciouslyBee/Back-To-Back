@@ -1,0 +1,505 @@
+fileFormatVersion: 2
+guid: 97e983af1d6b95a4fbe800453f3b3b7a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6324995787717243832
+    second: RefreshStudioLogo_0
+  - first:
+      213: 4412363735718816515
+    second: RefreshStudioLogo_1
+  - first:
+      213: 6027552918874404808
+    second: RefreshStudioLogo_2
+  - first:
+      213: -7199755810297926933
+    second: RefreshStudioLogo_3
+  - first:
+      213: 4161509279961858468
+    second: RefreshStudioLogo_4
+  - first:
+      213: -8067916058859394339
+    second: RefreshStudioLogo_5
+  - first:
+      213: 408104225657992785
+    second: RefreshStudioLogo_6
+  - first:
+      213: -5209196906840886830
+    second: RefreshStudioLogo_7
+  - first:
+      213: 6001398583044842932
+    second: RefreshStudioLogo_8
+  - first:
+      213: 6714501076245106382
+    second: RefreshStudioLogo_9
+  - first:
+      213: 2944172088489521490
+    second: RefreshStudioLogo_10
+  - first:
+      213: 3812061359584427935
+    second: RefreshStudioLogo_11
+  - first:
+      213: 8138799226260422923
+    second: RefreshStudioLogo_12
+  - first:
+      213: 795539613269892248
+    second: RefreshStudioLogo_13
+  - first:
+      213: -1788593089060615292
+    second: RefreshStudioLogo_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RefreshStudioLogo_0
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 2239
+        width: 3222
+        height: 3082
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b37abc5826e6c750800000000000000
+      internalID: 6324995787717243832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 979
+        width: 702
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30be55f907ddb3d30800000000000000
+      internalID: 4412363735718816515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_2
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 979
+        width: 562
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c7b062c17b26a350800000000000000
+      internalID: 6027552918874404808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_3
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 979
+        width: 562
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea23a98c34551c90800000000000000
+      internalID: -7199755810297926933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_4
+      rect:
+        serializedVersion: 2
+        x: 2379
+        y: 979
+        width: 702
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a14e9934a6a0c930800000000000000
+      internalID: 4161509279961858468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_5
+      rect:
+        serializedVersion: 2
+        x: 3219
+        y: 979
+        width: 562
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dda24021711090090800000000000000
+      internalID: -8067916058859394339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_6
+      rect:
+        serializedVersion: 2
+        x: 3919
+        y: 979
+        width: 562
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1563ea981a0e9a500800000000000000
+      internalID: 408104225657992785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_7
+      rect:
+        serializedVersion: 2
+        x: 4619
+        y: 979
+        width: 702
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d17fa2430735b7b0800000000000000
+      internalID: -5209196906840886830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_8
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 139
+        width: 562
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b5abe9e630494350800000000000000
+      internalID: 6001398583044842932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_9
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 139
+        width: 422
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece41956723be2d50800000000000000
+      internalID: 6714501076245106382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_10
+      rect:
+        serializedVersion: 2
+        x: 1819
+        y: 139
+        width: 422
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 251b9046aeccbd820800000000000000
+      internalID: 2944172088489521490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_11
+      rect:
+        serializedVersion: 2
+        x: 2379
+        y: 139
+        width: 562
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9fb5000c9927e430800000000000000
+      internalID: 3812061359584427935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_12
+      rect:
+        serializedVersion: 2
+        x: 3079
+        y: 139
+        width: 422
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b010a7b66c2d2f070800000000000000
+      internalID: 8138799226260422923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_13
+      rect:
+        serializedVersion: 2
+        x: 3639
+        y: 139
+        width: 562
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c14b530135a0b00800000000000000
+      internalID: 795539613269892248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RefreshStudioLogo_14
+      rect:
+        serializedVersion: 2
+        x: 4339
+        y: 139
+        width: 562
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48bc2d6df04ad27e0800000000000000
+      internalID: -1788593089060615292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
