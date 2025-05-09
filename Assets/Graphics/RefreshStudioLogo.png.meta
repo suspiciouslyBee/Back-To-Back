@@ -497,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RefreshStudioLogo_0: 6324995787717243832
+      RefreshStudioLogo_1: 4412363735718816515
+      RefreshStudioLogo_10: 2944172088489521490
+      RefreshStudioLogo_11: 3812061359584427935
+      RefreshStudioLogo_12: 8138799226260422923
+      RefreshStudioLogo_13: 795539613269892248
+      RefreshStudioLogo_14: -1788593089060615292
+      RefreshStudioLogo_2: 6027552918874404808
+      RefreshStudioLogo_3: -7199755810297926933
+      RefreshStudioLogo_4: 4161509279961858468
+      RefreshStudioLogo_5: -8067916058859394339
+      RefreshStudioLogo_6: 408104225657992785
+      RefreshStudioLogo_7: -5209196906840886830
+      RefreshStudioLogo_8: 6001398583044842932
+      RefreshStudioLogo_9: 6714501076245106382
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
