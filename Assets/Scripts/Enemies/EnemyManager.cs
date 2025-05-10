@@ -86,6 +86,11 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public int GetEnemyCount()
+    {
+        return enemies.Count;
+    }
+
     // spawn an enemy somewhere idk
     public void SpawnEnemy()
     {
@@ -209,5 +214,6 @@ public class EnemyManager : MonoBehaviour
         Debug.Log($"Primary position: {tuple.Item1}; Secondary Position: {tuple.Item2}");
         return tuple;
     }
+
 
 }
