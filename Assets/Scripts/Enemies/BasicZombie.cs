@@ -4,13 +4,16 @@ public class BasicZombie : Enemy
 {
 
     [SerializeField] private float jumpInterval;        // how frequently this Zombie should jump
+
+    private float randomizedJumpInterval;
     private float jumpTimer;
     public override void AI()
     {
         jumpTimer += Time.deltaTime;
-        if (jumpTimer > jumpInterval && grounded)
+        if (jumpTimer > randomizedJumpInterval && grounded)
         {
             jumpTimer = 0;
+            randomizedJumpInterval = jumpInterval * Random.Range(0.75f, 1.25f);
             Jump();
         }
         // Debug.Log($"[BasicZombie] moving towards (0,0)");
@@ -22,6 +25,7 @@ public class BasicZombie : Enemy
     {
         rb = GetComponent<Rigidbody2D>();
         destination = new();
+        randomizedJumpInterval = jumpInterval * Random.Range(0.75f, 1.25f);
     }
 
 

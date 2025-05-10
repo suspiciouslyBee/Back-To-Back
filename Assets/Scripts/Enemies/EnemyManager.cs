@@ -178,8 +178,8 @@ public class EnemyManager : MonoBehaviour
         // equation: f(x) = 0.05 * t^1.1 + 1
         // f(x) = Random.Range(f(x) * (1-waveSizeDeviation), f(x) * (1 + waveSizeDeviation))
 
-        float initCount = 0.05f * Mathf.Pow(time, 1.1f) + 1;
-        initCount = Random.Range(initCount * (1 - waveSizeDeviation), initCount * (1 + waveSizeDeviation));
+        float initCount = 0.09f * Mathf.Pow(time, 1.1f) + 1;
+        initCount *= Random.Range(1 - waveSizeDeviation, 1 + waveSizeDeviation);
 
         int finalCount = (int)initCount;
 
