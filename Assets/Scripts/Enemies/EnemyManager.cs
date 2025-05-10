@@ -40,11 +40,14 @@ public class EnemyManager : MonoBehaviour
     // Remove Update as needed
     private void Update()
     {
-        curTime += Time.deltaTime;
-        if (curTime > interval)
+        if (interval != 0)
         {
-            SpawnEnemy();
-            curTime = 0f;
+            curTime += Time.deltaTime;
+            if (curTime > interval)
+            {
+                SpawnEnemy();
+                curTime = 0f;
+            }
         }
     }
 
@@ -57,6 +60,11 @@ public class EnemyManager : MonoBehaviour
             enemy.CheckIfGrounded();
             enemy.VisualUpdate();
         }
+    }
+
+    public int GetEnemyCount()
+    {
+        return enemies.Count;
     }
 
     // spawn an enemy somewhere idk
@@ -121,5 +129,12 @@ public class EnemyManager : MonoBehaviour
         curTime = 0f;
         initialized = true;
     }
+
+    public void AdjustSpawning(float newTiming)
+    {
+        interval = newTiming;
+    }
+
+
 
 }
