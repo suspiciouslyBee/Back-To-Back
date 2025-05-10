@@ -25,6 +25,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private readonly float initInterval = 5f;           // initial interval between waves
     [SerializeField] private float minInterval = 2f;            // absolute minimum value that interval can be
 
+    public int wavesSpawned = 0;                                   // number of waves spawned
+
     [SerializeField] private readonly float waveSizeDeviation = 0.25f;     // wave_size = wave_size * (1 +- waveSizeDeviation)
     private float curTime;
 
@@ -38,6 +40,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float waveSpawnTimeMult = 1f;      // controls how rapidly zombie waves spawn
 
     [SerializeField] private const int spawnCap = 50;           // maximum number of zombies allowed on screen
+
+    public int totalEnemiesSpawned = 0;
 
 
     private float interval;
@@ -56,6 +60,7 @@ public class EnemyManager : MonoBehaviour
     private void Update()
     {
         curTime += Time.deltaTime;
+        Debug.Log($"total enemies spawned: {totalEnemiesSpawned}");
         if (curTime > interval)
         {
             int count = RandomEnemyCount(LevelManager.LMInstance.timeSurvived);
@@ -64,6 +69,9 @@ public class EnemyManager : MonoBehaviour
             StartCoroutine(SpawnGroup((int)Mathf.Max(count * 0.2f - 1, 0), positions.Item2));
             // logic to change the interval?
             curTime = 0f;
+            interval *= 1.25f;                            // wave interval increases over time
+            wavesSpawned++;
+
         }
     }
 
@@ -117,6 +125,7 @@ public class EnemyManager : MonoBehaviour
             Enemy enemyScript = newEnemy.GetComponent<Enemy>();
             enemyScripts.Add(enemyScript);
             enemyScript.Spawn();
+            totalEnemiesSpawned++;
         }
 
         // Debug.Log("No enemy types available");
@@ -169,7 +178,7 @@ public class EnemyManager : MonoBehaviour
         // equation: f(x) = 0.05 * t^1.1 + 1
         // f(x) = Random.Range(f(x) * (1-waveSizeDeviation), f(x) * (1 + waveSizeDeviation))
 
-        float initCount = Mathf.Pow(time, 1.1f) + 1;
+        float initCount = 0.05f * Mathf.Pow(time, 1.1f) + 1;
         initCount = Random.Range(initCount * (1 - waveSizeDeviation), initCount * (1 + waveSizeDeviation));
 
         int finalCount = (int)initCount;
