@@ -1,0 +1,12 @@
+#TitleLogo {
+}
+
+.buttonBasis {
+    width: 322px;
+    height: 177px;
+    align-items: center;
+    align-self: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: flex-end;
+}
