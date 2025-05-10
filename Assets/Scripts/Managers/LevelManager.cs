@@ -95,6 +95,11 @@ public class LevelManager : MonoBehaviour
             timeSurvived += Time.deltaTime;
             HUDManager.Instance.ChangeBars(4, false);
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            timeSurvived += 30f;
+        }
     }
 
     public void RestartLevel()
