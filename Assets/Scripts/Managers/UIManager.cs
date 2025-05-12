@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     private bool paused;
 
     public bool initialized = false;
-    private void Awake()
+    void Awake()
     {
         InitUIManager();
     }
@@ -31,12 +31,12 @@ public class UIManager : MonoBehaviour
 
 
     // animate the GameOver screen
-    public void GameOverSequence()
+    public virtual void GameOverSequence()
     {
         gameOverUIScript.GameOverSequence();
     }
 
-    public void TogglePause()
+    public virtual void TogglePause()
     {
         paused = !paused;
 
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
     }
 
     // prepares all variables
-    private void InitAll()
+    protected virtual void InitAll()
     {
         gameOverUIScript.InitGameOver();
         //InitPause();

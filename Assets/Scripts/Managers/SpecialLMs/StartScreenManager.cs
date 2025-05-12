@@ -4,8 +4,7 @@ using UnityEngine.UIElements;
 public class StartScreenManager : LevelManager
 {
 
-    [SerializeField]
-    private UIDocument mainMenu;
+ 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
@@ -25,4 +24,25 @@ public class StartScreenManager : LevelManager
         
     }
 
+
+    //they need to be empty to clear the behavior of base
+    public override void FireGun()
+    {
+        MainManager.Instance.ChangeStageRelatively(2);
+    }
+
+    public override void ReloadGun()
+    {
+
+    }
+
+    public override void SwingSword()
+    {
+        MainManager.Instance.ChangeStageRelatively(1);
+    }
+
+    public override void SwapChars()
+    {
+
+    }
 }
