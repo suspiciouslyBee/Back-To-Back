@@ -278,8 +278,8 @@ GameObject:
   m_Component:
   - component: {fileID: 856752009}
   - component: {fileID: 856752008}
-  - component: {fileID: 856752011}
   - component: {fileID: 856752010}
+  - component: {fileID: 856752011}
   m_Layer: 0
   m_Name: StartUIManagers
   m_TagString: Untagged
@@ -347,12 +347,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 856752007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adbe86a3a6d3aee4ea343814deab6347, type: 3}
+  m_Script: {fileID: 11500000, guid: f770251a72f0b104badef8c4d5a7449a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuDoc: {fileID: 856752010}
+  pauseMenuDoc: {fileID: 0}
   gameOverUIScript: {fileID: 0}
   initialized: 0
+  mainMenu: {fileID: 856752010}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
