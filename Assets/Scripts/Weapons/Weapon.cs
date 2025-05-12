@@ -108,26 +108,27 @@ public class Weapon : MonoBehaviour
         HUDManager.Instance.ChangeBars(2, !hasAmmo);
       }
       //return hasAmmo;
-    }
+      // If the weapon is ranged and out of ammo, return false
+      if (totalUsesPerReload > 0 && remainingUses <= 0)
+      {
+        return false;
+      }
+      // Decrement the remaing uses if it's a ranged weapon
+      else if (totalUsesPerReload > 0)
+      {
+        remainingUses--;
+      }
 
-    // If the weapon is ranged and out of ammo, return false
-    if (totalUsesPerReload > 0 && remainingUses <= 0)
-    {
-      return false;
+      // Spawn a hit box
+      SpawnHitBox();
+      if (audioSource != null)
+      {
+        audioSource.PlayOneShot(useSFX);
+      }
+      return true;
     }
-    // Decrement the remaing uses if it's a ranged weapon
-    else if (totalUsesPerReload > 0)
-    {
-      remainingUses--;
-    }
+    return false;
 
-    // Spawn a hit box
-    SpawnHitBox();
-    if (audioSource != null)
-    {
-      audioSource.PlayOneShot(useSFX);
-    }
-    return true;
   }
 
   // The delay between attacks
