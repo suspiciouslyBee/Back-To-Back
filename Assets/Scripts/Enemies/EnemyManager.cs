@@ -11,7 +11,7 @@ public class EnemyManager : MonoBehaviour
 {
 
     // public GameManager gameManager
-    private static EnemyManager _instance;
+    protected static EnemyManager _instance;
 
     public GameObject[] enemyTypes;                                     // holds Prefabs of different enemies
 
@@ -22,6 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     public List<Vector2> spawnPoints;
 
+<<<<<<< HEAD
     [SerializeField] private readonly float initInterval = 5f;           // initial interval between waves
     [SerializeField] private float minInterval = 2f;            // absolute minimum value that interval can be
 
@@ -29,8 +30,12 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] private readonly float waveSizeDeviation = 0.25f;     // wave_size = wave_size * (1 +- waveSizeDeviation)
     private float curTime;
+=======
+    [SerializeField] protected float interval = 3f;
+    protected float curTime;
+>>>>>>> tutorial-scenes
 
-    const float fixedUpdateTime = 1 / 60f;
+    protected const float fixedUpdateTime = 1 / 60f;
 
     public bool initialized = false;
 
@@ -86,13 +91,17 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     public int GetEnemyCount()
+=======
+    virtual public int GetEnemyCount()
+>>>>>>> tutorial-scenes
     {
         return enemies.Count;
     }
 
     // spawn an enemy somewhere idk
-    public void SpawnEnemy()
+    virtual public void SpawnEnemy()
     {
         Vector2 position;
         if (spawnPoints.Count > 0)
@@ -136,7 +145,24 @@ public class EnemyManager : MonoBehaviour
         // Debug.Log("No enemy types available");
     }
 
+<<<<<<< HEAD
     // stop tracking this enemy 
+=======
+    // spawn a specific enemy from an index
+    virtual public void SpawnEnemyType(int index, Vector2 position)
+    {
+        GameObject newEnemy = Instantiate(enemyTypes[index]);
+
+        newEnemy.transform.position = position;
+
+        enemies.Add(newEnemy);
+        Enemy enemyScript = newEnemy.GetComponent<Enemy>();
+        enemyScripts.Add(enemyScript);
+        enemyScript.Spawn();
+    }
+
+    // stop tracking this enemy
+>>>>>>> tutorial-scenes
     public void LoseEnemy(GameObject enemy)
     {
         Enemy enemyScript = enemy.GetComponent<Enemy>();
@@ -145,7 +171,7 @@ public class EnemyManager : MonoBehaviour
         enemies.Remove(enemy);
     }
 
-    public void InitEnemyManager()
+    virtual public void InitEnemyManager()
     {
         // maintain the singleton
         if (_instance != null && _instance != this)
@@ -163,6 +189,7 @@ public class EnemyManager : MonoBehaviour
         initialized = true;
     }
 
+<<<<<<< HEAD
 
     // spawn a group of zombies
     private IEnumerator SpawnGroup(int count, Vector2 position)
@@ -216,4 +243,10 @@ public class EnemyManager : MonoBehaviour
     }
 
 
+=======
+    virtual public void AdjustSpawning(float newTiming)
+    {
+        interval = newTiming;
+    }
+>>>>>>> tutorial-scenes
 }
