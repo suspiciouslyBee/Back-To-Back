@@ -1,11 +1,13 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Weapon : MonoBehaviour
 {
   [SerializeField] private GameObject hitboxPrefab; // The Hitbox the weapon deals damage through
   [SerializeField] private int totalUsesPerReload;  // The total attacks the weapon can do before a realod (ammo)
   private int remainingUses;                        // The number of attacks left before a reload is required
 
+  public AudioSource audioSource;
   [SerializeField] private AudioClip useSFX;
   [SerializeField] private AudioClip cantUseSFX;
   [SerializeField] private AudioClip reloadSFX;
@@ -96,6 +98,10 @@ public class Weapon : MonoBehaviour
 
     // Spawn a hit box
     SpawnHitBox();
+    if (audioSource != null)
+    {
+      audioSource.PlayOneShot(useSFX);
+    }
     return true;
   }
 
