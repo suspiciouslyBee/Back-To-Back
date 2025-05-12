@@ -22,18 +22,13 @@ public class EnemyManager : MonoBehaviour
 
     public List<Vector2> spawnPoints;
 
-<<<<<<< HEAD
     [SerializeField] private readonly float initInterval = 5f;           // initial interval between waves
     [SerializeField] private float minInterval = 2f;            // absolute minimum value that interval can be
 
     public int wavesSpawned = 0;                                   // number of waves spawned
 
-    [SerializeField] private readonly float waveSizeDeviation = 0.25f;     // wave_size = wave_size * (1 +- waveSizeDeviation)
-    private float curTime;
-=======
-    [SerializeField] protected float interval = 3f;
+    [SerializeField] protected readonly float waveSizeDeviation = 0.25f;     // wave_size = wave_size * (1 +- waveSizeDeviation)
     protected float curTime;
->>>>>>> tutorial-scenes
 
     protected const float fixedUpdateTime = 1 / 60f;
 
@@ -49,7 +44,7 @@ public class EnemyManager : MonoBehaviour
     public int totalEnemiesSpawned = 0;
 
 
-    private float interval;
+    protected float interval;
 
     private void Awake()
     {
@@ -91,11 +86,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-    public int GetEnemyCount()
-=======
     virtual public int GetEnemyCount()
->>>>>>> tutorial-scenes
     {
         return enemies.Count;
     }
@@ -145,9 +136,7 @@ public class EnemyManager : MonoBehaviour
         // Debug.Log("No enemy types available");
     }
 
-<<<<<<< HEAD
-    // stop tracking this enemy 
-=======
+
     // spawn a specific enemy from an index
     virtual public void SpawnEnemyType(int index, Vector2 position)
     {
@@ -162,7 +151,6 @@ public class EnemyManager : MonoBehaviour
     }
 
     // stop tracking this enemy
->>>>>>> tutorial-scenes
     public void LoseEnemy(GameObject enemy)
     {
         Enemy enemyScript = enemy.GetComponent<Enemy>();
@@ -188,9 +176,6 @@ public class EnemyManager : MonoBehaviour
 
         initialized = true;
     }
-
-<<<<<<< HEAD
-
     // spawn a group of zombies
     private IEnumerator SpawnGroup(int count, Vector2 position)
     {
@@ -241,12 +226,8 @@ public class EnemyManager : MonoBehaviour
         Debug.Log($"Primary position: {tuple.Item1}; Secondary Position: {tuple.Item2}");
         return tuple;
     }
-
-
-=======
     virtual public void AdjustSpawning(float newTiming)
     {
         interval = newTiming;
     }
->>>>>>> tutorial-scenes
 }
