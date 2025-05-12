@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
 
     public float timeSurvived;
 
+    [SerializeField] private EnemyManager enemyManager;
 
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
@@ -56,7 +57,12 @@ public class LevelManager : MonoBehaviour
         gameOver = false;
     }
 
-    private void Start()
+    void Start()
+    {
+        CheckForLevelLogic();
+    }
+
+    bool CheckForLevelLogic()
     {
         //if the EM is not specified we will attempt to fill it
         if (enemyManager == null)
@@ -76,13 +82,12 @@ public class LevelManager : MonoBehaviour
 
             throw new NullReferenceException("Can't find UI Manager for Scene!");
         }
+
+        return true;
     }
 
 
-    [SerializeField] private EnemyManager enemyManager;
-
-
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (!gameOver && PCInstance.playerCount == 0)
         {
@@ -97,7 +102,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
+    public virtual void RestartLevel()
     {
         MainManager.Instance.RestartLevel();
     }
@@ -105,23 +110,23 @@ public class LevelManager : MonoBehaviour
     //running on assumptions
     //can be overridden by a class that inherits LM?
 
-    public void FireGun()
+    public virtual void FireGun()
     {
         PCInstance.Attack(false);
     }
 
-    public void ReloadGun()
+    public virtual void ReloadGun()
     {
         PCInstance.Reload();
     }
 
-    public void SwingSword()
+    public virtual void SwingSword()
     {
         PCInstance.Attack(true);
     }
 
 
-    public void SwapChars()
+    public virtual void SwapChars()
     {
         PCInstance.Swap();
     }

@@ -1,52 +1,40 @@
 fileFormatVersion: 2
-guid: 97e983af1d6b95a4fbe800453f3b3b7a
+guid: f32c88b0380f04c4b8e81086b5830563
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6324995787717243832
-    second: RefreshStudioLogo_0
+      213: -5269458369491497728
+    second: B2BLogoRaw_0
   - first:
-      213: 4412363735718816515
-    second: RefreshStudioLogo_1
+      213: 526939294067941313
+    second: B2BLogoRaw_1
   - first:
-      213: 6027552918874404808
-    second: RefreshStudioLogo_2
+      213: -2644087306467344492
+    second: B2BLogoRaw_2
   - first:
-      213: -7199755810297926933
-    second: RefreshStudioLogo_3
+      213: 9065327198530327144
+    second: B2BLogoRaw_3
   - first:
-      213: 4161509279961858468
-    second: RefreshStudioLogo_4
+      213: 5595709697754653188
+    second: B2BLogoRaw_4
   - first:
-      213: -8067916058859394339
-    second: RefreshStudioLogo_5
+      213: -4405602029593540335
+    second: B2BLogoRaw_5
   - first:
-      213: 408104225657992785
-    second: RefreshStudioLogo_6
+      213: 4141985470295109277
+    second: B2BLogoRaw_6
   - first:
-      213: -5209196906840886830
-    second: RefreshStudioLogo_7
+      213: 4638343617621424114
+    second: B2BLogoRaw_7
   - first:
-      213: 6001398583044842932
-    second: RefreshStudioLogo_8
+      213: 6685229197811982242
+    second: B2BLogoRaw_8
   - first:
-      213: 6714501076245106382
-    second: RefreshStudioLogo_9
+      213: 5188393862581947401
+    second: B2BLogoRaw_9
   - first:
-      213: 2944172088489521490
-    second: RefreshStudioLogo_10
-  - first:
-      213: 3812061359584427935
-    second: RefreshStudioLogo_11
-  - first:
-      213: 8138799226260422923
-    second: RefreshStudioLogo_12
-  - first:
-      213: 795539613269892248
-    second: RefreshStudioLogo_13
-  - first:
-      213: -1788593089060615292
-    second: RefreshStudioLogo_14
+      213: 429934226439129398
+    second: B2BLogoRaw_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -79,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -88,7 +76,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -155,13 +143,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RefreshStudioLogo_0
+      name: B2BLogoRaw_0
       rect:
         serializedVersion: 2
-        x: 1119
-        y: 2239
-        width: 3222
-        height: 3082
+        x: 0
+        y: 12
+        width: 70
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b37abc5826e6c750800000000000000
-      internalID: 6324995787717243832
+      spriteID: 00d00cf188f1fd6b0800000000000000
+      internalID: -5269458369491497728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_1
+      name: B2BLogoRaw_1
       rect:
         serializedVersion: 2
-        x: 139
-        y: 979
-        width: 702
-        height: 1122
+        x: 0
+        y: 2
+        width: 31
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30be55f907ddb3d30800000000000000
-      internalID: 4412363735718816515
+      spriteID: 1cf5d110f70105700800000000000000
+      internalID: 526939294067941313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_2
+      name: B2BLogoRaw_2
       rect:
         serializedVersion: 2
-        x: 979
-        y: 979
-        width: 562
-        height: 1122
+        x: 0
+        y: 0
+        width: 70
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c7b062c17b26a350800000000000000
-      internalID: 6027552918874404808
+      spriteID: 49ff4ee8a905e4bd0800000000000000
+      internalID: -2644087306467344492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_3
+      name: B2BLogoRaw_3
       rect:
         serializedVersion: 2
-        x: 1679
-        y: 979
-        width: 562
-        height: 1122
+        x: 6
+        y: 12
+        width: 9
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bea23a98c34551c90800000000000000
-      internalID: -7199755810297926933
+      spriteID: 86256119e038ecd70800000000000000
+      internalID: 9065327198530327144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_4
+      name: B2BLogoRaw_4
       rect:
         serializedVersion: 2
-        x: 2379
-        y: 979
-        width: 702
-        height: 1122
+        x: 14
+        y: 12
+        width: 9
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +246,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a14e9934a6a0c930800000000000000
-      internalID: 4161509279961858468
+      spriteID: 402efd0a254f7ad40800000000000000
+      internalID: 5595709697754653188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_5
+      name: B2BLogoRaw_5
       rect:
         serializedVersion: 2
-        x: 3219
-        y: 979
-        width: 562
-        height: 1122
+        x: 22
+        y: 12
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +268,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dda24021711090090800000000000000
-      internalID: -8067916058859394339
+      spriteID: 1194654cb482cd2c0800000000000000
+      internalID: -4405602029593540335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_6
+      name: B2BLogoRaw_6
       rect:
         serializedVersion: 2
-        x: 3919
-        y: 979
-        width: 562
-        height: 1122
+        x: 35
+        y: 12
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,20 +290,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1563ea981a0e9a500800000000000000
-      internalID: 408104225657992785
+      spriteID: d9ee4cd07d94b7930800000000000000
+      internalID: 4141985470295109277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_7
+      name: B2BLogoRaw_7
       rect:
         serializedVersion: 2
-        x: 4619
-        y: 979
-        width: 702
-        height: 1122
+        x: 39
+        y: 1
+        width: 31
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,20 +312,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d17fa2430735b7b0800000000000000
-      internalID: -5209196906840886830
+      spriteID: 2f7768af1f4be5040800000000000000
+      internalID: 4638343617621424114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_8
+      name: B2BLogoRaw_8
       rect:
         serializedVersion: 2
-        x: 559
-        y: 139
-        width: 562
-        height: 702
+        x: 47
+        y: 12
+        width: 9
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,20 +334,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b5abe9e630494350800000000000000
-      internalID: 6001398583044842932
+      spriteID: 2af17a91984b6cc50800000000000000
+      internalID: 6685229197811982242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_9
+      name: B2BLogoRaw_9
       rect:
         serializedVersion: 2
-        x: 1259
-        y: 139
-        width: 422
-        height: 702
+        x: 55
+        y: 12
+        width: 9
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +356,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ece41956723be2d50800000000000000
-      internalID: 6714501076245106382
+      spriteID: 90c830e8ab0e00840800000000000000
+      internalID: 5188393862581947401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_10
+      name: B2BLogoRaw_10
       rect:
         serializedVersion: 2
-        x: 1819
-        y: 139
-        width: 422
-        height: 702
+        x: 63
+        y: 12
+        width: 7
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,96 +378,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 251b9046aeccbd820800000000000000
-      internalID: 2944172088489521490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RefreshStudioLogo_11
-      rect:
-        serializedVersion: 2
-        x: 2379
-        y: 139
-        width: 562
-        height: 702
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f9fb5000c9927e430800000000000000
-      internalID: 3812061359584427935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RefreshStudioLogo_12
-      rect:
-        serializedVersion: 2
-        x: 3079
-        y: 139
-        width: 422
-        height: 702
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b010a7b66c2d2f070800000000000000
-      internalID: 8138799226260422923
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RefreshStudioLogo_13
-      rect:
-        serializedVersion: 2
-        x: 3639
-        y: 139
-        width: 562
-        height: 702
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 89c14b530135a0b00800000000000000
-      internalID: 795539613269892248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RefreshStudioLogo_14
-      rect:
-        serializedVersion: 2
-        x: 4339
-        y: 139
-        width: 562
-        height: 702
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 48bc2d6df04ad27e0800000000000000
-      internalID: -1788593089060615292
+      spriteID: 639cfaba6ee67f500800000000000000
+      internalID: 429934226439129398
       vertices: []
       indices: 
       edges: []
@@ -488,7 +388,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -498,21 +398,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RefreshStudioLogo_0: 6324995787717243832
-      RefreshStudioLogo_1: 4412363735718816515
-      RefreshStudioLogo_10: 2944172088489521490
-      RefreshStudioLogo_11: 3812061359584427935
-      RefreshStudioLogo_12: 8138799226260422923
-      RefreshStudioLogo_13: 795539613269892248
-      RefreshStudioLogo_14: -1788593089060615292
-      RefreshStudioLogo_2: 6027552918874404808
-      RefreshStudioLogo_3: -7199755810297926933
-      RefreshStudioLogo_4: 4161509279961858468
-      RefreshStudioLogo_5: -8067916058859394339
-      RefreshStudioLogo_6: 408104225657992785
-      RefreshStudioLogo_7: -5209196906840886830
-      RefreshStudioLogo_8: 6001398583044842932
-      RefreshStudioLogo_9: 6714501076245106382
+      B2BLogoRaw_0: -5269458369491497728
+      B2BLogoRaw_1: 526939294067941313
+      B2BLogoRaw_10: 429934226439129398
+      B2BLogoRaw_2: -2644087306467344492
+      B2BLogoRaw_3: 9065327198530327144
+      B2BLogoRaw_4: 5595709697754653188
+      B2BLogoRaw_5: -4405602029593540335
+      B2BLogoRaw_6: 4141985470295109277
+      B2BLogoRaw_7: 4638343617621424114
+      B2BLogoRaw_8: 6685229197811982242
+      B2BLogoRaw_9: 5188393862581947401
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

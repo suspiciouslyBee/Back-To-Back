@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Back To Back.sln"
+    "dotnet.defaultSolution": "Back-To-Back.sln"
 }

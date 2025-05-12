@@ -497,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LogoSpin8Frame_0: 4178369500000302622
+      LogoSpin8Frame_1: -313322483781088506
+      LogoSpin8Frame_10: -2708220702408867301
+      LogoSpin8Frame_11: 5923343103062603898
+      LogoSpin8Frame_12: -8960613305643597181
+      LogoSpin8Frame_13: 6639198696838177898
+      LogoSpin8Frame_14: 7628411904821209439
+      LogoSpin8Frame_2: -8806086703742256782
+      LogoSpin8Frame_3: 2814941836106530618
+      LogoSpin8Frame_4: -881734641782950124
+      LogoSpin8Frame_5: -5873967553609634199
+      LogoSpin8Frame_6: 3544504046101757075
+      LogoSpin8Frame_7: -8033859195816452121
+      LogoSpin8Frame_8: 2303849744761713821
+      LogoSpin8Frame_9: 7602606767886202766
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
