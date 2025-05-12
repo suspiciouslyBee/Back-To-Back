@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
         gameOver = false;
     }
 
-    protected virtual void Start()
+    void Start()
     {
         CheckForLevelLogic();
     }

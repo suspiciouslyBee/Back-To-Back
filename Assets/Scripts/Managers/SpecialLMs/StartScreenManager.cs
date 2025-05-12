@@ -6,7 +6,7 @@ public class StartScreenManager : LevelManager
 
  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    protected override void Start()
+    void Start()
     {
         //need to show main menu
 
