@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AudioSource))]
 public abstract class Enemy : MonoBehaviour
 {
 
@@ -41,6 +42,12 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void Jump();
 
+    public AudioSource audio;
+
+    [SerializeField] private AudioClip hurtSFX;
+    [SerializeField] private AudioClip dieSFX;
+    [SerializeField] private AudioClip footstepSFX;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,6 +55,7 @@ public abstract class Enemy : MonoBehaviour
         curHP = maxHP;
         isStunned = false;
         invulnrable = false;
+        audio = GetComponent<AudioSource>();
     }
 
     public void MoveToDestination()
@@ -78,6 +86,10 @@ public abstract class Enemy : MonoBehaviour
     {
         if (!invulnrable)
         {
+            if (amount < 0 && hurtSFX != null)
+            {
+                audio.PlayOneShot(hurtSFX);
+            }
             StartCoroutine(IFrameTimer());
             curHP += amount;
             if (curHP > maxHP)
@@ -106,7 +118,7 @@ public abstract class Enemy : MonoBehaviour
     private IEnumerator StunWait()
     {
         yield return new WaitForSeconds(0.3f);
-        while (Vector2.Distance(rb.linearVelocity, Vector2.zero) > 0.01 )
+        while (Vector2.Distance(rb.linearVelocity, Vector2.zero) > 0.01)
         {
             yield return new WaitForSeconds(minStunWaitTime);
         }

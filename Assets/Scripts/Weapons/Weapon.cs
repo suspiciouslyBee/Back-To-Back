@@ -6,6 +6,11 @@ public class Weapon : MonoBehaviour
   [SerializeField] private int totalUsesPerReload;  // The total attacks the weapon can do before a realod (ammo)
   private int remainingUses;                        // The number of attacks left before a reload is required
 
+  [SerializeField] private AudioClip useSFX;
+  [SerializeField] private AudioClip cantUseSFX;
+  [SerializeField] private AudioClip reloadSFX;
+
+
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
   {
@@ -107,7 +112,7 @@ public class Weapon : MonoBehaviour
       * None
     */
 
-   // The position and rotation of the hitbox
+    // The position and rotation of the hitbox
     Vector3 hitboxPos = transform.position;
     Quaternion hitboxRot = transform.rotation;
 
