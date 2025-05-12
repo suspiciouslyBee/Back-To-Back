@@ -107,6 +107,8 @@ MonoBehaviour:
   useSFX: {fileID: 8300000, guid: 8777f9ceb40f61c43b65e956c5ace016, type: 3}
   cantUseSFX: {fileID: 0}
   reloadSFX: {fileID: 0}
+  attackCooldown: 0.75
+  type: 1
 --- !u!82 &3472697332288766915
 AudioSource:
   m_ObjectHideFlags: 0

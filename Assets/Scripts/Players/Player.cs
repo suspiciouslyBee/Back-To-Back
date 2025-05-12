@@ -8,12 +8,11 @@ public class Player : MonoBehaviour
     [SerializeField] Weapon curWeapon;              // Current weapon
     Transform curPosition;                          // Player's current position
     public bool left;                               // To keep track of which side the players are on
-    public string type;                             // "melee" or "range"?
+
     [SerializeField] float maxHealth = 100f;                                // Max player health
     [SerializeField] float health;                                   // Current player health
     float experience;                               // For when we add experience and weapon drops
-    bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
-    [SerializeField] float attackCooldown;          // Time between attacks
+
     float iframes;                                  // How long the player has iframes
     bool invulnrable;                               // Does the player have iframes
     public bool dead;                                      // Is the player dead
@@ -32,7 +31,7 @@ public class Player : MonoBehaviour
         health = maxHealth;
         iframes = 1.5f;
         invulnrable = false;
-        canAttack = true;
+
         dead = false;
         curPosition = gameObject.transform;
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
@@ -91,17 +90,8 @@ public class Player : MonoBehaviour
     // Attacks with curWeapon, currently bool if we want to check if the weapon was used.
     public bool UseWeapon()
     {
-        if (canAttack)
-        {
-            StartCoroutine(AttackTimer());
-            bool hasAmmo = curWeapon.DoAttack();
-            if (type == "ranged")
-            {
-                HUDManager.Instance.ChangeBars(2, !hasAmmo);
-            }
-            return hasAmmo;
-        }
-        return false;
+        curWeapon.DoAttack();
+        return true;
     }
 
     // Reloads curWeapon, currently bool if we need to eventually check if the weapon was reloaded properly
@@ -179,13 +169,7 @@ public class Player : MonoBehaviour
         invulnrable = false;
     }
 
-    // The delay between attacks
-    IEnumerator AttackTimer()
-    {
-        canAttack = false;
-        yield return new WaitForSeconds(attackCooldown);
-        canAttack = true;
-    }
+
 
     // Returns the max and cur health stats
     public (float, float) GetHealthInfo()

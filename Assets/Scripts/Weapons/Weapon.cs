@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -12,11 +13,24 @@ public class Weapon : MonoBehaviour
   [SerializeField] private AudioClip cantUseSFX;
   [SerializeField] private AudioClip reloadSFX;
 
+  bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
+  [SerializeField] float attackCooldown;          // Time between attacks
+
+
+
+  public enum weaponType
+  {
+    ranged,
+    melee
+  }
+
+  public weaponType type;                             // "melee" or "range"?
 
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
   {
     Reload();
+    canAttack = true;
   }
   //------------------------- Getters -------------------------
   public int GetCurrentUses()
@@ -84,6 +98,17 @@ public class Weapon : MonoBehaviour
     Output:
       * Returns false if the weapon is ranged and has no more remaing uses
     */
+    bool hasAmmo = remainingUses > 0;
+    if (canAttack)
+    {
+      StartCoroutine(AttackTimer());
+      //bool hasAmmo = curWeapon.DoAttack();
+      if (type == weaponType.ranged)
+      {
+        HUDManager.Instance.ChangeBars(2, !hasAmmo);
+      }
+      //return hasAmmo;
+    }
 
     // If the weapon is ranged and out of ammo, return false
     if (totalUsesPerReload > 0 && remainingUses <= 0)
@@ -103,6 +128,14 @@ public class Weapon : MonoBehaviour
       audioSource.PlayOneShot(useSFX);
     }
     return true;
+  }
+
+  // The delay between attacks
+  IEnumerator AttackTimer()
+  {
+    canAttack = false;
+    yield return new WaitForSeconds(attackCooldown);
+    canAttack = true;
   }
 
   //------------------------- Helpers -------------------------
