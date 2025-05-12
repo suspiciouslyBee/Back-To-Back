@@ -165,6 +165,5 @@ public class Player : MonoBehaviour
     // Returns the max and cur ammo stats
     public (float, float) GetAmmoInfo()
     {
-        return (curWeapon.GetTotalUses() , curWeapon.GetCurrentUses());
-    }
+        return (curWeapon.GetTotalUses(), curWeapon    }
 }
