@@ -4,7 +4,7 @@ public class Weapon : MonoBehaviour
 {
   [SerializeField] private GameObject hitboxPrefab; // The Hitbox the weapon deals damage through
   [SerializeField] private int totalUsesPerReload;  // The total attacks the weapon can do before a realod (ammo)
-  private int remainingUses;                        // The number of attacks left before a reload is required
+  public int remainingUses;                        // The number of attacks left before a reload is required
 
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
@@ -107,7 +107,7 @@ public class Weapon : MonoBehaviour
       * None
     */
 
-   // The position and rotation of the hitbox
+    // The position and rotation of the hitbox
     Vector3 hitboxPos = transform.position;
     Quaternion hitboxRot = transform.rotation;
 
