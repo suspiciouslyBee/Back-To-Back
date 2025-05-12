@@ -18,10 +18,17 @@ public class Player : MonoBehaviour
     bool invulnrable;                               // Does the player have iframes
     public bool dead;                                      // Is the player dead
 
+    [SerializeField] private float autoHealTime = 10f;      // time before players start healing
+    [SerializeField] private int autoHealAmt = 3;
+
+
+    private float timeSinceDamage;
+    private float timeSinceHeal;
+
     // Set variables
     void Start()
     {
-        maxHealth = 100f;
+
         health = maxHealth;
         iframes = 1.5f;
         invulnrable = false;
@@ -33,6 +40,21 @@ public class Player : MonoBehaviour
         changeDirection(false);
     }
 
+    public void Tick()
+    {
+        // auto heal logic
+        timeSinceDamage += Time.deltaTime;
+        if (timeSinceDamage > autoHealTime)
+        {
+            timeSinceHeal += Time.deltaTime;
+            if (timeSinceHeal > 1f && health < maxHealth)
+            {
+                Debug.Log($"{gameObject.name}: Healing!");
+                timeSinceHeal = 0;
+                Heal(autoHealAmt);
+            }
+        }
+    }
     // Switches which way the player is facing and which side they are on.
     public bool Swap(bool solo)
     {
@@ -128,6 +150,11 @@ public class Player : MonoBehaviour
     public void Heal(int healAmount)
     {
         health += healAmount;
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
 
     // Function called by the hurt function to properly kill the player when their health is low enough. 
