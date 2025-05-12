@@ -1,32 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
-
-
-
-// Singleton pattern
-public class EnemyManager : MonoBehaviour
+public class TutorialEnemyManager : EnemyManager
 {
-
-    // public GameManager gameManager
-    protected static EnemyManager _instance;
-
-    public GameObject[] enemyTypes;                                     // holds Prefabs of different enemies
-
-    public static EnemyManager Instance { get { return _instance; } }
-
-    public List<GameObject> enemies;
-    public List<Enemy> enemyScripts;
-
-    public List<Vector2> spawnPoints;
-
-    [SerializeField] protected float interval = 3f;
-    protected float curTime;
-
-    protected const float fixedUpdateTime = 1 / 60f;
-
-    public bool initialized = false;
-
     private void Awake()
     {
         InitEnemyManager();
@@ -40,11 +16,14 @@ public class EnemyManager : MonoBehaviour
     // Remove Update as needed
     private void Update()
     {
-        curTime += Time.deltaTime;
-        if (curTime > interval)
+        if (interval != 0)
         {
-            SpawnEnemy();
-            curTime = 0f;
+            curTime += Time.deltaTime;
+            if (curTime > interval)
+            {
+                SpawnEnemy();
+                curTime = 0f;
+            }
         }
     }
 
@@ -59,13 +38,13 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    virtual public int GetEnemyCount()
+    override public int GetEnemyCount()
     {
         return enemies.Count;
     }
 
     // spawn an enemy somewhere idk
-    virtual public void SpawnEnemy()
+    override public void SpawnEnemy()
     {
         int type;
         Vector2 position;
@@ -91,7 +70,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     // spawn a specific enemy from an index
-    virtual public void SpawnEnemyType(int index, Vector2 position)
+    override public void SpawnEnemyType(int index, Vector2 position)
     {
         GameObject newEnemy = Instantiate(enemyTypes[index]);
 
@@ -103,16 +82,7 @@ public class EnemyManager : MonoBehaviour
         enemyScript.Spawn();
     }
 
-    // stop tracking this enemy
-    public void LoseEnemy(GameObject enemy)
-    {
-        Enemy enemyScript = enemy.GetComponent<Enemy>();
-
-        enemyScripts.Remove(enemyScript);
-        enemies.Remove(enemy);
-    }
-
-    virtual public void InitEnemyManager()
+    override public void InitEnemyManager()
     {
         // maintain the singleton
         if (_instance != null && _instance != this)
@@ -127,8 +97,9 @@ public class EnemyManager : MonoBehaviour
         initialized = true;
     }
 
-    virtual public void AdjustSpawning(float newTiming)
+    override public void AdjustSpawning(float newTiming)
     {
         interval = newTiming;
     }
 }
+

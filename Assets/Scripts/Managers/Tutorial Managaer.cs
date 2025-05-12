@@ -131,7 +131,7 @@ public class TutorialManager : MonoBehaviour
                     Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "What! Have the other posts fallen already?";
                     break;
                 case 3:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "It shouldn’t be an issue. I’ll just have to explain things, quicker then I anticipated.";
+                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "It shouldn’t be an issue. I’ll just have to explain things, quicker than I anticipated.";
                     break;
                 case 4:
                     tutorialPause = false;

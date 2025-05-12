@@ -425,7 +425,7 @@ MonoBehaviour:
   UIInstance: {fileID: 1957508661}
   gameOver: 0
   timeSurvived: 0
-  enemyManager: {fileID: 1980000987}
+  enemyManager: {fileID: 0}
 --- !u!4 &981990818
 Transform:
   m_ObjectHideFlags: 0
@@ -965,16 +965,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1980000985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4090389a6994dc44ac861982aa05558, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b06f87477b9a9149aeef26bb1887dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes:
   - {fileID: 3874023301752375482, guid: 45d367b28937ea44a97b611f5f8f8e7c, type: 3}
   enemies: []
   enemyScripts: []
-  spawnPoints:
-  - {x: -10.3, y: -1.8}
-  - {x: 10.3, y: -1.8}
+  spawnPoints: []
   interval: 3
   initialized: 0
 --- !u!1660057539 &9223372036854775807
