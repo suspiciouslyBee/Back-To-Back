@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     }
 
     // Attacks with curWeapon, currently bool if we want to check if the weapon was used.
-    public bool UseWeapon()
+    public (bool, bool) UseWeapon()
     {
         if (canAttack)
         {
@@ -74,9 +74,9 @@ public class Player : MonoBehaviour
             {
                 HUDManager.Instance.ChangeBars(2, !hasAmmo);
             }
-            return hasAmmo;
+            return (true, hasAmmo);
         }
-        return false;
+        return (false, false);
     }
 
     // Reloads curWeapon, currently bool if we need to eventually check if the weapon was reloaded properly

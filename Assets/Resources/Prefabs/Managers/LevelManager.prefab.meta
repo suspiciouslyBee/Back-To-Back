@@ -1,12 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/Managers.meta
-guid: 9d3a350fddc40514d8272313e07ce0e1
-folderAsset: yes
-DefaultImporter:
-========
 guid: b8edc5fc01f6ef448abb49859831548e
 PrefabImporter:
->>>>>>>> MainManager-Caleb-Testing:Assets/Resources/Prefabs/Enemies/Managers/LevelManager.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

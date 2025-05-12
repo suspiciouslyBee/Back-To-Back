@@ -75,22 +75,11 @@
                 {
                     "name": "",
                     "id": "0a77f52e-9eeb-403e-afef-a73176f3be32",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "RangedAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f773b187-8b0c-4de8-a1de-56973830c576",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "RangedReload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -101,6 +90,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "RangedReload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3254cac0-53db-41f6-b3b6-9a5e085422b9",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "RangedReload",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -119,7 +119,7 @@
                 {
                     "name": "",
                     "id": "01eba460-67a7-4ff7-a5b9-3d165e4ed473",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -152,7 +152,7 @@
                 {
                     "name": "",
                     "id": "152612d0-3589-4df4-8625-1988cdd40459",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",

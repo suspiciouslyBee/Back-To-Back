@@ -43,7 +43,7 @@ public class MainManager : MonoBehaviour
     }
 
     //bounds checking to change the stage relative to current
-    void ChangeStageRelatively(int number)
+    public void ChangeStageRelatively(int number)
     {
         int newIndex = SceneManager.GetActiveScene().buildIndex + number;
 

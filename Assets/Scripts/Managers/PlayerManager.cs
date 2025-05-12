@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private static PlayerManager PMInstance;
+    protected static PlayerManager PMInstance;
 
     public static PlayerManager Instance { get { return PMInstance; } }
     public bool initialized = false;
-    Player player1;                       // Player 1 aka the melee player
-    Player player2;                       // Player 2 aka the ranged player
-    [SerializeField] Collider2D knockback;// Push back collider for swapping
-    float swapCoolDown;                   // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
-    float coolDownRemaining;              // Stores cool down time remaining
+    protected Player player1;                       // Player 1 aka the melee player
+    protected Player player2;                       // Player 2 aka the ranged player
+    [SerializeField] protected Collider2D knockback;// Push back collider for swapping
+    protected float swapCoolDown;                   // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
+    protected float coolDownRemaining;              // Stores cool down time remaining
 
     public int playerCount;
 
@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Calls the individual players to swap and returns whether it was succesful for not
-    public bool Swap()
+    virtual public bool Swap()
     {
         if (coolDownRemaining == 0)
         {
@@ -53,7 +53,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Call the player's attack function
-    public bool Attack(bool melee)
+    virtual public bool Attack(bool melee)
     {
         /*
         if (Left && player1.left || !Left && !player1.left)  // If the input is for left attack and player1 is on the left side or the-
@@ -68,26 +68,26 @@ public class PlayerManager : MonoBehaviour
         {
             if (player1 != null)
             {
-                return player1.UseWeapon();
+                return player1.UseWeapon().Item1;
             }
             return false;
         }
         bool needAmmo = false;
         if (player2 != null)
         {
-            needAmmo = player2.UseWeapon();
+            needAmmo = player2.UseWeapon().Item1;
         }
         return needAmmo;
     }
 
     // Because player2 will be the ranged individual, simply call player2 to always reload
-    public bool Reload()
+    virtual public bool Reload()
     {
         return player2.Reload();
     }
 
     // A short timer to limit how quickly you can swap
-    IEnumerator SwapTimer()
+    protected IEnumerator SwapTimer()
     {
         coolDownRemaining = swapCoolDown;
         while (coolDownRemaining > 0)
@@ -100,7 +100,7 @@ public class PlayerManager : MonoBehaviour
         HUDManager.Instance.ChangeBars(3, false);
     }
 
-    IEnumerator pushAway()
+    protected IEnumerator pushAway()
     {
         knockback.enabled = true;
         yield return new WaitForSeconds(0.1f);
@@ -108,7 +108,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // naive way of counting number of living players
-    public void UpdatePlayerCount()
+    virtual public void UpdatePlayerCount()
     {
         playerCount--;
         if (playerCount == 1)
@@ -171,7 +171,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Initalizes the static player manager
-    public void InitPlayerManager()
+    virtual public void InitPlayerManager()
     {
         if (PMInstance != null && PMInstance != this)
         {
