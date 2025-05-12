@@ -42,7 +42,7 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void Jump();
 
-    public AudioSource audio;
+    public AudioSource audioSource;
 
     [SerializeField] private AudioClip hurtSFX;
     [SerializeField] private AudioClip dieSFX;
@@ -55,7 +55,7 @@ public abstract class Enemy : MonoBehaviour
         curHP = maxHP;
         isStunned = false;
         invulnrable = false;
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void MoveToDestination()
@@ -88,7 +88,7 @@ public abstract class Enemy : MonoBehaviour
         {
             if (amount < 0 && hurtSFX != null)
             {
-                audio.PlayOneShot(hurtSFX);
+                audioSource.PlayOneShot(hurtSFX);
             }
             StartCoroutine(IFrameTimer());
             curHP += amount;

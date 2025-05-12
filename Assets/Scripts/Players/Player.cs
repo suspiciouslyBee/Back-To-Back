@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     Transform curPosition;                          // Player's current position
     public bool left;                               // To keep track of which side the players are on
     public string type;                             // "melee" or "range"?
-    float maxHealth;                                // Max player health
-    float health;                                   // Current player health
+    [SerializeField] float maxHealth = 100f;                                // Max player health
+    [SerializeField] float health;                                   // Current player health
     float experience;                               // For when we add experience and weapon drops
     bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
     [SerializeField] float attackCooldown;          // Time between attacks
@@ -18,10 +18,17 @@ public class Player : MonoBehaviour
     bool invulnrable;                               // Does the player have iframes
     public bool dead;                                      // Is the player dead
 
+    [SerializeField] private float autoHealTime = 10f;      // time before players start healing
+    [SerializeField] private int autoHealAmt = 3;
+
+
+    private float timeSinceDamage;
+    private float timeSinceHeal;
+
     // Set variables
     void Start()
     {
-        maxHealth = 100f;
+        //maxHealth = 100f;
         health = maxHealth;
         iframes = 1.5f;
         invulnrable = false;
@@ -31,8 +38,26 @@ public class Player : MonoBehaviour
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
         curWeapon.transform.position = new Vector2(curPosition.position.x + 0.7f, curPosition.position.y);
         changeDirection(false);
+
+        timeSinceDamage = autoHealTime;
+        timeSinceHeal = 1f;
     }
 
+    public void Tick()
+    {
+        // auto heal logic
+        timeSinceDamage += Time.deltaTime;
+        if (timeSinceDamage > autoHealTime)
+        {
+            timeSinceHeal += Time.deltaTime;
+            if (timeSinceHeal > 1f && health < maxHealth)
+            {
+                Debug.Log($"{gameObject.name}: Healing!");
+                timeSinceHeal = 0;
+                Heal(autoHealAmt);
+            }
+        }
+    }
     // Switches which way the player is facing and which side they are on.
     public bool Swap(bool solo)
     {
@@ -115,6 +140,7 @@ public class Player : MonoBehaviour
         if (!invulnrable && !dead)
         {
             health -= damage;
+            timeSinceDamage = 0f;
             StartCoroutine(IFrameTimer());
             HUDManager.Instance.ChangeBars(1, false);
             if (health <= 0)
@@ -128,6 +154,11 @@ public class Player : MonoBehaviour
     public void Heal(int healAmount)
     {
         health += healAmount;
+        HUDManager.Instance.ChangeBars(1, false);
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
 
     // Function called by the hurt function to properly kill the player when their health is low enough. 
@@ -165,6 +196,6 @@ public class Player : MonoBehaviour
     // Returns the max and cur ammo stats
     public (float, float) GetAmmoInfo()
     {
-        return (curWeapon.GetTotalUses() , curWeapon.GetCurrentUses());
+        return (curWeapon.GetTotalUses(), curWeapon.GetCurrentUses());
     }
 }
