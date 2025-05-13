@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
 
@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     [SerializeField] private int autoHealAmt = 3;
 
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip hurtSFX;
+    [SerializeField] AudioClip dieSFX;
     private float timeSinceDamage;
     private float timeSinceHeal;
 
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
         curWeapon.transform.position = new Vector2(curPosition.position.x + 0.7f, curPosition.position.y);
         changeDirection(false);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     public void Tick()
@@ -98,6 +103,7 @@ public class Player : MonoBehaviour
             }
             return (true, hasAmmo);
         }
+        //curWeapon.CantUseWeaponFX();
         return (false, false);
     }
 

@@ -1,15 +1,21 @@
 using UnityEngine;
-
+[RequireComponent(typeof(AudioSource))]
 public class Weapon : MonoBehaviour
 {
   [SerializeField] private GameObject hitboxPrefab; // The Hitbox the weapon deals damage through
   [SerializeField] private int totalUsesPerReload;  // The total attacks the weapon can do before a realod (ammo)
   public int remainingUses;                        // The number of attacks left before a reload is required
 
+
+  [SerializeField] AudioSource audioSource;
+  [SerializeField] AudioClip useSFX;              // sound to play when used
+  [SerializeField] AudioClip cantUseSFX;          // sound to play when can't be used for some reason
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
   {
     Reload();
+    audioSource = GetComponent<AudioSource>();
+    audioSource.playOnAwake = false;
   }
   //------------------------- Getters -------------------------
   public int GetCurrentUses()
@@ -81,6 +87,7 @@ public class Weapon : MonoBehaviour
     // If the weapon is ranged and out of ammo, return false
     if (totalUsesPerReload > 0 && remainingUses <= 0)
     {
+      CantUseWeaponFX();
       return false;
     }
     // Decrement the remaing uses if it's a ranged weapon
@@ -88,7 +95,7 @@ public class Weapon : MonoBehaviour
     {
       remainingUses--;
     }
-
+    audioSource.PlayOneShot(useSFX);
     // Spawn a hit box
     SpawnHitBox();
     return true;
@@ -128,5 +135,13 @@ public class Weapon : MonoBehaviour
       float weaponYVel = Mathf.Sin(Theta) * hitboxVelocity;
       myHitbox.GetComponent<Rigidbody2D>().AddForce(new Vector3(weaponXVel, weaponYVel, 0));
     }
+  }
+
+
+  // "getter" method that plays the "can't use"
+  // sound effect. for use by the Player class.
+  public void CantUseWeaponFX()
+  {
+    audioSource.PlayOneShot(cantUseSFX);
   }
 }
