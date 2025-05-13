@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     Transform curPosition;                          // Player's current position
     public bool left;                               // To keep track of which side the players are on
     public string type;                             // "melee" or "range"?
-    float maxHealth;                                // Max player health
-    float health;                                   // Current player health
+    [SerializeField] float maxHealth;                                // Max player health
+    [SerializeField] float health;                                   // Current player health
     float experience;                               // For when we add experience and weapon drops
     bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
     [SerializeField] float attackCooldown;          // Time between attacks

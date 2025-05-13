@@ -232,7 +232,7 @@ MonoBehaviour:
   minStunWaitTime: 0.01
   iframes: 0.3
   audioSource: {fileID: 0}
-  hurtSFX: {fileID: 0}
+  hurtSFX: {fileID: 8300000, guid: 02416e5ef1925114686af341aa90fb62, type: 3}
   dieSFX: {fileID: 0}
   jumpInterval: 0
 --- !u!82 &7986204844940281768
