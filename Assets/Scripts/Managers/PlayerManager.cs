@@ -20,7 +20,19 @@ public class PlayerManager : MonoBehaviour
     {
         InitPlayerManager();
     }
+    // call tick functions for each player 
+    public void PlayerTick()
+    {
+        if (player1 != null)
+        {
+            player1.Tick();
+        }
 
+        if (player2 != null)
+        {
+            player2.Tick();
+        }
+    }
     // Calls the individual players to swap and returns whether it was succesful for not
     virtual public bool Swap()
     {
@@ -114,7 +126,7 @@ public class PlayerManager : MonoBehaviour
         if (playerCount == 1)
         {
             StartCoroutine(pushAway());
-            swapCoolDown /= 2; 
+            swapCoolDown /= 2;
             if (player1.dead)
             {
                 player2.transform.position = new Vector2(0, -1.8f);
