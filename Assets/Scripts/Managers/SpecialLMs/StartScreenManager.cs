@@ -28,7 +28,7 @@ public class StartScreenManager : LevelManager
     //they need to be empty to clear the behavior of base
     public override void FireGun()
     {
-        MainManager.Instance.ChangeStageRelatively(2);
+        // MainManager.Instance.ChangeStageRelatively(2);
     }
 
     public override void ReloadGun()
@@ -38,7 +38,7 @@ public class StartScreenManager : LevelManager
 
     public override void SwingSword()
     {
-        MainManager.Instance.ChangeStageRelatively(1);
+        // MainManager.Instance.ChangeStageRelatively(1);
     }
 
     public override void SwapChars()
