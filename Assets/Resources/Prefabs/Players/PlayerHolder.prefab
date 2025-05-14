@@ -273,8 +273,11 @@ MonoBehaviour:
   curWeapon: {fileID: 0}
   left: 1
   type: melee
+  maxHealth: 100
   attackCooldown: 0.8
   dead: 0
+  autoHealTime: 10
+  autoHealAmt: 3
 --- !u!70 &83252352657521727
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -622,8 +625,11 @@ MonoBehaviour:
   curWeapon: {fileID: 0}
   left: 0
   type: ranged
+  maxHealth: 100
   attackCooldown: 0.25
   dead: 0
+  autoHealTime: 10
+  autoHealAmt: 3
 --- !u!70 &4880734378682375528
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

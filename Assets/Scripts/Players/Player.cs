@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     Transform curPosition;                          // Player's current position
     public bool left;                               // To keep track of which side the players are on
     public string type;                             // "melee" or "range"?
-    float maxHealth;                                // Max player health
+    [SerializeField] float maxHealth;               // Max player health
     float health;                                   // Current player health
     float experience;                               // For when we add experience and weapon drops
     bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     // Set variables
     void Start()
     {
-
         health = maxHealth;
         iframes = 1.5f;
         invulnrable = false;
@@ -86,12 +85,12 @@ public class Player : MonoBehaviour
     }
 
     // Attacks with curWeapon, currently bool if we want to check if the weapon was used.
-    public (bool, bool) UseWeapon()
+    public (bool, bool) UseWeapon(bool bonus)
     {
         if (canAttack)
         {
             StartCoroutine(AttackTimer());
-            bool hasAmmo = curWeapon.DoAttack();
+            bool hasAmmo = curWeapon.DoAttack(bonus);
             if (type == "ranged")
             {
                 HUDManager.Instance.ChangeBars(2, !hasAmmo);

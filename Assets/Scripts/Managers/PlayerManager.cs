@@ -13,6 +13,10 @@ public class PlayerManager : MonoBehaviour
     protected float swapCoolDown;                   // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
     protected float coolDownRemaining;              // Stores cool down time remaining
 
+    // Keeps track of a bonus system for the players attacks
+    bool p1bonus;                                   // Gains bonus when you swap                         
+    bool p2bonus;                                   // Gains bonus when you reload
+
     public int playerCount;
 
     // Set variables
@@ -53,6 +57,7 @@ public class PlayerManager : MonoBehaviour
             if (player1 != null)
             {
                 p1Swap = player1.Swap(solo);
+                p1bonus = true;
             }
             if (player2 != null)
             {
@@ -67,35 +72,50 @@ public class PlayerManager : MonoBehaviour
     // Call the player's attack function
     virtual public bool Attack(bool melee)
     {
-        /*
-        if (Left && player1.left || !Left && !player1.left)  // If the input is for left attack and player1 is on the left side or the-
-        {                                                   // input is right and player1 is on the right side, have player 1 attack
-            return player1.UseWeapon();
-        }
-        return player2.UseWeapon();
-        */
-
-        // Or can be changed to this if we want the inputs to be melee/range instead of left/right
-        if (melee)
+        if (InputPreference.meleeRanged)
         {
-            if (player1 != null)
+            // Melee or ranged attacks
+            if (melee)
             {
-                return player1.UseWeapon().Item1;
+                if (player1 != null)
+                {
+                    return player1.UseWeapon(p1bonus).Item1;
+                }
+                return false;
             }
-            return false;
+            bool needAmmo = false;
+            if (player2 != null)
+            {
+                needAmmo = player2.UseWeapon(p2bonus).Item1;
+            }
+            return needAmmo;
         }
-        bool needAmmo = false;
-        if (player2 != null)
+        else
         {
-            needAmmo = player2.UseWeapon().Item1;
+            // Melee is filling the role of LEFT in this context
+            if (melee && player1.left || !melee && !player1.left)  // If the input is for left attack and player1 is on the left side or the-
+            {                                                   // input is right and player1 is on the right side, have player 1 attack
+                if (player1 != null)
+                {
+                    return player1.UseWeapon(p1bonus).Item1;
+                }
+                return false;
+            }
+            bool needAmmo = false;
+            if (player2 != null)
+            {
+                needAmmo = player2.UseWeapon(p2bonus).Item1;
+            }
+            return needAmmo;
         }
-        return needAmmo;
     }
 
     // Because player2 will be the ranged individual, simply call player2 to always reload
     virtual public bool Reload()
     {
-        return player2.Reload();
+        bool temp = player2.Reload();
+        p2bonus = temp;
+        return temp;
     }
 
     // A short timer to limit how quickly you can swap
@@ -198,6 +218,8 @@ public class PlayerManager : MonoBehaviour
         playerCount = 2;
         initialized = true;
         knockback.enabled = false;
+        p1bonus = false;
+        p2bonus = false;
         player1 = transform.Find("Player1").GetComponent<Player>();
         player2 = transform.Find("Player2").GetComponent<Player>();
     }

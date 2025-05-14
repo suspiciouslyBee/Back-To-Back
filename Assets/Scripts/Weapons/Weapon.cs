@@ -66,7 +66,7 @@ public class Weapon : MonoBehaviour
   }
 
   //------------------------- Actions -------------------------
-  public bool DoAttack()
+  public bool DoAttack(bool isBonus)
   {
     /*
     If there are reaming uses, creates a hitbox and decrements the remaing uses.
