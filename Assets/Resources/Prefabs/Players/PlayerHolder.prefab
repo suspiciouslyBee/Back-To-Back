@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 83252352657521727}
   - component: {fileID: 8879318949396837692}
   - component: {fileID: 725047101540015497}
+  - component: {fileID: 8538257757073029510}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -189,6 +190,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   attackCooldown: 0.8
+  reloadCooldown: 0
   dead: 0
   autoHealTime: 10
   autoHealAmt: 3
@@ -375,6 +377,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8538257757073029510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115879239757125922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef94d23edf8c6f4d8d0adac1b80cbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressionTree: {fileID: 3730679630761583377, guid: 92864d87356eb2e49bca494c5ea9f7f1, type: 3}
 --- !u!1 &5772603516451953687
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +480,7 @@ GameObject:
   - component: {fileID: 133703409963295180}
   - component: {fileID: 6941363339321242638}
   - component: {fileID: 6385307154906500626}
+  - component: {fileID: 2306584684207260281}
   m_Layer: 0
   m_Name: PlayerHolder
   m_TagString: Untagged
@@ -631,6 +647,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2306584684207260281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6100800838198820699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f5307cbf02e02418033715283917ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIncreaseMult: 1.5
+  firstLevelUpExp: 3
+  Player1: {fileID: 5115879239757125922}
+  Player2: {fileID: 7733958219954021406}
 --- !u!1 &7733958219954021406
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +677,7 @@ GameObject:
   - component: {fileID: 4880734378682375528}
   - component: {fileID: 3953920332762423115}
   - component: {fileID: 7672183863251512177}
+  - component: {fileID: 4214631947729182951}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -742,6 +775,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   attackCooldown: 0.25
+  reloadCooldown: 0
   dead: 0
   autoHealTime: 10
   autoHealAmt: 3
@@ -928,8 +962,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &8313529672973175462
-GameObject:
+--- !u!114 &4214631947729182951
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
