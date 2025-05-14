@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2036019943639501883}
   - component: {fileID: 6584704054352460258}
   m_Layer: 0
-  m_Name: Sample Range Weapon
+  m_Name: Automatic Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
-  m_Sprite: {fileID: -6560468961530205201, guid: 70a61d0e45422ff45b379c2f8e2ad9ee, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 2182407891926968387, guid: 8f135787e227cce49ba95a9ed84bccb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,5 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e6f16f942c8f1488426112dd01ec6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitboxPrefab: {fileID: 5600595807434085970, guid: 150dee8adb82eed458647f36d0acd337, type: 3}
+  hitboxPrefab: {fileID: 5600595807434085970, guid: e5bb582c918639f48afb78b4f9161f49, type: 3}
+  useTime: 0.2
+  reloadTime: 0.8
   totalUsesPerReload: 10

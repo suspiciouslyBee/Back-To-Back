@@ -17,7 +17,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float jumpPower;
 
     [SerializeField] protected Collider2D hitbox;
-
+    [SerializeField] protected int expReward;
     [SerializeField] protected bool grounded;
     [SerializeField] protected float minStunWaitTime;
     protected bool isStunned;
@@ -74,7 +74,7 @@ public abstract class Enemy : MonoBehaviour
 
     // damage should be passed as a negative value
     // heals/damages the enemy instance
-    public void ChangeHP(float amount)
+    public bool ChangeHP(float amount)
     {
         if (!invulnrable)
         {
@@ -87,8 +87,10 @@ public abstract class Enemy : MonoBehaviour
             else if (curHP <= 0f)
             {
                 Die();
+                return true;
             }
         }
+        return false;
     }
 
     // Appy a force to the enemy
@@ -97,7 +99,7 @@ public abstract class Enemy : MonoBehaviour
         if (!invulnrable)
         {
             isStunned = true;
-            rb.AddForce(force);
+            rb.AddForce(force, ForceMode2D.Impulse);
             StartCoroutine(StunWait());
         }
     }
@@ -136,5 +138,10 @@ public abstract class Enemy : MonoBehaviour
         invulnrable = true;
         yield return new WaitForSeconds(iframes);
         invulnrable = false;
+    }
+
+    public int GetExpReward()
+    {
+        return expReward;
     }
 }
