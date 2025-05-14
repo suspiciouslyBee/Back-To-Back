@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
 
@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     Transform curPosition;                          // Player's current position
     public bool left;                               // To keep track of which side the players are on
     public string type;                             // "melee" or "range"?
-    [SerializeField] float maxHealth;               // Max player health
-    float health;                                   // Current player health
+    [SerializeField] float maxHealth;                                // Max player health
+    [SerializeField] float health;                                   // Current player health
     float experience;                               // For when we add experience and weapon drops
     bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
     [SerializeField] float attackCooldown;          // Time between attacks
@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     [SerializeField] private int autoHealAmt = 3;
 
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip hurtSFX;
+    [SerializeField] AudioClip dieSFX;
     private float timeSinceDamage;
     private float timeSinceHeal;
 
@@ -37,6 +40,8 @@ public class Player : MonoBehaviour
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
         curWeapon.transform.position = new Vector2(curPosition.position.x + 0.7f, curPosition.position.y);
         changeDirection(false);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     public void Tick()
@@ -97,6 +102,7 @@ public class Player : MonoBehaviour
             }
             return (true, hasAmmo);
         }
+        //curWeapon.CantUseWeaponFX();
         return (false, false);
     }
 

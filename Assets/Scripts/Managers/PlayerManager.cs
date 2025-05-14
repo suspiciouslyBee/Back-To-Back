@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+[RequireComponent(typeof(AudioSource))]
 public class PlayerManager : MonoBehaviour
 {
     protected static PlayerManager PMInstance;
@@ -10,6 +10,9 @@ public class PlayerManager : MonoBehaviour
     protected Player player1;                       // Player 1 aka the melee player
     protected Player player2;                       // Player 2 aka the ranged player
     [SerializeField] protected Collider2D knockback;// Push back collider for swapping
+
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip swapSFX;
     protected float swapCoolDown;                   // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
     protected float coolDownRemaining;              // Stores cool down time remaining
 
@@ -64,6 +67,7 @@ public class PlayerManager : MonoBehaviour
                 p2Swap = player2.Swap(solo);
             }
             StartCoroutine(pushAway());
+            audioSource.PlayOneShot(swapSFX);
             return (p1Swap && p2Swap);
         }
         return false;
@@ -222,5 +226,8 @@ public class PlayerManager : MonoBehaviour
         p2bonus = false;
         player1 = transform.Find("Player1").GetComponent<Player>();
         player2 = transform.Find("Player2").GetComponent<Player>();
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 }

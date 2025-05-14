@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AudioSource))]
 public abstract class Enemy : MonoBehaviour
 {
 
@@ -22,6 +23,12 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float minStunWaitTime;
     protected bool isStunned;
     [SerializeField] float iframes;                                  // How long the enemy has iframes
+
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip hurtSFX;
+    [SerializeField] AudioClip dieSFX;
+
+
     bool invulnrable;                               // Does the enemy have iframes
 
     protected Rigidbody2D rb;
@@ -48,6 +55,9 @@ public abstract class Enemy : MonoBehaviour
         curHP = maxHP;
         isStunned = false;
         invulnrable = false;
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     public void MoveToDestination()
@@ -78,6 +88,11 @@ public abstract class Enemy : MonoBehaviour
     {
         if (!invulnrable)
         {
+            if (amount < 0)
+            {
+
+                audioSource.PlayOneShot(hurtSFX);
+            }
             StartCoroutine(IFrameTimer());
             curHP += amount;
             if (curHP > maxHP)
@@ -108,7 +123,7 @@ public abstract class Enemy : MonoBehaviour
     private IEnumerator StunWait()
     {
         yield return new WaitForSeconds(0.3f);
-        while (Vector2.Distance(rb.linearVelocity, Vector2.zero) > 0.01 )
+        while (Vector2.Distance(rb.linearVelocity, Vector2.zero) > 0.01)
         {
             yield return new WaitForSeconds(minStunWaitTime);
         }
