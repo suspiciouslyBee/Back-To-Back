@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         if (timeSinceDamage > autoHealTime)
         {
             timeSinceHeal += Time.deltaTime;
-            if (timeSinceHeal > 8f && health < maxHealth)
+            if (timeSinceHeal > 5f && health < maxHealth)
             {
                 // Debug.Log($"{gameObject.name}: Healing!");
                 timeSinceHeal = 0;
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
             bool hasAmmo = curWeapon.DoAttack(bonus);
             if (type == "ranged")
             {
-                HUDManager.Instance.ChangeBars(2, !hasAmmo);
+                HUDManager.Instance.ChangeBars(2, false);
             }
             return (true, hasAmmo);
         }
@@ -112,7 +112,8 @@ public class Player : MonoBehaviour
     public bool Reload()
     {
         bool check = curWeapon.Reload();
-        HUDManager.Instance.ChangeBars(2, false);
+        Debug.Log("Player shake will be " + !check);
+        HUDManager.Instance.ChangeBars(2, !check);
         return check;
     }
 

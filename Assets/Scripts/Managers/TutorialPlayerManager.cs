@@ -133,6 +133,8 @@ public class TutorialPlayerManager : PlayerManager
         }
         swapCoolDown = 3.0f;
         coolDownRemaining = 0;
+        reloadCoolDown = 1.0f;
+        reloadRemaining = 0;
         playerCount = 2;
         initialized = true;
 

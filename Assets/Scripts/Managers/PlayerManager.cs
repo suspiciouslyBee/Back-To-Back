@@ -139,6 +139,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("PlayerManager shake will be " + true);
             HUDManager.Instance.ChangeBars(2, true);
             return false;
         }
