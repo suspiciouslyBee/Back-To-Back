@@ -343,6 +343,7 @@ MonoBehaviour:
   PCInstance: {fileID: 235900123}
   UIInstance: {fileID: 1957508661}
   gameOver: 0
+  timeSurvived: 0
   enemyManager: {fileID: 1980000987}
 --- !u!4 &981990818
 Transform:
@@ -523,8 +524,50 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5115879239757125922, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1457102386}
+    - targetCorrespondingSourceObject: {fileID: 7733958219954021406, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1457102385}
   m_SourcePrefab: {fileID: 100100000, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
+--- !u!1 &1457102383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7733958219954021406, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
+  m_PrefabInstance: {fileID: 1457102382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1457102384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5115879239757125922, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
+  m_PrefabInstance: {fileID: 1457102382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1457102385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457102383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef94d23edf8c6f4d8d0adac1b80cbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressionTree: {fileID: 0}
+--- !u!114 &1457102386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457102384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef94d23edf8c6f4d8d0adac1b80cbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressionTree: {fileID: 0}
 --- !u!1 &1520220828
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +866,7 @@ MonoBehaviour:
   spawnPoints:
   - {x: -10, y: 0.5}
   - {x: 10, y: 0.5}
-  interval: 3
+  interval: 10
   initialized: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

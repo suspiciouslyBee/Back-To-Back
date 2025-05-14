@@ -5,13 +5,15 @@ using UnityEngine;
 public class WeaponHitBox : MonoBehaviour
 {
   // Weapon hitbox attributes
-  [SerializeField] private float damage;      // The damage the weapon does
-  [SerializeField] private float lifeTime;    // How long the weapon hitbox lasts for
-  [SerializeField] private int pierceCount;   // How many enemies can the hitbox touch before destroying itself
-  [SerializeField] private float velocity;    // How quickly does the hitbox move (0 for melee hitbox)
-  [SerializeField] private float knockback;     // the force applied to an enemy when hit
+  [SerializeField] private float damage;          // The damage the weapon does
+  [SerializeField] private float lifeTime;        // How long the weapon hitbox lasts for
+  [SerializeField] private int pierceCount;       // How many enemies can the hitbox touch before destroying itself
+  [SerializeField] private float velocity;        // How quickly does the hitbox move (0 for melee hitbox)
+  [SerializeField] private float knockback;       // the force applied to an enemy when hit
+  [SerializeField] private float bonusMultiplyer;
 
   private float timeAlive;
+  private GameObject owner;
 
   //------------------------- Getters -------------------------
   public float GetDamage()
@@ -96,6 +98,25 @@ public class WeaponHitBox : MonoBehaviour
     return false;
   }
 
+  public void AssignOwner(GameObject player, bool isBonus)
+  {
+    /*
+    Assign the owner of the hitbox to the player that creates it
+
+    Inputs:
+      * The player that creates the hitbox
+
+    Output:
+      * None
+    */
+
+    owner = player;
+    if (isBonus)
+    {
+      damage *= bonusMultiplyer;
+    }
+  }
+
   //------------------------- Actions -------------------------
   void Update()
   {
@@ -117,7 +138,7 @@ public class WeaponHitBox : MonoBehaviour
       float direction = Mathf.Abs(transform.localScale.x)/transform.localScale.x * -100;
       Vector2 force = new Vector2(knockback * direction, 100);
       enemyScript.ApplyForce(force);
-      enemyScript.ChangeHP(-1 * GetDamage());
+      bool didKill = enemyScript.ChangeHP(-1 * GetDamage());
       // Reduce the amount of pierce (Currently 1. If we add Enemies with more "defense", this would be set by that value)
       bool isPierceLeft;
       isPierceLeft = ReducePierce(1);
@@ -125,6 +146,12 @@ public class WeaponHitBox : MonoBehaviour
       if(!isPierceLeft)
       {
         Destroy(gameObject);
+      }
+      // Apply exp
+      if (didKill)
+      {
+        int exp = enemyScript.GetExpReward();
+        owner.transform.parent.gameObject.GetComponent<UpgradeManager>().AddExpFromPlayer(exp, owner);
       }
     }
   }

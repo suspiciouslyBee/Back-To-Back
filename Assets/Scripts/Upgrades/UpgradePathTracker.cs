@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class UpgradePathTracker : MonoBehaviour
 {
-    [SerializeField] private GameObject[,] weaponPrototypes;   // The outer array tracks level, inner array tracks melee weapons available at that level
+    [SerializeField] private GameObject progressionTree;        // The outer array tracks level, inner array tracks melee weapons available at that level
     private GameObject weapon;                                  // The current weapon of the player
-    [SerializeField] private GameObject UpMan;                  // The game object that has the UpgradeMangerScript
     private UpgradeManager UpgradeScript;                       // The script for the upgrade manager
     private int level;                                          // The current Level of the player
     private int exp;                                            // The current EXP of the player
@@ -15,9 +14,8 @@ public class UpgradePathTracker : MonoBehaviour
     {
         level = 0;
         exp = 0;
-        UpgradeScript = UpMan.GetComponent<UpgradeManager>();
+        UpgradeScript = transform.parent.gameObject.GetComponent<UpgradeManager>();
         SetNextLevelExp();
-        RandomSelectNextWeapon();
     }
 
     //------------------------- Getters -------------------------
@@ -153,21 +151,12 @@ public class UpgradePathTracker : MonoBehaviour
         * None
         */
 
-        // Prevent out of range index access due to the current level
-        int accessLevel = level;
-        if(accessLevel < 0)
-        {
-            accessLevel = 0;
-        }
-        else if(accessLevel >= weaponPrototypes.GetLength(0))
-        {
-            accessLevel = weaponPrototypes.GetLength(0) - 1;
-        }
-
         // Assign a random weapon
-        int numberOfWeapons = weaponPrototypes.GetLength(1);    // Number of possible options
-        int selectedindex = Random.Range(0, numberOfWeapons);   // index of random weapon
-        weapon = weaponPrototypes[level, selectedindex];        // Set the weapon
+        Debug.Log("Selecting New Weapon");
+        Progression progressionArrays = progressionTree.GetComponent<Progression>();
+        int numberOfWeapons = progressionArrays.NumberOfWeaponsForLevel(level); // Number of possible options
+        int selectedindex = Random.Range(0, numberOfWeapons);                   // index of random weapon
+        weapon = progressionArrays.GetWeaponFromLevel(selectedindex, level);    // Set the weapon
     }
 
     //------------------------- Actions -------------------------

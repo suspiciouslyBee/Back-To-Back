@@ -90,7 +90,7 @@ public class HUDManager : MonoBehaviour
         if (!shaking)
         {
             shaking = true;
-            Debug.Log(HUDDocument.rootVisualElement.Q<VisualElement>(bar).style.translate.value.y);
+            // Debug.Log(HUDDocument.rootVisualElement.Q<VisualElement>(bar).style.translate.value.y);
             for (int i = 1; i < 6; i++)
             {
                 HUDDocument.rootVisualElement.Q<VisualElement>(bar).style.translate = new Translate(shakeAmount / i, 0, 0);

@@ -20,6 +20,7 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] protected bool grounded;
     [SerializeField] protected float minStunWaitTime;
+    [SerializeField] protected int expReward;
     protected bool isStunned;
 
     protected Rigidbody2D rb;
@@ -72,7 +73,7 @@ public abstract class Enemy : MonoBehaviour
 
     // damage should be passed as a negative value
     // heals/damages the enemy instance
-    public void ChangeHP(float amount)
+    public bool ChangeHP(float amount)
     {
         curHP += amount;
         if (curHP > maxHP)
@@ -82,7 +83,9 @@ public abstract class Enemy : MonoBehaviour
         else if (curHP <= 0f)
         {
             Die();
+            return true;
         }
+        return false;
     }
 
     // Appy a force to the enemy
@@ -121,4 +124,8 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void VisualUpdate();
 
+    public int GetExpReward()
+    {
+        return expReward;
+    }
 }

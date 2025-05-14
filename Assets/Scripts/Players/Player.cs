@@ -84,12 +84,13 @@ public class Player : MonoBehaviour
     }
 
     // For when we introduce item drops.
-    public void SwitchWeapon(Weapon newWeapon)
+    public void SwitchWeapon(GameObject newWeapon)
     {
         if (newWeapon != null)
         {
-            Destroy(curWeapon);
-            curWeapon = newWeapon;
+            newWeapon = Instantiate(newWeapon, curWeapon.gameObject.transform.position, curWeapon.gameObject.transform.rotation, gameObject.transform);
+            Destroy(curWeapon.gameObject);
+            curWeapon = newWeapon.GetComponent<Weapon>();
         }
     }
 
