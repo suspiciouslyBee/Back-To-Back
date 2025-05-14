@@ -28,7 +28,6 @@ public class UpgradeManager : MonoBehaviour
 
     public void AddExpFromPlayer(int exp, GameObject killingPlayer)
     {
-        Debug.Log("Adding EXP");
         /*
         Given the exp from an enemy dying and the player who killed it, add the exp to the other player and handle any level ups
 
