@@ -168,6 +168,7 @@ public class TutorialManager : MonoBehaviour
                     break;
                 case 8:
                     Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press A on the keyboard or Left bumper on the controller to use your melee attack.";
+                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
                     tutorialStage = 1.5f;
                     break;
             }
@@ -176,6 +177,7 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue2()
     {
+        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
         Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Not bad for a rookie.";
         for (int i = 0; i <= 2; i++)
         {
@@ -207,6 +209,7 @@ public class TutorialManager : MonoBehaviour
                     break;
                 case 2:
                     Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press D on the keyboard or Right bumper on the controller to use your ranged attack.";
+                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
                     tutorialStage = 2.5f;
                     break;
             }
@@ -215,6 +218,7 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue3()
     {
+        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
         Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Out of ammo? Luckily it appears you have an infinite supply lying around.";
         for (int i = 0; i <= 1; i++)
         {
@@ -233,7 +237,8 @@ public class TutorialManager : MonoBehaviour
                     break;
                 case 1:
                     tutorialStage = 2.75f;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press R on the keyboard or B on the controller to reload your gun.";
+                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press R on the keyboard or B on the controller to reload your weapon.";
+                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
                     break;
             }
         }
@@ -241,6 +246,8 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue4()
     {
+        tutorialStage = 2.8f;
+        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
         Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Now let's finish them off!";
         while (!progress.IsPressed())
         {
@@ -251,12 +258,14 @@ public class TutorialManager : MonoBehaviour
             yield return null;
         }
         tutorialPause = false;
-        tutorialStage = 2.85f;
         Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press D on the keyboard or Right bumper on the controller to use your ranged attack.";
+        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
+        tutorialStage = 2.85f;
     }
 
     IEnumerator dialogue5()
     {
+        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
         Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "You’re keeping up pretty well so far for claiming to need my help.";
         for (int i = 0; i <= 3; i++)
         {
@@ -295,9 +304,10 @@ public class TutorialManager : MonoBehaviour
                     Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Oh? You don’t seem to be in much of a panic? You must have something special planned.";
                     break;
                 case 3:
+                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
                     Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "";
                     tutorialPause = false;
-                    yield return new WaitForSeconds(3.25f);
+                    yield return new WaitForSeconds(3.75f);
                     tutorialPause = true;
                     Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press Space on the keyboard or A on the controller to swap.";
                     tutorialStage = 3.5f;
@@ -308,6 +318,7 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue6()
     {
+        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
         Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Heh, impressive.";
         while (!progress.IsPressed())
         {
@@ -338,6 +349,7 @@ public class TutorialManager : MonoBehaviour
                 case 2:
                     tutorialStage = 3.75f;
                     Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Use your weapons and swapping to defeat the remaining zombies.";
+                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
                     tutorialPause = false;
                     break;
             }
@@ -346,6 +358,7 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue7()
     {
+        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
         Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Not bad, not bad at all.";
         for (int i = 0; i <= 2; i++)
         {
@@ -367,6 +380,7 @@ public class TutorialManager : MonoBehaviour
                     break;
                 case 2:
                     Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "";
+                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
                     SceneManager.LoadScene("StartScene");
                     break;
             }

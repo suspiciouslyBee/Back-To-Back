@@ -38,7 +38,7 @@ public class TutorialPlayerManager : PlayerManager
             {
                 p2Swap = player2.Swap(solo);
             }
-            StartCoroutine(pushAway());
+            StartCoroutine(knockback.Appear(0.1f));
             return (p1Swap && p2Swap);
         }
         return false;
@@ -72,22 +72,29 @@ public class TutorialPlayerManager : PlayerManager
         if (player2 != null && (((TutorialManager.TMInstance.tutorialStage == 2.5f || TutorialManager.TMInstance.tutorialStage == 2.85f) && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f))
         {
             needAmmo = player2.UseWeapon(false);
-            if (needAmmo.Item1 && !needAmmo.Item2 && TutorialManager.TMInstance.tutorialStage == 2.5f)
+            if (needAmmo.Item1 && !needAmmo.Item2)
             {
-                TutorialManager.TMInstance.tutorialStage = 2.55f;
-                TutorialManager.TMInstance.nextStage();
+                if (TutorialManager.TMInstance.tutorialStage == 2.5f)
+                {
+                    TutorialManager.TMInstance.tutorialStage = 2.55f;
+                    TutorialManager.TMInstance.nextStage();
+                }
+                else
+                {
+                    Reload(true);
+                }
             }
         }
         return needAmmo.Item1;
     }
 
     // Because player2 will be the ranged individual, simply call player2 to always reload
-    override public bool Reload()
+    override public bool Reload(bool auto)
     {
         if ((TutorialManager.TMInstance.tutorialStage >= 2.75f && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f)
         {
             bool reloading = player2.Reload();
-            if (TutorialManager.TMInstance.tutorialStage < 3f)
+            if (TutorialManager.TMInstance.tutorialStage == 2.75f)
             {
                 TutorialManager.TMInstance.nextStage();
             }
@@ -126,10 +133,12 @@ public class TutorialPlayerManager : PlayerManager
         }
         swapCoolDown = 3.0f;
         coolDownRemaining = 0;
+        reloadCoolDown = 1.0f;
+        reloadRemaining = 0;
         playerCount = 2;
         initialized = true;
-        knockback.enabled = false;
-        player1 = transform.Find("Player1").GetComponent<Player>();
-        player2 = transform.Find("Player2").GetComponent<Player>();
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 }

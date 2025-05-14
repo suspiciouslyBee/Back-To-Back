@@ -7,18 +7,20 @@ public class PlayerManager : MonoBehaviour
 
     public static PlayerManager Instance { get { return PMInstance; } }
     public bool initialized = false;
-    protected Player player1;                       // Player 1 aka the melee player
-    protected Player player2;                       // Player 2 aka the ranged player
-    [SerializeField] protected Collider2D knockback;// Push back collider for swapping
+    [SerializeField] protected Player player1;                          // Player 1 aka the melee player
+    [SerializeField] protected Player player2;                          // Player 2 aka the ranged player
+    [SerializeField] protected SwapKnockBack knockback;                 // Push back collider for swapping
 
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip swapSFX;
-    protected float swapCoolDown;                   // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
-    protected float coolDownRemaining;              // Stores cool down time remaining
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip swapSFX;
+    protected float swapCoolDown;                                       // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
+    protected float coolDownRemaining;                                  // Stores current cool down time for swapping
+    protected float reloadCoolDown;                                     // How long of a cooldown the reload has
+    protected float reloadRemaining;                                    // Stores current cool down time for reloading
 
     // Keeps track of a bonus system for the players attacks
-    bool p1bonus;                                   // Gains bonus when you swap                         
-    bool p2bonus;                                   // Gains bonus when you reload
+    bool p1bonus;                                                       // Gains bonus when you swap                         
+    bool p2bonus;                                                       // Gains bonus when you reload
 
     public int playerCount;
 
@@ -66,7 +68,7 @@ public class PlayerManager : MonoBehaviour
             {
                 p2Swap = player2.Swap(solo);
             }
-            StartCoroutine(pushAway());
+            StartCoroutine(knockback.Appear(0.1f));
             audioSource.PlayOneShot(swapSFX);
             return (p1Swap && p2Swap);
         }
@@ -87,39 +89,60 @@ public class PlayerManager : MonoBehaviour
                 }
                 return false;
             }
-            bool needAmmo = false;
+            (bool, bool) needAmmo = (false, false);
             if (player2 != null)
             {
-                needAmmo = player2.UseWeapon(p2bonus).Item1;
+                needAmmo = player2.UseWeapon(p2bonus);
+                if (needAmmo.Item1 && !needAmmo.Item2)
+                {
+                    Reload(true);
+                }
             }
-            return needAmmo;
+            return needAmmo.Item1;
         }
         else
         {
             // Melee is filling the role of LEFT in this context
             if (melee && player1.left || !melee && !player1.left)  // If the input is for left attack and player1 is on the left side or the-
-            {                                                   // input is right and player1 is on the right side, have player 1 attack
+            {                                                      // input is right and player1 is on the right side, have player 1 attack
                 if (player1 != null)
                 {
                     return player1.UseWeapon(p1bonus).Item1;
                 }
                 return false;
             }
-            bool needAmmo = false;
+            (bool, bool) needAmmo = (false, false);
             if (player2 != null)
             {
-                needAmmo = player2.UseWeapon(p2bonus).Item1;
+                needAmmo = player2.UseWeapon(p2bonus);
+                if (needAmmo.Item1 && !needAmmo.Item2)
+                {
+                    Reload(true);
+                }
             }
-            return needAmmo;
+            return needAmmo.Item1;
         }
     }
 
     // Because player2 will be the ranged individual, simply call player2 to always reload
-    virtual public bool Reload()
+    virtual public bool Reload(bool auto = false)
     {
-        bool temp = player2.Reload();
-        p2bonus = temp;
-        return temp;
+        if (reloadRemaining == 0)
+        {
+            bool temp = player2.Reload();
+            if (!auto)
+            {
+                p2bonus = temp;
+            }
+            StartCoroutine(ReloadTimer());
+            return temp;
+        }
+        else
+        {
+            Debug.Log("PlayerManager shake will be " + true);
+            HUDManager.Instance.ChangeBars(2, true);
+            return false;
+        }
     }
 
     // A short timer to limit how quickly you can swap
@@ -136,11 +159,15 @@ public class PlayerManager : MonoBehaviour
         HUDManager.Instance.ChangeBars(3, false);
     }
 
-    protected IEnumerator pushAway()
+    protected IEnumerator ReloadTimer()
     {
-        knockback.enabled = true;
-        yield return new WaitForSeconds(0.1f);
-        knockback.enabled = false;
+        reloadRemaining = reloadCoolDown;
+        while (reloadRemaining > 0)
+        {
+            reloadRemaining -= 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        reloadRemaining = 0;
     }
 
     // naive way of counting number of living players
@@ -149,7 +176,7 @@ public class PlayerManager : MonoBehaviour
         playerCount--;
         if (playerCount == 1)
         {
-            StartCoroutine(pushAway());
+            StartCoroutine(knockback.Appear(0.1f));
             swapCoolDown /= 2;
             if (player1.dead)
             {
@@ -219,13 +246,12 @@ public class PlayerManager : MonoBehaviour
         }
         swapCoolDown = 3.0f;
         coolDownRemaining = 0;
+        reloadCoolDown = 1.0f;
+        reloadRemaining = 0;
         playerCount = 2;
         initialized = true;
-        knockback.enabled = false;
         p1bonus = false;
         p2bonus = false;
-        player1 = transform.Find("Player1").GetComponent<Player>();
-        player2 = transform.Find("Player2").GetComponent<Player>();
 
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
