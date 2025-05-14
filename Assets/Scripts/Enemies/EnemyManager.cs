@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     public List<Vector2> spawnPoints;
 
-    [SerializeField] private readonly float initInterval = 5f;           // initial interval between waves
+    [SerializeField] private readonly float initInterval = 8f;           // initial interval between waves
     [SerializeField] private float minInterval = 2f;            // absolute minimum value that interval can be
 
     public int wavesSpawned = 0;                                   // number of waves spawned
@@ -69,7 +69,7 @@ public class EnemyManager : MonoBehaviour
             StartCoroutine(SpawnGroup((int)Mathf.Max(count * 0.2f - 1, 0), positions.Item2));
             // logic to change the interval?
             curTime = 0f;
-            interval *= 1.25f;                            // wave interval increases over time
+            interval *= 1.35f;                            // wave interval increases over time
             wavesSpawned++;
 
         }
@@ -195,7 +195,7 @@ public class EnemyManager : MonoBehaviour
         // equation: f(x) = 0.05 * t^1.1 + 1
         // f(x) = Random.Range(f(x) * (1-waveSizeDeviation), f(x) * (1 + waveSizeDeviation))
 
-        float initCount = 0.09f * Mathf.Pow(time, 1.1f) + 1;
+        float initCount = 0.06f * Mathf.Pow(time, 1.1f) + 1;
         initCount *= Random.Range(1 - waveSizeDeviation, 1 + waveSizeDeviation);
 
         int finalCount = (int)initCount;
