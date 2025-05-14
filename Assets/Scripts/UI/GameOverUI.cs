@@ -43,7 +43,7 @@ public class GameOverUI : MonoBehaviour
 
     private void OnQuitPressed(ClickEvent evt)
     {
-        // quit to main menu
+        MainManager.Instance.ChangeStageRelatively(-2);
     }
 
     private void InitButtons()
