@@ -406,6 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1178500670}
   - component: {fileID: 1178500669}
+  - component: {fileID: 1178500671}
   m_Layer: 0
   m_Name: GlitchCharAnimation
   m_TagString: Untagged
@@ -437,14 +438,14 @@ VideoPlayer:
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
-  m_Url: file://C:/Users/rayre/Documents/Current Hard Drive/UnityGitProjects/BackToBack/Assets/Resources/Sprites/Management.mov
+  m_Url: 
   m_EnabledAudioTracks: 
   m_DirectAudioMutes: 
   m_ControlledAudioTrackCount: 0
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 1
-  m_WaitForFirstFrame: 1
+  m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
 --- !u!4 &1178500670
@@ -462,6 +463,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1178500671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178500668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e7d1654d7e03e4aa3f9cdc7bda70ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoFileName: Management.mov
 --- !u!1 &1233741908
 GameObject:
   m_ObjectHideFlags: 0
