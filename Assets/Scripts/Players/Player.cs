@@ -31,7 +31,6 @@ public class Player : MonoBehaviour
     // Set variables
     void Start()
     {
-
         health = maxHealth;
         iframes = 1.5f;
         invulnrable = false;
@@ -91,12 +90,12 @@ public class Player : MonoBehaviour
     }
 
     // Attacks with curWeapon, currently bool if we want to check if the weapon was used.
-    public (bool, bool) UseWeapon()
+    public (bool, bool) UseWeapon(bool bonus)
     {
         if (canAttack)
         {
             StartCoroutine(AttackTimer());
-            bool hasAmmo = curWeapon.DoAttack();
+            bool hasAmmo = curWeapon.DoAttack(bonus);
             if (type == "ranged")
             {
                 HUDManager.Instance.ChangeBars(2, !hasAmmo);
@@ -115,12 +114,13 @@ public class Player : MonoBehaviour
     }
 
     // For when we introduce item drops.
-    public void SwitchWeapon(Weapon newWeapon)
+    public void SwitchWeapon(GameObject newWeapon)
     {
         if (newWeapon != null)
         {
-            Destroy(curWeapon);
-            curWeapon = newWeapon;
+            newWeapon = Instantiate(newWeapon, curWeapon.gameObject.transform.position, curWeapon.gameObject.transform.rotation, gameObject.transform);
+            Destroy(curWeapon.gameObject);
+            curWeapon = newWeapon.GetComponent<Weapon>();
         }
     }
 

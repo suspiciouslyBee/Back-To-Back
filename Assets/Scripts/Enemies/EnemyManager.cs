@@ -60,7 +60,7 @@ public class EnemyManager : MonoBehaviour
     private void Update()
     {
         curTime += Time.deltaTime;
-        Debug.Log($"total enemies spawned: {totalEnemiesSpawned}");
+        // Debug.Log($"total enemies spawned: {totalEnemiesSpawned}");
         if (curTime > interval)
         {
             int count = RandomEnemyCount(LevelManager.LMInstance.timeSurvived);

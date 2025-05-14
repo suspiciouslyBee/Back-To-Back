@@ -206,7 +206,7 @@ public class TutorialManager : MonoBehaviour
                     Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "This time however, you won’t have to wait for the zombie to approach";
                     break;
                 case 2:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press S on the keyboard or Right bumper on the controller to use your ranged attack.";
+                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press D on the keyboard or Right bumper on the controller to use your ranged attack.";
                     tutorialStage = 2.5f;
                     break;
             }
@@ -252,7 +252,7 @@ public class TutorialManager : MonoBehaviour
         }
         tutorialPause = false;
         tutorialStage = 2.85f;
-        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press S on the keyboard or Right bumper on the controller to use your ranged attack.";
+        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press D on the keyboard or Right bumper on the controller to use your ranged attack.";
     }
 
     IEnumerator dialogue5()

@@ -65,12 +65,14 @@ public class MainManager : MonoBehaviour
 
     void OnGUI()
     {
+        /*
         GUI.Label(new Rect(10, 160, 100, 50), "Controls:", debugStyle);
         GUI.Label(new Rect(10, 210, 100, 50), $"A/x: Melee Attack", debugStyle);
         GUI.Label(new Rect(10, 260, 100, 50), $"S/y: Ranged Attack", debugStyle);
         GUI.Label(new Rect(10, 310, 100, 50), $"F/b: Reload", debugStyle);
         GUI.Label(new Rect(10, 360, 100, 50), $"SPACE/a: Swap", debugStyle);
         GUI.Label(new Rect(10, 410, 100, 50), $"R/start: Restart", debugStyle);
+        */
     }
 }
 

@@ -3,6 +3,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
   [SerializeField] private GameObject hitboxPrefab; // The Hitbox the weapon deals damage through
+  [SerializeField] private float useTime;
+  [SerializeField] private float reloadTime;
   [SerializeField] private int totalUsesPerReload;  // The total attacks the weapon can do before a realod (ammo)
   public int remainingUses;                        // The number of attacks left before a reload is required
 
@@ -45,6 +47,34 @@ public class Weapon : MonoBehaviour
     */
     return totalUsesPerReload;
   }
+
+  public float GetUseTime()
+  {
+    /*
+    Get the use time of the weapon
+
+    Inputs:
+      * None
+
+    Output:
+      * Returns the use time for the weapon.
+    */
+    return useTime;
+  }
+
+  public float GetReloadTime()
+  {
+    /*
+    Get the reload time of the weapon
+
+    Inputs:
+      * None
+
+    Output:
+      * Returns the reload time for the weapon.
+    */
+    return reloadTime;
+  }
   //------------------------- Setters -------------------------
   public bool Reload()
   {
@@ -56,10 +86,11 @@ public class Weapon : MonoBehaviour
 
     Output:
       * Returns false if totalUsesPerReload is -1 (a melee weapon)
+        or if the remainingUses is equal to totalUsesPerRelod 
     */
 
     // Melee weapon
-    if (totalUsesPerReload < 0)
+    if ((totalUsesPerReload < 0) || (remainingUses == totalUsesPerReload))
     {
       return false;
     }
@@ -72,7 +103,7 @@ public class Weapon : MonoBehaviour
   }
 
   //------------------------- Actions -------------------------
-  public bool DoAttack()
+  public bool DoAttack(bool isBonus)
   {
     /*
     If there are reaming uses, creates a hitbox and decrements the remaing uses.
@@ -97,12 +128,12 @@ public class Weapon : MonoBehaviour
     }
     audioSource.PlayOneShot(useSFX);
     // Spawn a hit box
-    SpawnHitBox();
+    SpawnHitBox(isBonus);
     return true;
   }
 
   //------------------------- Helpers -------------------------
-  private void SpawnHitBox()
+  private void SpawnHitBox(bool isBonus)
   {
     /*
     Creates a instance of the hit box and applies any momentum it should have
@@ -135,6 +166,9 @@ public class Weapon : MonoBehaviour
       float weaponYVel = Mathf.Sin(Theta) * hitboxVelocity;
       myHitbox.GetComponent<Rigidbody2D>().AddForce(new Vector3(weaponXVel, weaponYVel, 0));
     }
+
+    // Assign the player to the hit box (For exp assignment on enemy kill)
+    myHitbox.GetComponent<WeaponHitBox>().AssignOwner(transform.parent.gameObject, isBonus);
   }
 
 
