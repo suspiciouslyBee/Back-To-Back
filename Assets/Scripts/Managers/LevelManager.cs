@@ -67,7 +67,7 @@ public class LevelManager : MonoBehaviour
         //if the EM is not specified we will attempt to fill it
         if (enemyManager == null)
         {
-            Debug.Log("Enemy Manager not explictly specified for this level!\nSearching...");
+            // Debug.Log("Enemy Manager not explictly specified for this level!\nSearching...");
             enemyManager = EnemyManager.Instance;
         }
 

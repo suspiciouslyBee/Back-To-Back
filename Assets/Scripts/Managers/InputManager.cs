@@ -9,6 +9,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class InputManager : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class InputManager : MonoBehaviour
 
     LevelManager LMinstance;
 
+    // called second
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,12 +41,20 @@ public class InputManager : MonoBehaviour
         reloadGun = InputSystem.actions.FindAction("RangedReload");
         swingSword = InputSystem.actions.FindAction("MeleeAttack");
         restartLevel = InputSystem.actions.FindAction("RestartLevel");
-        ChangedActiveScene();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (this != null)
+        {
+            StartCoroutine(ChangedActiveScene());
+        }
     }
 
     //refresh the PC
-    void ChangedActiveScene()
+    IEnumerator ChangedActiveScene()
     {
+        yield return new WaitUntil(() => MainManager.Instance != null);
         LMinstance = MainManager.Instance.GetLevelManager();
     }
 
