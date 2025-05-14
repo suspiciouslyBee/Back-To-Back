@@ -3,14 +3,13 @@ using UnityEngine.UIElements;
 
 public class StartScreenManager : LevelManager
 {
-
+    bool changingMenu;
  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //need to show main menu
-
-
+        changingMenu = false;
     }
 
     protected override void FixedUpdate()
@@ -24,11 +23,13 @@ public class StartScreenManager : LevelManager
         
     }
 
-
     //they need to be empty to clear the behavior of base
     public override void FireGun()
     {
-        MainManager.Instance.ChangeStageRelatively(1);
+        if (!changingMenu)
+        {
+            traverseMenu(1);
+        }
     }
 
     public override void ReloadGun()
@@ -38,11 +39,20 @@ public class StartScreenManager : LevelManager
 
     public override void SwingSword()
     {
-        MainManager.Instance.ChangeStageRelatively(2);
+        if (!changingMenu)
+        {
+            traverseMenu(2);
+        }
     }
 
     public override void SwapChars()
     {
 
+    }
+
+    void traverseMenu(int i)
+    {
+        changingMenu = true;
+        MainManager.Instance.ChangeStageRelatively(i);
     }
 }
