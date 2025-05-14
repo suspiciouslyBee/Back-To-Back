@@ -168,7 +168,7 @@ public class Weapon : MonoBehaviour
     }
 
     // Assign the player to the hit box (For exp assignment on enemy kill)
-    Debug.Log($"assigning {transform.parent.gameObject}");
+    // Debug.Log($"assigning {transform.parent.gameObject}");
     myHitbox.GetComponent<WeaponHitBox>().AssignOwner(transform.parent.gameObject, isBonus);
   }
 

@@ -70,6 +70,7 @@ public class EnemyManager : MonoBehaviour
             // logic to change the interval?
             curTime = 0f;
             interval *= 1.35f;                            // wave interval increases over time
+            if (interval > 20) { interval = 20; }         // Max limit so the player doesn't stand there for a minute
             wavesSpawned++;
 
         }
