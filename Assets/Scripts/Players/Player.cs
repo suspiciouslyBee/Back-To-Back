@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     float experience;                               // For when we add experience and weapon drops
     bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
     [SerializeField] float attackCooldown;          // Time between attacks
+    [SerializeField] float reloadCooldown;          // Time between attacks
     float iframes;                                  // How long the player has iframes
     bool invulnrable;                               // Does the player have iframes
     public bool dead;                                      // Is the player dead
@@ -115,6 +116,8 @@ public class Player : MonoBehaviour
             newWeapon = Instantiate(newWeapon, curWeapon.gameObject.transform.position, curWeapon.gameObject.transform.rotation, gameObject.transform);
             Destroy(curWeapon.gameObject);
             curWeapon = newWeapon.GetComponent<Weapon>();
+            attackCooldown = curWeapon.GetUseTime();
+            reloadCooldown = curWeapon.GetReloadTime();
         }
     }
 

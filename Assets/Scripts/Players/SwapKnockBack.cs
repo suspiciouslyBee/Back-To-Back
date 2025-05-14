@@ -6,7 +6,7 @@ public class SwapKnockBack : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            col.gameObject.GetComponent<Enemy>().ApplyForce(new Vector2(-275 * col.transform.localScale.x, 15));
+            col.gameObject.GetComponent<Enemy>().ApplyForce(new Vector2(-5f * col.transform.localScale.x, 1.8f));
         }
     }
 }
