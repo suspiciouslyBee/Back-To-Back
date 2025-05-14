@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public bool dead;                                      // Is the player dead
 
     [SerializeField] private float autoHealTime = 10f;      // time before players start healing
-    [SerializeField] private int autoHealAmt = 3;
+    [SerializeField] private int autoHealAmt = 1;
 
 
     [SerializeField] AudioSource audioSource;
@@ -52,11 +52,12 @@ public class Player : MonoBehaviour
         if (timeSinceDamage > autoHealTime)
         {
             timeSinceHeal += Time.deltaTime;
-            if (timeSinceHeal > 1f && health < maxHealth)
+            if (timeSinceHeal > 8f && health < maxHealth)
             {
-                Debug.Log($"{gameObject.name}: Healing!");
+                // Debug.Log($"{gameObject.name}: Healing!");
                 timeSinceHeal = 0;
                 Heal(autoHealAmt);
+                HUDManager.Instance.ChangeBars(1, false);
             }
         }
     }
@@ -110,8 +111,9 @@ public class Player : MonoBehaviour
     // Reloads curWeapon, currently bool if we need to eventually check if the weapon was reloaded properly
     public bool Reload()
     {
+        bool check = curWeapon.Reload();
         HUDManager.Instance.ChangeBars(2, false);
-        return curWeapon.Reload();
+        return check;
     }
 
     // For when we introduce item drops.
