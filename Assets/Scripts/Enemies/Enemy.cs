@@ -16,7 +16,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float speed;
 
     [SerializeField] protected float jumpPower;
-
+    [SerializeField] protected float knockbackMult = 1;
     [SerializeField] protected Collider2D hitbox;
     [SerializeField] protected int expReward;
     [SerializeField] protected bool grounded;
@@ -114,7 +114,7 @@ public abstract class Enemy : MonoBehaviour
         if (!invulnrable)
         {
             isStunned = true;
-            rb.AddForce(force, ForceMode2D.Impulse);
+            rb.AddForce(force * knockbackMult, ForceMode2D.Impulse);
             StartCoroutine(StunWait());
         }
     }

@@ -1,52 +1,52 @@
 fileFormatVersion: 2
-guid: 97e983af1d6b95a4fbe800453f3b3b7a
+guid: 4a9de15b8c17ebe47ad2e1c2c40597f0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6324995787717243832
-    second: RefreshStudioLogo_0
+      213: -5788802291748688381
+    second: pixil-frame-2_0
   - first:
-      213: 4412363735718816515
-    second: RefreshStudioLogo_1
+      213: -4197011268740174603
+    second: pixil-frame-2_1
   - first:
-      213: 6027552918874404808
-    second: RefreshStudioLogo_2
+      213: 5238574752703403101
+    second: pixil-frame-2_2
   - first:
-      213: -7199755810297926933
-    second: RefreshStudioLogo_3
+      213: -5228808262785887117
+    second: pixil-frame-2_3
   - first:
-      213: 4161509279961858468
-    second: RefreshStudioLogo_4
+      213: 2506841071602717972
+    second: pixil-frame-2_4
   - first:
-      213: -8067916058859394339
-    second: RefreshStudioLogo_5
+      213: 3726820987003546044
+    second: pixil-frame-2_5
   - first:
-      213: 408104225657992785
-    second: RefreshStudioLogo_6
+      213: 4368824557542875403
+    second: pixil-frame-2_6
   - first:
-      213: -5209196906840886830
-    second: RefreshStudioLogo_7
+      213: -1847085492781164520
+    second: pixil-frame-2_7
   - first:
-      213: 6001398583044842932
-    second: RefreshStudioLogo_8
+      213: 2787564725902163894
+    second: pixil-frame-2_8
   - first:
-      213: 6714501076245106382
-    second: RefreshStudioLogo_9
+      213: 4613720008907506739
+    second: pixil-frame-2_9
   - first:
-      213: 2944172088489521490
-    second: RefreshStudioLogo_10
+      213: 4151080853596767143
+    second: pixil-frame-2_10
   - first:
-      213: 3812061359584427935
-    second: RefreshStudioLogo_11
+      213: -6101865465871520195
+    second: pixil-frame-2_11
   - first:
-      213: 8138799226260422923
-    second: RefreshStudioLogo_12
+      213: -8840541847410392410
+    second: pixil-frame-2_12
   - first:
-      213: 795539613269892248
-    second: RefreshStudioLogo_13
+      213: -2206064197902339347
+    second: pixil-frame-2_13
   - first:
-      213: -1788593089060615292
-    second: RefreshStudioLogo_14
+      213: 1508747996006566813
+    second: pixil-frame-2_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -88,7 +88,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -155,13 +155,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RefreshStudioLogo_0
+      name: pixil-frame-2_0
       rect:
         serializedVersion: 2
-        x: 1119
-        y: 2239
-        width: 3222
-        height: 3082
+        x: 111
+        y: 223
+        width: 324
+        height: 324
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,20 +170,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b37abc5826e6c750800000000000000
-      internalID: 6324995787717243832
+      spriteID: 30e2a5d6cfa0aafa0800000000000000
+      internalID: -5788802291748688381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_1
+      name: pixil-frame-2_1
       rect:
         serializedVersion: 2
-        x: 139
-        y: 979
-        width: 702
-        height: 1122
+        x: 13
+        y: 97
+        width: 72
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30be55f907ddb3d30800000000000000
-      internalID: 4412363735718816515
+      spriteID: 5fc2e60ec7831c5c0800000000000000
+      internalID: -4197011268740174603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_2
+      name: pixil-frame-2_2
       rect:
         serializedVersion: 2
-        x: 979
-        y: 979
-        width: 562
-        height: 1122
+        x: 97
+        y: 97
+        width: 58
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c7b062c17b26a350800000000000000
-      internalID: 6027552918874404808
+      spriteID: d5457308bf723b840800000000000000
+      internalID: 5238574752703403101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_3
+      name: pixil-frame-2_3
       rect:
         serializedVersion: 2
-        x: 1679
-        y: 979
-        width: 562
-        height: 1122
+        x: 167
+        y: 97
+        width: 58
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bea23a98c34551c90800000000000000
-      internalID: -7199755810297926933
+      spriteID: 3741502a69a8f67b0800000000000000
+      internalID: -5228808262785887117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_4
+      name: pixil-frame-2_4
       rect:
         serializedVersion: 2
-        x: 2379
-        y: 979
-        width: 702
-        height: 1122
+        x: 237
+        y: 97
+        width: 72
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a14e9934a6a0c930800000000000000
-      internalID: 4161509279961858468
+      spriteID: 4155d3d3ca61ac220800000000000000
+      internalID: 2506841071602717972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_5
+      name: pixil-frame-2_5
       rect:
         serializedVersion: 2
-        x: 3219
-        y: 979
-        width: 562
-        height: 1122
+        x: 321
+        y: 97
+        width: 58
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +280,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dda24021711090090800000000000000
-      internalID: -8067916058859394339
+      spriteID: cb921df21f358b330800000000000000
+      internalID: 3726820987003546044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_6
+      name: pixil-frame-2_6
       rect:
         serializedVersion: 2
-        x: 3919
-        y: 979
-        width: 562
-        height: 1122
+        x: 391
+        y: 97
+        width: 58
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,20 +302,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1563ea981a0e9a500800000000000000
-      internalID: 408104225657992785
+      spriteID: b01a85eb9ce21ac30800000000000000
+      internalID: 4368824557542875403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_7
+      name: pixil-frame-2_7
       rect:
         serializedVersion: 2
-        x: 4619
-        y: 979
-        width: 702
-        height: 1122
+        x: 461
+        y: 97
+        width: 72
+        height: 114
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,20 +324,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d17fa2430735b7b0800000000000000
-      internalID: -5209196906840886830
+      spriteID: 8185005d785dd56e0800000000000000
+      internalID: -1847085492781164520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_8
+      name: pixil-frame-2_8
       rect:
         serializedVersion: 2
-        x: 559
-        y: 139
-        width: 562
-        height: 702
+        x: 55
+        y: 13
+        width: 58
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,20 +346,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b5abe9e630494350800000000000000
-      internalID: 6001398583044842932
+      spriteID: 6bfbecb595b6fa620800000000000000
+      internalID: 2787564725902163894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_9
+      name: pixil-frame-2_9
       rect:
         serializedVersion: 2
-        x: 1259
-        y: 139
-        width: 422
-        height: 702
+        x: 125
+        y: 13
+        width: 44
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +368,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ece41956723be2d50800000000000000
-      internalID: 6714501076245106382
+      spriteID: 3344b0057e9370040800000000000000
+      internalID: 4613720008907506739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_10
+      name: pixil-frame-2_10
       rect:
         serializedVersion: 2
-        x: 1819
-        y: 139
-        width: 422
-        height: 702
+        x: 181
+        y: 13
+        width: 44
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,20 +390,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 251b9046aeccbd820800000000000000
-      internalID: 2944172088489521490
+      spriteID: 7a38f800b0a9b9930800000000000000
+      internalID: 4151080853596767143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_11
+      name: pixil-frame-2_11
       rect:
         serializedVersion: 2
-        x: 2379
-        y: 139
-        width: 562
-        height: 702
+        x: 237
+        y: 13
+        width: 58
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,20 +412,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9fb5000c9927e430800000000000000
-      internalID: 3812061359584427935
+      spriteID: d3e218710b1d15ba0800000000000000
+      internalID: -6101865465871520195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_12
+      name: pixil-frame-2_12
       rect:
         serializedVersion: 2
-        x: 3079
-        y: 139
-        width: 422
-        height: 702
+        x: 307
+        y: 13
+        width: 44
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -434,20 +434,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b010a7b66c2d2f070800000000000000
-      internalID: 8138799226260422923
+      spriteID: 6a2c02b6706105580800000000000000
+      internalID: -8840541847410392410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_13
+      name: pixil-frame-2_13
       rect:
         serializedVersion: 2
-        x: 3639
-        y: 139
-        width: 562
-        height: 702
+        x: 363
+        y: 13
+        width: 58
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -456,20 +456,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89c14b530135a0b00800000000000000
-      internalID: 795539613269892248
+      spriteID: de2f25cdc4c7261e0800000000000000
+      internalID: -2206064197902339347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RefreshStudioLogo_14
+      name: pixil-frame-2_14
       rect:
         serializedVersion: 2
-        x: 4339
-        y: 139
-        width: 562
-        height: 702
+        x: 433
+        y: 13
+        width: 58
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -478,8 +478,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 48bc2d6df04ad27e0800000000000000
-      internalID: -1788593089060615292
+      spriteID: d9bcd850f4620f410800000000000000
+      internalID: 1508747996006566813
       vertices: []
       indices: 
       edges: []
@@ -488,7 +488,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -498,21 +498,21 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RefreshStudioLogo_0: 6324995787717243832
-      RefreshStudioLogo_1: 4412363735718816515
-      RefreshStudioLogo_10: 2944172088489521490
-      RefreshStudioLogo_11: 3812061359584427935
-      RefreshStudioLogo_12: 8138799226260422923
-      RefreshStudioLogo_13: 795539613269892248
-      RefreshStudioLogo_14: -1788593089060615292
-      RefreshStudioLogo_2: 6027552918874404808
-      RefreshStudioLogo_3: -7199755810297926933
-      RefreshStudioLogo_4: 4161509279961858468
-      RefreshStudioLogo_5: -8067916058859394339
-      RefreshStudioLogo_6: 408104225657992785
-      RefreshStudioLogo_7: -5209196906840886830
-      RefreshStudioLogo_8: 6001398583044842932
-      RefreshStudioLogo_9: 6714501076245106382
+      pixil-frame-2_0: -5788802291748688381
+      pixil-frame-2_1: -4197011268740174603
+      pixil-frame-2_10: 4151080853596767143
+      pixil-frame-2_11: -6101865465871520195
+      pixil-frame-2_12: -8840541847410392410
+      pixil-frame-2_13: -2206064197902339347
+      pixil-frame-2_14: 1508747996006566813
+      pixil-frame-2_2: 5238574752703403101
+      pixil-frame-2_3: -5228808262785887117
+      pixil-frame-2_4: 2506841071602717972
+      pixil-frame-2_5: 3726820987003546044
+      pixil-frame-2_6: 4368824557542875403
+      pixil-frame-2_7: -1847085492781164520
+      pixil-frame-2_8: 2787564725902163894
+      pixil-frame-2_9: 4613720008907506739
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
