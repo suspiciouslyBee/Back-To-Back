@@ -1,5 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="CornerBox" style="flex-grow: 1; right: 0%; bottom: 0%; width: 35%; height: 15%; flex-direction: column; left: auto; position: absolute;">
-        <ui:Button text="Change Shooting Style" name="SwapButton" style="position: absolute; width: 100%; height: 100%; font-size: 20%;" />
+    <ui:VisualElement name="CornerBox" style="flex-grow: 1; right: 0%; bottom: 0%; width: 35%; height: 15%; flex-direction: column; left: auto; position: absolute; background-size: 70% 100%;">
+        <ui:Button name="SwapButton" style="position: absolute; width: 50%; height: 100%; font-size: 20%; background-image: none; background-size: 100% 100%; background-color: rgba(255, 255, 255, 0); white-space: pre; -unity-text-align: middle-center; left: 48%; -unity-background-image-tint-color: rgb(255, 255, 255); bottom: 3%; right: auto;" />
     </ui:VisualElement>
 </ui:UXML>

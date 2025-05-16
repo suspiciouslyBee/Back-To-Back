@@ -43,7 +43,7 @@ public class HUDManager : MonoBehaviour
     }
 
     // Function anybody can call to altar the UI
-    public void ChangeBars(int call, bool shake)
+    public void ChangeBars(float call, bool shake)
     {
         // 1 means healthbar edit
         // 2 means ammo edit
@@ -66,6 +66,9 @@ public class HUDManager : MonoBehaviour
                 {
                     StartCoroutine(shakeBar("AmmoBar", 10f));
                 }
+                break;
+            case 2.5f:
+                StartCoroutine(shakeBar("AmmoBar", 10f));
                 break;
             case 3:
                 (float, float) swap = playerManagerInstance.GetSwapInfo();

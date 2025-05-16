@@ -7,18 +7,19 @@ public class Player : MonoBehaviour
     [SerializeField] Weapon startingWeapon;         // Basic weapon prefab
     [SerializeField] Weapon curWeapon;              // Current weapon
     [SerializeField] Ability firstAbility;          // First ability
+    [SerializeField] Ability secondAbility;          // First ability
     Transform curPosition;                          // Player's current position
     public bool left;                               // To keep track of which side the players are on
     public string type;                             // "melee" or "range"?
-    [SerializeField] float maxHealth;                                // Max player health
-    [SerializeField] float health;                                   // Current player health
-    float experience;                               // For when we add experience and weapon drops
+    [SerializeField] float maxHealth;               // Max player health
+    [SerializeField] float health;                  // Current player health
     bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
+    public bool reloading;                          // Stop the player from shooting or reloading under certain states
     [SerializeField] float attackCooldown;          // Time between attacks
     [SerializeField] float reloadCooldown;          // Time between attacks
     float iframes;                                  // How long the player has iframes
     bool invulnrable;                               // Does the player have iframes
-    public bool dead;                                      // Is the player dead
+    public bool dead;                               // Is the player dead
 
     [SerializeField] private float autoHealTime = 10f;      // time before players start healing
     [SerializeField] private int autoHealAmt = 1;
@@ -95,7 +96,7 @@ public class Player : MonoBehaviour
     // Attacks with curWeapon, currently bool if we want to check if the weapon was used.
     public (bool, bool) UseWeapon(bool bonus)
     {
-        if (canAttack)
+        if (canAttack && !reloading)
         {
             StartCoroutine(AttackTimer());
             bool hasAmmo = curWeapon.DoAttack(bonus);
@@ -105,17 +106,43 @@ public class Player : MonoBehaviour
             }
             return (true, hasAmmo);
         }
+        else if (canAttack)
+        {
+            if (type == "ranged")
+            {
+                HUDManager.Instance.ChangeBars(2.5f, true);
+            }
+        }
         //curWeapon.CantUseWeaponFX();
         return (false, false);
+    }
+
+    public bool CallAbility(bool first)
+    {
+        if (first)
+        {
+            return firstAbility.UseAbility();
+        }
+        return secondAbility.UseAbility();
     }
 
     // Reloads curWeapon, currently bool if we need to eventually check if the weapon was reloaded properly
     public bool Reload()
     {
-        bool check = curWeapon.Reload();
-        Debug.Log("Player shake will be " + !check);
-        HUDManager.Instance.ChangeBars(2, !check);
-        return check;
+        if (!reloading)
+        {
+            bool check = curWeapon.Reload();
+            if (check)
+            {
+                StartCoroutine(ReloadTimer());
+            }
+            else
+            {
+                HUDManager.Instance.ChangeBars(2.5f, false);
+            }
+            return check;
+        }
+        return false;
     }
 
     // For when we introduce item drops.
@@ -194,6 +221,16 @@ public class Player : MonoBehaviour
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+    }
+
+
+    // The delay from reloading
+    IEnumerator ReloadTimer()
+    {
+        reloading = true;
+        yield return new WaitForSeconds(reloadCooldown);
+        HUDManager.Instance.ChangeBars(2, false);
+        reloading = false;
     }
 
     // Returns the max and cur health stats

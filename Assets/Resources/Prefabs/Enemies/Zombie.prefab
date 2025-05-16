@@ -227,7 +227,7 @@ MonoBehaviour:
   maxHP: 100
   speed: 3
   jumpPower: 10
-  knockbackMult: 3
+  knockbackMult: 1
   hitbox: {fileID: 8973836585353227597}
   expReward: 1
   grounded: 0

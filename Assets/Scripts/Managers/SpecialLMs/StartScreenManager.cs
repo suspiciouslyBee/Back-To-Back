@@ -49,6 +49,25 @@ public class StartScreenManager : LevelManager
     {
 
     }
+    public override void MeleeAbility1()
+    {
+
+    }
+
+    public override void MeleeAbility2()
+    {
+
+    }
+
+    public override void RangedAbility1()
+    {
+
+    }
+
+    public override void RangedAbility2()
+    {
+
+    }
 
     void traverseMenu(int i)
     {
