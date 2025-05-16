@@ -42,16 +42,24 @@ public class UpgradeManager : MonoBehaviour
         // Find the player opposite of the killing player to give exp to
         UpgradePathTracker upgradePath;
         GameObject curPlayer;
-        // Player 1 killed an enemy
-        if(killingPlayer == Player1)
-        {
-            curPlayer = Player2;
-            
-        }
-        // Player 2 killed an enemy
-        else
+        // Assign exp to the opposite player of the player that killed
+        // If that player is dead, assing the exp to the killing player
+        // If both players are dead, do nothing
+        bool player1EXPEvent = (Player1 != null) && ((killingPlayer == Player2) || (Player2 == null));
+        bool player2EXPEvent = (Player2 != null) && ((killingPlayer == Player1) || (Player1 == null));
+
+        if (player1EXPEvent)
         {
             curPlayer = Player1;
+
+        }
+        else if (player2EXPEvent)
+        {
+            curPlayer = Player2;
+        }
+        else
+        {
+            return;
         }
 
         // Add the exp
