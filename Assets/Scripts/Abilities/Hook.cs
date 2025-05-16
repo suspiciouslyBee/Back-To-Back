@@ -65,6 +65,21 @@ public class Hook : Ability
         return new Vector2(hookForce * -1 * direction, 0);
     }
 
+    //------------------------- Setters -------------------------
+    protected override void SetUpEffect()
+    {
+        /*
+        Set up the variables used in the hook
+
+        Inputs:
+        * None
+
+        Output:
+        * None
+        */
+        return;
+    }
+
     //------------------------- Actions -------------------------
     protected override void ActivateCustomEffect()
     {

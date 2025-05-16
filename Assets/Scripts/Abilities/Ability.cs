@@ -75,6 +75,27 @@ public abstract class Ability : MonoBehaviour
     }
 
     //------------------------- Setters -------------------------
+    public void Awake()
+    {
+        /*
+        Set intial settings for the ability
+
+        Inputs:
+        * None
+
+        Output:
+        * None
+        */
+        EnableAbility();
+        if (startsActive)
+        {
+            canUse = true;
+        }
+        else
+        {
+            StartCoroutine(AbilityCooldown());
+        }
+    }
     public void DisableAbility()
     {
         /*
@@ -103,6 +124,9 @@ public abstract class Ability : MonoBehaviour
         disabled = false;
     }
 
+    // The custom effect's set up
+    protected abstract void SetUpEffect();
+
     //------------------------- Actions -------------------------
     public bool UseAbility()
     {
@@ -125,9 +149,6 @@ public abstract class Ability : MonoBehaviour
         return false;
     }
 
-    // The custom effect the ability causes
-    protected abstract void ActivateCustomEffect();
-
     private IEnumerator AbilityCooldown()
     {
         /*
@@ -144,4 +165,7 @@ public abstract class Ability : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
         canUse = true;
     }
+
+    // The custom effect the ability causes
+    protected abstract void ActivateCustomEffect();
 }
