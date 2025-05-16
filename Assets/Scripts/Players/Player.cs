@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] Weapon startingWeapon;         // Basic weapon prefab
     [SerializeField] Weapon curWeapon;              // Current weapon
+    [SerializeField] Ability firstAbility;          // First ability
     Transform curPosition;                          // Player's current position
     public bool left;                               // To keep track of which side the players are on
     public string type;                             // "melee" or "range"?
