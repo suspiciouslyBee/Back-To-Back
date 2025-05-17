@@ -13,11 +13,31 @@ using UnityEngine.UIElements;
 */
 public class HUDManager : MonoBehaviour
 {
-    // Sprites
+    // Ability Sprites
     [SerializeField] Sprite p1A1;
     [SerializeField] Sprite p1A2;
     [SerializeField] Sprite p2A1;
     [SerializeField] Sprite p2A2;
+
+    // Button Sprites
+    [SerializeField] Sprite leftAttackButton;
+    [SerializeField] Sprite rightAttackButton;
+    [SerializeField] Sprite swapButton;
+    [SerializeField] Sprite reloadButton;
+    [SerializeField] Sprite leftAbility1Button;
+    [SerializeField] Sprite leftAbility2Button;
+    [SerializeField] Sprite rightAbility1Button;
+    [SerializeField] Sprite rightAbility2Button;
+
+    // Symbol Sprites
+    [SerializeField] Sprite meleeIcon;
+    [SerializeField] Sprite rangedIcon;
+    [SerializeField] Sprite reloadIcon;
+    [SerializeField] Sprite swapIcon;
+    [SerializeField] Sprite leftAbility1Icon;
+    [SerializeField] Sprite leftAbility2Icon;
+    [SerializeField] Sprite rightAbility1Icon;
+    [SerializeField] Sprite rightAbility2Icon;
 
     // Bars
     VisualElement p1Health;
@@ -27,6 +47,14 @@ public class HUDManager : MonoBehaviour
 
     // Icons
     List<VisualElement> abilityIcons;
+
+    // Controls
+    VisualElement leftInput;
+    VisualElement rightInput;
+    VisualElement leftAbility1;
+    VisualElement leftAbility2;
+    VisualElement rightAbility1;
+    VisualElement rightAbility2;
 
     private UIDocument HUDDocument;
     private static HUDManager HUDMInstance;
@@ -49,8 +77,8 @@ public class HUDManager : MonoBehaviour
         yield return new WaitUntil(() => PlayerManager.Instance != null && PlayerManager.Instance.initialized);
         playerManagerInstance = PlayerManager.Instance;
         ChangeBars(0, false);
-        // Set Up Playing Icons
-        ChangeBars(5, false);
+        AssignControllerSprites();
+        AssignSymbolSprites();
         AssignImages();
         ChangeBars(6, false);
     }
@@ -99,7 +127,20 @@ public class HUDManager : MonoBehaviour
                 HUDDocument.rootVisualElement.Q<Label>("TimeCount").text = ((int)LevelManager.LMInstance.timeSurvived).ToString();
                 break;
             case 5:
-                // When you swap, if certain control scheme change UI
+                // Sword <==> Gun
+                StyleBackground temp = leftInput.style.backgroundImage;
+                leftInput.style.backgroundImage = rightInput.style.backgroundImage;
+                rightInput.style.backgroundImage = temp;
+                
+                // MeleeAbility1 <==> RangedAbility1
+                temp = leftAbility1.style.backgroundImage;
+                leftAbility1.style.backgroundImage = rightAbility1.style.backgroundImage;
+                rightAbility1.style.backgroundImage = temp;
+
+                // MeleeAbility2 <==> RangedAbility2
+                temp = leftAbility2.style.backgroundImage;
+                leftAbility2.style.backgroundImage = rightAbility2.style.backgroundImage;
+                rightAbility2.style.backgroundImage = temp;
                 break;
             case 6:
                 ((bool, bool), (bool, bool)) abilities = playerManagerInstance.GetAbilityInfo();
@@ -132,6 +173,41 @@ public class HUDManager : MonoBehaviour
         ammoBar.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
         swapBar.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
         shaking = false;
+    }
+
+    // Add the needed controller sprites to the UI
+    void AssignControllerSprites()
+    {
+        HUDDocument.rootVisualElement.Q<VisualElement>("LeftAttackButton").style.backgroundImage = new StyleBackground(leftAttackButton);
+        HUDDocument.rootVisualElement.Q<VisualElement>("RightAttackButton").style.backgroundImage = new StyleBackground(rightAttackButton);
+        HUDDocument.rootVisualElement.Q<VisualElement>("SwapButton").style.backgroundImage = new StyleBackground(swapButton);
+        HUDDocument.rootVisualElement.Q<VisualElement>("ReloadButton").style.backgroundImage = new StyleBackground(reloadButton);
+
+        HUDDocument.rootVisualElement.Q<VisualElement>("LeftAbility1Button").style.backgroundImage = new StyleBackground(leftAbility1Button);
+        HUDDocument.rootVisualElement.Q<VisualElement>("LeftAbility2Button").style.backgroundImage = new StyleBackground(leftAbility2Button);
+        HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility1Button").style.backgroundImage = new StyleBackground(rightAbility1Button);
+        HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility2Button").style.backgroundImage = new StyleBackground(rightAbility2Button);
+    }
+
+    // Add the needed symbol sprites to the UI
+    void AssignSymbolSprites()
+    {
+        leftInput = HUDDocument.rootVisualElement.Q<VisualElement>("LeftIcon");
+        rightInput = HUDDocument.rootVisualElement.Q<VisualElement>("RightIcon");
+        leftAbility1 = HUDDocument.rootVisualElement.Q<VisualElement>("LeftAbility1Icon");
+        leftAbility2 = HUDDocument.rootVisualElement.Q<VisualElement>("LeftAbility2Icon"); ;
+        rightAbility1 = HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility1Icon"); ;
+        rightAbility2 = HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility2Icon"); ;
+
+
+        leftInput.style.backgroundImage = new StyleBackground(meleeIcon);
+        rightInput.style.backgroundImage = new StyleBackground(rangedIcon);
+        HUDDocument.rootVisualElement.Q<VisualElement>("SwapIcon").style.backgroundImage = new StyleBackground(swapIcon);
+        HUDDocument.rootVisualElement.Q<VisualElement>("ReloadIcon").style.backgroundImage = new StyleBackground(reloadIcon);
+        leftAbility1.style.backgroundImage = new StyleBackground(leftAbility1Icon);
+        leftAbility2.style.backgroundImage = new StyleBackground(leftAbility2Icon);
+        rightAbility1.style.backgroundImage = new StyleBackground(rightAbility1Icon);
+        rightAbility2.style.backgroundImage = new StyleBackground(rightAbility2Icon);
     }
 
     // Add the needed sprites to the UI

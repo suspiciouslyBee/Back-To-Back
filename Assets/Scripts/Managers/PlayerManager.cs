@@ -70,6 +70,10 @@ public class PlayerManager : MonoBehaviour
             }
             StartCoroutine(knockback.Appear(0.1f));
             audioSource.PlayOneShot(swapSFX);
+            if (!InputPreference.meleeRanged)
+            {
+                HUDManager.Instance.ChangeBars(5, false);
+            }
             return (p1Swap && p2Swap);
         }
         return false;

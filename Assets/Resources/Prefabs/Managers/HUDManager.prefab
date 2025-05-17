@@ -49,6 +49,22 @@ MonoBehaviour:
   p1A2: {fileID: -1184081909042567840, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
   p2A1: {fileID: -2566087584513626101, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
   p2A2: {fileID: -3594672465257244376, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  leftAttackButton: {fileID: -2107443717379275804, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
+  rightAttackButton: {fileID: 2006419080336828720, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
+  swapButton: {fileID: 7677017001573760164, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
+  reloadButton: {fileID: -3769267780431834326, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
+  leftAbility1Button: {fileID: -6868126324245476403, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
+  leftAbility2Button: {fileID: 5662351501324986388, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
+  rightAbility1Button: {fileID: -7771949253885567686, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
+  rightAbility2Button: {fileID: 2932384999566084858, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
+  meleeIcon: {fileID: -1184081909042567840, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  rangedIcon: {fileID: -3594672465257244376, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  reloadIcon: {fileID: -3334098486080132323, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  swapIcon: {fileID: 4773031513114947462, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  leftAbility1Icon: {fileID: -7312252029852053250, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  leftAbility2Icon: {fileID: -7312252029852053250, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  rightAbility1Icon: {fileID: -2566087584513626101, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  rightAbility2Icon: {fileID: -2566087584513626101, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
   initialized: 0
 --- !u!114 &2445242606465991419
 MonoBehaviour:
