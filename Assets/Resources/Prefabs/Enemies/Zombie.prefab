@@ -227,7 +227,7 @@ MonoBehaviour:
   maxHP: 100
   speed: 3
   jumpPower: 10
-  knockbackMult: 3
+  knockbackMult: 1
   hitbox: {fileID: 8973836585353227597}
   expReward: 1
   grounded: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
   iframes: 0.3
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 8300000, guid: 02416e5ef1925114686af341aa90fb62, type: 3}
-  dieSFX: {fileID: 0}
+  dieSFX: {fileID: 8300000, guid: 02416e5ef1925114686af341aa90fb62, type: 3}
   jumpInterval: 2
 --- !u!82 &3778452645897666973
 AudioSource:

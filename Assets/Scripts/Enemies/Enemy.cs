@@ -88,13 +88,13 @@ public abstract class Enemy : MonoBehaviour
     {
         if (!invulnrable)
         {
-            if (amount < 0)
-            {
 
-                audioSource.PlayOneShot(hurtSFX);
-            }
             StartCoroutine(IFrameTimer());
             curHP += amount;
+            if (amount < 0 && curHP > 0)
+            {
+                audioSource.PlayOneShot(hurtSFX);
+            }
             if (curHP > maxHP)
             {
                 curHP = maxHP;
@@ -158,5 +158,26 @@ public abstract class Enemy : MonoBehaviour
     public int GetExpReward()
     {
         return expReward;
+    }
+
+
+    // play the death sound of this enemy
+    protected IEnumerator PlayDeathSequence()
+    {
+
+        DisableEnemy();
+        audioSource.PlayOneShot(dieSFX);
+        EnemyManager.Instance.LoseEnemy(gameObject);
+        yield return new WaitForSeconds(dieSFX.length);
+        Destroy(gameObject);
+
+    }
+
+    // effectively removes the enemy from play
+    protected void DisableEnemy()
+    {
+        hitbox.enabled = false;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.enabled = false;
     }
 }

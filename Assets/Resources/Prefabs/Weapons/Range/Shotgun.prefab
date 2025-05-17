@@ -107,8 +107,8 @@ MonoBehaviour:
   totalUsesPerReload: 8
   remainingUses: 0
   audioSource: {fileID: 0}
-  useSFX: {fileID: 0}
-  cantUseSFX: {fileID: 0}
+  useSFX: {fileID: 8300000, guid: 42ce0a6a2d9bb3c4489d55ffc4f25355, type: 3}
+  cantUseSFX: {fileID: 8300000, guid: 96feddc7fda5b914eb332d8ec5326e84, type: 3}
 --- !u!82 &6589716123485208347
 AudioSource:
   m_ObjectHideFlags: 0
