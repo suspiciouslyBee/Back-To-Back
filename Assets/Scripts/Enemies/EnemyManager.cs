@@ -201,7 +201,7 @@ public class EnemyManager : MonoBehaviour
 
         int finalCount = (int)initCount;
 
-        Debug.Log($"Init count: {initCount}; final Count: {finalCount}");
+        //Debug.Log($"Init count: {initCount}; final Count: {finalCount}");
         return finalCount;
     }
 
@@ -224,7 +224,7 @@ public class EnemyManager : MonoBehaviour
             tuple.Item1 = spawnPoints[1];
             tuple.Item2 = spawnPoints[0];
         }
-        Debug.Log($"Primary position: {tuple.Item1}; Secondary Position: {tuple.Item2}");
+        //Debug.Log($"Primary position: {tuple.Item1}; Secondary Position: {tuple.Item2}");
         return tuple;
     }
     virtual public void AdjustSpawning(float newTiming)

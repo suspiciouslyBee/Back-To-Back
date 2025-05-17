@@ -1,24 +1,15 @@
 using UnityEngine;
+using System.Collections;
 
 public class Hook : Ability
 {
     [SerializeField] private float hookForce;
     [SerializeField] private float maxSearchDistance;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private float lineDrawTime;
+    private LineRenderer lr;
+    private GameObject player;
     //------------------------- Getters -------------------------
-    private GameObject GetPlayer()
-    {
-        /*
-        Get the player that used the ability
-
-        Inputs:
-        * None
-
-        Output:
-        * the player for the ability
-        */
-        return transform.parent.gameObject;
-    }
 
     private GameObject FindEnemy(int direction)
     {
@@ -31,10 +22,23 @@ public class Hook : Ability
         Output:
         * the first enemy found. null if no enemy found
         */
-        RaycastHit enemyHit;
-        Vector2 searchDirection = new Vector2(direction, 0);
-        Physics.Raycast(transform.position, transform.TransformDirection(searchDirection), out enemyHit, maxSearchDistance, enemyLayer);
-        return enemyHit.transform.gameObject;
+        Vector2 searchDirection = new Vector2(Mathf.Sign(direction), 0);
+        RaycastHit2D enemyHit = Physics2D.Raycast(transform.position, searchDirection, maxSearchDistance, enemyLayer);
+
+        if (!enemyHit)
+        {
+            lr.SetPosition(0, transform.position);
+            lr.SetPosition(1, new Vector3(direction * maxSearchDistance, transform.position.y, 0));
+            StartCoroutine(DeleteLine());
+            return null;
+        }
+        else
+        {
+            lr.SetPosition(0, transform.position);
+            lr.SetPosition(1, enemyHit.transform.position);
+            StartCoroutine(DeleteLine());
+            return enemyHit.transform.gameObject;
+        }
     }
 
     private int GetPlayerDirection(GameObject player)
@@ -50,7 +54,7 @@ public class Hook : Ability
         */
         return (int)Mathf.Sign(player.transform.localScale.x);
     }
-    
+
     private Vector2 GetForce(int direction)
     {
         /*
@@ -77,7 +81,38 @@ public class Hook : Ability
         Output:
         * None
         */
-        return;
+        SetLineRenderer();
+        SetPlayer();
+    }
+
+    private void SetPlayer()
+    {
+        /*
+        Get the player that used the ability
+
+        Inputs:
+        * None
+
+        Output:
+        * None
+        */
+        player = transform.parent.gameObject;
+    }
+    private void SetLineRenderer()
+    {
+        /*
+        Get the line renderer for the hook
+
+        Inputs:
+        * None
+
+        Output:
+        * None
+        */
+        lr = GetComponent<LineRenderer>();
+        lr.positionCount = 2;
+        lr.SetPosition(0, transform.position);
+        lr.SetPosition(1, transform.position);
     }
 
     //------------------------- Actions -------------------------
@@ -92,11 +127,14 @@ public class Hook : Ability
         Output:
         * None
         */
-        GameObject player = GetPlayer();
         int direction = GetPlayerDirection(player);
         Vector2 forceToEnemy = GetForce(direction);
         GameObject enemy = FindEnemy(direction);
-        PullEnemyIn(enemy, forceToEnemy);
+        if (enemy != null)
+        {
+            Debug.Log("Pulling enemy");
+            PullEnemyIn(enemy, forceToEnemy);
+        }
     }
 
     private void PullEnemyIn(GameObject enemy, Vector2 force)
@@ -112,5 +150,12 @@ public class Hook : Ability
         */
         Enemy enemyScript = enemy.GetComponent<Enemy>();
         enemyScript.ApplyForce(force);
+    }
+
+    IEnumerator DeleteLine()
+    {
+        yield return new WaitForSeconds(lineDrawTime);
+        lr.SetPosition(0, transform.position);
+        lr.SetPosition(1, transform.position);
     }
 }
