@@ -129,11 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58af0ee5636a0584985df4935af625df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 33
   lifeTime: 0.5
-  pierceCount: 20
-  velocity: 0
-  knockback: 4
+  pierceCount: 8
+  velocity: 50
+  knockback: 8
   bonusMultiplyer: 2
 --- !u!58 &-7310362767927023869
 CircleCollider2D:
