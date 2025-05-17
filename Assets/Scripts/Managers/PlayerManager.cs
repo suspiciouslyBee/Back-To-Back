@@ -155,11 +155,19 @@ public class PlayerManager : MonoBehaviour
         {
             if (player)
             {
+                if (player1 == null)
+                {
+                    return false;
+                }
                 if (ability)
                 {
                     return player1.CallAbility(ability);
                 }
                 return player1.CallAbility(ability);
+            }
+            if (player2 == null)
+            {
+                return false;
             }
             if (ability)
             {
@@ -170,11 +178,19 @@ public class PlayerManager : MonoBehaviour
 
         if (player)
         {
+            if (player2 == null)
+            {
+                return false;
+            }
             if (ability)
             {
                 return player2.CallAbility(ability);
             }
             return player2.CallAbility(ability);
+        }
+        if (player1 == null)
+        {
+            return false;
         }
         if (ability)
         {
@@ -262,7 +278,16 @@ public class PlayerManager : MonoBehaviour
 
     public ((bool, bool), (bool, bool)) GetAbilityInfo()
     {
-        return (player1.GetAbilityInfo(), player2.GetAbilityInfo());
+        ((bool, bool), (bool, bool)) results = ((false, false), (false, false));
+        if (player1 != null)
+        {
+            results.Item1 = player1.GetAbilityInfo();
+        }
+        if (player2 != null)
+        {
+            results.Item2 = player2.GetAbilityInfo();
+        }
+        return results;
     }
 
     // Initalizes the static player manager

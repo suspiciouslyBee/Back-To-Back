@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8541fff91711eff46baff16c09127b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1A1: {fileID: -7312252029852053250, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
-  p1A2: {fileID: -1184081909042567840, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
-  p2A1: {fileID: -2566087584513626101, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
-  p2A2: {fileID: -3594672465257244376, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  p1A1: {fileID: 2273676814039921224, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
+  p1A2: {fileID: 7118292058514349849, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
+  p2A1: {fileID: -2255481824818200506, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
+  p2A2: {fileID: 8861921110409424271, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
   leftAttackButton: {fileID: -2107443717379275804, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
   rightAttackButton: {fileID: 2006419080336828720, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
   swapButton: {fileID: 7677017001573760164, guid: 196198d3db5b66d4583621035224e9d0, type: 3}
@@ -62,9 +62,9 @@ MonoBehaviour:
   reloadIcon: {fileID: 2904490057147436301, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
   swapIcon: {fileID: 4888122976536034414, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
   leftAbility1Icon: {fileID: 2273676814039921224, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
-  leftAbility2Icon: {fileID: -7312252029852053250, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  leftAbility2Icon: {fileID: 7118292058514349849, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
   rightAbility1Icon: {fileID: -2255481824818200506, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
-  rightAbility2Icon: {fileID: -2566087584513626101, guid: 775bb1f4d816c604cb0df9cfcd063f77, type: 3}
+  rightAbility2Icon: {fileID: 8861921110409424271, guid: 37dd9809afcbd36499229d7f1deac854, type: 3}
   initialized: 0
 --- !u!114 &2445242606465991419
 MonoBehaviour:

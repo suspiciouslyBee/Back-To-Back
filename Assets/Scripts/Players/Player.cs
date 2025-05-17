@@ -108,11 +108,15 @@ public class Player : MonoBehaviour
     // Calls the abilities
     public bool CallAbility(bool first)
     {
-        if (first)
+        if (first && firstAbility != null)
         {
             return firstAbility.UseAbility();
         }
-        return secondAbility.UseAbility();
+        else if (secondAbility != null)
+        {
+            return secondAbility.UseAbility();
+        }
+        return false;
     }
 
     // Accessor for action logic
