@@ -20,12 +20,20 @@ public class InputManager : MonoBehaviour
     InputAction swapCharacters;
 
     InputAction fireGun;
+    InputAction meleeAbility1;
+    InputAction meleeAbility2;
     InputAction reloadGun;
+    InputAction rangedAbility1;
+    InputAction rangedAbility2;
     InputAction swingSword;
-
     InputAction restartLevel;
-
     LevelManager LMinstance;
+
+    bool reloadDown;
+    bool mA1Down;
+    bool mA2Down;
+    bool rA1Down;
+    bool rA2Down;
 
     // called second
     void OnEnable()
@@ -38,9 +46,20 @@ public class InputManager : MonoBehaviour
     {
         swapCharacters = InputSystem.actions.FindAction("SwapCharacters");
         fireGun = InputSystem.actions.FindAction("RangedAttack");
+        meleeAbility1 = InputSystem.actions.FindAction("Ability1");
+        meleeAbility2 = InputSystem.actions.FindAction("Ability2");
         reloadGun = InputSystem.actions.FindAction("RangedReload");
+        rangedAbility1 = InputSystem.actions.FindAction("Ability3");
+        rangedAbility2 = InputSystem.actions.FindAction("Ability4");
         swingSword = InputSystem.actions.FindAction("MeleeAttack");
         restartLevel = InputSystem.actions.FindAction("RestartLevel");
+
+
+        reloadDown = false;
+        mA1Down = false;
+        mA2Down = false;
+        rA1Down = false;
+        rA2Down = false;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -73,13 +92,59 @@ public class InputManager : MonoBehaviour
         {
             LMinstance.FireGun();
         }
-        if (reloadGun.IsPressed())
+        if (reloadGun.ReadValue<float>() == 0 && reloadDown)
         {
+            reloadDown = false;
+        }
+        if (reloadGun.ReadValue<float>() > 0 && !reloadDown)
+        {
+            reloadDown = true;
             LMinstance.ReloadGun();
         }
         if (swingSword.IsPressed())
         {
             LMinstance.SwingSword();
+        }
+        if (meleeAbility1.ReadValue<float>() == 0 && mA1Down)
+        {
+            mA1Down = false;
+        }
+        if (meleeAbility1.ReadValue<float>() > 0 && !mA1Down)
+        {
+            mA1Down = true;
+            LMinstance.MeleeAbility1();
+        }
+        if (meleeAbility2.ReadValue<float>() == 0 && mA2Down)
+        {
+            mA2Down = false;
+        }
+        if (meleeAbility2.ReadValue<float>() > 0 && !mA2Down)
+        {
+            mA2Down = true;
+            LMinstance.MeleeAbility2();
+        }
+        if (reloadGun.ReadValue<float>() > 0 && !reloadDown)
+        {
+            reloadDown = true;
+            LMinstance.ReloadGun();
+        }
+        if (rangedAbility1.ReadValue<float>() == 0 && rA1Down)
+        {
+            rA1Down = false;
+        }
+        if (rangedAbility1.ReadValue<float>() > 0 && !rA1Down)
+        {
+            rA1Down = true;
+            LMinstance.RangedAbility1();
+        }
+        if (rangedAbility2.ReadValue<float>() == 0 && rA2Down)
+        {
+            rA2Down = false;
+        }
+        if (rangedAbility2.ReadValue<float>() > 0 && !rA2Down)
+        {
+            rA2Down = true;
+            LMinstance.RangedAbility2();
         }
         if (restartLevel.IsPressed())
         {
@@ -87,6 +152,4 @@ public class InputManager : MonoBehaviour
         }
 
     }
-
-
 }

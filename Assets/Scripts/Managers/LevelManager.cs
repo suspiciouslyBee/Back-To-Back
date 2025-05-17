@@ -89,7 +89,6 @@ public class LevelManager : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        PCInstance.PlayerTick();                        // calls things like auto heal logic
         if (!gameOver && PCInstance.playerCount == 0)
         {
             // TODO: trigger game over
@@ -126,11 +125,30 @@ public class LevelManager : MonoBehaviour
         PCInstance.Reload();
     }
 
+    public virtual void RangedAbility1()
+    {
+        PCInstance.CallAbility(false, true);
+    }
+
+    public virtual void RangedAbility2()
+    {
+        PCInstance.CallAbility(false, false);
+    }
+
     public virtual void SwingSword()
     {
         PCInstance.Attack(true);
     }
 
+    public virtual void MeleeAbility1()
+    {
+        PCInstance.CallAbility(true, true);
+    }
+
+    public virtual void MeleeAbility2()
+    {
+        PCInstance.CallAbility(true, false);
+    }
 
     public virtual void SwapChars()
     {
