@@ -104,7 +104,7 @@ MonoBehaviour:
   hitboxPrefab: {fileID: 5600595807434085970, guid: e5bb582c918639f48afb78b4f9161f49, type: 3}
   useTime: 0.2
   reloadTime: 0.8
-  totalUsesPerReload: 10
+  totalUsesPerReload: 25
   remainingUses: 0
   audioSource: {fileID: 0}
   useSFX: {fileID: 8300000, guid: 6a49a4a565d4a794a85619c3a2301622, type: 3}
