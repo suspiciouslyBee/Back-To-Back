@@ -25,7 +25,6 @@ public class UpgradeManager : MonoBehaviour
     }
 
     //------------------------- Setters -------------------------
-
     public void AddExpFromPlayer(int exp, GameObject killingPlayer)
     {
         /*
@@ -67,7 +66,7 @@ public class UpgradeManager : MonoBehaviour
         bool didLevelUp = upgradePath.AddExp(exp);
 
         // if a level up occured, have that player pull a new weapon
-        if(didLevelUp)
+        if (didLevelUp)
         {
             GameObject newWeapon = upgradePath.GetCurWeapon();
             curPlayer.GetComponent<Player>().SwitchWeapon(newWeapon);

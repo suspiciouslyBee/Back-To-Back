@@ -7,7 +7,8 @@ public class Progression : MonoBehaviour
     [SerializeField] private GameObject[] level2;
     [SerializeField] private GameObject[] level3;
     [SerializeField] private GameObject[] level4;
-    private const int numberOfLevels = 5;
+    [SerializeField] private GameObject[] level5;
+    private const int numberOfLevels = 6;
 
     //------------------------- Getters -------------------------
 
@@ -59,8 +60,11 @@ public class Progression : MonoBehaviour
             case 3:
                 weaponArray = level3;
                 break;
-            default:
+            case 4:
                 weaponArray = level4;
+                break;
+            default:
+                weaponArray = level5;
                 break;
         }
         return weaponArray.Length;
@@ -101,8 +105,11 @@ public class Progression : MonoBehaviour
             case 3:
                 weaponArray = level3;
                 break;
-            default:
+            case 4:
                 weaponArray = level4;
+                break;
+            default:
+                weaponArray = level5;
                 break;
         }
         

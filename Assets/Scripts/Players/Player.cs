@@ -4,7 +4,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] Weapon startingWeapon;         // Basic weapon prefab
     [SerializeField] Weapon curWeapon;              // Current weapon
     Transform curPosition;                          // Player's current position
     public bool left;                               // To keep track of which side the players are on
@@ -38,6 +37,7 @@ public class Player : MonoBehaviour
         canAttack = true;
         dead = false;
         curPosition = gameObject.transform;
+        Weapon startingWeapon = GetComponent<UpgradePathTracker>().GetCurWeapon().GetComponent<Weapon>();
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
         curWeapon.transform.position = new Vector2(curPosition.position.x + 0.7f, curPosition.position.y);
         changeDirection(false);
@@ -122,11 +122,13 @@ public class Player : MonoBehaviour
     {
         if (newWeapon != null)
         {
+ 
             newWeapon = Instantiate(newWeapon, curWeapon.gameObject.transform.position, curWeapon.gameObject.transform.rotation, gameObject.transform);
             Destroy(curWeapon.gameObject);
             curWeapon = newWeapon.GetComponent<Weapon>();
             attackCooldown = curWeapon.GetUseTime();
             reloadCooldown = curWeapon.GetReloadTime();
+
         }
     }
 

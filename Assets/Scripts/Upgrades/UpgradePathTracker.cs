@@ -73,7 +73,10 @@ public class UpgradePathTracker : MonoBehaviour
         Output:
         * The current weapon selected for the player
         */
-
+        if (weapon == null)
+        {
+            RandomSelectNextWeapon();
+        }
         return weapon;
     }
 
@@ -152,7 +155,6 @@ public class UpgradePathTracker : MonoBehaviour
         */
 
         // Assign a random weapon
-        Debug.Log("Selecting New Weapon");
         Progression progressionArrays = progressionTree.GetComponent<Progression>();
         int numberOfWeapons = progressionArrays.NumberOfWeaponsForLevel(level); // Number of possible options
         int selectedindex = Random.Range(0, numberOfWeapons);                   // index of random weapon
