@@ -107,7 +107,7 @@ MonoBehaviour:
   totalUsesPerReload: -1
   remainingUses: 0
   audioSource: {fileID: 0}
-  useSFX: {fileID: 0}
+  useSFX: {fileID: 8300000, guid: 9d0ecd9c158843248a32a0002bb95754, type: 3}
   cantUseSFX: {fileID: 0}
 --- !u!82 &3077410052786731809
 AudioSource:

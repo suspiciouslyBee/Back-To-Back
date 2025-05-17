@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 
 
-
+[RequireComponent(typeof(AudioSource))]
 
 // Singleton pattern
 public class EnemyManager : MonoBehaviour
@@ -43,6 +43,7 @@ public class EnemyManager : MonoBehaviour
 
     public int totalEnemiesSpawned = 0;
 
+    private AudioSource audioSource;
 
     protected float interval;
 

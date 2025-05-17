@@ -41,8 +41,8 @@ public class BasicZombie : Enemy
     public override void Die()
     {
         //for now, we just need this to dissapear
-        Destroy(gameObject);
-        EnemyManager.Instance.LoseEnemy(gameObject);
+        StartCoroutine(PlayDeathSequence());
+
     }
 
     // basic movement
@@ -70,4 +70,6 @@ public class BasicZombie : Enemy
         baseColor.b = Mathf.Clamp(HPRatio(), 0.3f, 1);
         gameObject.GetComponent<SpriteRenderer>().color = baseColor;
     }
+
+
 }
