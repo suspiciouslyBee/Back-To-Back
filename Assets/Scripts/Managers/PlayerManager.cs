@@ -15,8 +15,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] protected AudioClip swapSFX;
     protected float swapCoolDown;                                       // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
     protected float coolDownRemaining;                                  // Stores current cool down time for swapping
-    protected float reloadCoolDown;                                     // How long of a cooldown the reload has
-    protected float reloadRemaining;                                    // Stores current cool down time for reloading
 
     // Keeps track of a bonus system for the players attacks
     bool p1bonus;                                                       // Gains bonus when you swap                         
@@ -29,19 +27,21 @@ public class PlayerManager : MonoBehaviour
     {
         InitPlayerManager();
     }
-    // call tick functions for each player 
-    public void PlayerTick()
+
+    // Function for healing both players
+    public void HealPlayers(float healAmount1, float healAmount2)
     {
         if (player1 != null)
         {
-            player1.Tick();
+            player1.Heal(healAmount1);
         }
-
         if (player2 != null)
         {
-            player2.Tick();
+            player2.Heal(healAmount2);
         }
+        HUDManager.Instance.ChangeBars(1, false);
     }
+
     // Calls the individual players to swap and returns whether it was succesful for not
     virtual public bool Swap()
     {
@@ -70,6 +70,10 @@ public class PlayerManager : MonoBehaviour
             }
             StartCoroutine(knockback.Appear(0.1f));
             audioSource.PlayOneShot(swapSFX);
+            if (!InputPreference.meleeRanged)
+            {
+                HUDManager.Instance.ChangeBars(5, false);
+            }
             return (p1Swap && p2Swap);
         }
         return false;
@@ -127,22 +131,72 @@ public class PlayerManager : MonoBehaviour
     // Because player2 will be the ranged individual, simply call player2 to always reload
     virtual public bool Reload(bool auto = false)
     {
-        if (reloadRemaining == 0)
+        if (!player2.acting)
         {
             bool temp = player2.Reload();
             if (!auto)
             {
                 p2bonus = temp;
             }
-            StartCoroutine(ReloadTimer());
             return temp;
         }
         else
         {
-            Debug.Log("PlayerManager shake will be " + true);
-            HUDManager.Instance.ChangeBars(2, true);
+            HUDManager.Instance.ChangeBars(2.5f, true);
             return false;
         }
+    }
+
+    // Calls the abilities of the chosen player
+    virtual public bool CallAbility(bool player, bool ability)
+    {
+        // Keep them the same
+        if (InputPreference.meleeRanged || player1.left)
+        {
+            if (player)
+            {
+                if (player1 == null)
+                {
+                    return false;
+                }
+                if (ability)
+                {
+                    return player1.CallAbility(ability);
+                }
+                return player1.CallAbility(ability);
+            }
+            if (player2 == null)
+            {
+                return false;
+            }
+            if (ability)
+            {
+                return player2.CallAbility(ability);
+            }
+            return player2.CallAbility(ability);
+        }
+
+        if (player)
+        {
+            if (player2 == null)
+            {
+                return false;
+            }
+            if (ability)
+            {
+                return player2.CallAbility(ability);
+            }
+            return player2.CallAbility(ability);
+        }
+        if (player1 == null)
+        {
+            return false;
+        }
+        if (ability)
+        {
+            return player1.CallAbility(ability);
+        }
+        return player1.CallAbility(ability);
     }
 
     // A short timer to limit how quickly you can swap
@@ -157,17 +211,6 @@ public class PlayerManager : MonoBehaviour
         }
         coolDownRemaining = 0;
         HUDManager.Instance.ChangeBars(3, false);
-    }
-
-    protected IEnumerator ReloadTimer()
-    {
-        reloadRemaining = reloadCoolDown;
-        while (reloadRemaining > 0)
-        {
-            reloadRemaining -= 0.1f;
-            yield return new WaitForSeconds(0.1f);
-        }
-        reloadRemaining = 0;
     }
 
     // naive way of counting number of living players
@@ -233,6 +276,20 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public ((bool, bool), (bool, bool)) GetAbilityInfo()
+    {
+        ((bool, bool), (bool, bool)) results = ((false, false), (false, false));
+        if (player1 != null)
+        {
+            results.Item1 = player1.GetAbilityInfo();
+        }
+        if (player2 != null)
+        {
+            results.Item2 = player2.GetAbilityInfo();
+        }
+        return results;
+    }
+
     // Initalizes the static player manager
     virtual public void InitPlayerManager()
     {
@@ -243,13 +300,11 @@ public class PlayerManager : MonoBehaviour
         else
         {
             PMInstance = this;
+            initialized = true;
         }
         swapCoolDown = 3.0f;
         coolDownRemaining = 0;
-        reloadCoolDown = 1.0f;
-        reloadRemaining = 0;
         playerCount = 2;
-        initialized = true;
         p1bonus = false;
         p2bonus = false;
 
