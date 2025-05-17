@@ -1,8 +1,10 @@
-# Credits
+###### Credits ######
 
-# Weapon Related
+### Weapon Related ###
 Classic Laser Pew sound effect: https://freesound.org/people/SeanSecret/sounds/440661/?
+
 GunClick.mp3 by Yap_Audio_Production -- https://freesound.org/s/218482/ -- License: Attribution 4.0
+
 Empty Gun Shot by KlawyKogut -- https://freesound.org/s/154934/ -- License: Creative Commons 0
 
 Gun cock.wav by RoozyDB -- https://freesound.org/s/421794/ -- License: Creative Commons 0
@@ -17,8 +19,20 @@ ding4.wav by suzenako -- https://freesound.org/s/320901/ -- License: Attribution
 
 Sheet Metal 2.wav by ingudios -- https://freesound.org/s/119486/ -- License: Creative Commons 0
 
+8 Whip Cracks.wav by Aerny -- https://freesound.org/s/616225/ -- License: Attribution NonCommercial 4.0
 
-# Enemy Related
+Short Gunshot.wav by JohanDeecke -- https://freesound.org/s/369528/ -- License: Attribution 3.0
+
+Gunshot_01.sse.wav by snapssound -- https://freesound.org/s/536630/ -- License: Creative Commons 0
+
+Gunshot01.wav by jeremysykes -- https://freesound.org/s/341258/ -- License: Creative Commons 0
+
+Simple Gunshot Reverb Test.wav by morganpurkis -- https://freesound.org/s/399266/ -- License: Creative Commons 0
+
+slap.wav by SGAK -- https://freesound.org/s/467834/ -- License: Creative Commons 0
+
+
+### Enemy Related ###
 Splat 1 by sebastientate -- https://freesound.org/s/719129/ -- License: Creative Commons 0
 
 Snare Cloth Muted (Decent Mid) by Sounds-I-Found -- https://freesound.org/s/712362/ -- License: Creative Commons 0
@@ -29,3 +43,6 @@ Steps-Dirt_1a.OGG by nuFF3 -- https://freesound.org/s/477392/ -- License: Attrib
 gust-mono.wav by hackerb9 -- https://freesound.org/s/555246/ -- License: Creative Commons 0
 
 ATM INT Wind Howl Cold Winter 09 (stereo).wav by Takkyi -- https://freesound.org/s/546871/ -- License: Creative Commons 0
+
+### UI Related ###
+VS Button Click 05.mp3 by Vilkas_Sound -- https://freesound.org/s/707042/ -- License: Attribution 4.0
