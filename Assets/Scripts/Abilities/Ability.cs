@@ -160,10 +160,13 @@ public abstract class Ability : MonoBehaviour
         Output:
         * None
         */
+
+        HUDManager.Instance.ChangeBars(6, false);
         canUse = false;
         lastCooldownStart = Time.time;
         yield return new WaitForSeconds(cooldown);
         canUse = true;
+        HUDManager.Instance.ChangeBars(6, false);
     }
 
     // The custom effect the ability causes

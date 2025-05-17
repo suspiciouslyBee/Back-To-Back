@@ -4,32 +4,29 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] Weapon startingWeapon;         // Basic weapon prefab
-    [SerializeField] Weapon curWeapon;              // Current weapon
-    [SerializeField] Ability firstAbility;          // First ability
-    [SerializeField] Ability secondAbility;          // First ability
-    Transform curPosition;                          // Player's current position
-    public bool left;                               // To keep track of which side the players are on
-    public string type;                             // "melee" or "range"?
-    [SerializeField] float maxHealth;               // Max player health
-    [SerializeField] float health;                  // Current player health
-    bool canAttack;                                 // Stop the player from attacking or possibly swapping under certain states
-    public bool reloading;                          // Stop the player from shooting or reloading under certain states
-    [SerializeField] float attackCooldown;          // Time between attacks
-    [SerializeField] float reloadCooldown;          // Time between attacks
-    float iframes;                                  // How long the player has iframes
-    bool invulnrable;                               // Does the player have iframes
-    public bool dead;                               // Is the player dead
+    [SerializeField] Weapon startingWeapon;                 // Basic weapon prefab
+    [SerializeField] Weapon curWeapon;                      // Current weapon
+    [SerializeField] Ability firstAbility;                  // First ability
+    [SerializeField] Ability secondAbility;                 // First ability
+    Transform curPosition;                                  // Player's current position
+    public bool left;                                       // To keep track of which side the players are on
+    public string type;                                     // "melee" or "range"?
+    [SerializeField] float maxHealth;                       // Max player health
+    [SerializeField] float health;                          // Current player health
+    bool canAttack;                                         // Stop the player from attacking or possibly swapping under certain states
+    public bool acting;                                     // Stop the player from performing actions while using an ability
+    [SerializeField] float attackCooldown;                  // Time between attacks
+    [SerializeField] float reloadCooldown;                  // Time between attacks
+    float iframes;                                          // How long the player has iframes
+    bool invulnrable;                                       // Does the player have iframes
+    public bool dead;                                       // Is the player dead
 
     [SerializeField] private float autoHealTime = 10f;      // time before players start healing
     [SerializeField] private int autoHealAmt = 1;
 
-
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip hurtSFX;
     [SerializeField] AudioClip dieSFX;
-    private float timeSinceDamage;
-    private float timeSinceHeal;
 
     // Set variables
     void Start()
@@ -47,22 +44,6 @@ public class Player : MonoBehaviour
         audioSource.playOnAwake = false;
     }
 
-    public void Tick()
-    {
-        // auto heal logic
-        timeSinceDamage += Time.deltaTime;
-        if (timeSinceDamage > autoHealTime)
-        {
-            timeSinceHeal += Time.deltaTime;
-            if (timeSinceHeal > 5f && health < maxHealth)
-            {
-                // Debug.Log($"{gameObject.name}: Healing!");
-                timeSinceHeal = 0;
-                Heal(autoHealAmt);
-                HUDManager.Instance.ChangeBars(1, false);
-            }
-        }
-    }
     // Switches which way the player is facing and which side they are on.
     public bool Swap(bool solo)
     {
@@ -96,7 +77,7 @@ public class Player : MonoBehaviour
     // Attacks with curWeapon, currently bool if we want to check if the weapon was used.
     public (bool, bool) UseWeapon(bool bonus)
     {
-        if (canAttack && !reloading)
+        if (canAttack && !acting)
         {
             StartCoroutine(AttackTimer());
             bool hasAmmo = curWeapon.DoAttack(bonus);
@@ -117,6 +98,7 @@ public class Player : MonoBehaviour
         return (false, false);
     }
 
+    // Calls the abilities
     public bool CallAbility(bool first)
     {
         if (first)
@@ -126,15 +108,21 @@ public class Player : MonoBehaviour
         return secondAbility.UseAbility();
     }
 
+    // Accessor for action logic
+    public void PerformingAction(float actionLength, int actionType = 0)
+    {
+        StartCoroutine(ActionTimer(actionLength, 0));
+    }
+
     // Reloads curWeapon, currently bool if we need to eventually check if the weapon was reloaded properly
     public bool Reload()
     {
-        if (!reloading)
+        if (!acting)
         {
             bool check = curWeapon.Reload();
             if (check)
             {
-                StartCoroutine(ReloadTimer());
+                PerformingAction(reloadCooldown, 1);
             }
             else
             {
@@ -187,7 +175,7 @@ public class Player : MonoBehaviour
     }
 
     // Eventual function for when we add healpacks
-    public void Heal(int healAmount)
+    public void Heal(float healAmount)
     {
         health += healAmount;
 
@@ -223,14 +211,18 @@ public class Player : MonoBehaviour
         canAttack = true;
     }
 
-
-    // The delay from reloading
-    IEnumerator ReloadTimer()
+    IEnumerator ActionTimer(float actionLength, int actionType)
     {
-        reloading = true;
-        yield return new WaitForSeconds(reloadCooldown);
-        HUDManager.Instance.ChangeBars(2, false);
-        reloading = false;
+        acting = true;
+        yield return new WaitForSeconds(actionLength);
+        switch (actionType)
+        {
+            // Changing reload hud
+            case 1:
+                HUDManager.Instance.ChangeBars(2, false);
+                break;
+        }
+        acting = false;
     }
 
     // Returns the max and cur health stats

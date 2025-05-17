@@ -89,7 +89,6 @@ public class LevelManager : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        PCInstance.PlayerTick();                        // calls things like auto heal logic
         if (!gameOver && PCInstance.playerCount == 0)
         {
             // TODO: trigger game over

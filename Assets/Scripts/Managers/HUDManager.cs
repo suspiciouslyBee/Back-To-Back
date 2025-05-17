@@ -77,6 +77,12 @@ public class HUDManager : MonoBehaviour
             case 4:
                 HUDDocument.rootVisualElement.Q<Label>("TimeCount").text = ((int)LevelManager.LMInstance.timeSurvived).ToString();
                 break;
+            case 5:
+                // When you swap, if certain control scheme change UI
+                break;
+            case 6:
+                // 
+                break;
         }
     }
 

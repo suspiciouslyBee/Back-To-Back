@@ -27,19 +27,21 @@ public class PlayerManager : MonoBehaviour
     {
         InitPlayerManager();
     }
-    // call tick functions for each player 
-    public void PlayerTick()
+
+    // Function for healing both players
+    public void HealPlayers(float healAmount1, float healAmount2)
     {
         if (player1 != null)
         {
-            player1.Tick();
+            player1.Heal(healAmount1);
         }
-
         if (player2 != null)
         {
-            player2.Tick();
+            player2.Heal(healAmount2);
         }
+        HUDManager.Instance.ChangeBars(1, false);
     }
+
     // Calls the individual players to swap and returns whether it was succesful for not
     virtual public bool Swap()
     {
@@ -125,7 +127,7 @@ public class PlayerManager : MonoBehaviour
     // Because player2 will be the ranged individual, simply call player2 to always reload
     virtual public bool Reload(bool auto = false)
     {
-        if (!player2.reloading)
+        if (!player2.acting)
         {
             bool temp = player2.Reload();
             if (!auto)
