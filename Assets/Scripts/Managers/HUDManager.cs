@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 /* 
@@ -12,6 +13,21 @@ using UnityEngine.UIElements;
 */
 public class HUDManager : MonoBehaviour
 {
+    // Sprites
+    [SerializeField] Sprite p1A1;
+    [SerializeField] Sprite p1A2;
+    [SerializeField] Sprite p2A1;
+    [SerializeField] Sprite p2A2;
+
+    // Bars
+    VisualElement p1Health;
+    VisualElement p2Health;
+    VisualElement swapBar;
+    VisualElement ammoBar;
+
+    // Icons
+    List<VisualElement> abilityIcons;
+
     private UIDocument HUDDocument;
     private static HUDManager HUDMInstance;
 
@@ -32,6 +48,11 @@ public class HUDManager : MonoBehaviour
     {
         yield return new WaitUntil(() => PlayerManager.Instance != null && PlayerManager.Instance.initialized);
         playerManagerInstance = PlayerManager.Instance;
+        ChangeBars(0, false);
+        // Set Up Playing Icons
+        ChangeBars(5, false);
+        AssignImages();
+        ChangeBars(6, false);
     }
 
 
@@ -55,24 +76,24 @@ public class HUDManager : MonoBehaviour
                 break;
             case 1:
                 ((float, float), (float, float)) healths = playerManagerInstance.GetHealthInfo();
-                HUDDocument.rootVisualElement.Q<VisualElement>("P1Fill").style.width = Length.Percent(Mathf.Lerp(0, 100, healths.Item1.Item2 / healths.Item1.Item1));
-                HUDDocument.rootVisualElement.Q<VisualElement>("P2Fill").style.width = Length.Percent(Mathf.Lerp(0, 100, healths.Item2.Item2 / healths.Item2.Item1));
+                p1Health.style.width = Length.Percent(Mathf.Lerp(0, 100, healths.Item1.Item2 / healths.Item1.Item1));
+                p2Health.style.width = Length.Percent(Mathf.Lerp(0, 100, healths.Item2.Item2 / healths.Item2.Item1));
                 break;
             case 2:
                 // Shake UI if there is no ammo left? Like, if value == 0 already, shake UI
                 (float, float) ammo = playerManagerInstance.GetAmmoInfo();
-                HUDDocument.rootVisualElement.Q<VisualElement>("AmmoFill").style.width = Length.Percent(Mathf.Lerp(0, 100, ammo.Item2 / ammo.Item1));
+                ammoBar.style.width = Length.Percent(Mathf.Lerp(0, 100, ammo.Item2 / ammo.Item1));
                 if (shake)
                 {
-                    StartCoroutine(shakeBar("AmmoBar", 10f));
+                    StartCoroutine(shakeBar(ammoBar, 10f));
                 }
                 break;
             case 2.5f:
-                StartCoroutine(shakeBar("AmmoBar", 10f));
+                StartCoroutine(shakeBar(ammoBar, 10f));
                 break;
             case 3:
                 (float, float) swap = playerManagerInstance.GetSwapInfo();
-                HUDDocument.rootVisualElement.Q<VisualElement>("SwapFill").style.width = Length.Percent(Mathf.Lerp(0, 100, swap.Item2 / swap.Item1));
+                swapBar.style.width = Length.Percent(Mathf.Lerp(100, 0, swap.Item2 / swap.Item1));
                 break;
             case 4:
                 HUDDocument.rootVisualElement.Q<Label>("TimeCount").text = ((int)LevelManager.LMInstance.timeSurvived).ToString();
@@ -81,7 +102,19 @@ public class HUDManager : MonoBehaviour
                 // When you swap, if certain control scheme change UI
                 break;
             case 6:
-                // 
+                ((bool, bool), (bool, bool)) abilities = playerManagerInstance.GetAbilityInfo();
+                bool[] abilityList = new bool[] { abilities.Item1.Item1, abilities.Item1.Item2, abilities.Item2.Item1, abilities.Item2.Item2 };
+                for (int i = 0; i < 4; i++)
+                {
+                    if (abilityList[i])
+                    {
+                        abilityIcons[i].style.unityBackgroundImageTintColor = new Color(1, 1, 1);
+                    }
+                    else
+                    {
+                        abilityIcons[i].style.unityBackgroundImageTintColor = new Color(0.55f, 0.55f, 0.55f);
+                    }
+                }
                 break;
         }
     }
@@ -89,28 +122,48 @@ public class HUDManager : MonoBehaviour
     // Makes bars empty or full at the beginning
     void resetBars()
     {
-        HUDDocument.rootVisualElement.Q<VisualElement>("P1Fill").style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
-        HUDDocument.rootVisualElement.Q<VisualElement>("P2Fill").style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
-        HUDDocument.rootVisualElement.Q<VisualElement>("AmmoFill").style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
-        HUDDocument.rootVisualElement.Q<VisualElement>("SwapFill").style.width = Length.Percent(Mathf.Lerp(0, 100, 0));
+        p1Health = HUDDocument.rootVisualElement.Q<VisualElement>("P1Fill");
+        p2Health = HUDDocument.rootVisualElement.Q<VisualElement>("P2Fill");
+        ammoBar = HUDDocument.rootVisualElement.Q<VisualElement>("AmmoFill");
+        swapBar = HUDDocument.rootVisualElement.Q<VisualElement>("SwapFill");
+
+        p1Health.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
+        p2Health.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
+        ammoBar.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
+        swapBar.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
         shaking = false;
+    }
+
+    // Add the needed sprites to the UI
+    void AssignImages()
+    {
+        abilityIcons = new List<VisualElement>();
+        abilityIcons.Add(HUDDocument.rootVisualElement.Q<VisualElement>("P1Ability1"));
+        abilityIcons.Add(HUDDocument.rootVisualElement.Q<VisualElement>("P1Ability2"));
+        abilityIcons.Add(HUDDocument.rootVisualElement.Q<VisualElement>("P2Ability1"));
+        abilityIcons.Add(HUDDocument.rootVisualElement.Q<VisualElement>("P2Ability2"));
+
+        abilityIcons[0].style.backgroundImage = new StyleBackground(p1A1);
+        abilityIcons[1].style.backgroundImage = new StyleBackground(p1A2);
+        abilityIcons[2].style.backgroundImage = new StyleBackground(p2A1);
+        abilityIcons[3].style.backgroundImage = new StyleBackground(p2A2);
     }
 
     // Shakes the given UI bar
     // TODO: Make shaking a list of bools so multiple things can shake
-    IEnumerator shakeBar(string bar, float shakeAmount)
+    IEnumerator shakeBar(VisualElement bar, float shakeAmount)
     {
         if (!shaking)
         {
             shaking = true;
             for (int i = 1; i < 6; i++)
             {
-                HUDDocument.rootVisualElement.Q<VisualElement>(bar).style.translate = new Translate(shakeAmount / i, 0, 0);
+                bar.style.translate = new Translate(shakeAmount / i, 0, 0);
                 yield return new WaitForSeconds(0.1f);
-                HUDDocument.rootVisualElement.Q<VisualElement>(bar).style.translate = new Translate(shakeAmount * -1 / i, 0, 0);
+                bar.style.translate = new Translate(shakeAmount * -1 / i, 0, 0);
                 yield return new WaitForSeconds(0.1f);
             }
-            HUDDocument.rootVisualElement.Q<VisualElement>(bar).style.translate = new Translate(0, 0, 0);
+            bar.style.translate = new Translate(0, 0, 0);
             shaking = false;
         }
     }
@@ -129,6 +182,5 @@ public class HUDManager : MonoBehaviour
         initialized = true;
 
         HUDDocument = gameObject.GetComponent<UIDocument>();
-        ChangeBars(0, false);
     }
 }

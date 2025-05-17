@@ -86,6 +86,7 @@ public abstract class Ability : MonoBehaviour
         Output:
         * None
         */
+
         EnableAbility();
         if (startsActive)
         {
@@ -95,6 +96,7 @@ public abstract class Ability : MonoBehaviour
         {
             StartCoroutine(AbilityCooldown());
         }
+        SetUpEffect();
     }
     public void DisableAbility()
     {
@@ -140,6 +142,7 @@ public abstract class Ability : MonoBehaviour
         * True: The ability is used
           False: The ability was on cooldown or disabled
         */
+
         if (GetCanUse())
         {
             StartCoroutine(AbilityCooldown());
@@ -161,8 +164,8 @@ public abstract class Ability : MonoBehaviour
         * None
         */
 
-        HUDManager.Instance.ChangeBars(6, false);
         canUse = false;
+        HUDManager.Instance.ChangeBars(6, false);
         lastCooldownStart = Time.time;
         yield return new WaitForSeconds(cooldown);
         canUse = true;

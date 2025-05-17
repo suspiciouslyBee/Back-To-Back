@@ -6,8 +6,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] Weapon startingWeapon;                 // Basic weapon prefab
     [SerializeField] Weapon curWeapon;                      // Current weapon
-    [SerializeField] Ability firstAbility;                  // First ability
-    [SerializeField] Ability secondAbility;                 // First ability
+    [SerializeField] Ability fAPrefab;
+    [SerializeField] Ability sAPrefab;
+    Ability firstAbility;                                   // First ability
+    Ability secondAbility;                                  // Second ability
     Transform curPosition;                                  // Player's current position
     public bool left;                                       // To keep track of which side the players are on
     public string type;                                     // "melee" or "range"?
@@ -22,7 +24,7 @@ public class Player : MonoBehaviour
     public bool dead;                                       // Is the player dead
 
     [SerializeField] private float autoHealTime = 10f;      // time before players start healing
-    [SerializeField] private int autoHealAmt = 1;
+    [SerializeField] private int autoHealAmt = 1;           
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip hurtSFX;
@@ -39,6 +41,11 @@ public class Player : MonoBehaviour
         curPosition = gameObject.transform;
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
         curWeapon.transform.position = new Vector2(curPosition.position.x + 0.7f, curPosition.position.y);
+        firstAbility = Instantiate(fAPrefab, gameObject.transform);
+        if (sAPrefab != null)
+        {
+            secondAbility = Instantiate(sAPrefab, gameObject.transform);
+        }
         changeDirection(false);
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
@@ -111,7 +118,7 @@ public class Player : MonoBehaviour
     // Accessor for action logic
     public void PerformingAction(float actionLength, int actionType = 0)
     {
-        StartCoroutine(ActionTimer(actionLength, 0));
+        StartCoroutine(ActionTimer(actionLength, actionType));
     }
 
     // Reloads curWeapon, currently bool if we need to eventually check if the weapon was reloaded properly
@@ -235,5 +242,20 @@ public class Player : MonoBehaviour
     public (float, float) GetAmmoInfo()
     {
         return (curWeapon.GetTotalUses(), curWeapon.remainingUses);
+    }
+
+    public (bool, bool) GetAbilityInfo()
+    {
+        (bool, bool) abilityInfo = (false, false);
+        if (firstAbility != null)
+        {
+            abilityInfo.Item1 = firstAbility.GetCanUse();
+        }
+        if (secondAbility != null)
+        {
+            abilityInfo.Item2 = secondAbility.GetCanUse();
+        }
+        return abilityInfo;
+        //return (firstAbility.GetCanUse(), secondAbility.GetCanUse());
     }
 }

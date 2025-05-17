@@ -49,14 +49,14 @@ public class Heal : Ability
         float waitTimer = 0;
         while(timer < abilityTime)
         {
-            timer += Time.deltaTime;
-            waitTimer += Time.deltaTime;
+            timer += 0.1f;
+            waitTimer += 0.1f;
             if (waitTimer > waitTime)
             {
                 waitTimer = 0;
                 PlayerManager.Instance.HealPlayers(healAmount, healAmount);
             }
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.1f);
         }
         thisParent.changeDirection(true);
     }

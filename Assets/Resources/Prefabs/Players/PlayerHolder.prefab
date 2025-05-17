@@ -185,10 +185,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingWeapon: {fileID: 4877257763695872399, guid: 65d6e5d8ee52b7d489644fa62a2d4ab9, type: 3}
   curWeapon: {fileID: 0}
+  fAPrefab: {fileID: 3431308859369590734, guid: 0276d67ecb0731e4191433b58f8252ea, type: 3}
+  sAPrefab: {fileID: 0}
   left: 1
   type: melee
   maxHealth: 100
   health: 0
+  acting: 0
   attackCooldown: 0.8
   reloadCooldown: 0
   dead: 0
@@ -772,10 +775,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingWeapon: {fileID: 6584704054352460258, guid: 3ada334a9ba42d74eb986aa4451eae18, type: 3}
   curWeapon: {fileID: 0}
+  fAPrefab: {fileID: 6331778464711860266, guid: 9256268e594ef4d4abf8d3c473bf3d7c, type: 3}
+  sAPrefab: {fileID: 0}
   left: 0
   type: ranged
   maxHealth: 100
   health: 0
+  acting: 0
   attackCooldown: 0.25
   reloadCooldown: 0
   dead: 0

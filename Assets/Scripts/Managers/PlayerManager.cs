@@ -256,6 +256,11 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public ((bool, bool), (bool, bool)) GetAbilityInfo()
+    {
+        return (player1.GetAbilityInfo(), player2.GetAbilityInfo());
+    }
+
     // Initalizes the static player manager
     virtual public void InitPlayerManager()
     {
@@ -266,11 +271,11 @@ public class PlayerManager : MonoBehaviour
         else
         {
             PMInstance = this;
+            initialized = true;
         }
         swapCoolDown = 3.0f;
         coolDownRemaining = 0;
         playerCount = 2;
-        initialized = true;
         p1bonus = false;
         p2bonus = false;
 
