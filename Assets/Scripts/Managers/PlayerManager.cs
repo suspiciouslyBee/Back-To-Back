@@ -311,4 +311,7 @@ public class PlayerManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
     }
+
+    // Mainly for tutorial
+    virtual public void GiftPlayers(bool expOrAbilities) {}
 }

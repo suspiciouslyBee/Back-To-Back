@@ -105,6 +105,11 @@ public class TutorialManager : MonoBehaviour
                 tutorialPause = true;
                 StartCoroutine(dialogue7());
                 break;
+            case 4.5f:
+                tutorialStage = 5;
+                tutorialPause = true;
+                StartCoroutine(dialogue8());
+                break;
         }
     }
 
@@ -214,6 +219,7 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
+                    dialogue.text = "";
                     DeactivateClicker();
                     tutorialPause = false;
                     enemyManager.AdjustSpawning(0.1f);
@@ -225,6 +231,7 @@ public class TutorialManager : MonoBehaviour
                     dialogue.text = "That post has fallen as well! Goodness, are people not showing up or something.";
                     break;
                 case 1:
+                    dialogue.text = "";
                     DeactivateClicker();
                     tutorialPause = false;
                     yield return new WaitForSeconds(1f);
@@ -290,7 +297,7 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    dialogue.text = "This boost will only last one shot though, so make it count.";
+                    dialogue.text = "A bonus will double your damage, but only lasts one attack, so make it count.";
                     break;
                 case 1:
                     dialogue.text = "Now let's finish them off!";
@@ -348,7 +355,7 @@ public class TutorialManager : MonoBehaviour
                     dialogue.text = "Okay...that's even more than I thought there'd be.";
                     break;
                 case 2:
-                    dialogue.text = "You haven't forgotten how to handle big crowds, have you?";
+                    dialogue.text = "You don't seem too frightened of the swarm, you have something special planned don't you?";
                     break;
                 case 3:
                     DeactivateClicker();
@@ -394,14 +401,14 @@ public class TutorialManager : MonoBehaviour
                     dialogue.text = "Swapping appears to be what triggers your melee weapon's bonus as well.";
                     break;
                 case 2:
-                    dialogue.text = "However, swapping can also affect how you attack, which can be altared in the main menu.";
+                    dialogue.text = "However, swapping will also affect how you attack, which can be altared in the main menu.";
                     break;
                 case 3:
                     dialogue.text = "Now, with them pushed back from your swap, it's time to take the advantage!";
                     break;
                 case 4:
                     tutorialStage = 3.75f;
-                    dialogue.text = "Press A on the keyboard or Left trigger on the controller to use your melee attack. Press D on the keyboard or Right trigger on the controller to use your ranged attack.";
+                    dialogue.text = "Use your melee attack, ranged attack, and swap to defeat the zombies.";
                     DeactivateClicker();
                     tutorialPause = false;
                     break;
@@ -413,7 +420,7 @@ public class TutorialManager : MonoBehaviour
     {
         StartCoroutine(ActivateClicker());
         dialogue.text = "Not bad, not bad at all.";
-        for (int i = 0; i <= 2; i++)
+        for (int i = 0; i <= 10; i++)
         {
             while (!progress.IsPressed())
             {
@@ -429,9 +436,75 @@ public class TutorialManager : MonoBehaviour
                     dialogue.text = "It looks like that was the last of them as well, for now.";
                     break;
                 case 1:
-                    dialogue.text = "I wish you the best of luck with the rest of your shift.";
+                    dialogue.text = "Lets start giving you some real supplies to work with.";
                     break;
                 case 2:
+                    PlayerManager.Instance.GiftPlayers(true);
+                    dialogue.text = "Killing zombies with a character will slowly upgrade the other characters weapon until you get something new.";
+                    break;
+                case 3:
+                    dialogue.text = "So try your best to have both characters engage in battle so you can upgrade both weapons.";
+                    break;
+                case 4:
+                    DeactivateClicker();
+                    dialogue.text = "";
+                    tutorialPause = false;
+                    for (int j = 0; j < 3; j++)
+                    {
+                        enemyManager.SpawnEnemyType(0, new Vector2(-10.3f, -1.8f));
+                        enemyManager.SpawnEnemyType(0, new Vector2(10.3f, -1.8f));
+                        yield return new WaitForSeconds(0.75f);
+                    }
+                    tutorialPause = true;
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "Another horde is here, looks like the rest of them as well. I got one last thing for ya then rookies.";
+                    break;
+                case 5:
+                    dialogue.text = "Each character has two abilities that I will supply to you in a moment.";
+                    break;
+                case 6:
+                    dialogue.text = "The icons on the sides of your health bar will light up when you can use them.";
+                    break;
+                case 7:
+                    dialogue.text = "You won't be able to act while using some of them however, so be cautious when you deploy";
+                    break;
+                case 8:
+                    dialogue.text = "On keyboard; H, J, K and L are you ability buttons. On controller you'll use; X, Y, Left and Right Bumber.";
+                    break;
+                case 9:
+                    dialogue.text = "Now show them what you got!";
+                    break;
+                case 10:
+                    PlayerManager.Instance.GiftPlayers(false);
+                    DeactivateClicker();
+                    tutorialPause = false;
+                    tutorialStage = 4.5f;
+                    dialogue.text = "Kill the remaining zombies.";
+                    break;
+            }
+        }
+    }
+
+    IEnumerator dialogue8()
+    {
+        StartCoroutine(ActivateClicker());
+        dialogue.text = "You cleaned them up well.";
+        for (int i = 0; i <= 1; i++)
+        {
+            while (!progress.IsPressed())
+            {
+                yield return null;
+            }
+            while (!progress.WasReleasedThisFrame())
+            {
+                yield return null;
+            }
+            switch (i)
+            {
+                case 0:
+                    dialogue.text = "You'll only encounter stronger zombies from here, so I wish you the best of luck with the rest of your shift.";
+                    break;
+                case 1:
                     dialogue.text = "";
                     DeactivateClicker();
                     SceneManager.LoadScene("StartScene");

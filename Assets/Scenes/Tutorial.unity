@@ -210,6 +210,8 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   swapSFX: {fileID: 0}
   playerCount: 0
+  player1Prefab: {fileID: 3431308859369590734, guid: 0276d67ecb0731e4191433b58f8252ea, type: 3}
+  player2Prefab: {fileID: 6331778464711860266, guid: 9256268e594ef4d4abf8d3c473bf3d7c, type: 3}
 --- !u!1 &528162234
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,9 +573,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6063310104159484725, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
+      propertyPath: fAPrefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6100800838198820699, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
       propertyPath: m_Name
       value: PlayerHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6226126905157109303, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
+      propertyPath: fAPrefab
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7291840184277444212, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
       propertyPath: m_LocalPosition.x
