@@ -14,9 +14,13 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private EnemyManager enemyManager;
 
     InputAction progress;
+    VisualElement clicker;
+    Label dialogue;
+    Label reminder;
 
     public bool tutorialPause;
     public float tutorialStage;
+    bool idle;
 
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
@@ -27,6 +31,7 @@ public class TutorialManager : MonoBehaviour
             return;
         }
         TMInstance = this;
+        idle = false;
 
         tutorialStage = 1;
         tutorialPause = false;
@@ -40,6 +45,9 @@ public class TutorialManager : MonoBehaviour
             enemyManager = EnemyManager.Instance;
             progress = InputSystem.actions.FindAction("SwapCharacters");
             Dialogue = gameObject.GetComponent<UIDocument>();
+            dialogue = Dialogue.rootVisualElement.Q<Label>("Dialogue");
+            reminder = Dialogue.rootVisualElement.Q<Label>("Reminder");
+            clicker = Dialogue.rootVisualElement.Q<VisualElement>("Clicker");
             enemyManager.spawnPoints = new List<Vector2>();
             enemyManager.spawnPoints.Add(new Vector2(-10.3f, -1.8f));
             enemyManager.AdjustSpawning(0);
@@ -102,7 +110,8 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue1()
     {
-        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "O-Oh It’s you two?! I didn’t realize your post was still…nevermind.";
+        StartCoroutine(ActivateClicker());
+        dialogue.text = "O-Oh It’s you two?! I didn’t realize your post was still…nevermind.";
         for (int i = 0; i <= 8; i++)
         {
             while (!progress.IsPressed())
@@ -116,59 +125,72 @@ public class TutorialManager : MonoBehaviour
             switch (i) 
             {
                 case 0:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Considering you’ve reached out to me, you’re looking for some guidance huh.";
+                    dialogue.text = "Considering you’ve reached out to me, you’re looking for some guidance huh.";
                     break;
                 case 1:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Well luckily, I’ve become quite the zombie killing pro over the years. So with some time and training I’m sure you’ll be-";
+                    dialogue.text = "Well luckily, I’ve become quite the zombie killing pro over the years. So with some time and training I’m sure you’ll be-";
                     break;
                 case 2:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "";
+                    dialogue.text = "";
+                    DeactivateClicker();
                     enemyManager.AdjustSpawning(0.1f);
                     yield return new WaitForSeconds(0.11f);
                     enemyManager.AdjustSpawning(0);
                     yield return new WaitForSeconds(2.75f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "What! Have the other posts fallen already?";
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "What! Have the other posts fallen already?";
                     break;
                 case 3:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "It shouldn’t be an issue. I’ll just have to explain things, quicker than I anticipated.";
+                    dialogue.text = "It shouldn’t be an issue. I’ll just have to explain things, quicker than I anticipated.";
                     break;
                 case 4:
+                    dialogue.text = "";
+                    DeactivateClicker();
                     tutorialPause = false;
                     yield return new WaitForSeconds(1f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "You see those two mercenaries at the center of the screen? That's where you are located.";
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "You see those two mercenaries at the center of the screen? That's where you are located.";
                     break;
                 case 5:
+                    dialogue.text = "";
+                    DeactivateClicker();
                     tutorialPause = false;
                     yield return new WaitForSeconds(1f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "The person on the left uses melee weapons, and the person of the right uses ranged weapons.";
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "The person on the left uses melee weapons, and the person of the right uses ranged weapons.";
                     break;
                 case 6:
+                    dialogue.text = "";
+                    DeactivateClicker();
                     tutorialPause = false;
                     yield return new WaitForSeconds(1f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "At the top of the screen are your health bars.";
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "At the top of the screen are your health bars.";
                     break;
                 case 7:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = ".";
+                    DeactivateClicker();
+                    dialogue.text = ".";
                     tutorialPause = false;
                     yield return new WaitForSeconds(1f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = ". .";
+                    dialogue.text = ". .";
                     tutorialPause = false;
                     yield return new WaitForSeconds(1f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = ". . .";
+                    dialogue.text = ". . .";
                     tutorialPause = false;
                     yield return new WaitForSeconds(1f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "That zombie's getting uncomfortably close aren't they. Let's change that.";
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "That zombie's getting uncomfortably close aren't they. Let's change that.";
                     break;
                 case 8:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press A on the keyboard or Left bumper on the controller to use your melee attack.";
-                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
+                    dialogue.text = "Press A on the keyboard or Left trigger on the controller to use your melee attack.";
+                    DeactivateClicker();
                     tutorialStage = 1.5f;
                     break;
             }
@@ -177,8 +199,8 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue2()
     {
-        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
-        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Not bad for a rookie.";
+        StartCoroutine(ActivateClicker());
+        dialogue.text = "Not bad for a rookie.";
         for (int i = 0; i <= 2; i++)
         {
             while (!progress.IsPressed())
@@ -192,24 +214,27 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "";
+                    DeactivateClicker();
                     tutorialPause = false;
                     enemyManager.AdjustSpawning(0.1f);
                     yield return new WaitForSeconds(0.11f);
                     enemyManager.AdjustSpawning(0);
                     yield return new WaitForSeconds(2.75f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "That post has fallen as well! Goodness, are people not showing up or something.";
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "That post has fallen as well! Goodness, are people not showing up or something.";
                     break;
                 case 1:
+                    DeactivateClicker();
                     tutorialPause = false;
                     yield return new WaitForSeconds(1f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "This time however, you won’t have to wait for the zombie to approach";
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "This time however, you won’t have to wait for the zombie to approach";
                     break;
                 case 2:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press D on the keyboard or Right bumper on the controller to use your ranged attack.";
-                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
+                    dialogue.text = "Press D on the keyboard or Right trigger on the controller to use your ranged attack.";
+                    DeactivateClicker();
                     tutorialStage = 2.5f;
                     break;
             }
@@ -218,9 +243,9 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue3()
     {
-        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
-        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Out of ammo? Luckily it appears you have an infinite supply lying around.";
-        for (int i = 0; i <= 1; i++)
+        StartCoroutine(ActivateClicker());
+        dialogue.text = "Out of ammo? Luckily it appears you have an infinite supply lying around.";
+        for (int i = 0; i <= 2; i++)
         {
             while (!progress.IsPressed())
             {
@@ -233,12 +258,15 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "See that bar below the ranged player's health? That lets you know how much ammo you have left.";
+                    dialogue.text = "See that bar below the ranged player's health? That lets you know how much ammo you have left.";
                     break;
                 case 1:
+                    dialogue.text = "Normally you could keep shotting and the weapon would reload on its own, but for now lets try doing this manually.";
+                    break;
+                case 2:
                     tutorialStage = 2.75f;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press R on the keyboard or B on the controller to reload your weapon.";
-                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
+                    dialogue.text = "Press R on the keyboard or B on the controller to reload your weapon.";
+                    DeactivateClicker();
                     break;
             }
         }
@@ -247,26 +275,40 @@ public class TutorialManager : MonoBehaviour
     IEnumerator dialogue4()
     {
         tutorialStage = 2.8f;
-        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
-        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Now let's finish them off!";
-        while (!progress.IsPressed())
+        StartCoroutine(ActivateClicker());
+        dialogue.text = "When you manually reload, your ranged weapon will get a damage bonus!";
+        for (int i = 0; i <= 2; i++)
         {
-            yield return null;
+            while (!progress.IsPressed())
+            {
+                yield return null;
+            }
+            while (!progress.WasReleasedThisFrame())
+            {
+                yield return null;
+            }
+            switch (i)
+            {
+                case 0:
+                    dialogue.text = "This boost will only last one shot though, so make it count.";
+                    break;
+                case 1:
+                    dialogue.text = "Now let's finish them off!";
+                    break;
+                case 2:
+                    tutorialPause = false;
+                    dialogue.text = "Press D on the keyboard or Right trigger on the controller to use your ranged attack.";
+                    DeactivateClicker();
+                    tutorialStage = 2.85f;
+                    break;
+            }
         }
-        while (!progress.WasReleasedThisFrame())
-        {
-            yield return null;
-        }
-        tutorialPause = false;
-        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press D on the keyboard or Right bumper on the controller to use your ranged attack.";
-        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
-        tutorialStage = 2.85f;
     }
 
     IEnumerator dialogue5()
     {
-        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
-        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "You’re keeping up pretty well so far for claiming to need my help.";
+        StartCoroutine(ActivateClicker());
+        dialogue.text = "You’re keeping up pretty well so far for claiming to need my help.";
         for (int i = 0; i <= 3; i++)
         {
             while (!progress.IsPressed())
@@ -280,36 +322,41 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "";
+                    dialogue.text = "";
+                    DeactivateClicker();
                     tutorialPause = false;
                     enemyManager.AdjustSpawning(0.5f);
                     yield return new WaitForSeconds(2f);
                     enemyManager.AdjustSpawning(0);
                     yield return new WaitForSeconds(1.5f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Guess we can’t get too confident yet, it appears more Zombies have arrived.";
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "Guess we can’t get too confident yet, it appears more Zombies have arrived.";
                     break;
                 case 1:
                     enemyManager.spawnPoints = new List<Vector2>();
                     enemyManager.spawnPoints.Add(new Vector2(10.3f, -1.8f));
+                    dialogue.text = "";
+                    DeactivateClicker();
                     tutorialPause = false;
                     enemyManager.AdjustSpawning(0.5f);
                     yield return new WaitForSeconds(1.5f);
                     enemyManager.AdjustSpawning(0);
                     yield return new WaitForSeconds(1.5f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Okay...that's even more than I thought there'd be.";
+                    StartCoroutine(ActivateClicker());
+                    dialogue.text = "Okay...that's even more than I thought there'd be.";
                     break;
                 case 2:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Oh? You don’t seem to be in much of a panic? You must have something special planned.";
+                    dialogue.text = "You haven't forgotten how to handle big crowds, have you?";
                     break;
                 case 3:
-                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "";
+                    DeactivateClicker();
+                    dialogue.text = "Wait for it...";
                     tutorialPause = false;
                     yield return new WaitForSeconds(3.75f);
                     tutorialPause = true;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Press Space on the keyboard or A on the controller to swap.";
+                    dialogue.text = "Press Space on the keyboard or A on the controller to swap.";
                     tutorialStage = 3.5f;
                     break;
             }
@@ -318,8 +365,8 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue6()
     {
-        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
-        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Heh, impressive.";
+        StartCoroutine(ActivateClicker());
+        dialogue.text = "Heh, impressive.";
         while (!progress.IsPressed())
         {
             yield return null;
@@ -328,7 +375,7 @@ public class TutorialManager : MonoBehaviour
         {
             yield return null;
         }
-        for (int i = 0; i <= 2; i++)
+        for (int i = 0; i <= 4; i++)
         {
             while (!progress.IsPressed())
             {
@@ -341,15 +388,21 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "It appears that bar between your health bars determines when you're able to do that swap move of yours.";
+                    dialogue.text = "That bar below the duo determines when you're able to do that swap move of yours.";
                     break;
                 case 1:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "In that case, with them pushed back from your swap, it's time to take the advantage!";
+                    dialogue.text = "Swapping appears to be what triggers your melee weapon's bonus as well.";
                     break;
                 case 2:
+                    dialogue.text = "However, swapping can also affect how you attack, which can be altared in the main menu.";
+                    break;
+                case 3:
+                    dialogue.text = "Now, with them pushed back from your swap, it's time to take the advantage!";
+                    break;
+                case 4:
                     tutorialStage = 3.75f;
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Use your weapons and swapping to defeat the remaining zombies.";
-                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
+                    dialogue.text = "Press A on the keyboard or Left trigger on the controller to use your melee attack. Press D on the keyboard or Right trigger on the controller to use your ranged attack.";
+                    DeactivateClicker();
                     tutorialPause = false;
                     break;
             }
@@ -358,8 +411,8 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator dialogue7()
     {
-        Dialogue.rootVisualElement.Q<Label>("Reminder").text = "Press Space on the keyboard or A on the controller to progress dialogue.";
-        Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "Not bad, not bad at all.";
+        StartCoroutine(ActivateClicker());
+        dialogue.text = "Not bad, not bad at all.";
         for (int i = 0; i <= 2; i++)
         {
             while (!progress.IsPressed())
@@ -373,14 +426,14 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "It looks like that was the last of them as well, for now.";
+                    dialogue.text = "It looks like that was the last of them as well, for now.";
                     break;
                 case 1:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "I wish you the best of luck with the rest of your shift.";
+                    dialogue.text = "I wish you the best of luck with the rest of your shift.";
                     break;
                 case 2:
-                    Dialogue.rootVisualElement.Q<Label>("Dialogue").text = "";
-                    Dialogue.rootVisualElement.Q<Label>("Reminder").text = "";
+                    dialogue.text = "";
+                    DeactivateClicker();
                     SceneManager.LoadScene("StartScene");
                     break;
             }
@@ -392,5 +445,26 @@ public class TutorialManager : MonoBehaviour
         enemyManager.AdjustSpawning(0.1f);
         yield return new WaitForSeconds(0.11f);
         enemyManager.AdjustSpawning(0);
+    }
+
+    IEnumerator ActivateClicker()
+    {
+        idle = true;
+        reminder.text = "Press Space on the keyboard or A on the controller to progress dialogue.";
+        clicker.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 1);
+        while (idle)
+        {
+            clicker.style.translate = new Translate(-2, 0, 0);
+            yield return new WaitForSeconds(0.25f);
+            clicker.style.translate = new Translate(2, 0, 0);
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
+
+    void DeactivateClicker()
+    {
+        idle = false;
+        reminder.text = "";
+        clicker.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0);
     }
 }
