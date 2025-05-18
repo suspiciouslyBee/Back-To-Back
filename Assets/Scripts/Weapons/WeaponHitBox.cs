@@ -18,7 +18,7 @@ public class WeaponHitBox : MonoBehaviour
 
   private float timeAlive;
 
-  private HashSet<GameObject> piercedEnemies = new HashSet<GameObject>();
+  //private HashSet<GameObject> piercedEnemies = new HashSet<GameObject>();
 
   //------------------------- Getters -------------------------
   public float GetDamage()
@@ -136,10 +136,8 @@ public class WeaponHitBox : MonoBehaviour
   void OnTriggerEnter2D(Collider2D other)
   {
     // Hitbox hit an enemy
-    if (other.CompareTag("Enemy") && !piercedEnemies.Contains(other.gameObject))
+    if (other.CompareTag("Enemy"))
     {
-      piercedEnemies.Add(other.gameObject);
-      Debug.Log($"{gameObject.name} hit {other.gameObject.name}!");
       // Deal damage to the enemy
       Enemy enemyScript = other.GetComponent<Enemy>();
       float direction = Mathf.Abs(transform.localScale.x) / transform.localScale.x;
