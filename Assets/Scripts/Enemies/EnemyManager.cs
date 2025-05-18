@@ -72,7 +72,7 @@ public class EnemyManager : MonoBehaviour
             StartCoroutine(SpawnGroup((int)Mathf.Max(count * 0.2f - 1, 0), positions.Item2));
             // logic to change the interval?
             curTime = 0f;
-            interval *= 1.35f;                            // wave interval increases over time
+            interval *= 1.15f;                            // wave interval increases over time
             if (interval > 12) { interval = 12; }         // Max limit so the player doesn't stand there for a minute
             wavesSpawned++;
 
