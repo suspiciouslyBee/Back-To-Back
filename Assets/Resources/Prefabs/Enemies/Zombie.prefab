@@ -224,7 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0}
+  spawnWeight: 50
   maxHP: 100
+  attackDamage: 10
   speed: 3
   jumpPower: 10
   knockbackMult: 1

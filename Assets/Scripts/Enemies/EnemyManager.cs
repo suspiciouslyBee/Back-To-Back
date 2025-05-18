@@ -15,6 +15,8 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject[] enemyTypes;                                     // holds Prefabs of different enemies
 
+    public float[] enemyWeights;                                        // correspond to indices in enemyTypes. Higher weights are less common.
+
     public static EnemyManager Instance { get { return _instance; } }
 
     public List<GameObject> enemies;

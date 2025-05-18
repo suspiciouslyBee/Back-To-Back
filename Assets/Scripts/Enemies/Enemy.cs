@@ -8,10 +8,11 @@ public abstract class Enemy : MonoBehaviour
 
     [SerializeField] protected Vector2 destination;
 
-
     // protected values
     protected float curHP;
     [SerializeField] protected float maxHP;
+
+    [SerializeField] protected int attackDamage;
 
     [SerializeField] protected float speed;
 
@@ -21,7 +22,9 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int expReward;
     [SerializeField] protected bool grounded;
     [SerializeField] protected float minStunWaitTime;
+
     protected bool isStunned;
+
     [SerializeField] float iframes;                                  // How long the enemy has iframes
 
     [SerializeField] AudioSource audioSource;
@@ -46,7 +49,10 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract void MoveToPoint(Vector2 pos);  // attempt to move towards a destination
 
-    public abstract void Jump();
+    public void Jump()
+    {
+        rb.linearVelocity = new(rb.linearVelocity.x, jumpPower);
+    }
 
     void Awake()
     {
