@@ -35,17 +35,17 @@ public class EnemyManager : MonoBehaviour
 
     public List<Vector2> spawnPoints;
 
-    [SerializeField] protected readonly float initInterval = 10f;           // initial interval between waves
+    [SerializeField] protected float initInterval = 10f;           // initial interval between waves
 
 
 
-    [SerializeField] protected readonly float intervalDeviation = 0.5f;   // how much variance between waves there can be.
+    protected readonly float intervalDeviation = 0.5f;   // how much variance between waves there can be.
 
-    [SerializeField] protected readonly int initWaveWeight = 10;          // the total weight of the first zombie wave
+    [SerializeField] protected int initWaveWeight = 10;          // the total weight of the first zombie wave
 
-    [SerializeField] protected readonly float waveWeightIncrease = 1.5f;  // this means that waveWeight
+    [SerializeField] protected float waveWeightIncrease = 1.5f;  // this means that waveWeight
 
-    [SerializeField] protected readonly float waveSizeDeviation = 0.25f;     // how much the size of each wave should deviate
+    [SerializeField] protected float waveSizeDeviation = 0.25f;     // how much the size of each wave should deviate
 
     public int wavesSpawned = 0;                                   // number of waves spawned
 
@@ -60,9 +60,9 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] protected float waveSpawnTimeMult = 1f;      // controls how rapidly zombie waves spawn
 
-    [SerializeField] protected const int spawnCap = 50;           // maximum number of zombies allowed on screen
+    [SerializeField] protected int spawnCap = 50;           // maximum number of zombies allowed on screen
 
-    protected readonly float maxWaveDelay = 30f;                  // longest the player should wait between waves
+    [SerializeField] protected float maxWaveDelay = 30f;                  // longest the player should wait between waves
 
     public int totalEnemiesSpawned = 0;
 
@@ -70,7 +70,8 @@ public class EnemyManager : MonoBehaviour
 
 
     // protected wave-related variables
-    protected float interval;
+    [SerializeField] protected float interval;                     // how long the game should wait with zero zombies on screen before spawning more
+    [SerializeField] protected float minInterval;                   // the absolute minimum amount of break time the player gets
 
 
     [SerializeField] protected float waveWeight;                  // how "heavy" the wave should be
@@ -111,6 +112,11 @@ public class EnemyManager : MonoBehaviour
             timeSinceLastWave = 0f;
             timeWithNoEnemies = 0f;
             GenerateWave();
+            interval *= 0.9f;
+            if (interval < minInterval)
+            {
+                interval = minInterval;
+            }
         }
 
 

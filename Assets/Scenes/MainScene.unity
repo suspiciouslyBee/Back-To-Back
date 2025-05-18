@@ -826,12 +826,25 @@ MonoBehaviour:
   spawnPoints:
   - {x: -10.3, y: -1.8}
   - {x: 10.3, y: -1.8}
-  minInterval: 2
+  initInterval: 10
+  initWaveWeight: 10
+  waveWeightIncrease: 1.5
+  waveSizeDeviation: 0.25
   wavesSpawned: 0
   initialized: 0
   inWaveSpawnDelay: 0.1
   waveSpawnTimeMult: 1
+  spawnCap: 50
+  maxWaveDelay: 15
   totalEnemiesSpawned: 0
+  interval: 10
+  minInterval: 2
+  waveWeight: 0
+  timeWithNoEnemies: 0
+  timeSinceLastWave: 0
+  waveQueue: 
+  primaryQueue: 
+  secondaryQueue: 
 --- !u!82 &1980000988
 AudioSource:
   m_ObjectHideFlags: 0
