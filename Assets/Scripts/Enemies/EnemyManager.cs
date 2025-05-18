@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -36,14 +37,14 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] private readonly float waveWeightIncrease = 1.5f;  // this means that waveWeight
 
-    [SerializeField] protected readonly float waveSizeDeviation = 0.25f;     // 
+    [SerializeField] protected readonly float waveSizeDeviation = 0.25f;     // how much the size of each wave should deviate
 
     public int wavesSpawned = 0;                                   // number of waves spawned
 
     private float waveWeight;
 
-
-    protected float curTime;
+    private float timeWithNoEnemies;
+    private float timeSinceLastWave;
 
     protected const float fixedUpdateTime = 1 / 60f;
 
@@ -56,11 +57,20 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] private const int spawnCap = 50;           // maximum number of zombies allowed on screen
 
+    private readonly float maxWaveDelay = 30f;                  // longest the player should wait between waves
+
     public int totalEnemiesSpawned = 0;
 
     private AudioSource audioSource;
 
+
+    // private wave-related variables
     protected float interval;
+
+
+    [SerializeField] private List<GameObject> waveQueue;                     // all enemies in the wave
+    [SerializeField] private List<GameObject> primaryQueue;                 // all enemies spawning at the primary position
+    [SerializeField] private List<GameObject> secondaryQueue;               // all enemies spawning at the secondary position
 
     private void Awake()
     {
@@ -70,27 +80,30 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         Time.fixedDeltaTime = fixedUpdateTime;
-        waveWeight = initWaveWeight;
+
     }
 
     // Remove Update as needed
     private void Update()
     {
-        curTime += Time.deltaTime;
-        // Debug.Log($"total enemies spawned: {totalEnemiesSpawned}");
-        if (curTime > interval)
+        timeSinceLastWave += Time.deltaTime;
+        if (GetEnemyCount() <= 0)
         {
-            int count = RandomEnemyCount(LevelManager.LMInstance.timeSurvived);
-            (Vector2, Vector2) positions = PrimaryPosition();
-            StartCoroutine(SpawnGroup((int)Mathf.Max(count * 0.8f, 1), positions.Item1));
-            StartCoroutine(SpawnGroup((int)Mathf.Max(count * 0.2f - 1, 0), positions.Item2));
-            // logic to change the interval?
-            curTime = 0f;
-            interval *= 1.15f;                            // wave interval increases over time
-            if (interval > 12) { interval = 12; }         // Max limit so the player doesn't stand there for a minute
-            wavesSpawned++;
-
+            timeWithNoEnemies += Time.deltaTime;
         }
+        else
+        {
+            timeWithNoEnemies = 0f;
+        }
+
+        if (timeSinceLastWave >= maxWaveDelay || timeWithNoEnemies > interval)
+        {
+            timeSinceLastWave = 0f;
+            GenerateWave();
+        }
+
+
+
     }
 
     // tick 60 times per second
@@ -103,69 +116,65 @@ public class EnemyManager : MonoBehaviour
             enemy.VisualUpdate();
         }
     }
+    // ###### WAVE LOGIC FUNCTIONS ######
+    // function that masterminds a wave
+    private void GenerateWave()
+    {
+        (Vector2, Vector2) positions = PrimaryPosition();
+        Vector2 primaryPos = positions.Item1;
+        Vector2 secondaryPos = positions.Item2;
+        // populate the waves
+        float actualWeight = Mathf.Floor(Random.Range(waveWeight * (1 - waveSizeDeviation), waveWeight * (1 + waveSizeDeviation)));
+        float totalWeight = 0;
+
+        while (totalWeight < actualWeight)
+        {
+            // choose a random enemy from EnemyTypes
+            int tentativeIndex = Random.Range(0, enemyTypes.Length);
+
+            if (wavesSpawned >= minWave[tentativeIndex])
+            {
+                GameObject tentativeEnemy = enemyTypes[tentativeIndex];
+                waveQueue.Add(tentativeEnemy);
+                totalWeight += enemyWeights[tentativeIndex];
+            }
+        }
+        // empty the queues
+        StartCoroutine(SpawnAllInList(primaryQueue, primaryPos));
+        StartCoroutine(SpawnAllInList(secondaryQueue, secondaryPos));
+
+        // make the next wave harder
+        waveWeight *= 1.5f;
+    }
+
+    // spawns all enemies in the list in order and clears the list
+    private IEnumerator SpawnAllInList(List<GameObject> enemies, Vector2 position)
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            yield return new WaitForSeconds(inWaveSpawnDelay * Random.Range(0.75f, 1.25f));
+            InitNewEnemy(enemies[i], position);
+        }
+
+        enemies.Clear();
+    }
+
+    // ###### HELPER FUNCTIONS ######
 
     virtual public int GetEnemyCount()
     {
         return enemies.Count;
     }
 
-    // spawn an enemy somewhere idk
-    virtual public void SpawnEnemy()
+    private void InitNewEnemy(GameObject enemy, Vector2 position)
     {
-        Vector2 position;
-        if (spawnPoints.Count > 0)
-        {
-            position = spawnPoints[Random.Range(0, spawnPoints.Count)];
-        }
-        else
-        {
-            // spawn at 0,1
-            position = new(0, 1);
-        }
-        SpawnEnemy(position);
-    }
+        enemy.transform.position = position;
 
-    // spawns an enemy at a position
-    public void SpawnEnemy(Vector2 position)
-    {
-        if (enemies.Count >= spawnCap)
-        {
-            Debug.Log($"[EnemyManager] attempting to spawn enemy, but spawn cap reached!");
-            return;
-        }
-        int type;
-
-        if (enemyTypes.Length > 0)
-        {
-            // choose random enemy type for now
-            type = Random.Range(0, enemyTypes.Length);
-
-            GameObject newEnemy = Instantiate(enemyTypes[type]);
-
-            newEnemy.transform.position = position;
-
-            enemies.Add(newEnemy);
-            Enemy enemyScript = newEnemy.GetComponent<Enemy>();
-            enemyScripts.Add(enemyScript);
-            enemyScript.Spawn();
-            totalEnemiesSpawned++;
-        }
-
-        // Debug.Log("No enemy types available");
-    }
-
-
-    // spawn a specific enemy from an index
-    virtual public void SpawnEnemyType(int index, Vector2 position)
-    {
-        GameObject newEnemy = Instantiate(enemyTypes[index]);
-
-        newEnemy.transform.position = position;
-
-        enemies.Add(newEnemy);
-        Enemy enemyScript = newEnemy.GetComponent<Enemy>();
+        enemies.Add(enemy);
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
         enemyScripts.Add(enemyScript);
         enemyScript.Spawn();
+        totalEnemiesSpawned++;
     }
 
     // stop tracking this enemy
@@ -188,39 +197,16 @@ public class EnemyManager : MonoBehaviour
         {
             _instance = this;
         }
-        curTime = 0f;
+        timeWithNoEnemies = 0f;
+        timeSinceLastWave = 0f;
+
+        waveWeight = initWaveWeight;
 
         interval = initInterval;        // constant amount of time for the next wave
 
         initialized = true;
     }
-    // spawn a group of zombies
-    private IEnumerator SpawnGroup(int count, Vector2 position)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            SpawnEnemy(position);
-            yield return new WaitForSeconds(Random.Range(inWaveSpawnDelay * 0.25f, inWaveSpawnDelay * 1.75f));
-        }
 
-    }
-
-    // generate a semi-random number that determines
-    // how many zombies will spawn in the next wave
-    private int RandomEnemyCount(float time)
-    {
-        // how to use the time parameter?
-        // equation: f(x) = 0.05 * t^1.1 + 1
-        // f(x) = Random.Range(f(x) * (1-waveSizeDeviation), f(x) * (1 + waveSizeDeviation))
-
-        float initCount = 0.06f * Mathf.Pow(time, 1.1f) + 1;
-        initCount *= Random.Range(1 - waveSizeDeviation, 1 + waveSizeDeviation);
-
-        int finalCount = (int)initCount;
-
-        //Debug.Log($"Init count: {initCount}; final Count: {finalCount}");
-        return finalCount;
-    }
 
 
     // return a primary and secondary SpawnPosition
