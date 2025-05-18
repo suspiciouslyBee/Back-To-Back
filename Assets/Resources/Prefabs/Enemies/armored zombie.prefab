@@ -230,7 +230,7 @@ MonoBehaviour:
   jumpPower: 10
   knockbackMult: 0.9
   hitbox: {fileID: 8973836585353227597}
-  expReward: 1
+  expReward: 12
   grounded: 0
   minStunWaitTime: 0.01
   iframes: 0.3
