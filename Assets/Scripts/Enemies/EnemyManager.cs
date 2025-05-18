@@ -182,7 +182,7 @@ public class EnemyManager : MonoBehaviour
         StartCoroutine(SpawnAllInList(secondaryQueue, secondaryPos));
 
         // make the next wave harder
-        waveWeight *= 1.5f;
+        waveWeight *= waveWeightIncrease;
     }
 
     // spawns all enemies in the list in order and clears the list

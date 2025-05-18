@@ -816,7 +816,7 @@ MonoBehaviour:
   enemyWeights:
   - 10
   - 15
-  - 30
+  - 40
   minWave:
   - 0
   - 3
@@ -828,7 +828,7 @@ MonoBehaviour:
   - {x: 10.3, y: -1.8}
   initInterval: 10
   initWaveWeight: 10
-  waveWeightIncrease: 1.5
+  waveWeightIncrease: 1.15
   waveSizeDeviation: 0.25
   wavesSpawned: 0
   initialized: 0

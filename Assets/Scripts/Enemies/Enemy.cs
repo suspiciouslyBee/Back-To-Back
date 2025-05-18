@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected Vector2 destination;
 
     // protected values
-    protected float curHP;
+    [SerializeField] protected float curHP;
     [SerializeField] protected float maxHP;
 
     [SerializeField] protected int attackDamage;
