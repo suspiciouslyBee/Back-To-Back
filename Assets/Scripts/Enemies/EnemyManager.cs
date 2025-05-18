@@ -17,6 +17,8 @@ public class EnemyManager : MonoBehaviour
 
     public float[] enemyWeights;                                        // correspond to indices in enemyTypes. Higher weights are less common.
 
+    public float[] minWave;                                             // the earliest wave that this enemy type can spawn in
+
     public static EnemyManager Instance { get { return _instance; } }
 
     public List<GameObject> enemies;
@@ -24,20 +26,31 @@ public class EnemyManager : MonoBehaviour
 
     public List<Vector2> spawnPoints;
 
-    [SerializeField] private readonly float initInterval = 8f;           // initial interval between waves
-    [SerializeField] private float minInterval = 2f;            // absolute minimum value that interval can be
+    [SerializeField] private readonly float initInterval = 10f;           // initial interval between waves
+
+
+
+    [SerializeField] private readonly float intervalDeviation = 0.5f;   // how much variance between waves there can be.
+
+    [SerializeField] private readonly int initWaveWeight = 10;          // the total weight of the first zombie wave
+
+    [SerializeField] private readonly float waveWeightIncrease = 1.5f;  // this means that waveWeight
+
+    [SerializeField] protected readonly float waveSizeDeviation = 0.25f;     // 
 
     public int wavesSpawned = 0;                                   // number of waves spawned
 
-    [SerializeField] protected readonly float waveSizeDeviation = 0.25f;     // wave_size = wave_size * (1 +- waveSizeDeviation)
+    private float waveWeight;
+
+
     protected float curTime;
 
     protected const float fixedUpdateTime = 1 / 60f;
 
     public bool initialized = false;
 
-    [SerializeField] private float inWaveSpawnDelay = 0.1f;     // when spawning a group of zombies, produce a slight delay between
-                                                                // spawns
+    [SerializeField] private float inWaveSpawnDelay = 0.05f;     // when spawning a group of zombies, produce a slight delay between
+                                                                 // spawns
 
     [SerializeField] private float waveSpawnTimeMult = 1f;      // controls how rapidly zombie waves spawn
 
@@ -57,6 +70,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         Time.fixedDeltaTime = fixedUpdateTime;
+        waveWeight = initWaveWeight;
     }
 
     // Remove Update as needed

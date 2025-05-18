@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
     bool invulnrable;                                       // Does the player have iframes
     public bool dead;                                       // Is the player dead
 
-    [SerializeField] private float autoHealTime = 10f;      // time before players start healing
-    [SerializeField] private int autoHealAmt = 1;           
+    // [SerializeField] private float autoHealTime = 10f;      // time before players start healing
+    // [SerializeField] private int autoHealAmt = 1;           
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip hurtSFX;
@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
     {
         if (newWeapon != null)
         {
- 
+
             newWeapon = Instantiate(newWeapon, curWeapon.gameObject.transform.position, curWeapon.gameObject.transform.rotation, gameObject.transform);
             Destroy(curWeapon.gameObject);
             curWeapon = newWeapon.GetComponent<Weapon>();
