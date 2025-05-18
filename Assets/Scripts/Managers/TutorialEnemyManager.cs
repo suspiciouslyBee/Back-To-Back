@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 public class TutorialEnemyManager : EnemyManager
 {
-    private void Awake()
+
+    private float curTime;
+    private new void Awake()
     {
         InitEnemyManager();
     }
@@ -14,7 +16,7 @@ public class TutorialEnemyManager : EnemyManager
     }
 
     // Remove Update as needed
-    private void Update()
+    private new void Update()
     {
         if (interval != 0)
         {
@@ -28,7 +30,7 @@ public class TutorialEnemyManager : EnemyManager
     }
 
     // tick 60 times per second
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
         foreach (Enemy enemy in enemyScripts)
         {
