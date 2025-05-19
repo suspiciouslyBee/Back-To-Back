@@ -106,6 +106,62 @@ public class TutorialPlayerManager : PlayerManager
         return false;
     }
 
+    // Calls the abilities of the chosen player
+    override public bool CallAbility(bool player, bool ability)
+    {
+        if (TutorialManager.TMInstance.tutorialStage == 4.5f)
+        {
+            // Keep them the same
+            if (InputPreference.meleeRanged || player1.left)
+            {
+                if (player)
+                {
+                    if (player1 == null)
+                    {
+                        return false;
+                    }
+                    if (ability)
+                    {
+                        return player1.CallAbility(ability);
+                    }
+                    return player1.CallAbility(ability);
+                }
+                if (player2 == null)
+                {
+                    return false;
+                }
+                if (ability)
+                {
+                    return player2.CallAbility(ability);
+                }
+                return player2.CallAbility(ability);
+            }
+
+            if (player)
+            {
+                if (player2 == null)
+                {
+                    return false;
+                }
+                if (ability)
+                {
+                    return player2.CallAbility(ability);
+                }
+                return player2.CallAbility(ability);
+            }
+            if (player1 == null)
+            {
+                return false;
+            }
+            if (ability)
+            {
+                return player1.CallAbility(ability);
+            }
+            return player1.CallAbility(ability);
+        }
+        return false;
+    }
+
     // naive way of counting number of living players
     override public void UpdatePlayerCount()
     {
@@ -148,8 +204,8 @@ public class TutorialPlayerManager : PlayerManager
         if (expOrAbilities)
         {
             UpgradeManager uM = this.gameObject.GetComponent<UpgradeManager>();
-            uM.AddExpFromPlayer(5, player1.gameObject);
-            uM.AddExpFromPlayer(5, player2.gameObject);
+            uM.AddExpFromPlayer(uM.GetExpForLevel(0), player1.gameObject);
+            uM.AddExpFromPlayer(uM.GetExpForLevel(0), player2.gameObject);
         }
         else
         {

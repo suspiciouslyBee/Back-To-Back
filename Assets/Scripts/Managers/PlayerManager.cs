@@ -76,6 +76,7 @@ public class PlayerManager : MonoBehaviour
             }
             return (p1Swap && p2Swap);
         }
+        HUDManager.Instance.ChangeBars(3.5f, true);
         return false;
     }
 

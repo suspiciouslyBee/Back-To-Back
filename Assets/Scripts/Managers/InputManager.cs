@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour
     InputAction restartLevel;
     LevelManager LMinstance;
 
+    bool swapDown;
     bool reloadDown;
     bool mA1Down;
     bool mA2Down;
@@ -54,7 +55,7 @@ public class InputManager : MonoBehaviour
         swingSword = InputSystem.actions.FindAction("MeleeAttack");
         restartLevel = InputSystem.actions.FindAction("RestartLevel");
 
-
+        swapDown = false;
         reloadDown = false;
         mA1Down = false;
         mA2Down = false;
@@ -84,8 +85,13 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (swapCharacters.IsPressed())
+        if (swapCharacters.ReadValue<float>() == 0 && swapDown)
         {
+            swapDown = false;
+        }
+        if (swapCharacters.ReadValue<float>() > 0 && !swapDown)
+        {
+            swapDown = true;
             LMinstance.SwapChars();
         }
         if (fireGun.IsPressed())

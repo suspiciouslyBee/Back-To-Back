@@ -65,7 +65,8 @@ public class HUDManager : MonoBehaviour
 
     private PlayerManager playerManagerInstance;
 
-    bool shaking;
+    bool ammoShaking;
+    bool swapShaking;
 
     private void Awake()
     {
@@ -110,18 +111,27 @@ public class HUDManager : MonoBehaviour
             case 2:
                 // Shake UI if there is no ammo left? Like, if value == 0 already, shake UI
                 (float, float) ammo = playerManagerInstance.GetAmmoInfo();
-                ammoBar.style.width = Length.Percent(Mathf.Lerp(0, 100, ammo.Item2 / ammo.Item1));
-                if (shake)
+                ammoBar.Q<VisualElement>("AmmoFill").style.width = Length.Percent(Mathf.Lerp(0, 100, ammo.Item2 / ammo.Item1));
+                if (shake && !ammoShaking)
                 {
-                    StartCoroutine(shakeBar(ammoBar, 10f));
+                    StartCoroutine(shakeBar(ammoBar, 5f, 0));
                 }
                 break;
             case 2.5f:
-                StartCoroutine(shakeBar(ammoBar, 10f));
+                if (!ammoShaking)
+                {
+                    StartCoroutine(shakeBar(ammoBar, 5f, 0));
+                }
                 break;
             case 3:
                 (float, float) swap = playerManagerInstance.GetSwapInfo();
-                swapBar.style.width = Length.Percent(Mathf.Lerp(100, 0, swap.Item2 / swap.Item1));
+                swapBar.Q<VisualElement>("SwapFill").style.width = Length.Percent(Mathf.Lerp(100, 0, swap.Item2 / swap.Item1));
+                break;
+            case 3.5f:
+                if (!swapShaking)
+                {
+                    StartCoroutine(shakeBar(swapBar, 10f, 1));
+                }
                 break;
             case 4:
                 HUDDocument.rootVisualElement.Q<Label>("TimeCount").text = ((int)LevelManager.LMInstance.timeSurvived).ToString();
@@ -165,14 +175,15 @@ public class HUDManager : MonoBehaviour
     {
         p1Health = HUDDocument.rootVisualElement.Q<VisualElement>("P1Fill");
         p2Health = HUDDocument.rootVisualElement.Q<VisualElement>("P2Fill");
-        ammoBar = HUDDocument.rootVisualElement.Q<VisualElement>("AmmoFill");
-        swapBar = HUDDocument.rootVisualElement.Q<VisualElement>("SwapFill");
+        ammoBar = HUDDocument.rootVisualElement.Q<VisualElement>("AmmoBar");
+        swapBar = HUDDocument.rootVisualElement.Q<VisualElement>("SwapBar");
 
         p1Health.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
         p2Health.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
-        ammoBar.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
-        swapBar.style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
-        shaking = false;
+        ammoBar.Q<VisualElement>("AmmoFill").style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
+        swapBar.Q<VisualElement>("SwapFill").style.width = Length.Percent(Mathf.Lerp(0, 100, 100));
+        ammoShaking = false;
+        swapShaking = false;
     }
 
     // Add the needed controller sprites to the UI
@@ -227,20 +238,33 @@ public class HUDManager : MonoBehaviour
 
     // Shakes the given UI bar
     // TODO: Make shaking a list of bools so multiple things can shake
-    IEnumerator shakeBar(VisualElement bar, float shakeAmount)
+    IEnumerator shakeBar(VisualElement bar, float shakeAmount, int type)
     {
-        if (!shaking)
+        switch(type)
         {
-            shaking = true;
-            for (int i = 1; i < 6; i++)
-            {
-                bar.style.translate = new Translate(shakeAmount / i, 0, 0);
-                yield return new WaitForSeconds(0.1f);
-                bar.style.translate = new Translate(shakeAmount * -1 / i, 0, 0);
-                yield return new WaitForSeconds(0.1f);
-            }
-            bar.style.translate = new Translate(0, 0, 0);
-            shaking = false;
+            case 0:
+                ammoShaking = true;
+                break;
+            case 1:
+                swapShaking = true;
+                break;
+        }
+        for (int i = 1; i < 6; i++)
+        {
+            bar.style.translate = new Translate(shakeAmount / i, 0, 0);
+            yield return new WaitForSeconds(0.1f);
+            bar.style.translate = new Translate(shakeAmount * -1 / i, 0, 0);
+            yield return new WaitForSeconds(0.1f);
+        }
+        bar.style.translate = new Translate(0, 0, 0);
+        switch (type)
+        {
+            case 0:
+                ammoShaking = false;
+                break;
+            case 1:
+                swapShaking = false;
+                break;
         }
     }
 
