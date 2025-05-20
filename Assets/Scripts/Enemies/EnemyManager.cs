@@ -335,4 +335,16 @@ public class EnemyManager : MonoBehaviour
         enemyScript.Spawn();
     }
 
+    // remove all enemies from the scene. Use with caution.
+    public void RemoveAllEnemies()
+    {
+        foreach (GameObject e in enemies)
+        {
+            if (e != null)
+            {
+                Destroy(e);
+            }
+        }
+    }
+
 }

@@ -180,10 +180,17 @@ public abstract class Enemy : MonoBehaviour
     }
 
     // effectively removes the enemy from play
-    protected void DisableEnemy()
+    public void DisableEnemy()
     {
-        hitbox.enabled = false;
+        // Disable all Collider components on this GameObject and its children
+        Collider[] colliders = GetComponentsInChildren<Collider>(includeInactive: true);
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = false;
+        }
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.enabled = false;
     }
+
+
 }

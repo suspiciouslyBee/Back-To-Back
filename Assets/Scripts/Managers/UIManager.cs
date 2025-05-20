@@ -95,4 +95,10 @@ public class UIManager : MonoBehaviour
         initialized = true;
     }
 
+    public void ToggleUI()
+    {
+
+    }
+
+
 }

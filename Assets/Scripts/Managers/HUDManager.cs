@@ -141,7 +141,7 @@ public class HUDManager : MonoBehaviour
                 StyleBackground temp = leftInput.style.backgroundImage;
                 leftInput.style.backgroundImage = rightInput.style.backgroundImage;
                 rightInput.style.backgroundImage = temp;
-                
+
                 // MeleeAbility1 <==> RangedAbility1
                 temp = leftAbility1.style.backgroundImage;
                 leftAbility1.style.backgroundImage = rightAbility1.style.backgroundImage;
@@ -240,7 +240,7 @@ public class HUDManager : MonoBehaviour
     // TODO: Make shaking a list of bools so multiple things can shake
     IEnumerator shakeBar(VisualElement bar, float shakeAmount, int type)
     {
-        switch(type)
+        switch (type)
         {
             case 0:
                 ammoShaking = true;
@@ -282,5 +282,17 @@ public class HUDManager : MonoBehaviour
         initialized = true;
 
         HUDDocument = gameObject.GetComponent<UIDocument>();
+    }
+
+    public void ToggleHUD()
+    {
+        if (HUDDocument.rootVisualElement.style.display == DisplayStyle.None)
+        {
+            HUDDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            HUDDocument.rootVisualElement.style.display = DisplayStyle.None;
+        }
     }
 }
