@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
   [SerializeField] private float useTime;
   [SerializeField] private float reloadTime;
   [SerializeField] private int totalUsesPerReload;  // The total attacks the weapon can do before a realod (ammo)
-  public int remainingUses;                        // The number of attacks left before a reload is required
+  private int remainingUses;                        // The number of attacks left before a reload is required
 
 
   [SerializeField] AudioSource audioSource;
@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
     audioSource.playOnAwake = false;
   }
   //------------------------- Getters -------------------------
-  public int GetCurrentUses()
+  public int GetRemainingUses()
   {
     /*
     Get the current "Ammo" left
@@ -132,6 +132,20 @@ public class Weapon : MonoBehaviour
     return true;
   }
 
+  public void CantUseWeaponFX()
+  {
+    /*
+    Plays a the "can't use" sound effect
+
+    Inputs:
+      * None
+
+    Output:
+      * Returns false if the weapon is ranged and has no more remaing uses
+    */
+    audioSource.PlayOneShot(cantUseSFX);
+  }
+
   //------------------------- Helpers -------------------------
   private void SpawnHitBox(bool isBonus)
   {
@@ -170,13 +184,5 @@ public class Weapon : MonoBehaviour
     // Assign the player to the hit box (For exp assignment on enemy kill)
     // Debug.Log($"assigning {transform.parent.gameObject}");
     myHitbox.GetComponent<WeaponHitBox>().AssignOwner(transform.parent.gameObject, isBonus);
-  }
-
-
-  // "getter" method that plays the "can't use"
-  // sound effect. for use by the Player class.
-  public void CantUseWeaponFX()
-  {
-    audioSource.PlayOneShot(cantUseSFX);
   }
 }

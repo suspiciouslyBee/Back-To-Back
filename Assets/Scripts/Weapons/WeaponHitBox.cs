@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -14,6 +17,8 @@ public class WeaponHitBox : MonoBehaviour
   private GameObject owner;
 
   private float timeAlive;
+
+  //private HashSet<GameObject> piercedEnemies = new HashSet<GameObject>();
 
   //------------------------- Getters -------------------------
   public float GetDamage()
@@ -131,19 +136,19 @@ public class WeaponHitBox : MonoBehaviour
   void OnTriggerEnter2D(Collider2D other)
   {
     // Hitbox hit an enemy
-    if(other.CompareTag("Enemy"))
+    if (other.CompareTag("Enemy"))
     {
       // Deal damage to the enemy
       Enemy enemyScript = other.GetComponent<Enemy>();
-      float direction = Mathf.Abs(transform.localScale.x)/transform.localScale.x;
-      Vector2 force = new Vector2(knockback * direction, knockback/10);
+      float direction = Mathf.Abs(transform.localScale.x) / transform.localScale.x;
+      Vector2 force = new Vector2(knockback * direction, knockback / 10);
       enemyScript.ApplyForce(force);
       bool didKill = enemyScript.ChangeHP(-1 * damage);
       // Reduce the amount of pierce (Currently 1. If we add Enemies with more "defense", this would be set by that value)
       bool isPierceLeft;
       isPierceLeft = ReducePierce(1);
       // If there is no pierce left, destroy the hitbox
-      if(!isPierceLeft)
+      if (!isPierceLeft)
       {
         Destroy(gameObject);
       }

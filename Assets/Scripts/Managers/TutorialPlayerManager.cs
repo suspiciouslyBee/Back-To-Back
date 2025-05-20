@@ -67,14 +67,14 @@ public class TutorialPlayerManager : PlayerManager
                 {
                     TutorialManager.TMInstance.nextStage();
                 }
-                return player1.UseWeapon(false).Item1;
+                return player1.UseWeapon().Item1;
             }
             return false;
         }
         (bool, bool) needAmmo = (false, false);
         if (player2 != null && (((TutorialManager.TMInstance.tutorialStage == 2.5f || TutorialManager.TMInstance.tutorialStage == 2.85f) && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
         {
-            needAmmo = player2.UseWeapon(false);
+            needAmmo = player2.UseWeapon();
             if (needAmmo.Item1 && !needAmmo.Item2)
             {
                 if (TutorialManager.TMInstance.tutorialStage == 2.5f)

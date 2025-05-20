@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxPrefab: {fileID: 8382414216109291920, guid: 5b4ba98265b2dab4994f5413519bedaa, type: 3}
-  useTime: 1
+  useTime: 0.4
   reloadTime: -1
   totalUsesPerReload: -1
   remainingUses: 0

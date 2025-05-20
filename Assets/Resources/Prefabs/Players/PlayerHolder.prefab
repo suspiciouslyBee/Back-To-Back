@@ -195,8 +195,6 @@ MonoBehaviour:
   attackCooldown: 0.8
   reloadCooldown: 0
   dead: 0
-  autoHealTime: 10
-  autoHealAmt: 3
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   dieSFX: {fileID: 0}
@@ -664,8 +662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f5307cbf02e02418033715283917ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIncreaseMult: 1.5
-  firstLevelUpExp: 3
+  levelIncreaseMult: 2.5
+  firstLevelUpExp: 20
   Player1: {fileID: 5115879239757125922}
   Player2: {fileID: 7733958219954021406}
 --- !u!1 &7733958219954021406
@@ -785,8 +783,6 @@ MonoBehaviour:
   attackCooldown: 0.25
   reloadCooldown: 0
   dead: 0
-  autoHealTime: 10
-  autoHealAmt: 3
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   dieSFX: {fileID: 0}

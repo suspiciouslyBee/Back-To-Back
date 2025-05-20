@@ -30,7 +30,7 @@ public class TutorialZombie : Enemy
     // perform an attack
     public override void Attack(GameObject player)
     {
-        player.GetComponent<Player>().Hurt(10);
+        player.GetComponent<Player>().Hurt(attackDamage);
         // ApplyForce(new Vector2(-10 * transform.localScale.x, 0));
     }
 
@@ -62,10 +62,6 @@ public class TutorialZombie : Enemy
         // rb.linearVelocity = new(Mathf.Sign(dir.x) * speed, rb.linearVelocity.y);
     }
 
-    public override void Jump()
-    {
-        rb.linearVelocity = new(rb.linearVelocity.x, jumpPower);
-    }
 
     public override void VisualUpdate()
     {

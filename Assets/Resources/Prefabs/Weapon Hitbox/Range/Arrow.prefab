@@ -129,9 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58af0ee5636a0584985df4935af625df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 34
+  damage: 50
   lifeTime: 1.5
-  pierceCount: 1
+  pierceCount: 0
   velocity: 250
   knockback: 0
   bonusMultiplyer: 2

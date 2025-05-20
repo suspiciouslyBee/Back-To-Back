@@ -58,7 +58,7 @@ public class GameOverUI : MonoBehaviour
     // disable all callbacks because good practice
     private void DisableButtons()
     {
-        restartButton.UnregisterCallback<ClickEvent>(OnRestartPressed);
+        //    restartButton.UnregisterCallback<ClickEvent>(OnRestartPressed);
         quitButton.UnregisterCallback<ClickEvent>(OnQuitPressed);
     }
 

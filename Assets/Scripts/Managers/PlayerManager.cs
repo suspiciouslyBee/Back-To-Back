@@ -16,10 +16,6 @@ public class PlayerManager : MonoBehaviour
     protected float swapCoolDown;                                       // How long of a cooldown do the players have, modifyable if we want to have upgrades n such
     protected float coolDownRemaining;                                  // Stores current cool down time for swapping
 
-    // Keeps track of a bonus system for the players attacks
-    bool p1bonus;                                                       // Gains bonus when you swap                         
-    bool p2bonus;                                                       // Gains bonus when you reload
-
     public int playerCount;
 
     // Set variables
@@ -62,7 +58,7 @@ public class PlayerManager : MonoBehaviour
             if (player1 != null)
             {
                 p1Swap = player1.Swap(solo);
-                p1bonus = true;
+                player1.bonus = true;
             }
             if (player2 != null)
             {
@@ -90,14 +86,14 @@ public class PlayerManager : MonoBehaviour
             {
                 if (player1 != null)
                 {
-                    return player1.UseWeapon(p1bonus).Item1;
+                    return player1.UseWeapon().Item1;
                 }
                 return false;
             }
             (bool, bool) needAmmo = (false, false);
             if (player2 != null)
             {
-                needAmmo = player2.UseWeapon(p2bonus);
+                needAmmo = player2.UseWeapon();
                 if (needAmmo.Item1 && !needAmmo.Item2)
                 {
                     Reload(true);
@@ -112,14 +108,14 @@ public class PlayerManager : MonoBehaviour
             {                                                      // input is right and player1 is on the right side, have player 1 attack
                 if (player1 != null)
                 {
-                    return player1.UseWeapon(p1bonus).Item1;
+                    return player1.UseWeapon().Item1;
                 }
                 return false;
             }
             (bool, bool) needAmmo = (false, false);
             if (player2 != null)
             {
-                needAmmo = player2.UseWeapon(p2bonus);
+                needAmmo = player2.UseWeapon();
                 if (needAmmo.Item1 && !needAmmo.Item2)
                 {
                     Reload(true);
@@ -137,7 +133,7 @@ public class PlayerManager : MonoBehaviour
             bool temp = player2.Reload();
             if (!auto)
             {
-                p2bonus = temp;
+                player2.bonus = temp;
             }
             return temp;
         }
@@ -306,8 +302,6 @@ public class PlayerManager : MonoBehaviour
         swapCoolDown = 3.0f;
         coolDownRemaining = 0;
         playerCount = 2;
-        p1bonus = false;
-        p2bonus = false;
 
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;

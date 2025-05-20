@@ -1,31 +1,17 @@
 using UnityEngine;
 
-public class BasicZombie : Enemy
+public class BigZombie : Enemy
 {
-
-    [SerializeField] private float jumpInterval;        // how frequently this Zombie should jump
-
-    private float randomizedJumpInterval;
-    private float jumpTimer;
     public override void AI()
     {
-        jumpTimer += Time.deltaTime;
-        if (jumpTimer > randomizedJumpInterval && grounded)
-        {
-            jumpTimer = 0;
-            randomizedJumpInterval = jumpInterval * Random.Range(0.75f, 1.25f);
-            Jump();
-        }
-        // Debug.Log($"[BasicZombie] moving towards (0,0)");
         MoveToDestination();
     }
 
-    // spawn logic
     public override void Spawn()
     {
         rb = GetComponent<Rigidbody2D>();
         destination = new();
-        randomizedJumpInterval = jumpInterval * Random.Range(0.75f, 1.25f);
+
     }
 
 
@@ -45,7 +31,6 @@ public class BasicZombie : Enemy
 
     }
 
-    // basic movement
     public override void MoveToPoint(Vector2 pos)
     {
         Vector2 dir = pos - (Vector2)transform.position;
@@ -57,7 +42,6 @@ public class BasicZombie : Enemy
     }
 
 
-
     public override void VisualUpdate()
     {
         //for some reason i cant edit alpha directly??
@@ -67,6 +51,4 @@ public class BasicZombie : Enemy
         baseColor.b = Mathf.Clamp(HPRatio(), 0.3f, 1);
         gameObject.GetComponent<SpriteRenderer>().color = baseColor;
     }
-
-
 }

@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
 
 [RequireComponent(typeof(AudioSource))]
+
+/* 
+    How to add new enemies to Enemy Manager
+    1. assign a prefab to enemyTypes
+    2. assign a weight in enemyWeights
+    3. assign a minWave value
+
+    weight displaces other zombies in the wave.
+    minWave is the earliest that a zombie can spawn.
+*/
 
 // Singleton pattern
 public class EnemyManager : MonoBehaviour
@@ -15,6 +24,10 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject[] enemyTypes;                                     // holds Prefabs of different enemies
 
+    public float[] enemyWeights;                                        // correspond to indices in enemyTypes. Higher weights are less common.
+
+    public float[] minWave;                                             // the earliest wave that this enemy type can spawn in
+
     public static EnemyManager Instance { get { return _instance; } }
 
     public List<GameObject> enemies;
@@ -22,32 +35,55 @@ public class EnemyManager : MonoBehaviour
 
     public List<Vector2> spawnPoints;
 
-    [SerializeField] private readonly float initInterval = 8f;           // initial interval between waves
-    [SerializeField] private float minInterval = 2f;            // absolute minimum value that interval can be
+    [SerializeField] protected float initInterval = 10f;           // initial interval between waves
+
+
+
+    protected readonly float intervalDeviation = 0.5f;   // how much variance between waves there can be.
+
+    [SerializeField] protected int initWaveWeight = 10;          // the total weight of the first zombie wave
+
+    [SerializeField] protected float waveWeightIncrease = 1.5f;  // this means that waveWeight
+
+    [SerializeField] protected float waveSizeDeviation = 0.25f;     // how much the size of each wave should deviate
 
     public int wavesSpawned = 0;                                   // number of waves spawned
 
-    [SerializeField] protected readonly float waveSizeDeviation = 0.25f;     // wave_size = wave_size * (1 +- waveSizeDeviation)
-    protected float curTime;
+
 
     protected const float fixedUpdateTime = 1 / 60f;
 
     public bool initialized = false;
 
-    [SerializeField] private float inWaveSpawnDelay = 0.1f;     // when spawning a group of zombies, produce a slight delay between
-                                                                // spawns
+    [SerializeField] protected float inWaveSpawnDelay = 0.05f;     // when spawning a group of zombies, produce a slight delay between
+                                                                   // spawns
 
-    [SerializeField] private float waveSpawnTimeMult = 1f;      // controls how rapidly zombie waves spawn
+    [SerializeField] protected float waveSpawnTimeMult = 1f;      // controls how rapidly zombie waves spawn
 
-    [SerializeField] private const int spawnCap = 50;           // maximum number of zombies allowed on screen
+    [SerializeField] protected int spawnCap = 50;           // maximum number of zombies allowed on screen
+
+    [SerializeField] protected float maxWaveDelay = 30f;                  // longest the player should wait between waves
 
     public int totalEnemiesSpawned = 0;
 
-    private AudioSource audioSource;
+    protected AudioSource audioSource;
 
-    protected float interval;
 
-    private void Awake()
+    // protected wave-related variables
+    [SerializeField] protected float interval;                     // how long the game should wait with zero zombies on screen before spawning more
+    [SerializeField] protected float minInterval;                   // the absolute minimum amount of break time the player gets
+
+
+    [SerializeField] protected float waveWeight;                  // how "heavy" the wave should be
+
+    [SerializeField] protected float timeWithNoEnemies;           // how long it's been with 0 enemies on screen
+    [SerializeField] protected float timeSinceLastWave;           // how long since a wave was spawned
+
+    [SerializeField] protected List<int> waveQueue;                     // all enemies in the wave
+    [SerializeField] protected List<int> primaryQueue;                 // all enemies spawning at the primary position
+    [SerializeField] protected List<int> secondaryQueue;               // all enemies spawning at the secondary position
+
+    protected void Awake()
     {
         InitEnemyManager();
     }
@@ -55,30 +91,40 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         Time.fixedDeltaTime = fixedUpdateTime;
+
     }
 
     // Remove Update as needed
-    private void Update()
+    protected void Update()
     {
-        curTime += Time.deltaTime;
-        // Debug.Log($"total enemies spawned: {totalEnemiesSpawned}");
-        if (curTime > interval)
+        timeSinceLastWave += Time.deltaTime;
+        if (GetEnemyCount() <= 0)
         {
-            int count = RandomEnemyCount(LevelManager.LMInstance.timeSurvived);
-            (Vector2, Vector2) positions = PrimaryPosition();
-            StartCoroutine(SpawnGroup((int)Mathf.Max(count * 0.8f, 1), positions.Item1));
-            StartCoroutine(SpawnGroup((int)Mathf.Max(count * 0.2f - 1, 0), positions.Item2));
-            // logic to change the interval?
-            curTime = 0f;
-            interval *= 1.35f;                            // wave interval increases over time
-            if (interval > 12) { interval = 12; }         // Max limit so the player doesn't stand there for a minute
-            wavesSpawned++;
-
+            timeWithNoEnemies += Time.deltaTime;
         }
+        else
+        {
+            timeWithNoEnemies = 0f;
+        }
+
+        if (timeSinceLastWave >= maxWaveDelay || timeWithNoEnemies > interval)
+        {
+            timeSinceLastWave = 0f;
+            timeWithNoEnemies = 0f;
+            GenerateWave();
+            interval *= 0.9f;
+            if (interval < minInterval)
+            {
+                interval = minInterval;
+            }
+        }
+
+
+
     }
 
     // tick 60 times per second
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         foreach (Enemy enemy in enemyScripts)
         {
@@ -87,12 +133,149 @@ public class EnemyManager : MonoBehaviour
             enemy.VisualUpdate();
         }
     }
+    // ###### WAVE LOGIC FUNCTIONS ######
+    // function that masterminds a wave
+    protected void GenerateWave()
+    {
+        wavesSpawned++;
+        waveQueue.Clear();
+        (Vector2, Vector2) positions = PrimaryPosition();
+        Vector2 primaryPos = positions.Item1;
+        Vector2 secondaryPos = positions.Item2;
+        // populate the waves
+        float actualWeight = Mathf.Floor(Random.Range(waveWeight * (1 - waveSizeDeviation), waveWeight * (1 + waveSizeDeviation)));
+        float totalWeight = 0;
+
+        for (int i = 0; i < spawnCap; i++)
+        {
+            // choose a random enemy from EnemyTypes
+            int tentativeIndex = Random.Range(0, enemyTypes.Length);
+
+            if (wavesSpawned >= minWave[tentativeIndex])
+            {
+
+                waveQueue.Add(tentativeIndex);
+                totalWeight += enemyWeights[tentativeIndex];
+                Debug.Log($"Adding enemy of index {tentativeIndex} to waveQueue");
+            }
+            if (totalWeight > actualWeight)
+            {
+                break;
+            }
+        }
+
+        foreach (int i in waveQueue)
+        {
+            if (Random.Range(0f, 1.0f) > 0.8f)
+            {
+                primaryQueue.Add(i);
+            }
+            else
+            {
+                secondaryQueue.Add(i);
+            }
+        }
+
+
+        // empty the queues
+        StartCoroutine(SpawnAllInList(primaryQueue, primaryPos));
+        StartCoroutine(SpawnAllInList(secondaryQueue, secondaryPos));
+
+        // make the next wave harder
+        waveWeight *= waveWeightIncrease;
+    }
+
+    // spawns all enemies in the list in order and clears the list
+    protected IEnumerator SpawnAllInList(List<int> enemies, Vector2 position)
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            yield return new WaitForSeconds(inWaveSpawnDelay * Random.Range(0.75f, 1.25f));
+            InitNewEnemy(enemies[i], position);
+        }
+
+        enemies.Clear();
+    }
+
+    // ###### HELPER FUNCTIONS ######
 
     virtual public int GetEnemyCount()
     {
         return enemies.Count;
     }
 
+    protected void InitNewEnemy(int index, Vector2 position)
+    {
+        GameObject enemy = Instantiate(enemyTypes[index]);
+        enemy.transform.position = position;
+
+        enemies.Add(enemy);
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
+        enemyScript.SetDestination(new());
+        enemyScripts.Add(enemyScript);
+        enemyScript.Spawn();
+        totalEnemiesSpawned++;
+    }
+
+    // stop tracking this enemy
+    public void LoseEnemy(GameObject enemy)
+    {
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
+
+        enemyScripts.Remove(enemyScript);
+        enemies.Remove(enemy);
+    }
+
+    virtual public void InitEnemyManager()
+    {
+        // maintain the singleton
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+        timeWithNoEnemies = 0f;
+        timeSinceLastWave = 0f;
+
+        waveWeight = initWaveWeight;
+
+        interval = initInterval;        // constant amount of time for the next wave
+
+        initialized = true;
+    }
+
+
+
+    // return a primary and secondary SpawnPosition
+    protected (Vector2, Vector2) PrimaryPosition()
+    {
+        // randomly choose between spawnPositions 0 and 1
+        (Vector2, Vector2) tuple;
+
+        // coinflip: true or false;
+        bool pos1 = Random.value > 0.5f ? true : false;
+        if (pos1)
+        {
+            tuple.Item1 = spawnPoints[0];
+            tuple.Item2 = spawnPoints[1];
+        }
+        else
+        {
+            tuple.Item1 = spawnPoints[1];
+            tuple.Item2 = spawnPoints[0];
+        }
+        //Debug.Log($"Primary position: {tuple.Item1}; Secondary Position: {tuple.Item2}");
+        return tuple;
+    }
+    virtual public void AdjustSpawning(float newTiming)
+    {
+        interval = newTiming;
+    }
+
+    // ###### STUFF THAT TUTORIAL ENEMYMANAGER NEEDS TO INHERIT FOR SOME REASON ######
     // spawn an enemy somewhere idk
     virtual public void SpawnEnemy()
     {
@@ -152,84 +335,4 @@ public class EnemyManager : MonoBehaviour
         enemyScript.Spawn();
     }
 
-    // stop tracking this enemy
-    public void LoseEnemy(GameObject enemy)
-    {
-        Enemy enemyScript = enemy.GetComponent<Enemy>();
-
-        enemyScripts.Remove(enemyScript);
-        enemies.Remove(enemy);
-    }
-
-    virtual public void InitEnemyManager()
-    {
-        // maintain the singleton
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
-        curTime = 0f;
-
-        interval = initInterval;        // constant amount of time for the next wave
-
-        initialized = true;
-    }
-    // spawn a group of zombies
-    private IEnumerator SpawnGroup(int count, Vector2 position)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            SpawnEnemy(position);
-            yield return new WaitForSeconds(Random.Range(inWaveSpawnDelay * 0.25f, inWaveSpawnDelay * 1.75f));
-        }
-
-    }
-
-    // generate a semi-random number that determines
-    // how many zombies will spawn in the next wave
-    private int RandomEnemyCount(float time)
-    {
-        // how to use the time parameter?
-        // equation: f(x) = 0.05 * t^1.1 + 1
-        // f(x) = Random.Range(f(x) * (1-waveSizeDeviation), f(x) * (1 + waveSizeDeviation))
-
-        float initCount = 0.06f * Mathf.Pow(time, 1.1f) + 1;
-        initCount *= Random.Range(1 - waveSizeDeviation, 1 + waveSizeDeviation);
-
-        int finalCount = (int)initCount;
-
-        //Debug.Log($"Init count: {initCount}; final Count: {finalCount}");
-        return finalCount;
-    }
-
-
-    // return a primary and secondary SpawnPosition
-    private (Vector2, Vector2) PrimaryPosition()
-    {
-        // randomly choose between spawnPositions 0 and 1
-        (Vector2, Vector2) tuple;
-
-        // coinflip: true or false;
-        bool pos1 = Random.value > 0.5f ? true : false;
-        if (pos1)
-        {
-            tuple.Item1 = spawnPoints[0];
-            tuple.Item2 = spawnPoints[1];
-        }
-        else
-        {
-            tuple.Item1 = spawnPoints[1];
-            tuple.Item2 = spawnPoints[0];
-        }
-        //Debug.Log($"Primary position: {tuple.Item1}; Secondary Position: {tuple.Item2}");
-        return tuple;
-    }
-    virtual public void AdjustSpawning(float newTiming)
-    {
-        interval = newTiming;
-    }
 }

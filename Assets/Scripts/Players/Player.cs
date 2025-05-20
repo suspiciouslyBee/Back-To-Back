@@ -22,9 +22,10 @@ public class Player : MonoBehaviour
     float iframes;                                          // How long the player has iframes
     bool invulnrable;                                       // Does the player have iframes
     public bool dead;                                       // Is the player dead
+    public bool bonus;
 
-    [SerializeField] private float autoHealTime = 10f;      // time before players start healing
-    [SerializeField] private int autoHealAmt = 1;           
+    // [SerializeField] private float autoHealTime = 10f;      // time before players start healing
+    // [SerializeField] private int autoHealAmt = 1;           
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip hurtSFX;
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         invulnrable = false;
         canAttack = true;
         dead = false;
+        bonus = false;
         curPosition = gameObject.transform;
         Weapon startingWeapon = GetComponent<UpgradePathTracker>().GetCurWeapon().GetComponent<Weapon>();
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
@@ -88,7 +90,7 @@ public class Player : MonoBehaviour
     }
 
     // Attacks with curWeapon, currently bool if we want to check if the weapon was used.
-    public (bool, bool) UseWeapon(bool bonus)
+    public (bool, bool) UseWeapon()
     {
         if (canAttack && !acting)
         {
@@ -97,6 +99,10 @@ public class Player : MonoBehaviour
             if (type == "ranged")
             {
                 HUDManager.Instance.ChangeBars(2, false);
+            }
+            if (hasAmmo && bonus)
+            {
+                bonus = false;
             }
             return (true, hasAmmo);
         }
@@ -155,7 +161,7 @@ public class Player : MonoBehaviour
     {
         if (newWeapon != null)
         {
- 
+
             newWeapon = Instantiate(newWeapon, curWeapon.gameObject.transform.position, curWeapon.gameObject.transform.rotation, gameObject.transform);
             Destroy(curWeapon.gameObject);
             curWeapon = newWeapon.GetComponent<Weapon>();
@@ -197,7 +203,6 @@ public class Player : MonoBehaviour
     public void Heal(float healAmount)
     {
         health += healAmount;
-
         if (health > maxHealth)
         {
             health = maxHealth;
@@ -253,7 +258,7 @@ public class Player : MonoBehaviour
     // Returns the max and cur ammo stats
     public (float, float) GetAmmoInfo()
     {
-        return (curWeapon.GetTotalUses(), curWeapon.remainingUses);
+        return (curWeapon.GetTotalUses(), curWeapon.GetRemainingUses());
     }
 
     public (bool, bool) GetAbilityInfo()
