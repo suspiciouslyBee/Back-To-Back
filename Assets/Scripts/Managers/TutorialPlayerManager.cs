@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class TutorialPlayerManager : PlayerManager
 {
+    [SerializeField] Ability player1Prefab;
+    [SerializeField] Ability player2Prefab;
+
     // Set variables
     private void Awake()
     {
@@ -11,7 +14,7 @@ public class TutorialPlayerManager : PlayerManager
     // Calls the individual players to swap and returns whether it was succesful for not
     override public bool Swap()
     {
-        if (coolDownRemaining == 0 && (TutorialManager.TMInstance.tutorialStage == 3.5f || TutorialManager.TMInstance.tutorialStage == 3.75f))
+        if (coolDownRemaining == 0 && (TutorialManager.TMInstance.tutorialStage == 3.5f || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
         {
             if (TutorialManager.TMInstance.tutorialStage == 3.5f)
             {
@@ -58,7 +61,7 @@ public class TutorialPlayerManager : PlayerManager
             // Or can be changed to this if we want the inputs to be melee/range instead of left/right
         if (melee)
         {
-            if (player1 != null && ((TutorialManager.TMInstance.tutorialStage > 1f && TutorialManager.TMInstance.tutorialStage < 2f) || TutorialManager.TMInstance.tutorialStage == 3.75f))
+            if (player1 != null && ((TutorialManager.TMInstance.tutorialStage > 1f && TutorialManager.TMInstance.tutorialStage < 2f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
             {
                 if (TutorialManager.TMInstance.tutorialStage == 1.5f)
                 {
@@ -69,7 +72,7 @@ public class TutorialPlayerManager : PlayerManager
             return false;
         }
         (bool, bool) needAmmo = (false, false);
-        if (player2 != null && (((TutorialManager.TMInstance.tutorialStage == 2.5f || TutorialManager.TMInstance.tutorialStage == 2.85f) && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f))
+        if (player2 != null && (((TutorialManager.TMInstance.tutorialStage == 2.5f || TutorialManager.TMInstance.tutorialStage == 2.85f) && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
         {
             needAmmo = player2.UseWeapon();
             if (needAmmo.Item1 && !needAmmo.Item2)
@@ -91,7 +94,7 @@ public class TutorialPlayerManager : PlayerManager
     // Because player2 will be the ranged individual, simply call player2 to always reload
     override public bool Reload(bool auto)
     {
-        if ((TutorialManager.TMInstance.tutorialStage >= 2.75f && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f)
+        if ((TutorialManager.TMInstance.tutorialStage >= 2.75f && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f)
         {
             bool reloading = player2.Reload();
             if (TutorialManager.TMInstance.tutorialStage == 2.75f)
@@ -99,6 +102,62 @@ public class TutorialPlayerManager : PlayerManager
                 TutorialManager.TMInstance.nextStage();
             }
             return reloading;
+        }
+        return false;
+    }
+
+    // Calls the abilities of the chosen player
+    override public bool CallAbility(bool player, bool ability)
+    {
+        if (TutorialManager.TMInstance.tutorialStage == 4.5f)
+        {
+            // Keep them the same
+            if (InputPreference.meleeRanged || player1.left)
+            {
+                if (player)
+                {
+                    if (player1 == null)
+                    {
+                        return false;
+                    }
+                    if (ability)
+                    {
+                        return player1.CallAbility(ability);
+                    }
+                    return player1.CallAbility(ability);
+                }
+                if (player2 == null)
+                {
+                    return false;
+                }
+                if (ability)
+                {
+                    return player2.CallAbility(ability);
+                }
+                return player2.CallAbility(ability);
+            }
+
+            if (player)
+            {
+                if (player2 == null)
+                {
+                    return false;
+                }
+                if (ability)
+                {
+                    return player2.CallAbility(ability);
+                }
+                return player2.CallAbility(ability);
+            }
+            if (player1 == null)
+            {
+                return false;
+            }
+            if (ability)
+            {
+                return player1.CallAbility(ability);
+            }
+            return player1.CallAbility(ability);
         }
         return false;
     }
@@ -138,5 +197,21 @@ public class TutorialPlayerManager : PlayerManager
 
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
+    }
+
+    public override void GiftPlayers(bool expOrAbilities)
+    {
+        if (expOrAbilities)
+        {
+            UpgradeManager uM = this.gameObject.GetComponent<UpgradeManager>();
+            uM.AddExpFromPlayer(uM.GetExpForLevel(0), player1.gameObject);
+            uM.AddExpFromPlayer(uM.GetExpForLevel(0), player2.gameObject);
+        }
+        else
+        {
+            player1.SetAbility(player1Prefab, true);
+            player2.SetAbility(player2Prefab, true);
+            HUDManager.Instance.ChangeBars(6, false);
+        }
     }
 }

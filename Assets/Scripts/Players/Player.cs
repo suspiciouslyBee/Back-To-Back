@@ -43,8 +43,13 @@ public class Player : MonoBehaviour
         curPosition = gameObject.transform;
         Weapon startingWeapon = GetComponent<UpgradePathTracker>().GetCurWeapon().GetComponent<Weapon>();
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
+        attackCooldown = curWeapon.GetUseTime();
+        reloadCooldown = curWeapon.GetReloadTime();
         curWeapon.transform.position = new Vector2(curPosition.position.x + 0.7f, curPosition.position.y);
-        firstAbility = Instantiate(fAPrefab, gameObject.transform);
+        if (fAPrefab != null)
+        {
+            firstAbility = Instantiate(fAPrefab, gameObject.transform);
+        }
         if (sAPrefab != null)
         {
             secondAbility = Instantiate(sAPrefab, gameObject.transform);
@@ -151,7 +156,7 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    // For when we introduce item drops.
+    // Switches the weapon when enough exp is gained
     public void SwitchWeapon(GameObject newWeapon)
     {
         if (newWeapon != null)
@@ -269,5 +274,17 @@ public class Player : MonoBehaviour
         }
         return abilityInfo;
         //return (firstAbility.GetCanUse(), secondAbility.GetCanUse());
+    }
+
+    public void SetAbility(Ability a, bool first)
+    {
+        if (first)
+        {
+            firstAbility = Instantiate(a, gameObject.transform);
+        }
+        else
+        {
+            secondAbility = Instantiate(a, gameObject.transform);
+        }
     }
 }

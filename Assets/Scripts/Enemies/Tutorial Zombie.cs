@@ -42,7 +42,7 @@ public class TutorialZombie : Enemy
         {
             TutorialManager.TMInstance.nextStage();
         }
-        else if (TutorialManager.TMInstance.tutorialStage == 3.75f && EnemyManager.Instance.GetEnemyCount() == 1)
+        else if ((TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f) && EnemyManager.Instance.GetEnemyCount() == 1)
         {
             TutorialManager.TMInstance.nextStage();
         }

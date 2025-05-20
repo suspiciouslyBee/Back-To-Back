@@ -72,6 +72,7 @@ public class PlayerManager : MonoBehaviour
             }
             return (p1Swap && p2Swap);
         }
+        HUDManager.Instance.ChangeBars(3.5f, true);
         return false;
     }
 
@@ -305,4 +306,7 @@ public class PlayerManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
     }
+
+    // Mainly for tutorial
+    virtual public void GiftPlayers(bool expOrAbilities) {}
 }
