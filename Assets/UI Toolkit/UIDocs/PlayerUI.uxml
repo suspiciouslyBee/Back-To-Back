@@ -35,14 +35,14 @@
         <ui:VisualElement name="P2Ability2" style="flex-grow: 1; height: 55%; position: absolute; width: 100%; bottom: 0;" />
     </ui:VisualElement>
     <ui:VisualElement name="MainControls" style="flex-grow: 1; position: absolute; bottom: 0%; left: 0%; width: 13.5%; height: 24%;">
-        <ui:VisualElement name="LeftIcon" style="flex-grow: 1; position: absolute; top: 35%; left: 0%; width: 20%; height: 20%; background-image: none;" />
-        <ui:VisualElement name="LeftAttackButton" style="flex-grow: 1; position: absolute; top: 35%; left: 20%; width: 20%; height: 20%; background-image: none;" />
+        <ui:VisualElement name="LeftIcon" style="flex-grow: 1; position: absolute; top: 40%; left: 0%; width: 20%; height: 20%; background-image: none;" />
+        <ui:VisualElement name="LeftAttackButton" style="flex-grow: 1; position: absolute; top: 40%; left: 20%; width: 20%; height: 20%; background-image: none;" />
         <ui:VisualElement name="SwapIcon" style="flex-grow: 1; position: absolute; top: 0%; left: 40%; width: 20%; height: 20%; background-image: none;" />
         <ui:VisualElement name="SwapButton" style="flex-grow: 1; position: absolute; top: 20%; left: 40%; width: 20%; height: 20%; background-image: none;" />
         <ui:VisualElement name="ReloadButton" style="flex-grow: 1; position: absolute; top: auto; left: 40%; width: 20%; height: 20%; background-image: none; bottom: 20%;" />
         <ui:VisualElement name="ReloadIcon" style="flex-grow: 1; position: absolute; top: auto; left: 40%; width: 20%; height: 20%; background-image: none; bottom: 0%;" />
-        <ui:VisualElement name="RightAttackButton" style="flex-grow: 1; position: absolute; top: 35%; left: auto; width: 20%; height: 20%; background-image: none; right: 20%;" />
-        <ui:VisualElement name="RightIcon" style="flex-grow: 1; position: absolute; top: 35%; left: auto; width: 20%; height: 20%; background-image: none; right: 0%;" />
+        <ui:VisualElement name="RightAttackButton" style="flex-grow: 1; position: absolute; top: 40%; left: auto; width: 20%; height: 20%; background-image: none; right: 20%;" />
+        <ui:VisualElement name="RightIcon" style="flex-grow: 1; position: absolute; top: 40%; left: auto; width: 20%; height: 20%; background-image: none; right: 0%;" />
     </ui:VisualElement>
     <ui:VisualElement name="AbilityControls" style="flex-grow: 1; bottom: 0%; right: 0%; position: absolute; width: 13.5%; height: 24%;">
         <ui:VisualElement name="LeftAbility1Icon" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: 15%; top: 35%;" />
