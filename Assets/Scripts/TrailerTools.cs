@@ -19,22 +19,32 @@ public class TrailerTools : MonoBehaviour
         // increase time survived
         if (Input.GetKeyDown(KeyCode.T))
         {
+            Debug.Log($"[TrailerTools] increasing survival time by 30 seconds (now {LevelManager.LMInstance.timeSurvived} seconds)");
             LevelManager.LMInstance.IncreaseTime(30f);
         }
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
+            Debug.Log($"[TrailerTools] Decreaseing survival time by 30 seconds (now {LevelManager.LMInstance.timeSurvived} seconds)");
             LevelManager.LMInstance.IncreaseTime(-30f);
         }
 
         if (Input.GetKeyDown(KeyCode.U))
         {
+            Debug.Log("[TrailerTools] Toggling HUD");
             HUDManager.Instance.ToggleHUD();
         }
 
         if (Input.GetKeyDown(KeyCode.I))
         {
+            Debug.Log("[TrailerTools] Removing All Enemies");
             EnemyManager.Instance.RemoveAllEnemies();
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            EnemyManager.Instance.SkipWave();
+            Debug.Log($"[TrailerTools] Skipping a wave! Wave is now {EnemyManager.Instance.GetWaveCount()}");
         }
 
     }

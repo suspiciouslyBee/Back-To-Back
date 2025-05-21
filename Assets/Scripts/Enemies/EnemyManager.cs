@@ -347,4 +347,14 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void SkipWave()
+    {
+        wavesSpawned++;
+    }
+
+    public int GetWaveCount()
+    {
+        return wavesSpawned;
+    }
+
 }
