@@ -102,10 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxPrefab: {fileID: 8382414216109291920, guid: 0c4ac20cd21390047b5e906b7bd176f3, type: 3}
-  useTime: 0.01
+  useTime: 0.1
   reloadTime: -1
   totalUsesPerReload: -1
-  remainingUses: 0
   audioSource: {fileID: 0}
   useSFX: {fileID: 8300000, guid: 9d0ecd9c158843248a32a0002bb95754, type: 3}
   cantUseSFX: {fileID: 0}
@@ -122,7 +121,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -107,7 +107,7 @@ MonoBehaviour:
   totalUsesPerReload: 2
   audioSource: {fileID: 0}
   useSFX: {fileID: 8300000, guid: f031c7d25246c8f46b920b89576ad35e, type: 3}
-  cantUseSFX: {fileID: 0}
+  cantUseSFX: {fileID: 8300000, guid: 96feddc7fda5b914eb332d8ec5326e84, type: 3}
 --- !u!82 &6589716123485208347
 AudioSource:
   m_ObjectHideFlags: 0
@@ -121,7 +121,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
