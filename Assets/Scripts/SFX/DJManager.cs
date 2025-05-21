@@ -30,6 +30,7 @@ public class DJManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             DJInstance = this;
             aS = gameObject.GetComponent<AudioSource>();
+            aS.volume = volume;
             PlayTrack(1);
         }
         initialized = true;
@@ -62,7 +63,7 @@ public class DJManager : MonoBehaviour
                 for (int i = 0; i < 10; i++)
                 {
                     aS.volume -= (maxVolume / 10);
-                    yield return new WaitForSeconds(0.05f);
+                    yield return new WaitForSeconds(0.03f);
                 }
             }
             aS.volume = 0;
@@ -74,7 +75,7 @@ public class DJManager : MonoBehaviour
             for (int i = 0; i < 10; i++)
             {
                 aS.volume += (maxVolume / 10);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.03f);
             }
             volume = maxVolume;
             aS.volume = volume;
