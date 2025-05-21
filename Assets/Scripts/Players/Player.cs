@@ -3,22 +3,30 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
+    Transform curPosition;                                  // Player's current position
+    SpriteRenderer sR;
+
+    [SerializeField] Sprite normalOutfit;
+    [SerializeField] Sprite bonusOutfit;
 
     [SerializeField] Weapon startingWeapon;                 // Basic weapon prefab
     [SerializeField] Weapon curWeapon;                      // Current weapon
+
     [SerializeField] Ability fAPrefab;
     [SerializeField] Ability sAPrefab;
     Ability firstAbility;                                   // First ability
     Ability secondAbility;                                  // Second ability
-    Transform curPosition;                                  // Player's current position
-    public bool left;                                       // To keep track of which side the players are on
-    public string type;                                     // "melee" or "range"?
+
     [SerializeField] float maxHealth;                       // Max player health
     [SerializeField] float health;                          // Current player health
-    bool canAttack;                                         // Stop the player from attacking or possibly swapping under certain states
-    public bool acting;                                     // Stop the player from performing actions while using an ability
+
     [SerializeField] float attackCooldown;                  // Time between attacks
     [SerializeField] float reloadCooldown;                  // Time between attacks
+
+    public bool left;                                       // To keep track of which side the players are on
+    public string type;                                     // "melee" or "range"?
+    bool canAttack;                                         // Stop the player from attacking or possibly swapping under certain states
+    public bool acting;                                     // Stop the player from performing actions while using an ability
     float iframes;                                          // How long the player has iframes
     bool invulnrable;                                       // Does the player have iframes
     public bool dead;                                       // Is the player dead
@@ -39,7 +47,8 @@ public class Player : MonoBehaviour
         invulnrable = false;
         canAttack = true;
         dead = false;
-        bonus = false;
+        sR = gameObject.GetComponent<SpriteRenderer>();
+        SetSprite(false);
         curPosition = gameObject.transform;
         Weapon startingWeapon = GetComponent<UpgradePathTracker>().GetCurWeapon().GetComponent<Weapon>();
         curWeapon = Instantiate(startingWeapon, gameObject.transform);
@@ -102,7 +111,7 @@ public class Player : MonoBehaviour
             }
             if (hasAmmo && bonus)
             {
-                bonus = false;
+                SetSprite(false);
             }
             return (true, hasAmmo);
         }
@@ -170,7 +179,10 @@ public class Player : MonoBehaviour
             curWeapon = newWeapon.GetComponent<Weapon>();
             attackCooldown = curWeapon.GetUseTime();
             reloadCooldown = curWeapon.GetReloadTime();
-
+            if (type == "ranged")
+            {
+                HUDManager.Instance.ChangeBars(2, false);
+            }
         }
     }
 
@@ -241,6 +253,8 @@ public class Player : MonoBehaviour
     IEnumerator ActionTimer(float actionLength, int actionType)
     {
         acting = true;
+        Color c = curWeapon.gameObject.GetComponent<SpriteRenderer>().color;
+        curWeapon.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.55f, 0.55f, 0.55f);
         yield return new WaitForSeconds(actionLength);
         switch (actionType)
         {
@@ -249,6 +263,7 @@ public class Player : MonoBehaviour
                 HUDManager.Instance.ChangeBars(2, false);
                 break;
         }
+        curWeapon.gameObject.GetComponent<SpriteRenderer>().color = c;
         acting = false;
     }
 
@@ -288,6 +303,20 @@ public class Player : MonoBehaviour
         else
         {
             secondAbility = Instantiate(a, gameObject.transform);
+        }
+    }
+
+    public void SetSprite(bool outfit)
+    {
+        if (!outfit)
+        {
+            sR.sprite = normalOutfit;
+            bonus = false;
+        }
+        else
+        {
+            sR.sprite = bonusOutfit;
+            bonus = true;
         }
     }
 }

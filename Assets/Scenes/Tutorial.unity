@@ -591,7 +591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7291840184277444212, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: 7291840184277444212, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1105,15 +1105,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTypes:
   - {fileID: 3874023301752375482, guid: 45d367b28937ea44a97b611f5f8f8e7c, type: 3}
+  enemyWeights: []
+  minWave: []
   enemies: []
   enemyScripts: []
   spawnPoints: []
-  minInterval: 2
+  initInterval: 10
+  initWaveWeight: 10
+  waveWeightIncrease: 1.5
+  waveSizeDeviation: 0.25
   wavesSpawned: 0
   initialized: 0
   inWaveSpawnDelay: 0.1
   waveSpawnTimeMult: 1
+  spawnCap: 50
+  maxWaveDelay: 30
   totalEnemiesSpawned: 0
+  interval: 0
+  minInterval: 2
+  waveWeight: 0
+  timeWithNoEnemies: 0
+  timeSinceLastWave: 0
+  waveQueue: 
+  primaryQueue: 
+  secondaryQueue: 
 --- !u!82 &1980000988
 AudioSource:
   m_ObjectHideFlags: 0

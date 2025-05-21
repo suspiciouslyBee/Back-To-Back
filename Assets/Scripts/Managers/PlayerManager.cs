@@ -58,7 +58,7 @@ public class PlayerManager : MonoBehaviour
             if (player1 != null)
             {
                 p1Swap = player1.Swap(solo);
-                player1.bonus = true;
+                player1.SetSprite(true);
             }
             if (player2 != null)
             {
@@ -133,7 +133,7 @@ public class PlayerManager : MonoBehaviour
             bool temp = player2.Reload();
             if (!auto)
             {
-                player2.bonus = temp;
+                player2.SetSprite(temp);
             }
             return temp;
         }

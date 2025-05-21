@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1, y: 3.8}
+  m_Offset: {x: 1.0097227, y: 3.8000002}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 7}
+  m_Size: {x: 1.0537201, y: 7}
   m_EdgeRadius: 0
 --- !u!1 &5115879239757125922
 GameObject:
@@ -183,18 +183,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90ce7b05de74f743a3d9784ec429659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalOutfit: {fileID: 3187071219573135304, guid: 8f135787e227cce49ba95a9ed84bccb3, type: 3}
+  bonusOutfit: {fileID: 6623347770690642616, guid: f84d392ba4ee8ed48bddbc4314196f8d, type: 3}
   startingWeapon: {fileID: 4877257763695872399, guid: 65d6e5d8ee52b7d489644fa62a2d4ab9, type: 3}
   curWeapon: {fileID: 0}
   fAPrefab: {fileID: 3431308859369590734, guid: 0276d67ecb0731e4191433b58f8252ea, type: 3}
   sAPrefab: {fileID: 0}
-  left: 1
-  type: melee
   maxHealth: 100
   health: 0
-  acting: 0
   attackCooldown: 0.8
   reloadCooldown: 0
+  left: 1
+  type: melee
+  acting: 0
   dead: 0
+  bonus: 0
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   dieSFX: {fileID: 0}
@@ -269,17 +272,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.00012874603}
+  m_Offset: {x: 0, y: -0.0104776025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1428572, y: 2}
+    oldSize: {x: 1, y: 1.9285715}
     newSize: {x: 0.14, y: 0.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.9}
+  m_Size: {x: 1, y: 1.9206976}
   m_EdgeRadius: 0
 --- !u!82 &725047101540015497
 AudioSource:
@@ -457,7 +460,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 3.8}
+  m_Offset: {x: -0.009811223, y: 3.8000002}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -467,7 +470,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 7}
+  m_Size: {x: 1.0538977, y: 7}
   m_EdgeRadius: 0
 --- !u!1 &6100800838198820699
 GameObject:
@@ -697,7 +700,7 @@ Transform:
   m_GameObject: {fileID: 7733958219954021406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.04, z: -0.04245063}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0.04245063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -771,18 +774,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90ce7b05de74f743a3d9784ec429659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalOutfit: {fileID: 2426890910119273652, guid: 8f135787e227cce49ba95a9ed84bccb3, type: 3}
+  bonusOutfit: {fileID: -5145282466274310738, guid: f84d392ba4ee8ed48bddbc4314196f8d, type: 3}
   startingWeapon: {fileID: 6584704054352460258, guid: 3ada334a9ba42d74eb986aa4451eae18, type: 3}
   curWeapon: {fileID: 0}
   fAPrefab: {fileID: 6331778464711860266, guid: 9256268e594ef4d4abf8d3c473bf3d7c, type: 3}
   sAPrefab: {fileID: 0}
-  left: 0
-  type: ranged
   maxHealth: 100
   health: 0
-  acting: 0
   attackCooldown: 0.25
   reloadCooldown: 0
+  left: 0
+  type: ranged
+  acting: 0
   dead: 0
+  bonus: 0
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 0}
   dieSFX: {fileID: 0}
@@ -857,17 +863,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.0011806786}
+  m_Offset: {x: 0, y: 0.000018149614}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2142857, y: 1.9285715}
+    oldSize: {x: 1.0714285, y: 1.9285715}
     newSize: {x: 0.15, y: 0.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.7945132}
+  m_Size: {x: 1, y: 1.9520454}
   m_EdgeRadius: 0
 --- !u!82 &7672183863251512177
 AudioSource:

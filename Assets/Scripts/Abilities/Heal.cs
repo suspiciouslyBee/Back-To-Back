@@ -39,7 +39,7 @@ public class Heal : Ability
         * None
         */
 
-        thisParent.PerformingAction(abilityTime + 0.1f);
+        thisParent.PerformingAction(abilityTime + 0.2f);
         StartCoroutine(Healing());
     }
 
