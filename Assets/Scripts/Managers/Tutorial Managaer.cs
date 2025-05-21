@@ -507,7 +507,7 @@ public class TutorialManager : MonoBehaviour
                 case 1:
                     dialogue.text = "";
                     DeactivateClicker();
-                    SceneManager.LoadScene("StartScene");
+                    MainManager.Instance.ChangeStageRelatively(-1);
                     break;
             }
         }
