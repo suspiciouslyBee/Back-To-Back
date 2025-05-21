@@ -35,6 +35,7 @@ public class TutorialPlayerManager : PlayerManager
             bool p2Swap = false;
             if (player1 != null)
             {
+                player1.SetSprite(true);
                 p1Swap = player1.Swap(solo);
             }
             if (player2 != null)
@@ -42,6 +43,10 @@ public class TutorialPlayerManager : PlayerManager
                 p2Swap = player2.Swap(solo);
             }
             StartCoroutine(knockback.Appear(0.1f));
+/*            if (!InputPreference.meleeRanged)
+            {
+                HUDManager.Instance.ChangeBars(5, false);
+            }*/
             return (p1Swap && p2Swap);
         }
         return false;
@@ -92,16 +97,25 @@ public class TutorialPlayerManager : PlayerManager
     }
 
     // Because player2 will be the ranged individual, simply call player2 to always reload
-    override public bool Reload(bool auto)
+    override public bool Reload(bool auto = false)
     {
-        if ((TutorialManager.TMInstance.tutorialStage >= 2.75f && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f)
+        if (!player2.acting && ((TutorialManager.TMInstance.tutorialStage >= 2.75f && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
         {
             bool reloading = player2.Reload();
             if (TutorialManager.TMInstance.tutorialStage == 2.75f)
             {
                 TutorialManager.TMInstance.nextStage();
             }
+            if (!auto)
+            {
+                player2.SetSprite(reloading);
+            }
             return reloading;
+        }
+        else if ((TutorialManager.TMInstance.tutorialStage >= 2.75f && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f)
+        {
+            HUDManager.Instance.ChangeBars(2.5f, true);
+            return false;
         }
         return false;
     }

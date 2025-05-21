@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
   [SerializeField] AudioClip useSFX;              // sound to play when used
   [SerializeField] AudioClip cantUseSFX;          // sound to play when can't be used for some reason
   // Start is called once before the first execution of Update after the MonoBehaviour is created
-  void Start()
+  void Awake()
   {
     Reload();
     audioSource = GetComponent<AudioSource>();
