@@ -43,7 +43,8 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] protected int initWaveWeight = 10;          // the total weight of the first zombie wave
 
-    [SerializeField] protected float waveWeightIncrease = 1.5f;  // this means that waveWeight
+    [SerializeField] protected float waveWeightIncrease;  // this means that waveWeight
+    [SerializeField] protected float baseWaveWeightAdder = 1;   // a minimum amount that waveWeight can increase
 
     [SerializeField] protected float waveSizeDeviation = 0.25f;     // how much the size of each wave should deviate
 
@@ -75,6 +76,7 @@ public class EnemyManager : MonoBehaviour
 
 
     [SerializeField] protected float waveWeight;                  // how "heavy" the wave should be
+
 
     [SerializeField] protected float timeWithNoEnemies;           // how long it's been with 0 enemies on screen
     [SerializeField] protected float timeSinceLastWave;           // how long since a wave was spawned
@@ -112,7 +114,7 @@ public class EnemyManager : MonoBehaviour
             timeSinceLastWave = 0f;
             timeWithNoEnemies = 0f;
             GenerateWave();
-            interval *= 0.9f;
+            interval *= 0.92f;
             if (interval < minInterval)
             {
                 interval = minInterval;
@@ -183,6 +185,7 @@ public class EnemyManager : MonoBehaviour
 
         // make the next wave harder
         waveWeight *= waveWeightIncrease;
+        waveWeight += baseWaveWeightAdder;
     }
 
     // spawns all enemies in the list in order and clears the list
@@ -256,7 +259,7 @@ public class EnemyManager : MonoBehaviour
         (Vector2, Vector2) tuple;
 
         // coinflip: true or false;
-        bool pos1 = Random.value > 0.5f ? true : false;
+        bool pos1 = Random.value > 0.5f;
         if (pos1)
         {
             tuple.Item1 = spawnPoints[0];

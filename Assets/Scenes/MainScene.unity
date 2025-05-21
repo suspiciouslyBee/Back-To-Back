@@ -816,29 +816,30 @@ MonoBehaviour:
   enemyWeights:
   - 10
   - 15
-  - 40
+  - 45
   minWave:
   - 0
-  - 3
-  - 10
+  - 5
+  - 20
   enemies: []
   enemyScripts: []
   spawnPoints:
   - {x: -10.3, y: -1.8}
   - {x: 10.3, y: -1.8}
-  initInterval: 10
+  initInterval: 8
   initWaveWeight: 10
-  waveWeightIncrease: 1.15
+  waveWeightIncrease: 1.05
+  baseWaveWeightAdder: 1
   waveSizeDeviation: 0.25
   wavesSpawned: 0
   initialized: 0
-  inWaveSpawnDelay: 0.1
+  inWaveSpawnDelay: 0.05
   waveSpawnTimeMult: 1
   spawnCap: 50
   maxWaveDelay: 15
   totalEnemiesSpawned: 0
   interval: 10
-  minInterval: 2
+  minInterval: 5
   waveWeight: 0
   timeWithNoEnemies: 0
   timeSinceLastWave: 0

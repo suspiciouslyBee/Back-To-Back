@@ -64,6 +64,7 @@ public abstract class Enemy : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
+
     }
 
     public void MoveToDestination()

@@ -156,7 +156,11 @@ public class WeaponHitBox : MonoBehaviour
       if (didKill)
       {
         int exp = enemyScript.GetExpReward();
-        owner.transform.parent.gameObject.GetComponent<UpgradeManager>().AddExpFromPlayer(exp, owner);
+        if (owner.transform.parent.gameObject != null)
+        {
+          owner.transform.parent.gameObject.GetComponent<UpgradeManager>().AddExpFromPlayer(exp, owner);
+        }
+
       }
     }
   }
