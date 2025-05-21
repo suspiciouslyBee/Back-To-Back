@@ -9,6 +9,7 @@ using UnityEngine;
     U: toggle visibility of the HUD;
     I: remove all enemies from the scene.
     O: skip a wave
+    P: spawn an avengers-level threat
 */
 public class TrailerTools : MonoBehaviour
 {
@@ -46,6 +47,10 @@ public class TrailerTools : MonoBehaviour
         {
             EnemyManager.Instance.SkipWave();
             Debug.Log($"[TrailerTools] Skipping a wave! Wave is now {EnemyManager.Instance.GetWaveCount()}");
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            EnemyManager.Instance.SpawnTrailerHorde();
         }
 
     }

@@ -858,13 +858,13 @@ MonoBehaviour:
   - {fileID: 51631112781799947, guid: 73c56d5257699374287f3f6ba09b0f8a, type: 3}
   - {fileID: 51631112781799947, guid: c773350539df7724d93cef5af7d2c717, type: 3}
   enemyWeights:
-  - 10
-  - 15
+  - 8
+  - 12
   - 40
   minWave:
   - 0
   - 3
-  - 10
+  - 15
   enemies: []
   enemyScripts: []
   spawnPoints:

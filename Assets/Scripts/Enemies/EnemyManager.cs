@@ -357,4 +357,42 @@ public class EnemyManager : MonoBehaviour
         return wavesSpawned;
     }
 
+    public void SpawnTrailerHorde()
+    {
+        waveQueue.Clear();
+        (Vector2, Vector2) positions = PrimaryPosition();
+        Vector2 primaryPos = positions.Item1;
+        Vector2 secondaryPos = positions.Item2;
+        // generate a massive unbeatable horde
+        for (int i = 0; i < 100; i++)
+        {
+            // choose a random enemy from EnemyTypes
+            int tentativeIndex = Random.Range(0, enemyTypes.Length);
+
+            if (wavesSpawned >= minWave[tentativeIndex])
+            {
+
+                waveQueue.Add(tentativeIndex);
+
+                Debug.Log($"Adding enemy of index {tentativeIndex} to waveQueue");
+            }
+
+        }
+
+        foreach (int i in waveQueue)
+        {
+            if (Random.Range(0f, 1.0f) > 0.8f)
+            {
+                primaryQueue.Add(i);
+            }
+            else
+            {
+                secondaryQueue.Add(i);
+            }
+        }
+        // empty the queues
+        StartCoroutine(SpawnAllInList(primaryQueue, primaryPos));
+        StartCoroutine(SpawnAllInList(secondaryQueue, secondaryPos));
+    }
+
 }
