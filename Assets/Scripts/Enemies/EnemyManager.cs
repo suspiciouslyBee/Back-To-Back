@@ -369,13 +369,9 @@ public class EnemyManager : MonoBehaviour
             // choose a random enemy from EnemyTypes
             int tentativeIndex = Random.Range(0, enemyTypes.Length);
 
-            if (wavesSpawned >= minWave[tentativeIndex])
-            {
+            waveQueue.Add(tentativeIndex);
 
-                waveQueue.Add(tentativeIndex);
-
-                Debug.Log($"Adding enemy of index {tentativeIndex} to waveQueue");
-            }
+            Debug.Log($"Adding enemy of index {tentativeIndex} to waveQueue");
 
         }
 
