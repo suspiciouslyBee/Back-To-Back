@@ -133,7 +133,7 @@ MonoBehaviour:
   lifeTime: 0.2
   pierceCount: 8
   velocity: 50
-  knockback: 8
+  knockback: 6
   bonusMultiplyer: 2
 --- !u!58 &-7310362767927023869
 CircleCollider2D:

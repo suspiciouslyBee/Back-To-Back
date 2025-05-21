@@ -8,6 +8,7 @@ using UnityEngine;
     Y: decrease time survived by 30 seconds
     U: toggle visibility of the HUD;
     I: remove all enemies from the scene.
+    O: skip a wave
 */
 public class TrailerTools : MonoBehaviour
 {
