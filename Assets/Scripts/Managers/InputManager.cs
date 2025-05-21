@@ -152,10 +152,9 @@ public class InputManager : MonoBehaviour
             rA2Down = true;
             LMinstance.RangedAbility2();
         }
-        if (restartLevel.IsPressed())
+        /*if (restartLevel.IsPressed())
         {
             LMinstance.RestartLevel();
-        }
-
+        }*/
     }
 }

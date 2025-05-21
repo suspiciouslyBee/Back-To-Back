@@ -56,18 +56,7 @@ public class MainManager : MonoBehaviour
 
         if (DJManager.Instance.initialized)
         {
-            switch (newIndex)
-            {
-                case 0:
-                    DJManager.Instance.PlayTrack(1);
-                    break;
-                case 1:
-                    DJManager.Instance.PlayTrack(2);
-                    break;
-                case 2:
-                    DJManager.Instance.PlayTrack(3);
-                    break;
-            }
+            DJManager.Instance.PlayTrack(newIndex + 1);
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + number);

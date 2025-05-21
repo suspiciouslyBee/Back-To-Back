@@ -69,6 +69,11 @@ public class StartScreenManager : LevelManager
 
     }
 
+    public override void RestartLevel()
+    {
+        
+    }
+
     void traverseMenu(int i)
     {
         changingMenu = true;
