@@ -1,0 +1,602 @@
+fileFormatVersion: 2
+guid: adfaeff0942ce2b48bbab68dbb1088f8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5509533636975650616
+    second: CompanyLogo_0
+  - first:
+      213: 1806099110790537392
+    second: CompanyLogo_1
+  - first:
+      213: -4745420546604006746
+    second: CompanyLogo_2
+  - first:
+      213: 5720121269581647316
+    second: CompanyLogo_3
+  - first:
+      213: 3858715208204108347
+    second: CompanyLogo_4
+  - first:
+      213: -7289485230387826054
+    second: CompanyLogo_5
+  - first:
+      213: -2605512714121911439
+    second: CompanyLogo_6
+  - first:
+      213: 2152652067993165763
+    second: CompanyLogo_7
+  - first:
+      213: 1999973236668317215
+    second: CompanyLogo_8
+  - first:
+      213: -908420477785822130
+    second: CompanyLogo_9
+  - first:
+      213: 6314265574391874845
+    second: CompanyLogo_10
+  - first:
+      213: -2731427185995320291
+    second: CompanyLogo_11
+  - first:
+      213: 985032036234599337
+    second: CompanyLogo_12
+  - first:
+      213: -7663450242304948772
+    second: CompanyLogo_13
+  - first:
+      213: -6054670036820562016
+    second: CompanyLogo_14
+  - first:
+      213: 5652136504970418491
+    second: CompanyLogo_15
+  - first:
+      213: -2650341255211611550
+    second: CompanyLogo_16
+  - first:
+      213: -1800867452662376488
+    second: CompanyLogo_17
+  - first:
+      213: -6863552122833140614
+    second: CompanyLogo_18
+  - first:
+      213: -6473305877688757064
+    second: CompanyLogo_19
+  - first:
+      213: 4211630229324600664
+    second: CompanyLogo_20
+  - first:
+      213: 8133183150012779846
+    second: CompanyLogo_21
+  - first:
+      213: 8432272598050528425
+    second: CompanyLogo_22
+  - first:
+      213: -955913768790062120
+    second: CompanyLogo_23
+  - first:
+      213: 3316694582531638053
+    second: CompanyLogo_24
+  - first:
+      213: 9122856861622541592
+    second: CompanyLogo_25
+  - first:
+      213: 8280820953135114608
+    second: CompanyLogo_26
+  - first:
+      213: -8305559573015536966
+    second: CompanyLogo_27
+  - first:
+      213: 3770109817822965195
+    second: CompanyLogo_28
+  - first:
+      213: 6296596898864571755
+    second: CompanyLogo_29
+  - first:
+      213: 7815929570901146084
+    second: CompanyLogo_30
+  - first:
+      213: -4692350546946378879
+    second: CompanyLogo_31
+  - first:
+      213: 2157466737655896226
+    second: CompanyLogo_32
+  - first:
+      213: 8919836942934066107
+    second: CompanyLogo_33
+  - first:
+      213: 1222341764880395969
+    second: CompanyLogo_34
+  - first:
+      213: 2442608961463676002
+    second: CompanyLogo_35
+  - first:
+      213: 4089316949059728208
+    second: CompanyLogo_36
+  - first:
+      213: -4409012043620401420
+    second: CompanyLogo_37
+  - first:
+      213: -4102717033123745669
+    second: CompanyLogo_38
+  - first:
+      213: -8644154749962374372
+    second: CompanyLogo_39
+  - first:
+      213: -633516796671983654
+    second: CompanyLogo_40
+  - first:
+      213: 3297496249376366727
+    second: CompanyLogo_41
+  - first:
+      213: 2151225475141910063
+    second: CompanyLogo_42
+  - first:
+      213: -8100438155457871867
+    second: CompanyLogo_43
+  - first:
+      213: 8920999379620312744
+    second: CompanyLogo_44
+  - first:
+      213: 1736975032767171934
+    second: CompanyLogo_45
+  - first:
+      213: -6437009304346051613
+    second: CompanyLogo_46
+  - first:
+      213: -1453466612389449607
+    second: CompanyLogo_47
+  - first:
+      213: -7307978679580187532
+    second: CompanyLogo_48
+  - first:
+      213: 8647315014920614940
+    second: CompanyLogo_49
+  - first:
+      213: 7293576590504201380
+    second: CompanyLogo_50
+  - first:
+      213: -410432272672353101
+    second: CompanyLogo_51
+  - first:
+      213: 6738719925682643860
+    second: CompanyLogo_52
+  - first:
+      213: -3006096072564511411
+    second: CompanyLogo_53
+  - first:
+      213: -8486744858657977192
+    second: CompanyLogo_54
+  - first:
+      213: 1846419889657668630
+    second: CompanyLogo_55
+  - first:
+      213: -6359852972488983662
+    second: CompanyLogo_56
+  - first:
+      213: -8799127586814527509
+    second: CompanyLogo_57
+  - first:
+      213: 7091205447793146513
+    second: CompanyLogo_58
+  - first:
+      213: -8049249091795577020
+    second: CompanyLogo_59
+  - first:
+      213: 8344983291200403972
+    second: CompanyLogo_60
+  - first:
+      213: 2289020359834871945
+    second: CompanyLogo_61
+  - first:
+      213: -8092700175489097724
+    second: CompanyLogo_62
+  - first:
+      213: 2140238963154533290
+    second: CompanyLogo_63
+  - first:
+      213: -8146246175697924104
+    second: CompanyLogo_64
+  - first:
+      213: 5369150335548134056
+    second: CompanyLogo_65
+  - first:
+      213: 1959122258857222888
+    second: CompanyLogo_66
+  - first:
+      213: -2310586334545629084
+    second: CompanyLogo_67
+  - first:
+      213: 7003858833101947392
+    second: CompanyLogo_68
+  - first:
+      213: -2237409166755411735
+    second: CompanyLogo_69
+  - first:
+      213: 3191755963449217114
+    second: CompanyLogo_70
+  - first:
+      213: -1839449383274241588
+    second: CompanyLogo_71
+  - first:
+      213: -1584353342954675841
+    second: CompanyLogo_72
+  - first:
+      213: 4243867358039310046
+    second: CompanyLogo_73
+  - first:
+      213: 8866902300544660863
+    second: CompanyLogo_74
+  - first:
+      213: -3998939934849822422
+    second: CompanyLogo_75
+  - first:
+      213: -3729675723617548412
+    second: CompanyLogo_76
+  - first:
+      213: 6039375517184446383
+    second: CompanyLogo_77
+  - first:
+      213: -1031639570233635591
+    second: CompanyLogo_78
+  - first:
+      213: 2954376251456618781
+    second: CompanyLogo_79
+  - first:
+      213: -7774143441904701038
+    second: CompanyLogo_80
+  - first:
+      213: -7541080489850240274
+    second: CompanyLogo_81
+  - first:
+      213: -6957906818699705710
+    second: CompanyLogo_82
+  - first:
+      213: 1368926170165277776
+    second: CompanyLogo_83
+  - first:
+      213: 6669985434817964075
+    second: CompanyLogo_84
+  - first:
+      213: -8579532412423927939
+    second: CompanyLogo_85
+  - first:
+      213: 9002695223830861318
+    second: CompanyLogo_86
+  - first:
+      213: 3652120159456657998
+    second: CompanyLogo_87
+  - first:
+      213: -2446646765614994058
+    second: CompanyLogo_88
+  - first:
+      213: 348861871148306668
+    second: CompanyLogo_89
+  - first:
+      213: -576983138319103536
+    second: CompanyLogo_90
+  - first:
+      213: 1326188789077911891
+    second: CompanyLogo_91
+  - first:
+      213: -6403769560901792787
+    second: CompanyLogo_92
+  - first:
+      213: -2061843770160162650
+    second: CompanyLogo_93
+  - first:
+      213: -5064114565586360263
+    second: CompanyLogo_94
+  - first:
+      213: -7255157107131637367
+    second: CompanyLogo_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CompanyLogo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbda19ba0e167d94387af52b152f24cc
+      internalID: 1497818146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CompanyLogo_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a73fdf8d4b2274c807db5b64452baf
+      internalID: -359228218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CompanyLogo_2
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6ad448ca067104b9495ea48bcb6f77
+      internalID: -501984665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CompanyLogo_3
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d036710d73a59f3408c7b8041c13c051
+      internalID: 1795282319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CompanyLogo_4
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fdcd250f58b07419231c216b8c3de3
+      internalID: -1869598054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CompanyLogo_5
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4769ab12c7c284790513e33194fe7a
+      internalID: -1911744042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CompanyLogo_6
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c65a43269ca0d4398f3c15b776f841
+      internalID: 996017674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CompanyLogo_7
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d12c5cc4d6c5da4fa632df52d2ebe02
+      internalID: 49828442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 896dd462229c8c343bfde96509827ff5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CompanyLogo_0: 1497818146
+      CompanyLogo_1: -359228218
+      CompanyLogo_2: -501984665
+      CompanyLogo_3: 1795282319
+      CompanyLogo_4: -1869598054
+      CompanyLogo_5: -1911744042
+      CompanyLogo_6: 996017674
+      CompanyLogo_7: 49828442
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
