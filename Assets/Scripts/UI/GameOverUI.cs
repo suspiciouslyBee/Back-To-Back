@@ -38,6 +38,7 @@ public class GameOverUI : MonoBehaviour
 
     private void OnRestartPressed(ClickEvent evt)
     {
+        UIManager.Instance.PlayButtonClickSFX();
         LevelManager.LMInstance.RestartLevel();
     }
 

@@ -397,6 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuDoc: {fileID: 0}
   gameOverUIScript: {fileID: 0}
+  buttonClickSFX: {fileID: 8300000, guid: 2089a472054858148811fda8bc159171, type: 3}
   initialized: 0
   mainMenu: {fileID: 856752010}
 --- !u!1 &1537896050

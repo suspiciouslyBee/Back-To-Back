@@ -527,7 +527,7 @@ MonoBehaviour:
   player2: {fileID: 6063310104159484725}
   knockback: {fileID: 4054888590280946045}
   audioSource: {fileID: 0}
-  swapSFX: {fileID: 0}
+  swapSFX: {fileID: 8300000, guid: 1a77541aaa336174e96d089db5f6b6ca, type: 3}
   playerCount: 0
 --- !u!50 &6941363339321242638
 Rigidbody2D:

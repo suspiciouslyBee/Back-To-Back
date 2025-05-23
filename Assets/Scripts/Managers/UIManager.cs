@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
+[RequireComponent(typeof(AudioSource))]
 /* 
     UIManager
     Description:
@@ -17,6 +18,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIDocument pauseMenuDoc;
 
     [SerializeField] private GameOverUI gameOverUIScript;
+
+    [SerializeField] private AudioClip buttonClickSFX;
+
+    protected AudioSource audioSource;
     public static UIManager Instance { get { return UIMInstance; } }
 
     private bool paused;
@@ -56,6 +61,7 @@ public class UIManager : MonoBehaviour
     protected virtual void InitAll()
     {
         gameOverUIScript.InitGameOver();
+        audioSource = GetComponent<AudioSource>();
         //InitPause();
     }
 
@@ -93,6 +99,15 @@ public class UIManager : MonoBehaviour
         InitAll();
         paused = false;
         initialized = true;
+    }
+
+    public void PlayButtonClickSFX()
+    {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+        audioSource.PlayOneShot(buttonClickSFX);
     }
 
 }

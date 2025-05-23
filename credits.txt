@@ -37,6 +37,18 @@ Weapon_Revolver_Hammer_Mono.wav by Nox_Sound -- https://freesound.org/s/540065/ 
 
 OWI_Bow Srting 2.wav by matthewHoldenSound -- https://freesound.org/s/542517/ -- License: Creative Commons 0
 
+Zap.ogg by egomassive -- https://freesound.org/s/536741/ -- License: Creative Commons 0
+
+PLASMA IMPACT ONE by johnjohnfm -- https://freesound.org/s/804681/ -- License: Creative Commons 0
+
+Thunder_close_Boem.wav by hantorio -- https://freesound.org/s/121946/ -- License: Attribution 3.0
+
+Whoosh woow mk2.wav by Speedenza -- https://freesound.org/s/168176/ -- License: Attribution NonCommercial 4.0
+
+2770 1-FP-SWOOSH-SW-TMc 21 A-1.aif by The_Sample_Workshop -- https://freesound.org/s/629329/ -- License: Attribution 4.0
+
+
+
 ### Enemy Related ###
 Splat 1 by sebastientate -- https://freesound.org/s/719129/ -- License: Creative Commons 0
 

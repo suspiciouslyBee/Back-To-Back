@@ -12,13 +12,13 @@ public class StartUIManager : UIManager
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     protected override void InitAll()
@@ -34,11 +34,13 @@ public class StartUIManager : UIManager
 
     private void OnStartButtonPressed(ClickEvent evt)
     {
+        PlayButtonClickSFX();
         MainManager.Instance.ChangeStageRelatively(2);
     }
 
     private void OnTrainingButtonPressed(ClickEvent evt)
     {
+        PlayButtonClickSFX();
         MainManager.Instance.ChangeStageRelatively(1);
     }
 
