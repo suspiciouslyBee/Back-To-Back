@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxPrefab: {fileID: 8382414216109291920, guid: fb16c8ff4275c3e448e7b9b2c6795d58, type: 3}
-  useTime: 0.5
+  useTime: 0.3
   reloadTime: -1
   totalUsesPerReload: -1
   audioSource: {fileID: 0}

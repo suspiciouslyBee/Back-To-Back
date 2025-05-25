@@ -326,10 +326,11 @@ MonoBehaviour:
   attackDamage: 20
   speed: 1.25
   jumpPower: 8
-  knockbackMult: 0.7
+  knockbackMult: 0.6
   hitbox: {fileID: 5337627209299289075}
   expReward: 30
   grounded: 0
+  totalStunTime: 0.3
   minStunWaitTime: 0
   iframes: 0.3
   audioSource: {fileID: 0}

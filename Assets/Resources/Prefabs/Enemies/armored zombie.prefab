@@ -233,6 +233,7 @@ MonoBehaviour:
   hitbox: {fileID: 8973836585353227597}
   expReward: 12
   grounded: 0
+  totalStunTime: 0.15
   minStunWaitTime: 0.01
   iframes: 0.3
   audioSource: {fileID: 0}

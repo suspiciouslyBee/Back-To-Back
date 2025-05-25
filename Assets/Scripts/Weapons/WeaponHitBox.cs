@@ -150,6 +150,7 @@ public class WeaponHitBox : MonoBehaviour
       // If there is no pierce left, destroy the hitbox
       if (!isPierceLeft)
       {
+        GetComponent<Collider2D>().enabled = false; // Prevent further collisions
         Destroy(gameObject);
       }
       // Apply exp

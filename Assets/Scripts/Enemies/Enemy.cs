@@ -21,6 +21,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected Collider2D hitbox;
     [SerializeField] protected int expReward;
     [SerializeField] protected bool grounded;
+    [SerializeField] protected float totalStunTime;
     [SerializeField] protected float minStunWaitTime;
 
     protected bool isStunned;
@@ -129,7 +130,7 @@ public abstract class Enemy : MonoBehaviour
     // Reset Stun
     private IEnumerator StunWait()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(totalStunTime);
         while (Vector2.Distance(rb.linearVelocity, Vector2.zero) > 0.01)
         {
             yield return new WaitForSeconds(minStunWaitTime);

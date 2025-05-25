@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4426428430061995888}
   - component: {fileID: 8127060714655798319}
   - component: {fileID: 7386153855728212715}
-  - component: {fileID: -7310362767927023869}
+  - component: {fileID: 647753484530687580}
   m_Layer: 0
   m_Name: Nunchuck Attack
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8382414216109291920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: -1.5, y: -2, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -130,13 +130,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 33
-  lifeTime: 0.2
+  lifeTime: 0.1
   pierceCount: 8
-  velocity: 50
+  velocity: 300
   knockback: 7
   bonusMultiplyer: 2
---- !u!58 &-7310362767927023869
-CircleCollider2D:
+--- !u!60 &647753484530687580
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -170,4 +170,26 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.357143, y: 1.6428572}
+    newSize: {x: 0.12, y: 0.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.11275034, y: 0.606533}
+      - {x: -1.2035593, y: 0.6814966}
+      - {x: -0.68880934, y: -0.10677582}
+      - {x: 0.15821403, y: -0.18673676}
+      - {x: 0.40894532, y: -0.012431681}
+    - - {x: -0.67893237, y: -0.26858544}
+      - {x: -0.794614, y: -0.63469183}
+      - {x: 0.6227521, y: -0.78782713}
+      - {x: 1.0978851, y: -0.19787931}
+      - {x: 0.96614146, y: 0.0804292}
+      - {x: 0.17831445, y: -0.24866676}
+  m_UseDelaunayMesh: 0

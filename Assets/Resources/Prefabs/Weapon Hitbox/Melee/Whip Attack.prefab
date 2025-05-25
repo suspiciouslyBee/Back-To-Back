@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4426428430061995888}
   - component: {fileID: 8127060714655798319}
   - component: {fileID: 7386153855728212715}
-  - component: {fileID: -7310362767927023869}
+  - component: {fileID: 2980472724041634553}
   m_Layer: 0
   m_Name: Whip Attack
   m_TagString: Untagged
@@ -135,8 +135,8 @@ MonoBehaviour:
   velocity: 400
   knockback: 8
   bonusMultiplyer: 2
---- !u!58 &-7310362767927023869
-CircleCollider2D:
+--- !u!60 &2980472724041634553
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -170,4 +170,18 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.2142856, y: 0.71428573}
+    newSize: {x: 0.12, y: 0.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.89429617, y: 0.30334646}
+      - {x: -0.89663506, y: -0.22382122}
+      - {x: 1.0229398, y: -0.0811438}
+  m_UseDelaunayMesh: 0

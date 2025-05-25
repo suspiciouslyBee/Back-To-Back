@@ -134,7 +134,7 @@ MonoBehaviour:
   pierceCount: 3
   velocity: 250
   knockback: 3
-  bonusMultiplyer: 2
+  bonusMultiplyer: 1.35
 --- !u!58 &8200990420963748932
 CircleCollider2D:
   m_ObjectHideFlags: 0
