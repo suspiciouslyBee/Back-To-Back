@@ -131,9 +131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   lifeTime: 0.5
-  pierceCount: 50
+  pierceCount: 5
   velocity: 0
-  knockback: 6
+  knockback: 4
   bonusMultiplyer: 2
 --- !u!58 &-7310362767927023869
 CircleCollider2D:

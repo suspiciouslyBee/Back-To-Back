@@ -928,7 +928,7 @@ MonoBehaviour:
   initInterval: 8
   initWaveWeight: 10
   waveWeightIncrease: 1.05
-  baseWaveWeightAdder: 1
+  baseWaveWeightAdder: 5
   waveSizeDeviation: 0.25
   wavesSpawned: 0
   initialized: 0

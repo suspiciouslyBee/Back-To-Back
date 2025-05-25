@@ -141,7 +141,7 @@ public class WeaponHitBox : MonoBehaviour
       // Deal damage to the enemy
       Enemy enemyScript = other.GetComponent<Enemy>();
       float direction = Mathf.Abs(transform.localScale.x) / transform.localScale.x;
-      Vector2 force = new Vector2(knockback * direction, knockback / 10);
+      Vector2 force = new(knockback * direction, knockback / 5);
       enemyScript.ApplyForce(force);
       bool didKill = enemyScript.ChangeHP(-1 * damage);
       // Reduce the amount of pierce (Currently 1. If we add Enemies with more "defense", this would be set by that value)

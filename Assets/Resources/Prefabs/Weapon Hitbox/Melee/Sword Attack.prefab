@@ -132,7 +132,7 @@ MonoBehaviour:
   damage: 45
   lifeTime: 0.2
   pierceCount: 6
-  velocity: 0
+  velocity: 100
   knockback: 2.5
   bonusMultiplyer: 2
 --- !u!58 &-7310362767927023869

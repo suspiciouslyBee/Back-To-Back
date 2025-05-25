@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4170067697935717223}
   - component: {fileID: 8200990420963748932}
   m_Layer: 0
-  m_Name: Musket ball
+  m_Name: pistol_bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6798241549675526876, guid: 9e3fcd3d897f8194d89c01d2e3d0d33f, type: 3}
+  m_Sprite: {fileID: -471967330, guid: 9e3fcd3d897f8194d89c01d2e3d0d33f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,11 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58af0ee5636a0584985df4935af625df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 60
+  damage: 45
   lifeTime: 3
-  pierceCount: 4
-  velocity: 400
-  knockback: 6
+  pierceCount: 0
+  velocity: 600
+  knockback: 1
   bonusMultiplyer: 2
 --- !u!58 &8200990420963748932
 CircleCollider2D:

@@ -131,8 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 200
   lifeTime: 1.5
-  pierceCount: 20
-  velocity: 250
+  pierceCount: 10
+  velocity: 600
   knockback: 0
   bonusMultiplyer: 2
 --- !u!58 &8200990420963748932
