@@ -129,12 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58af0ee5636a0584985df4935af625df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 150
+  damage: 120
   lifeTime: 0.2
-  pierceCount: 20
+  pierceCount: 10
   velocity: 100
-  knockback: 1
-  bonusMultiplyer: 2
+  knockback: 2
+  bonusMultiplyer: 1.5
 --- !u!60 &5101670493408150718
 PolygonCollider2D:
   m_ObjectHideFlags: 0

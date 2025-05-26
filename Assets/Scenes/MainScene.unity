@@ -923,8 +923,8 @@ MonoBehaviour:
   enemies: []
   enemyScripts: []
   spawnPoints:
-  - {x: -10.3, y: -1.8}
-  - {x: 10.3, y: -1.8}
+  - {x: -15, y: -1.8}
+  - {x: 15, y: -1.8}
   initInterval: 8
   initWaveWeight: 30
   waveWeightIncrease: 1.05
@@ -935,7 +935,7 @@ MonoBehaviour:
   inWaveSpawnDelay: 0.05
   waveSpawnTimeMult: 1
   spawnCap: 50
-  maxWaveDelay: 15
+  maxWaveDelay: 18
   totalEnemiesSpawned: 0
   interval: 10
   minInterval: 5
@@ -945,6 +945,7 @@ MonoBehaviour:
   waveQueue: 
   primaryQueue: 
   secondaryQueue: 
+  allEnemyWeights: 0
 --- !u!82 &1980000988
 AudioSource:
   m_ObjectHideFlags: 0
