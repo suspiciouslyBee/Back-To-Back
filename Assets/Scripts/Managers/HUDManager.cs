@@ -15,9 +15,7 @@ public class HUDManager : MonoBehaviour
 {
     // Ability Sprites
     [SerializeField] Sprite p1A1;
-    [SerializeField] Sprite p1A2;
     [SerializeField] Sprite p2A1;
-    [SerializeField] Sprite p2A2;
 
     // Button Sprites
     [SerializeField] Sprite leftAttackButton;
@@ -25,9 +23,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] Sprite swapButton;
     [SerializeField] Sprite reloadButton;
     [SerializeField] Sprite leftAbility1Button;
-    [SerializeField] Sprite leftAbility2Button;
     [SerializeField] Sprite rightAbility1Button;
-    [SerializeField] Sprite rightAbility2Button;
 
     // Symbol Sprites
     [SerializeField] Sprite meleeIcon;
@@ -35,9 +31,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] Sprite reloadIcon;
     [SerializeField] Sprite swapIcon;
     [SerializeField] Sprite leftAbility1Icon;
-    [SerializeField] Sprite leftAbility2Icon;
     [SerializeField] Sprite rightAbility1Icon;
-    [SerializeField] Sprite rightAbility2Icon;
 
     // Bars
     VisualElement p1Health;
@@ -52,9 +46,7 @@ public class HUDManager : MonoBehaviour
     VisualElement leftInput;
     VisualElement rightInput;
     VisualElement leftAbility1;
-    VisualElement leftAbility2;
     VisualElement rightAbility1;
-    VisualElement rightAbility2;
 
     private UIDocument HUDDocument;
     private static HUDManager HUDMInstance;
@@ -146,16 +138,11 @@ public class HUDManager : MonoBehaviour
                 temp = leftAbility1.style.backgroundImage;
                 leftAbility1.style.backgroundImage = rightAbility1.style.backgroundImage;
                 rightAbility1.style.backgroundImage = temp;
-
-                // MeleeAbility2 <==> RangedAbility2
-                temp = leftAbility2.style.backgroundImage;
-                leftAbility2.style.backgroundImage = rightAbility2.style.backgroundImage;
-                rightAbility2.style.backgroundImage = temp;
                 break;
             case 6:
                 ((bool, bool), (bool, bool)) abilities = playerManagerInstance.GetAbilityInfo();
-                bool[] abilityList = new bool[] { abilities.Item1.Item1, abilities.Item1.Item2, abilities.Item2.Item1, abilities.Item2.Item2 };
-                for (int i = 0; i < 4; i++)
+                bool[] abilityList = new bool[] { abilities.Item1.Item1, abilities.Item2.Item1 };
+                for (int i = 0; i < 2; i++)
                 {
                     if (abilityList[i])
                     {
@@ -166,6 +153,16 @@ public class HUDManager : MonoBehaviour
                         abilityIcons[i].style.unityBackgroundImageTintColor = new Color(0.55f, 0.55f, 0.55f);
                     }
                 }
+                break;
+            case 7:
+                Debug.Log(HUDDocument.rootVisualElement.Q<VisualElement>("P1Abilities").resolvedStyle.left + " | " + HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").resolvedStyle.left);
+                StyleLength sTTemp = HUDDocument.rootVisualElement.Q<VisualElement>("P1Abilities").resolvedStyle.left;
+                HUDDocument.rootVisualElement.Q<VisualElement>("P1Abilities").style.left = HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").resolvedStyle.left;
+                HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").style.left = sTTemp;
+
+                sTTemp = HUDDocument.rootVisualElement.Q<VisualElement>("P1Abilities").resolvedStyle.right;
+                HUDDocument.rootVisualElement.Q<VisualElement>("P1Abilities").style.right = HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").resolvedStyle.right;
+                HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").style.right = sTTemp;
                 break;
         }
     }
@@ -195,9 +192,7 @@ public class HUDManager : MonoBehaviour
         HUDDocument.rootVisualElement.Q<VisualElement>("ReloadButton").style.backgroundImage = new StyleBackground(reloadButton);
 
         HUDDocument.rootVisualElement.Q<VisualElement>("LeftAbility1Button").style.backgroundImage = new StyleBackground(leftAbility1Button);
-        HUDDocument.rootVisualElement.Q<VisualElement>("LeftAbility2Button").style.backgroundImage = new StyleBackground(leftAbility2Button);
         HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility1Button").style.backgroundImage = new StyleBackground(rightAbility1Button);
-        HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility2Button").style.backgroundImage = new StyleBackground(rightAbility2Button);
     }
 
     // Add the needed symbol sprites to the UI
@@ -206,9 +201,7 @@ public class HUDManager : MonoBehaviour
         leftInput = HUDDocument.rootVisualElement.Q<VisualElement>("LeftIcon");
         rightInput = HUDDocument.rootVisualElement.Q<VisualElement>("RightIcon");
         leftAbility1 = HUDDocument.rootVisualElement.Q<VisualElement>("LeftAbility1Icon");
-        leftAbility2 = HUDDocument.rootVisualElement.Q<VisualElement>("LeftAbility2Icon"); ;
-        rightAbility1 = HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility1Icon"); ;
-        rightAbility2 = HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility2Icon"); ;
+        rightAbility1 = HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility1Icon");
 
 
         leftInput.style.backgroundImage = new StyleBackground(meleeIcon);
@@ -216,9 +209,7 @@ public class HUDManager : MonoBehaviour
         HUDDocument.rootVisualElement.Q<VisualElement>("SwapIcon").style.backgroundImage = new StyleBackground(swapIcon);
         HUDDocument.rootVisualElement.Q<VisualElement>("ReloadIcon").style.backgroundImage = new StyleBackground(reloadIcon);
         leftAbility1.style.backgroundImage = new StyleBackground(leftAbility1Icon);
-        leftAbility2.style.backgroundImage = new StyleBackground(leftAbility2Icon);
         rightAbility1.style.backgroundImage = new StyleBackground(rightAbility1Icon);
-        rightAbility2.style.backgroundImage = new StyleBackground(rightAbility2Icon);
     }
 
     // Add the needed sprites to the UI
@@ -226,14 +217,10 @@ public class HUDManager : MonoBehaviour
     {
         abilityIcons = new List<VisualElement>();
         abilityIcons.Add(HUDDocument.rootVisualElement.Q<VisualElement>("P1Ability1"));
-        abilityIcons.Add(HUDDocument.rootVisualElement.Q<VisualElement>("P1Ability2"));
         abilityIcons.Add(HUDDocument.rootVisualElement.Q<VisualElement>("P2Ability1"));
-        abilityIcons.Add(HUDDocument.rootVisualElement.Q<VisualElement>("P2Ability2"));
 
         abilityIcons[0].style.backgroundImage = new StyleBackground(p1A1);
-        abilityIcons[1].style.backgroundImage = new StyleBackground(p1A2);
-        abilityIcons[2].style.backgroundImage = new StyleBackground(p2A1);
-        abilityIcons[3].style.backgroundImage = new StyleBackground(p2A2);
+        abilityIcons[1].style.backgroundImage = new StyleBackground(p2A1);
     }
 
     // Shakes the given UI bar

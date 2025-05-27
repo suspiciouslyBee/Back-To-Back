@@ -70,6 +70,7 @@ public class PlayerManager : MonoBehaviour
             {
                 HUDManager.Instance.ChangeBars(5, false);
             }
+            HUDManager.Instance.ChangeBars(7f, false);
             return (p1Swap && p2Swap);
         }
         HUDManager.Instance.ChangeBars(3.5f, true);

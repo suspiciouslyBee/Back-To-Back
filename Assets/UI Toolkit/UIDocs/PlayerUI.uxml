@@ -26,13 +26,11 @@
     <ui:VisualElement name="TimeSurvived" style="flex-grow: 1; width: 10%; height: 2%; position: absolute; top: 6.5%; left: 45%;">
         <ui:Label text="0" usage-hints="None" name="TimeCount" style="-unity-text-align: upper-center; font-size: 42px; -unity-font-style: bold; color: rgb(255, 255, 255); position: relative; top: 0%; left: auto; width: 100%; right: 1%;" />
     </ui:VisualElement>
-    <ui:VisualElement name="P1Abilities" style="flex-grow: 1; position: absolute; top: 5%; left: 7%; width: 3%; height: 10%;">
+    <ui:VisualElement name="P1Abilities" style="flex-grow: 1; position: absolute; top: auto; left: 46%; width: 3%; height: 10%; bottom: 42%;">
         <ui:VisualElement name="P1Ability1" style="flex-grow: 1; height: 55%; position: absolute; width: 100%; -unity-background-image-tint-color: rgb(255, 255, 255);" />
-        <ui:VisualElement name="P1Ability2" style="flex-grow: 1; height: 55%; position: absolute; width: 100%; bottom: 0;" />
     </ui:VisualElement>
-    <ui:VisualElement name="P2Abilities" style="flex-grow: 1; top: 5%; right: 7%; position: absolute; width: 3%; height: 10%;">
+    <ui:VisualElement name="P2Abilities" style="flex-grow: 1; top: auto; right: 46%; position: absolute; width: 3%; height: 10%; bottom: 42%;">
         <ui:VisualElement name="P2Ability1" style="flex-grow: 1; height: 55%; position: absolute; width: 100%;" />
-        <ui:VisualElement name="P2Ability2" style="flex-grow: 1; height: 55%; position: absolute; width: 100%; bottom: 0;" />
     </ui:VisualElement>
     <ui:VisualElement name="MainControls" style="flex-grow: 1; position: absolute; bottom: 0%; left: 0%; width: 13.5%; height: 24%;">
         <ui:VisualElement name="LeftIcon" style="flex-grow: 1; position: absolute; top: 40%; left: 0%; width: 20%; height: 20%; background-image: none;" />
@@ -47,11 +45,7 @@
     <ui:VisualElement name="AbilityControls" style="flex-grow: 1; bottom: 0%; right: 0%; position: absolute; width: 13.5%; height: 24%;">
         <ui:VisualElement name="LeftAbility1Icon" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: 15%; top: 35%;" />
         <ui:VisualElement name="LeftAbility1Button" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: 35%; top: 35%;" />
-        <ui:VisualElement name="LeftAbility2Icon" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: 15%; top: auto; bottom: 25%;" />
-        <ui:VisualElement name="LeftAbility2Button" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: 35%; top: auto; bottom: 25%;" />
         <ui:VisualElement name="RightAbility1Icon" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: auto; top: 35%; right: 5%;" />
         <ui:VisualElement name="RightAbility1Button" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: auto; top: 35%; right: 25%;" />
-        <ui:VisualElement name="RightAbility2Icon" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: auto; top: auto; right: 5%; bottom: 25%;" />
-        <ui:VisualElement name="RightAbility2Button" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: auto; top: auto; right: 25%; bottom: 25%;" />
     </ui:VisualElement>
 </ui:UXML>
