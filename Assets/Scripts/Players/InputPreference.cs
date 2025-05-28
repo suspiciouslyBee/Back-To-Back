@@ -5,6 +5,9 @@ public class InputPreference : MonoBehaviour
 {
     [SerializeField] Sprite mR;
     [SerializeField] Sprite lR;
+    [SerializeField] Sprite sPC;
+    [SerializeField] Sprite sC;
+    [SerializeField] Sprite box;
 
     private Button swap;
     public static bool meleeRanged = true;
@@ -12,6 +15,9 @@ public class InputPreference : MonoBehaviour
     public void Start()
     {
         swap = GetComponent<UIDocument>().rootVisualElement.Q<Button>("SwapButton");
+        GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("SwapPC").style.backgroundImage = new StyleBackground(sPC);
+        GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("SwapController").style.backgroundImage = new StyleBackground(sC);
+        GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Box").style.backgroundImage = new StyleBackground(box);
 
         swap.clickable.clicked += () => { changePreference(false); };
 

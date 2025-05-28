@@ -349,6 +349,7 @@ MonoBehaviour:
   gameOver: 0
   timeSurvived: 0
   enemyManager: {fileID: 0}
+  uM: {fileID: 1537896053}
 --- !u!4 &856752009
 Transform:
   m_ObjectHideFlags: 0
@@ -399,6 +400,12 @@ MonoBehaviour:
   gameOverUIScript: {fileID: 0}
   initialized: 0
   mainMenu: {fileID: 856752010}
+  endlessButton: {fileID: 9060215553278879933, guid: dc9e1107b3e372d418f38304ec5100b5, type: 3}
+  tutorialButton: {fileID: -4331849829665928538, guid: dc9e1107b3e372d418f38304ec5100b5, type: 3}
+  lC: {fileID: -7233465588816652061, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
+  lPC: {fileID: 1063838670581136351, guid: 328750bc3754cd343b0662b1d5bc985e, type: 3}
+  rC: {fileID: 2568929768605938376, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
+  rPC: {fileID: -3250564378901791597, guid: 328750bc3754cd343b0662b1d5bc985e, type: 3}
 --- !u!1 &1293139567
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +559,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mR: {fileID: -1420973507192299601, guid: 8462563a8c40aa84bb7bf994c686ceb8, type: 3}
   lR: {fileID: -2012446271463619551, guid: 8462563a8c40aa84bb7bf994c686ceb8, type: 3}
+  sPC: {fileID: -150617462623590385, guid: 328750bc3754cd343b0662b1d5bc985e, type: 3}
+  sC: {fileID: -1849072023636930481, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
+  box: {fileID: -3466982402196688065, guid: baeef92657849cf4f9a12a32efb27c35, type: 3}
 --- !u!1001 &401280085112249561
 PrefabInstance:
   m_ObjectHideFlags: 0

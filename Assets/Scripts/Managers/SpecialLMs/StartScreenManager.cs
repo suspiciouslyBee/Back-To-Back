@@ -3,6 +3,8 @@ using UnityEngine.UIElements;
 
 public class StartScreenManager : LevelManager
 {
+    [SerializeField] InputPreference uM;
+
     bool changingMenu;
  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -47,7 +49,7 @@ public class StartScreenManager : LevelManager
 
     public override void SwapChars()
     {
-
+        uM.changePreference(false);
     }
     public override void MeleeAbility1()
     {
