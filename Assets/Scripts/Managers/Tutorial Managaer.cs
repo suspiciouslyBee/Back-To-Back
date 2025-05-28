@@ -130,7 +130,7 @@ public class TutorialManager : MonoBehaviour
             switch (i) 
             {
                 case 0:
-                    dialogue.text = "Considering you’ve reached out to me, you’re looking for some guidance huh.";
+                    dialogue.text = "Looking for some guidance huh?";
                     break;
                 case 1:
                     dialogue.text = "Well luckily, I’ve become quite the zombie killing pro over the years. So with some time and training I’m sure you’ll be-";
@@ -144,10 +144,10 @@ public class TutorialManager : MonoBehaviour
                     yield return new WaitForSeconds(2.75f);
                     tutorialPause = true;
                     StartCoroutine(ActivateClicker());
-                    dialogue.text = "What! Have the other posts fallen already?";
+                    dialogue.text = "Have the other posts fallen already?!";
                     break;
                 case 3:
-                    dialogue.text = "It shouldn’t be an issue. I’ll just have to explain things, quicker than I anticipated.";
+                    dialogue.text = "Such a shame, oh well. I’ll just have to explain things, quicker.";
                     break;
                 case 4:
                     dialogue.text = "";
@@ -191,7 +191,7 @@ public class TutorialManager : MonoBehaviour
                     yield return new WaitForSeconds(1f);
                     tutorialPause = true;
                     StartCoroutine(ActivateClicker());
-                    dialogue.text = "That zombie's getting uncomfortably close aren't they. Let's change that.";
+                    dialogue.text = "That zombie's getting way too close, go ahead and deal with it.";
                     break;
                 case 8:
                     dialogue.text = "Press A on the keyboard or Left trigger on the controller to use your melee attack.";
@@ -205,7 +205,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator dialogue2()
     {
         StartCoroutine(ActivateClicker());
-        dialogue.text = "Not bad for a rookie.";
+        dialogue.text = "Not bad.";
         for (int i = 0; i <= 2; i++)
         {
             while (!progress.IsPressed())
@@ -228,7 +228,7 @@ public class TutorialManager : MonoBehaviour
                     yield return new WaitForSeconds(2.75f);
                     tutorialPause = true;
                     StartCoroutine(ActivateClicker());
-                    dialogue.text = "That post has fallen as well! Goodness, are people not showing up or something.";
+                    dialogue.text = "That post has fallen as well? Goodness, are people not showing up today or something.";
                     break;
                 case 1:
                     dialogue.text = "";
@@ -237,7 +237,7 @@ public class TutorialManager : MonoBehaviour
                     yield return new WaitForSeconds(1f);
                     tutorialPause = true;
                     StartCoroutine(ActivateClicker());
-                    dialogue.text = "This time however, you won’t have to wait for the zombie to approach";
+                    dialogue.text = "Luckily for the both of us, you won’t have to wait for this zombie to approach.";
                     break;
                 case 2:
                     dialogue.text = "Press D on the keyboard or Right trigger on the controller to use your ranged attack.";
@@ -252,7 +252,7 @@ public class TutorialManager : MonoBehaviour
     {
         StartCoroutine(ActivateClicker());
         dialogue.text = "Out of ammo? Luckily it appears you have an infinite supply lying around.";
-        for (int i = 0; i <= 2; i++)
+        for (int i = 0; i <= 3; i++)
         {
             while (!progress.IsPressed())
             {
@@ -268,9 +268,12 @@ public class TutorialManager : MonoBehaviour
                     dialogue.text = "See that bar below the ranged player's health? That lets you know how much ammo you have left.";
                     break;
                 case 1:
-                    dialogue.text = "Normally you could keep shotting and the weapon would reload on its own, but for now lets try doing this manually.";
+                    dialogue.text = "Normally you could keep shotting and the weapon and after running out of ammo it would reload on its own.";
                     break;
                 case 2:
+                    dialogue.text = "But for now, lets practice doing it manually.";
+                    break;
+                case 3:
                     tutorialStage = 2.75f;
                     dialogue.text = "Press R on the keyboard or B on the controller to reload your weapon.";
                     DeactivateClicker();
@@ -283,7 +286,7 @@ public class TutorialManager : MonoBehaviour
     {
         tutorialStage = 2.8f;
         StartCoroutine(ActivateClicker());
-        dialogue.text = "When you manually reload, your ranged weapon will get a damage bonus!";
+        dialogue.text = "When you manually reload, your ranged weapon will gain a bonus!";
         for (int i = 0; i <= 2; i++)
         {
             while (!progress.IsPressed())
@@ -297,10 +300,10 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    dialogue.text = "A bonus will double your damage, but only lasts one attack, so make it count.";
+                    dialogue.text = "A bonus will double that character's first attack's damage.";
                     break;
                 case 1:
-                    dialogue.text = "Now let's finish them off!";
+                    dialogue.text = "Now, finish them off.";
                     break;
                 case 2:
                     tutorialPause = false;
@@ -315,7 +318,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator dialogue5()
     {
         StartCoroutine(ActivateClicker());
-        dialogue.text = "You’re keeping up pretty well so far for claiming to need my help.";
+        dialogue.text = "You’re keeping up pretty well, impressive.";
         for (int i = 0; i <= 3; i++)
         {
             while (!progress.IsPressed())
@@ -338,7 +341,7 @@ public class TutorialManager : MonoBehaviour
                     yield return new WaitForSeconds(1.5f);
                     tutorialPause = true;
                     StartCoroutine(ActivateClicker());
-                    dialogue.text = "Guess we can’t get too confident yet, it appears more Zombies have arrived.";
+                    dialogue.text = "Guess we can’t get too confident yet, it appears more Zombies have arrived-";
                     break;
                 case 1:
                     enemyManager.spawnPoints = new List<Vector2>();
@@ -352,10 +355,10 @@ public class TutorialManager : MonoBehaviour
                     yield return new WaitForSeconds(1.5f);
                     tutorialPause = true;
                     StartCoroutine(ActivateClicker());
-                    dialogue.text = "Okay...that's even more than I thought there'd be.";
+                    dialogue.text = "Okay hmm. This shouldn't be a problem for you right?";
                     break;
                 case 2:
-                    dialogue.text = "You don't seem too frightened of the swarm, you have something special planned don't you?";
+                    dialogue.text = "After all, you have something special for situations like these.";
                     break;
                 case 3:
                     DeactivateClicker();
@@ -373,7 +376,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator dialogue6()
     {
         StartCoroutine(ActivateClicker());
-        dialogue.text = "Heh, impressive.";
+        dialogue.text = "There you go!";
         while (!progress.IsPressed())
         {
             yield return null;
@@ -382,7 +385,7 @@ public class TutorialManager : MonoBehaviour
         {
             yield return null;
         }
-        for (int i = 0; i <= 4; i++)
+        for (int i = 0; i <= 5; i++)
         {
             while (!progress.IsPressed())
             {
@@ -395,18 +398,21 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    dialogue.text = "That bar below the duo determines when you're able to do that swap move of yours.";
+                    dialogue.text = "That bar below the duo determines when you're able to do that swap.";
                     break;
                 case 1:
-                    dialogue.text = "Swapping appears to be what triggers your melee weapon's bonus as well.";
+                    dialogue.text = "Swapping is also what triggers your melee weapon's bonus.";
                     break;
                 case 2:
-                    dialogue.text = "However, swapping will also affect how you attack, which can be altared in the main menu.";
+                    dialogue.text = "However, swapping can also affect your attack controls! Your attack settings can be changed in the main menu or the pause menu.";
                     break;
                 case 3:
-                    dialogue.text = "Now, with them pushed back from your swap, it's time to take the advantage!";
+                    dialogue.text = "While you can't pause in this training session, during an actual shift you would press Enter on pc or Menu on controller to pause.";
                     break;
                 case 4:
+                    dialogue.text = "Now, with them pushed back from your swap, it's time to end this swarm.";
+                    break;
+                case 5:
                     tutorialStage = 3.75f;
                     dialogue.text = "Use your melee attack, ranged attack, and swap to defeat the zombies.";
                     DeactivateClicker();
@@ -420,7 +426,7 @@ public class TutorialManager : MonoBehaviour
     {
         StartCoroutine(ActivateClicker());
         dialogue.text = "Not bad, not bad at all.";
-        for (int i = 0; i <= 10; i++)
+        for (int i = 0; i <= 9; i++)
         {
             while (!progress.IsPressed())
             {
@@ -433,19 +439,16 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    dialogue.text = "It looks like that was the last of them as well, for now.";
+                    dialogue.text = "Now, lets start giving you some real supplies to work with.";
                     break;
                 case 1:
-                    dialogue.text = "Lets start giving you some real supplies to work with.";
+                    PlayerManager.Instance.GiftPlayers(true);
+                    dialogue.text = "Killing zombies with a character will slowly upgrade the opposite characters' weapon until you get something new.";
                     break;
                 case 2:
-                    PlayerManager.Instance.GiftPlayers(true);
-                    dialogue.text = "Killing zombies with a character will slowly upgrade the other characters weapon until you get something new.";
-                    break;
-                case 3:
                     dialogue.text = "So try your best to have both characters engage in battle so you can upgrade both weapons.";
                     break;
-                case 4:
+                case 3:
                     DeactivateClicker();
                     dialogue.text = "";
                     tutorialPause = false;
@@ -457,22 +460,22 @@ public class TutorialManager : MonoBehaviour
                     }
                     tutorialPause = true;
                     StartCoroutine(ActivateClicker());
-                    dialogue.text = "Another horde is here, looks like the rest of them as well. I got one last thing for ya then rookies.";
+                    dialogue.text = "Looks like the stranglers of that last swarm have finally arrived. Thankfully I only got one last thing to tell you.";
                     break;
                 case 5:
-                    dialogue.text = "Each character has two abilities that I will supply to you in a moment.";
+                    dialogue.text = "Each character has an ability that I will supply to you in a moment. Caltrops and healing.";
                     break;
                 case 6:
-                    dialogue.text = "The icons on the sides of your health bar will light up when you can use them.";
+                    dialogue.text = "The icons above your players will light up when you can use them, and darken when they are on cooldown.";
                     break;
                 case 7:
-                    dialogue.text = "You won't be able to act while using some of them however, so be cautious when you deploy";
+                    dialogue.text = "You won't be able to act while using an ability, so be cautious when you deploy them.";
                     break;
                 case 8:
-                    dialogue.text = "On keyboard; H, J, K and L are you ability buttons. On controller you'll use; X, Y, Left and Right Bumber.";
+                    dialogue.text = "On keyboard; H and K are you ability buttons. On controller you'll use; Left and Right Bumber.";
                     break;
                 case 9:
-                    dialogue.text = "Now show them what you got!";
+                    dialogue.text = "Now, show them what you got!";
                     break;
                 case 10:
                     PlayerManager.Instance.GiftPlayers(false);
@@ -488,7 +491,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator dialogue8()
     {
         StartCoroutine(ActivateClicker());
-        dialogue.text = "You cleaned them up well.";
+        dialogue.text = "You cleaned up well.";
         for (int i = 0; i <= 1; i++)
         {
             while (!progress.IsPressed())
@@ -502,7 +505,7 @@ public class TutorialManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    dialogue.text = "You'll only encounter stronger zombies from here, so I wish you the best of luck with the rest of your shift.";
+                    dialogue.text = "You'll only encounter stronger zombies from this point on, so I wish the best of luck with your shift.";
                     break;
                 case 1:
                     dialogue.text = "";
