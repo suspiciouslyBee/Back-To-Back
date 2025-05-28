@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7e0f5a2b93dc649b1e2abfa42c3a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 10
+  cooldown: 17
   startsActive: 1
   healingParticles: {fileID: 3514126581004467005, guid: ce879431c59aa51408adec172c707f62, type: 3}
   waitTime: 1
-  abilityTime: 5
-  healAmount: 5
+  abilityTime: 1
+  healAmount: 15

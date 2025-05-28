@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3719261522063970967}
   - component: {fileID: 7057849287459586196}
+  - component: {fileID: 5248130438500354001}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -44,4 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8132a8c46d476250ea172eb9de9ef3de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PCInstance: {fileID: 0}
+  UIInstance: {fileID: 0}
+  gameOver: 0
+  timeSurvived: 0
   enemyManager: {fileID: 0}
+--- !u!114 &5248130438500354001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196607218043150293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0831deb6b52e12e4582df6a3229202d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
