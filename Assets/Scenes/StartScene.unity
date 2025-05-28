@@ -614,7 +614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6373496006332442842, guid: 30ba5973b96c4d4478f956a98614309b, type: 3}
       propertyPath: volume
-      value: 1.25
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 6373496006332442842, guid: 30ba5973b96c4d4478f956a98614309b, type: 3}
       propertyPath: themes.Array.size

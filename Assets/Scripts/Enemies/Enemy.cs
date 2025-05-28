@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(AudioSource))]
@@ -21,6 +22,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected Collider2D hitbox;
     [SerializeField] protected int expReward;
     [SerializeField] protected bool grounded;
+    [SerializeField] protected float totalStunTime;
     [SerializeField] protected float minStunWaitTime;
 
     protected bool isStunned;
@@ -129,7 +131,7 @@ public abstract class Enemy : MonoBehaviour
     // Reset Stun
     private IEnumerator StunWait()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(totalStunTime);
         while (Vector2.Distance(rb.linearVelocity, Vector2.zero) > 0.01)
         {
             yield return new WaitForSeconds(minStunWaitTime);
@@ -171,9 +173,9 @@ public abstract class Enemy : MonoBehaviour
     // play the death sound of this enemy
     protected IEnumerator PlayDeathSequence()
     {
-
-        DisableEnemy();
         audioSource.PlayOneShot(dieSFX);
+        DisableEnemy();
+
         EnemyManager.Instance.LoseEnemy(gameObject);
         yield return new WaitForSeconds(dieSFX.length);
         Destroy(gameObject);
@@ -183,7 +185,12 @@ public abstract class Enemy : MonoBehaviour
     // effectively removes the enemy from play
     protected void DisableEnemy()
     {
-        hitbox.enabled = false;
+        Collider2D[] collider2Ds = GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D co in collider2Ds)
+        {
+            co.enabled = false;
+        }
+        //hitbox.enabled = false;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.enabled = false;
     }

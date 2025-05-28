@@ -224,7 +224,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -322,16 +322,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0}
   curHP: 0
-  maxHP: 500
+  maxHP: 600
   attackDamage: 20
-  speed: 1.5
+  speed: 1.25
   jumpPower: 8
-  knockbackMult: 0.6
+  knockbackMult: 0.75
   hitbox: {fileID: 5337627209299289075}
   expReward: 30
   grounded: 0
+  totalStunTime: 0.1
   minStunWaitTime: 0
-  iframes: 0.4
+  iframes: 0.3
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 8300000, guid: 02416e5ef1925114686af341aa90fb62, type: 3}
   dieSFX: {fileID: 8300000, guid: 02416e5ef1925114686af341aa90fb62, type: 3}

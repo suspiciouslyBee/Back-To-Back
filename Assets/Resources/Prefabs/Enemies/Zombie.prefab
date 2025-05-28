@@ -227,13 +227,14 @@ MonoBehaviour:
   curHP: 0
   maxHP: 100
   attackDamage: 10
-  speed: 3
+  speed: 2.7
   jumpPower: 10
   knockbackMult: 1
   hitbox: {fileID: 8973836585353227597}
   expReward: 8
   grounded: 0
-  minStunWaitTime: 0.01
+  totalStunTime: 0.25
+  minStunWaitTime: 0
   iframes: 0.3
   audioSource: {fileID: 0}
   hurtSFX: {fileID: 8300000, guid: 02416e5ef1925114686af341aa90fb62, type: 3}
@@ -252,7 +253,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

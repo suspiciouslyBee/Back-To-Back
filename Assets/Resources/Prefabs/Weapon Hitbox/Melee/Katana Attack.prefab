@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4426428430061995888}
   - component: {fileID: 8127060714655798319}
   - component: {fileID: 7386153855728212715}
-  - component: {fileID: -7310362767927023869}
+  - component: {fileID: 2896914570816914278}
   m_Layer: 0
   m_Name: Katana Attack
   m_TagString: Untagged
@@ -129,13 +129,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58af0ee5636a0584985df4935af625df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 95
-  lifeTime: 0.25
+  damage: 65
+  lifeTime: 0.4
   pierceCount: 10
-  velocity: 50
-  knockback: 1
+  velocity: 150
+  knockback: 0.8
   bonusMultiplyer: 2
---- !u!58 &-7310362767927023869
+--- !u!58 &2896914570816914278
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,5 +169,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0.051031113, y: -0.06631923}
+  m_Radius: 0.9067383

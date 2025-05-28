@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4426428430061995888}
   - component: {fileID: 8127060714655798319}
   - component: {fileID: 7386153855728212715}
-  - component: {fileID: -7310362767927023869}
+  - component: {fileID: 5101670493408150718}
   m_Layer: 0
   m_Name: Scythe Attack
   m_TagString: Untagged
@@ -129,14 +129,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58af0ee5636a0584985df4935af625df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 350
+  damage: 120
   lifeTime: 0.2
-  pierceCount: 20
-  velocity: 50
-  knockback: 1
-  bonusMultiplyer: 2
---- !u!58 &-7310362767927023869
-CircleCollider2D:
+  pierceCount: 10
+  velocity: 100
+  knockback: 2
+  bonusMultiplyer: 1.5
+--- !u!60 &5101670493408150718
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -170,4 +170,25 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.5, y: 1.9285715}
+    newSize: {x: 0.12, y: 0.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.6236869, y: 0.77207005}
+      - {x: -0.7610862, y: 0.8544482}
+      - {x: -0.7776644, y: 0.4862532}
+      - {x: 0.38657945, y: 0.38180506}
+      - {x: 0.24389449, y: 0.007892668}
+      - {x: -1.1236868, y: -0.2008465}
+      - {x: -1.0686997, y: -0.8819076}
+      - {x: 0.28861398, y: -0.7885457}
+      - {x: 1.0413086, y: -0.37644988}
+      - {x: 1.0577843, y: 0.33800673}
+  m_UseDelaunayMesh: 0

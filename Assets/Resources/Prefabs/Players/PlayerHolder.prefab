@@ -571,7 +571,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f5307cbf02e02418033715283917ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIncreaseMult: 2.5
+  levelIncreaseMult: 3
   firstLevelUpExp: 20
   Player1: {fileID: 5115879239757125922}
   Player2: {fileID: 7733958219954021406}

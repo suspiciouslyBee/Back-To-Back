@@ -913,9 +913,9 @@ MonoBehaviour:
   - {fileID: 51631112781799947, guid: 73c56d5257699374287f3f6ba09b0f8a, type: 3}
   - {fileID: 51631112781799947, guid: c773350539df7724d93cef5af7d2c717, type: 3}
   enemyWeights:
+  - 70
+  - 20
   - 10
-  - 15
-  - 45
   minWave:
   - 0
   - 5
@@ -923,19 +923,19 @@ MonoBehaviour:
   enemies: []
   enemyScripts: []
   spawnPoints:
-  - {x: -10.3, y: -1.8}
-  - {x: 10.3, y: -1.8}
+  - {x: -15, y: -1.8}
+  - {x: 15, y: -1.8}
   initInterval: 8
-  initWaveWeight: 10
+  initWaveWeight: 30
   waveWeightIncrease: 1.05
-  baseWaveWeightAdder: 1
+  baseWaveWeightAdder: 15
   waveSizeDeviation: 0.25
   wavesSpawned: 0
   initialized: 0
   inWaveSpawnDelay: 0.05
   waveSpawnTimeMult: 1
   spawnCap: 50
-  maxWaveDelay: 15
+  maxWaveDelay: 18
   totalEnemiesSpawned: 0
   interval: 10
   minInterval: 5
@@ -945,6 +945,7 @@ MonoBehaviour:
   waveQueue: 
   primaryQueue: 
   secondaryQueue: 
+  allEnemyWeights: 0
 --- !u!82 &1980000988
 AudioSource:
   m_ObjectHideFlags: 0

@@ -16,9 +16,9 @@ public class SwapKnockBack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy")
+        if (col.gameObject.CompareTag("Enemy"))
         {
-            col.gameObject.GetComponent<Enemy>().ApplyForce(new Vector2(-5f * col.transform.localScale.x, 0.5f));
+            col.gameObject.GetComponent<Enemy>().ApplyForce(new Vector2(-3f * col.transform.localScale.x, 0.5f));
         }
     }
 

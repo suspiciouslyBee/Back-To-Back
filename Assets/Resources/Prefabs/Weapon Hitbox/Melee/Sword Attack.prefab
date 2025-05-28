@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8382414216109291920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,9 +131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 45
   lifeTime: 0.2
-  pierceCount: 6
-  velocity: 0
-  knockback: 2.5
+  pierceCount: 5
+  velocity: 100
+  knockback: 4
   bonusMultiplyer: 2
 --- !u!58 &-7310362767927023869
 CircleCollider2D:

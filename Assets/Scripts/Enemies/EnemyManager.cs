@@ -85,6 +85,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] protected List<int> primaryQueue;                 // all enemies spawning at the primary position
     [SerializeField] protected List<int> secondaryQueue;               // all enemies spawning at the secondary position
 
+    [SerializeField] private float allEnemyWeights;
+
+
     protected void Awake()
     {
         InitEnemyManager();
@@ -151,24 +154,27 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < spawnCap; i++)
         {
             // choose a random enemy from EnemyTypes
-            int tentativeIndex = Random.Range(0, enemyTypes.Length);
+            int tentativeIndex = GetRandomEnemyWeighted();
+
+            // TODO: add enemy weights (so basic zombies are more common)
 
             if (wavesSpawned >= minWave[tentativeIndex])
             {
 
                 waveQueue.Add(tentativeIndex);
-                totalWeight += enemyWeights[tentativeIndex];
-                Debug.Log($"Adding enemy of index {tentativeIndex} to waveQueue");
+                totalWeight += allEnemyWeights - enemyWeights[tentativeIndex];
+                Debug.Log($"[GenerateWave] Adding enemy of index {tentativeIndex} to waveQueue; adding {allEnemyWeights - enemyWeights[tentativeIndex]} to totalWeight!");
             }
             if (totalWeight > actualWeight)
             {
+                Debug.Log($"[GenerateWave] totalweight of {totalWeight} > actualweight {actualWeight}");
                 break;
             }
         }
 
         foreach (int i in waveQueue)
         {
-            if (Random.Range(0f, 1.0f) > 0.8f)
+            if (Random.Range(0f, 1.0f) < 0.6f)
             {
                 primaryQueue.Add(i);
             }
@@ -202,6 +208,27 @@ public class EnemyManager : MonoBehaviour
 
     // ###### HELPER FUNCTIONS ######
 
+    // return a random index, with lower weights being
+    // more common
+    protected int GetRandomEnemyWeighted()
+    {
+        float random = Random.Range(0, allEnemyWeights);
+
+        float cumulativeWeight = 0f;
+        for (int i = 0; i < enemyWeights.Length; i++)
+        {
+            cumulativeWeight += enemyWeights[i];
+            Debug.Log($"[GetRandomEnemyWeighted] random = {random}; cumulativeWeight = {cumulativeWeight}");
+            if (cumulativeWeight > random)
+            {
+                Debug.Log($"[GetRandomEnemyWeighted] returning {i}");
+                return i;
+            }
+        }
+
+        Debug.Log($"[GetRandomEnemyWeighted] returning {0}!");
+        return 0;
+    }
     virtual public int GetEnemyCount()
     {
         return enemies.Count;
@@ -248,6 +275,14 @@ public class EnemyManager : MonoBehaviour
         interval = initInterval;        // constant amount of time for the next wave
 
         initialized = true;
+
+
+        for (int i = 0; i < enemyWeights.Length; i++)
+        {
+
+            allEnemyWeights += enemyWeights[i];
+        }
+
     }
 
 
