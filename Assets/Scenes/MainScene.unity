@@ -465,9 +465,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0831deb6b52e12e4582df6a3229202d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   resumeButton: {fileID: -1974865060, guid: dc9e1107b3e372d418f38304ec5100b5, type: 3}
   restartButton: {fileID: -3341821493477967250, guid: dc9e1107b3e372d418f38304ec5100b5, type: 3}
   quitButton: {fileID: 9060215553278879933, guid: dc9e1107b3e372d418f38304ec5100b5, type: 3}
+  mR: {fileID: -2012446271463619551, guid: 8462563a8c40aa84bb7bf994c686ceb8, type: 3}
+  lR: {fileID: -1420973507192299601, guid: 8462563a8c40aa84bb7bf994c686ceb8, type: 3}
+  isPaused: 0
 --- !u!1 &981990816
 GameObject:
   m_ObjectHideFlags: 0

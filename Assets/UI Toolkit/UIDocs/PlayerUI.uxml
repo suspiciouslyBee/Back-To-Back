@@ -47,5 +47,7 @@
         <ui:VisualElement name="LeftAbility1Button" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: 35%; top: 35%;" />
         <ui:VisualElement name="RightAbility1Icon" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: auto; top: 35%; right: 5%;" />
         <ui:VisualElement name="RightAbility1Button" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: auto; top: 35%; right: 25%;" />
+        <ui:VisualElement name="Menu" style="flex-grow: 1; position: absolute; width: 20%; height: 20%; left: 35%; top: 55%;" />
+        <ui:VisualElement name="MenuIcon" style="flex-grow: 1;" />
     </ui:VisualElement>
 </ui:UXML>

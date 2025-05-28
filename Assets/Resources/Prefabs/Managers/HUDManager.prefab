@@ -46,25 +46,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p1A1: {fileID: -6297846103194970497, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
-  p1A2: {fileID: -7312252029852053250, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   p2A1: {fileID: 4557577659295867294, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
-  p2A2: {fileID: 4226310092395897613, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   leftAttackButton: {fileID: -7233465588816652061, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
   rightAttackButton: {fileID: 2568929768605938376, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
   swapButton: {fileID: -1849072023636930481, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
   reloadButton: {fileID: -6942882563308593451, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
   leftAbility1Button: {fileID: 4394053080663446820, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
-  leftAbility2Button: {fileID: 7798573975983600094, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
   rightAbility1Button: {fileID: 8264586933452401720, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
-  rightAbility2Button: {fileID: -8945286134530862657, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
+  menuButton: {fileID: -2860383464483669715, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
   meleeIcon: {fileID: -1184081909042567840, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   rangedIcon: {fileID: -3594672465257244376, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   reloadIcon: {fileID: -3334098486080132323, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   swapIcon: {fileID: 4773031513114947462, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   leftAbility1Icon: {fileID: -6297846103194970497, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
-  leftAbility2Icon: {fileID: -6297846103194970497, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   rightAbility1Icon: {fileID: 4557577659295867294, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
-  rightAbility2Icon: {fileID: 4557577659295867294, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   initialized: 0
 --- !u!114 &2445242606465991419
 MonoBehaviour:

@@ -69,8 +69,13 @@ public class PauseManager : MonoBehaviour
         Output:
         * None
         */
-        isPaused = true;
-        DisplayPauseMenu();
+
+        if (!isPaused)
+        {
+            isPaused = true;
+            location = 1;
+            DisplayPauseMenu();
+        }
     }
 
     public void UnpauseGame()
@@ -117,7 +122,7 @@ public class PauseManager : MonoBehaviour
         * None
         */
 
-        highlightButtons(0, false);
+        highlightButtons(-1, false);
     }
 
     public void Movement(bool direction)
@@ -144,6 +149,7 @@ public class PauseManager : MonoBehaviour
             switch (location)
             {
                 case 0:
+                    changePreference(false);
                     break;
                 case 1:
                     Resume();
@@ -170,12 +176,14 @@ public class PauseManager : MonoBehaviour
         resume.style.backgroundImage = new StyleBackground(resumeButton);
         restart.style.backgroundImage = new StyleBackground(restartButton);
         quit.style.backgroundImage = new StyleBackground(quitButton);
+        changePreference(true);
 
         resume.RegisterCallback<ClickEvent>(OnResumePressed);
         restart.RegisterCallback<ClickEvent>(OnRestartPressed);
         quit.RegisterCallback<ClickEvent>(OnQuitPressed);
+        swap.RegisterCallback<ClickEvent>(OnSwapPressed);
 
-        highlightButtons(0, false);
+        highlightButtons(-1, false);
     }
 
     private void highlightButtons(int type, bool on)
@@ -183,16 +191,20 @@ public class PauseManager : MonoBehaviour
         resume.SetEnabled(on);
         restart.SetEnabled(on);
         quit.SetEnabled(on);
+        swap.SetEnabled(on);
 
         if (!on)
         {
             resume.UnregisterCallback<ClickEvent>(OnResumePressed);
             restart.UnregisterCallback<ClickEvent>(OnRestartPressed);
             quit.UnregisterCallback<ClickEvent>(OnQuitPressed);
+            swap.UnregisterCallback<ClickEvent>(OnSwapPressed);
+
 
             resume.style.unityBackgroundImageTintColor = new Color(0, 0, 0, 0);
             restart.style.unityBackgroundImageTintColor = new Color(0, 0, 0, 0);
             quit.style.unityBackgroundImageTintColor = new Color(0, 0, 0, 0);
+            swap.style.unityBackgroundImageTintColor = new Color(0, 0, 0, 0);
             pauseMenu.rootVisualElement.Q<VisualElement>("HUD").style.backgroundColor = new Color(0, 0, 0, 0);
         }
         else
@@ -200,15 +212,20 @@ public class PauseManager : MonoBehaviour
             resume.RegisterCallback<ClickEvent>(OnResumePressed);
             restart.RegisterCallback<ClickEvent>(OnRestartPressed);
             quit.RegisterCallback<ClickEvent>(OnQuitPressed);
+            swap.RegisterCallback<ClickEvent>(OnSwapPressed);
 
             resume.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
             restart.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
             quit.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
+            swap.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
             pauseMenu.rootVisualElement.Q<VisualElement>("HUD").style.backgroundColor = new Color(0, 0, 0, 100.0f / 255.0f);
         }
 
         switch (type)
         {
+            case 0:
+                swap.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 1);
+                break;
             case 1:
                 resume.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 1);
                 break;
@@ -218,7 +235,6 @@ public class PauseManager : MonoBehaviour
             case 3:
                 quit.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 1);
                 break;
-
         }
     }
 
@@ -237,6 +253,11 @@ public class PauseManager : MonoBehaviour
         Quit();
     }
 
+    private void OnSwapPressed(ClickEvent evt)
+    {
+        changePreference(false);
+    }
+
     private void Resume()
     {
         UnpauseGame();
@@ -253,6 +274,22 @@ public class PauseManager : MonoBehaviour
     {
         UnpauseGame();
         MainManager.Instance.ChangeStageRelatively(-2);
+    }
+
+    private void changePreference(bool set)
+    {
+        if (!set)
+        {
+            InputPreference.meleeRanged = !InputPreference.meleeRanged;
+        }
+        if (!InputPreference.meleeRanged)
+        {
+            swap.style.backgroundImage = new StyleBackground(lR);
+        }
+        else
+        {
+            swap.style.backgroundImage = new StyleBackground(mR);
+        }
     }
 
     public void InitPauseManager()

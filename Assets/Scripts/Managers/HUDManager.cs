@@ -24,6 +24,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] Sprite reloadButton;
     [SerializeField] Sprite leftAbility1Button;
     [SerializeField] Sprite rightAbility1Button;
+    [SerializeField] Sprite menuButton;
 
     // Symbol Sprites
     [SerializeField] Sprite meleeIcon;
@@ -192,6 +193,7 @@ public class HUDManager : MonoBehaviour
 
         HUDDocument.rootVisualElement.Q<VisualElement>("LeftAbility1Button").style.backgroundImage = new StyleBackground(leftAbility1Button);
         HUDDocument.rootVisualElement.Q<VisualElement>("RightAbility1Button").style.backgroundImage = new StyleBackground(rightAbility1Button);
+        HUDDocument.rootVisualElement.Q<VisualElement>("Menu").style.backgroundImage = new StyleBackground(menuButton);
     }
 
     // Add the needed symbol sprites to the UI
