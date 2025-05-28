@@ -102,7 +102,7 @@ public abstract class Enemy : MonoBehaviour
             curHP += amount;
             if (amount < 0 && curHP > 0)
             {
-                audioSource.PlayOneShot(hurtSFX);
+                AudioManager.Instance.PlayAudio(hurtSFX, 0.07f);
             }
             if (curHP > maxHP)
             {
@@ -173,7 +173,7 @@ public abstract class Enemy : MonoBehaviour
     // play the death sound of this enemy
     protected IEnumerator PlayDeathSequence()
     {
-        audioSource.PlayOneShot(dieSFX);
+        AudioManager.Instance.PlayAudio(dieSFX, 0.07f);
         DisableEnemy();
 
         EnemyManager.Instance.LoseEnemy(gameObject);

@@ -107,7 +107,7 @@ public class UIManager : MonoBehaviour
         {
             audioSource = GetComponent<AudioSource>();
         }
-        audioSource.PlayOneShot(buttonClickSFX);
+        AudioManager.Instance.PlayAudio(buttonClickSFX, 0.08f);
     }
 
 }

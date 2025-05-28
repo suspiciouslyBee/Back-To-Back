@@ -65,7 +65,7 @@ public class PlayerManager : MonoBehaviour
                 p2Swap = player2.Swap(solo);
             }
             StartCoroutine(knockback.Appear(0.1f));
-            audioSource.PlayOneShot(swapSFX);
+            AudioManager.Instance.PlayAudio(swapSFX, 0.07f);
             if (!InputPreference.meleeRanged)
             {
                 HUDManager.Instance.ChangeBars(5, false);
