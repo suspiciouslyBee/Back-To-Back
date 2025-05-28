@@ -107,54 +107,105 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public virtual void RestartLevel()
-    {
-        MainManager.Instance.RestartLevel();
-    }
-
     //running on assumptions
     //can be overridden by a class that inherits LM?
 
     public virtual void FireGun()
     {
-        PCInstance.Attack(false);
+        if (!PauseManager.Instance.isPaused)
+        {
+            PCInstance.Attack(false);
+        }
     }
 
     public virtual void ReloadGun()
     {
-        PCInstance.Reload();
+        if (!PauseManager.Instance.isPaused)
+        {
+            PCInstance.Reload();
+        }
     }
 
     public virtual void RangedAbility1()
     {
-        PCInstance.CallAbility(false, true);
+        if (!PauseManager.Instance.isPaused)
+        {
+            PCInstance.CallAbility(false, true);
+        }
     }
 
     public virtual void RangedAbility2()
     {
-        PCInstance.CallAbility(false, false);
+        if (!PauseManager.Instance.isPaused)
+        {
+            PCInstance.CallAbility(false, false);
+        }
     }
 
     public virtual void SwingSword()
     {
-        PCInstance.Attack(true);
+        if (!PauseManager.Instance.isPaused)
+        {
+            PCInstance.Attack(true);
+        }
     }
 
     public virtual void MeleeAbility1()
     {
-        PCInstance.CallAbility(true, true);
+        if (!PauseManager.Instance.isPaused)
+        {
+            PCInstance.CallAbility(true, true);
+        }
     }
 
     public virtual void MeleeAbility2()
     {
-        PCInstance.CallAbility(true, false);
+        if (!PauseManager.Instance.isPaused)
+        {
+            PCInstance.CallAbility(true, false);
+        }
     }
 
     public virtual void SwapChars()
     {
-        PCInstance.Swap();
+        if (!PauseManager.Instance.isPaused)
+        {
+            PCInstance.Swap();
+        }
+        else
+        {
+            PauseManager.Instance.Select();
+        }
     }
 
+    public virtual void Pause()
+    {
+        PauseManager.Instance.PauseGame();
+    }
+
+    public virtual void Up()
+    {
+        if (gameOver)
+        {
+
+        }
+        else if (PauseManager.Instance.isPaused)
+        {
+            PauseManager.Instance.Movement(true);
+        }
+    }
+
+    public virtual void Down()
+    {
+        if (gameOver)
+        {
+
+        }
+        else if (PauseManager.Instance.isPaused)
+        {
+            PauseManager.Instance.Movement(false);
+        }
+    }
 
     // initialize everything that depends on this
     private void InitDependents()

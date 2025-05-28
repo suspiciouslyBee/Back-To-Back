@@ -3,8 +3,7 @@ using UnityEngine.UIElements;
 
 public class StartUIManager : UIManager
 {
-    [SerializeField]
-    private UIDocument mainMenu;
+    [SerializeField] private UIDocument mainMenu;
 
     [SerializeField] Sprite endlessButton;
     [SerializeField] Sprite tutorialButton;

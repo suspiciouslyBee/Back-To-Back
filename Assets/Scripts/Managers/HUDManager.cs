@@ -155,7 +155,6 @@ public class HUDManager : MonoBehaviour
                 }
                 break;
             case 7:
-                Debug.Log(HUDDocument.rootVisualElement.Q<VisualElement>("P1Abilities").resolvedStyle.left + " | " + HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").resolvedStyle.left);
                 StyleLength sTTemp = HUDDocument.rootVisualElement.Q<VisualElement>("P1Abilities").resolvedStyle.left;
                 HUDDocument.rootVisualElement.Q<VisualElement>("P1Abilities").style.left = HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").resolvedStyle.left;
                 HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").style.left = sTTemp;

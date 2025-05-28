@@ -41,7 +41,7 @@ public class GameOverUI : MonoBehaviour
     private void OnRestartPressed(ClickEvent evt)
     {
         UIManager.Instance.PlayButtonClickSFX();
-        LevelManager.LMInstance.RestartLevel();
+        MainManager.Instance.ChangeStageRelatively(0);
     }
 
     private void OnQuitPressed(ClickEvent evt)

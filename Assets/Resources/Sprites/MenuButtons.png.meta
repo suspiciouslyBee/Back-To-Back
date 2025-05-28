@@ -125,10 +125,10 @@ TextureImporter:
       name: MenuButtons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 18
-        width: 39
-        height: 18
+        x: 1
+        y: 37
+        width: 37
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: MenuButtons_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 39
-        height: 18
+        x: 40
+        y: 37
+        width: 37
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: MenuButtons_2
       rect:
         serializedVersion: 2
-        x: 39
-        y: 18
-        width: 39
-        height: 18
+        x: 1
+        y: 19
+        width: 37
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: MenuButtons_3
       rect:
         serializedVersion: 2
-        x: 39
-        y: 0
-        width: 39
-        height: 18
+        x: 40
+        y: 19
+        width: 37
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,11 +209,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MenuButtons_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26b781f664a380d49b9d3ba8d631db51
+      internalID: -1974865060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuButtons_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5329bc9119572d94ca3b030317542996
+      internalID: 962599533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f14bdfc92eb0b1c448b35d2b9c53044a
     internalID: 0
     vertices: []
     indices: 
@@ -227,6 +271,8 @@ TextureImporter:
       MenuButtons_1: -3172522754301639175
       MenuButtons_2: 9060215553278879933
       MenuButtons_3: -3341821493477967250
+      MenuButtons_4: -1974865060
+      MenuButtons_5: 962599533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

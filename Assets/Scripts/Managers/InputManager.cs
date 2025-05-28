@@ -26,7 +26,9 @@ public class InputManager : MonoBehaviour
     InputAction rangedAbility1;
     InputAction rangedAbility2;
     InputAction swingSword;
-    InputAction restartLevel;
+    InputAction pauseLevel;
+    InputAction Up;
+    InputAction Down;
     LevelManager LMinstance;
 
     bool swapDown;
@@ -35,6 +37,9 @@ public class InputManager : MonoBehaviour
     bool mA2Down;
     bool rA1Down;
     bool rA2Down;
+    bool pauseDown;
+    bool upDown;
+    bool downDown;
 
     // called second
     void OnEnable()
@@ -53,7 +58,9 @@ public class InputManager : MonoBehaviour
         rangedAbility1 = InputSystem.actions.FindAction("Ability3");
         rangedAbility2 = InputSystem.actions.FindAction("Ability4");
         swingSword = InputSystem.actions.FindAction("MeleeAttack");
-        restartLevel = InputSystem.actions.FindAction("RestartLevel");
+        pauseLevel = InputSystem.actions.FindAction("RestartLevel");
+        Up = InputSystem.actions.FindAction("Up");
+        Down = InputSystem.actions.FindAction("Down");
 
         swapDown = false;
         reloadDown = false;
@@ -61,6 +68,9 @@ public class InputManager : MonoBehaviour
         mA2Down = false;
         rA1Down = false;
         rA2Down = false;
+        pauseDown = false;
+        upDown = false;
+        downDown = false;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -152,9 +162,32 @@ public class InputManager : MonoBehaviour
             rA2Down = true;
             LMinstance.RangedAbility2();
         }
-        /*if (restartLevel.IsPressed())
+        if (pauseLevel.ReadValue<float>() == 0 && pauseDown)
         {
-            LMinstance.RestartLevel();
-        }*/
+            pauseDown = false;
+        }
+        if (pauseLevel.ReadValue<float>() > 0 && !pauseDown)
+        {
+            pauseDown = true;
+            LMinstance.Pause();
+        }
+        if (Up.ReadValue<float>() == 0 && upDown)
+        {
+            upDown = false;
+        }
+        if (Up.ReadValue<float>() > 0 && !upDown)
+        {
+            upDown = true;
+            LMinstance.Up();
+        }
+        if (Down.ReadValue<float>() == 0 && downDown)
+        {
+            downDown = false;
+        }
+        if (Down.ReadValue<float>() > 0 && !downDown)
+        {
+            downDown = true;
+            LMinstance.Down();
+        }
     }
 }

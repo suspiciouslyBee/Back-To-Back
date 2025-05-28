@@ -71,7 +71,17 @@ public class StartScreenManager : LevelManager
 
     }
 
-    public override void RestartLevel()
+    public override void Pause()
+    {
+       
+    }
+
+    public override void Up()
+    {
+        
+    }
+
+    public override void Down()
     {
         
     }
