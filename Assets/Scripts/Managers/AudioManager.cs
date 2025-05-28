@@ -3,16 +3,22 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
+    protected static AudioManager AMInstance;
+    public static AudioManager Instance { get { return AMInstance; } }
     private AudioSource audSource;
     private bool FunkyMode;
     private float funk;
+    private bool initialized = false;
     //------------------------- Getters -------------------------
     //------------------------- Setters -------------------------
-    public void Start()
+    public void Awake()
     {
+        InitAudioManager();
+        /*
         audSource = GetComponent<AudioSource>();
         funk = 0.0f;
         FunkyMode = true;
+        */
     }
     public void Update()
     {
@@ -65,5 +71,23 @@ public class AudioManager : MonoBehaviour
         * None
         */
         audSource.PlayOneShot(audClip, vol);
+    }
+
+    virtual public void InitAudioManager()
+    {
+        if (AMInstance != null && AMInstance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            AMInstance = this;
+            DontDestroyOnLoad(gameObject);
+            initialized = true;
+        }
+
+        audSource = GetComponent<AudioSource>();
+        funk = 0.0f;
+        // FunkyMode = true;
     }
 }

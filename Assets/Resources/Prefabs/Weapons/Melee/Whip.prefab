@@ -105,6 +105,7 @@ MonoBehaviour:
   useTime: 1
   reloadTime: -1
   totalUsesPerReload: -1
+  volume: 0.06
   audioSource: {fileID: 0}
   useSFX: {fileID: 8300000, guid: d91f711c3293a97448da217c1221fb86, type: 3}
   cantUseSFX: {fileID: 0}

@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
   private int remainingUses;                        // The number of attacks left before a reload is required
 
 
+  [SerializeField] float volume;
   [SerializeField] AudioSource audioSource;
   [SerializeField] AudioClip useSFX;              // sound to play when used
   [SerializeField] AudioClip cantUseSFX;          // sound to play when can't be used for some reason
@@ -126,7 +127,7 @@ public class Weapon : MonoBehaviour
     {
       remainingUses--;
     }
-    audioSource.PlayOneShot(useSFX);
+    AudioManager.Instance.PlayAudio(useSFX, volume);
     // Spawn a hit box
     SpawnHitBox(isBonus);
     return true;
@@ -134,16 +135,16 @@ public class Weapon : MonoBehaviour
 
   public void CantUseWeaponFX()
   {
-    /*
-    Plays a the "can't use" sound effect
+        /*
+        Plays a the "can't use" sound effect
 
-    Inputs:
-      * None
+        Inputs:
+          * None
 
-    Output:
-      * Returns false if the weapon is ranged and has no more remaing uses
-    */
-    audioSource.PlayOneShot(cantUseSFX);
+        Output:
+          * Returns false if the weapon is ranged and has no more remaing uses
+        */
+        AudioManager.Instance.PlayAudio(cantUseSFX, volume);
   }
 
   //------------------------- Helpers -------------------------
