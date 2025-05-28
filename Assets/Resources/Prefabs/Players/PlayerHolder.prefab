@@ -187,7 +187,7 @@ MonoBehaviour:
   bonusOutfit: {fileID: 6623347770690642616, guid: f84d392ba4ee8ed48bddbc4314196f8d, type: 3}
   startingWeapon: {fileID: 4877257763695872399, guid: 65d6e5d8ee52b7d489644fa62a2d4ab9, type: 3}
   curWeapon: {fileID: 0}
-  fAPrefab: {fileID: 3431308859369590734, guid: 0276d67ecb0731e4191433b58f8252ea, type: 3}
+  fAPrefab: {fileID: 7573274594858252261, guid: a5b71eea361d1ca46af81126d3703946, type: 3}
   sAPrefab: {fileID: 0}
   hurtParticles: {fileID: 3482377379848378528, guid: 786e1a4f928a0564fbf22dff4cee1641, type: 3}
   upgradeParticles: {fileID: 5376495481311255172, guid: 13de22c86dba3624c95d8a9c302c5097, type: 3}
