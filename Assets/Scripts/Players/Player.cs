@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     Ability firstAbility;                                   // First ability
     Ability secondAbility;                                  // Second ability
 
+    [SerializeField] ParticleSystem hurtParticles;
+    [SerializeField] ParticleSystem upgradeParticles;
     [SerializeField] float maxHealth;                       // Max player health
     [SerializeField] float health;                          // Current player health
 
@@ -173,7 +175,8 @@ public class Player : MonoBehaviour
     {
         if (newWeapon != null)
         {
-
+            ParticleSystem xP = Instantiate(upgradeParticles, gameObject.transform);
+            StartCoroutine(PlayParticles(xP));
             newWeapon = Instantiate(newWeapon, curWeapon.gameObject.transform.position, curWeapon.gameObject.transform.rotation, gameObject.transform);
             Destroy(curWeapon.gameObject);
             curWeapon = newWeapon.GetComponent<Weapon>();
@@ -205,6 +208,9 @@ public class Player : MonoBehaviour
         if (!invulnrable && !dead)
         {
             health -= damage;
+            ParticleSystem hP = Instantiate(hurtParticles, gameObject.transform);
+            hP.gameObject.transform.localScale = transform.localScale;
+            StartCoroutine(PlayParticles(hP));
             StartCoroutine(IFrameTimer());
             HUDManager.Instance.ChangeBars(1, false);
             if (health <= 0)
@@ -318,5 +324,12 @@ public class Player : MonoBehaviour
             sR.sprite = bonusOutfit;
             bonus = true;
         }
+    }
+
+    IEnumerator PlayParticles(ParticleSystem pS)
+    {
+        pS.Play();
+        yield return new WaitForSeconds(pS.main.duration);
+        Destroy(pS.gameObject);
     }
 }

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 10
   startsActive: 1
+  healingParticles: {fileID: 3514126581004467005, guid: ce879431c59aa51408adec172c707f62, type: 3}
   waitTime: 1
   abilityTime: 5
   healAmount: 5

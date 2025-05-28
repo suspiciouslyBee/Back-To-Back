@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Heal : Ability
 {
+    [SerializeField] ParticleSystem healingParticles;
     [SerializeField] private float waitTime;
     [SerializeField] private float abilityTime;
     [SerializeField] private float healAmount;
@@ -40,11 +41,13 @@ public class Heal : Ability
         */
 
         thisParent.PerformingAction(abilityTime + 0.4f);
-        StartCoroutine(Healing());
+        ParticleSystem hP = Instantiate(healingParticles, gameObject.transform);
+        StartCoroutine(Healing(hP));
     }
 
-    IEnumerator Healing()
+    IEnumerator Healing(ParticleSystem pS)
     {
+        pS.Play();
         thisParent.changeDirection(true);
         float timer = 0;
         float waitTimer = 0;
@@ -59,6 +62,7 @@ public class Heal : Ability
             }
             yield return new WaitForSeconds(0.1f);
         }
+        Destroy(pS);
         thisParent.changeDirection(true);
     }
 }

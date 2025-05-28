@@ -189,6 +189,8 @@ MonoBehaviour:
   curWeapon: {fileID: 0}
   fAPrefab: {fileID: 3431308859369590734, guid: 0276d67ecb0731e4191433b58f8252ea, type: 3}
   sAPrefab: {fileID: 0}
+  hurtParticles: {fileID: 3482377379848378528, guid: 786e1a4f928a0564fbf22dff4cee1641, type: 3}
+  upgradeParticles: {fileID: 5376495481311255172, guid: 13de22c86dba3624c95d8a9c302c5097, type: 3}
   maxHealth: 100
   health: 0
   attackCooldown: 0.8
@@ -780,6 +782,8 @@ MonoBehaviour:
   curWeapon: {fileID: 0}
   fAPrefab: {fileID: 6331778464711860266, guid: 9256268e594ef4d4abf8d3c473bf3d7c, type: 3}
   sAPrefab: {fileID: 0}
+  hurtParticles: {fileID: 3482377379848378528, guid: 786e1a4f928a0564fbf22dff4cee1641, type: 3}
+  upgradeParticles: {fileID: 5376495481311255172, guid: 13de22c86dba3624c95d8a9c302c5097, type: 3}
   maxHealth: 100
   health: 0
   attackCooldown: 0.25
