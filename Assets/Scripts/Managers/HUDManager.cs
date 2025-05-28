@@ -164,6 +164,18 @@ public class HUDManager : MonoBehaviour
                 HUDDocument.rootVisualElement.Q<VisualElement>("P1Abilities").style.right = HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").resolvedStyle.right;
                 HUDDocument.rootVisualElement.Q<VisualElement>("P2Abilities").style.right = sTTemp;
                 break;
+            case 7.5f:
+                if (shake)
+                {
+                    abilityIcons[0].style.backgroundImage = new StyleBackground();
+                    abilityIcons[1].style.right = -40;
+                }
+                else
+                {
+                    abilityIcons[1].style.backgroundImage = new StyleBackground();
+                    abilityIcons[0].style.left = -40;
+                }
+                break;
         }
     }
 

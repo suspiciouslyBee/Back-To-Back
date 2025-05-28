@@ -47,6 +47,7 @@ public class PlayerManager : MonoBehaviour
             if (playerCount == 2)
             {
                 solo = false;
+                HUDManager.Instance.ChangeBars(7f, false);
             }
             else
             {
@@ -70,7 +71,6 @@ public class PlayerManager : MonoBehaviour
             {
                 HUDManager.Instance.ChangeBars(5, false);
             }
-            HUDManager.Instance.ChangeBars(7f, false);
             return (p1Swap && p2Swap);
         }
         HUDManager.Instance.ChangeBars(3.5f, true);
@@ -222,10 +222,12 @@ public class PlayerManager : MonoBehaviour
             if (player1.dead)
             {
                 player2.transform.position = new Vector2(0, -1.8f);
+                HUDManager.Instance.ChangeBars(7.5f, true);
             }
             else
             {
                 player1.transform.position = new Vector2(0, -1.8f);
+                HUDManager.Instance.ChangeBars(7.5f, false);
             }
         }
         // if (player1 != null) playerCount++;
