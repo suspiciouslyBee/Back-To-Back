@@ -60,6 +60,7 @@ MonoBehaviour:
   swapIcon: {fileID: 4773031513114947462, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   leftAbility1Icon: {fileID: -6297846103194970497, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   rightAbility1Icon: {fileID: 4557577659295867294, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
+  menuIcon: {fileID: 2229510944716738450, guid: 45c71100cc62b9c4498d6bee48837db8, type: 3}
   initialized: 0
 --- !u!114 &2445242606465991419
 MonoBehaviour:

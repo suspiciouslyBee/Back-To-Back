@@ -16,16 +16,16 @@ public class GameOverUI : MonoBehaviour
     {
         if (doc != null)
         {
-            gameOverUI = doc.rootVisualElement.Q<VisualElement>("MainContainer");
+            // gameOverUI = doc.rootVisualElement.Q<VisualElement>("MainContainer");
         }
         else
         {
             throw new NullReferenceException("No Game Over UI Document found in scene!");
         }
 
-        gameOverUI.style.display = DisplayStyle.None;
+        // gameOverUI.style.display = DisplayStyle.None;
 
-        InitButtons();
+        // InitButtons();
     }
 
     public void OnDisable()

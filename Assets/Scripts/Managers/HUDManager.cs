@@ -33,6 +33,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] Sprite swapIcon;
     [SerializeField] Sprite leftAbility1Icon;
     [SerializeField] Sprite rightAbility1Icon;
+    [SerializeField] Sprite menuIcon;
 
     // Bars
     VisualElement p1Health;
@@ -168,12 +169,27 @@ public class HUDManager : MonoBehaviour
                 if (shake)
                 {
                     abilityIcons[0].style.backgroundImage = new StyleBackground();
-                    abilityIcons[1].style.right = -40;
+                    // Not swapped
+                    if (!playerManagerInstance.GetDirectionInfo())
+                    {
+                        abilityIcons[1].style.right = 40;
+                    }
+                    else
+                    {
+                        abilityIcons[1].style.right = -40;
+                    }
                 }
                 else
                 {
                     abilityIcons[1].style.backgroundImage = new StyleBackground();
-                    abilityIcons[0].style.left = -40;
+                    if (!playerManagerInstance.GetDirectionInfo())
+                    {
+                        abilityIcons[0].style.right = -40;
+                    }
+                    else
+                    {
+                        abilityIcons[0].style.right = 40;
+                    }
                 }
                 break;
         }
@@ -221,6 +237,7 @@ public class HUDManager : MonoBehaviour
         rightInput.style.backgroundImage = new StyleBackground(rangedIcon);
         HUDDocument.rootVisualElement.Q<VisualElement>("SwapIcon").style.backgroundImage = new StyleBackground(swapIcon);
         HUDDocument.rootVisualElement.Q<VisualElement>("ReloadIcon").style.backgroundImage = new StyleBackground(reloadIcon);
+        HUDDocument.rootVisualElement.Q<VisualElement>("MenuIcon").style.backgroundImage = new StyleBackground(menuIcon);
         leftAbility1.style.backgroundImage = new StyleBackground(leftAbility1Icon);
         rightAbility1.style.backgroundImage = new StyleBackground(rightAbility1Icon);
     }
