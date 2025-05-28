@@ -92,8 +92,8 @@ public class LevelManager : MonoBehaviour
         if (!gameOver && PCInstance.playerCount == 0)
         {
             // TODO: trigger game over
-            UIInstance.GameOverSequence();
             gameOver = true;
+            UIInstance.GameOverSequence();
         }
         else if (!gameOver)
         {
@@ -168,7 +168,7 @@ public class LevelManager : MonoBehaviour
 
     public virtual void SwapChars()
     {
-        if (!PauseManager.Instance.isPaused)
+        if (!PauseManager.Instance.isPaused && !gameOver)
         {
             PCInstance.Swap();
         }
@@ -185,11 +185,7 @@ public class LevelManager : MonoBehaviour
 
     public virtual void Up()
     {
-        if (gameOver)
-        {
-
-        }
-        else if (PauseManager.Instance.isPaused)
+        if (PauseManager.Instance.isPaused || gameOver)
         {
             PauseManager.Instance.Movement(true);
         }
@@ -197,11 +193,7 @@ public class LevelManager : MonoBehaviour
 
     public virtual void Down()
     {
-        if (gameOver)
-        {
-
-        }
-        else if (PauseManager.Instance.isPaused)
+        if (PauseManager.Instance.isPaused || gameOver)
         {
             PauseManager.Instance.Movement(false);
         }

@@ -91,7 +91,14 @@ public class TutorialLevelManager : LevelManager
 
     public override void SwapChars()
     {
-        PCInstance.Swap();
+        if (!gameOver)
+        {
+            PCInstance.Swap();
+        }
+        else
+        {
+            PauseManager.Instance.Select();
+        }
     }
 
     public override void Pause()
@@ -101,11 +108,17 @@ public class TutorialLevelManager : LevelManager
 
     public override void Up()
     {
-
+        if (gameOver)
+        {
+            PauseManager.Instance.Movement(true);
+        }
     }
 
     public override void Down()
     {
-
+        if (gameOver)
+        {
+            PauseManager.Instance.Movement(false);
+        }
     }
 }

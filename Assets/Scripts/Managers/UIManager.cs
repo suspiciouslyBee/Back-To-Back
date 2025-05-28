@@ -32,13 +32,11 @@ public class UIManager : MonoBehaviour
         InitUIManager();
     }
 
-
-
-
     // animate the GameOver screen
     public virtual void GameOverSequence()
     {
-        gameOverUIScript.GameOverSequence();
+        PauseManager.Instance.InitGameOver();
+        // gameOverUIScript.GameOverSequence();
     }
 
     public virtual void TogglePause()

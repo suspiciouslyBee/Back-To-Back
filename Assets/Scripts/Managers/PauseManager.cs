@@ -14,6 +14,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] Sprite quitButton;
     [SerializeField] Sprite mR;
     [SerializeField] Sprite lR;
+    [SerializeField] Sprite gameOverLogo;
 
     private Button resume;
     private Button restart;
@@ -127,14 +128,19 @@ public class PauseManager : MonoBehaviour
 
     public void Movement(bool direction)
     {
-        if (isPaused)
+        if (isPaused || LevelManager.LMInstance.gameOver)
         {
-            if (direction && location > 0)
+            if ((direction && location > 0) && !LevelManager.LMInstance.gameOver)
             {
                 location--;
                 highlightButtons(location, true);
             }
-            else if (location < 3)
+            else if (direction && location > 2)
+            {
+                location--;
+                highlightButtons(location, true);
+            }
+            else if (!direction && location < 3)
             {
                 location++;
                 highlightButtons(location, true);
@@ -144,7 +150,7 @@ public class PauseManager : MonoBehaviour
 
     public void Select()
     {
-        if (isPaused)
+        if (isPaused || LevelManager.LMInstance.gameOver)
         {
             switch (location)
             {
@@ -186,39 +192,57 @@ public class PauseManager : MonoBehaviour
         highlightButtons(-1, false);
     }
 
+    public void InitGameOver()
+    {
+        location = 2;
+
+        swap.style.backgroundImage = new StyleBackground(gameOverLogo);
+        highlightButtons(location, true);
+    }
+
     private void highlightButtons(int type, bool on)
     {
         resume.SetEnabled(on);
+        swap.SetEnabled(on);
         restart.SetEnabled(on);
         quit.SetEnabled(on);
-        swap.SetEnabled(on);
 
         if (!on)
         {
-            resume.UnregisterCallback<ClickEvent>(OnResumePressed);
+            resume.UnregisterCallback<ClickEvent>(OnResumePressed); 
+            swap.UnregisterCallback<ClickEvent>(OnSwapPressed);
             restart.UnregisterCallback<ClickEvent>(OnRestartPressed);
             quit.UnregisterCallback<ClickEvent>(OnQuitPressed);
-            swap.UnregisterCallback<ClickEvent>(OnSwapPressed);
-
 
             resume.style.unityBackgroundImageTintColor = new Color(0, 0, 0, 0);
+            swap.style.unityBackgroundImageTintColor = new Color(0, 0, 0, 0);
             restart.style.unityBackgroundImageTintColor = new Color(0, 0, 0, 0);
             quit.style.unityBackgroundImageTintColor = new Color(0, 0, 0, 0);
-            swap.style.unityBackgroundImageTintColor = new Color(0, 0, 0, 0);
-            pauseMenu.rootVisualElement.Q<VisualElement>("HUD").style.backgroundColor = new Color(0, 0, 0, 0);
+            pauseMenu.rootVisualElement.Q<VisualElement>("Border").style.backgroundColor = new Color(0, 0, 0, 0);
         }
         else
         {
-            resume.RegisterCallback<ClickEvent>(OnResumePressed);
+            if (!LevelManager.LMInstance.gameOver)
+            {
+                resume.RegisterCallback<ClickEvent>(OnResumePressed);
+                swap.RegisterCallback<ClickEvent>(OnSwapPressed);
+            }
             restart.RegisterCallback<ClickEvent>(OnRestartPressed);
             quit.RegisterCallback<ClickEvent>(OnQuitPressed);
-            swap.RegisterCallback<ClickEvent>(OnSwapPressed);
 
-            resume.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
+            if (!LevelManager.LMInstance.gameOver)
+            {
+                resume.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
+                swap.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
+            }
+            else
+            {
+                resume.style.unityBackgroundImageTintColor = new Color(0.2f, 0.2f, 0.2f, 1f);
+                swap.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+            }
             restart.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
             quit.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
-            swap.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 0.3f);
-            pauseMenu.rootVisualElement.Q<VisualElement>("HUD").style.backgroundColor = new Color(0, 0, 0, 100.0f / 255.0f);
+            pauseMenu.rootVisualElement.Q<VisualElement>("Border").style.backgroundColor = new Color(0, 0, 0, 120.0f / 255.0f);
         }
 
         switch (type)

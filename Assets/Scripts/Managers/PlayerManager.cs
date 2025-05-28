@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     protected float coolDownRemaining;                                  // Stores current cool down time for swapping
 
     public int playerCount;
+    protected bool swappedDirection;
 
     // Set variables
     private void Awake()
@@ -54,6 +55,7 @@ public class PlayerManager : MonoBehaviour
                 solo = true;
             }
             StartCoroutine(SwapTimer());
+            swappedDirection = !swappedDirection;
             bool p1Swap = false;
             bool p2Swap = false;
             if (player1 != null)
@@ -290,6 +292,11 @@ public class PlayerManager : MonoBehaviour
         return results;
     }
 
+    public bool GetDirectionInfo()
+    {
+        return swappedDirection;
+    }
+
     // Initalizes the static player manager
     virtual public void InitPlayerManager()
     {
@@ -305,6 +312,7 @@ public class PlayerManager : MonoBehaviour
         swapCoolDown = 3.0f;
         coolDownRemaining = 0;
         playerCount = 2;
+        swappedDirection = false;
 
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
