@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 8462563a8c40aa84bb7bf994c686ceb8
+guid: dc9e1107b3e372d418f38304ec5100b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9166860728367804406
-    second: ControlMode_0
+      213: -4331849829665928538
+    second: MenuButtons_0
   - first:
-      213: -2012446271463619551
-    second: ControlMode_1
+      213: -3172522754301639175
+    second: MenuButtons_1
   - first:
-      213: -1420973507192299601
-    second: ControlMode_2
+      213: 9060215553278879933
+    second: MenuButtons_2
+  - first:
+      213: -3341821493477967250
+    second: MenuButtons_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,67 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ControlMode_0
+      name: MenuButtons_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 39
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa0d62f78d22e3c0800000000000000
+      internalID: -4331849829665928538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuButtons_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 93
-        height: 46
+        width: 39
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ff67dba34b373f70800000000000000
-      internalID: 9166860728367804406
+      spriteID: 9f5c10c1d5fe8f3d0800000000000000
+      internalID: -3172522754301639175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ControlMode_1
+      name: MenuButtons_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 93
-        height: 46
+        x: 39
+        y: 18
+        width: 39
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1240adb47ca5214e0800000000000000
-      internalID: -2012446271463619551
+      spriteID: db828a9ea0a5cbd70800000000000000
+      internalID: 9060215553278879933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ControlMode_2
+      name: MenuButtons_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 39
         y: 0
-        width: 93
-        height: 46
+        width: 39
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fafdf84bf10b74ce0800000000000000
-      internalID: -1420973507192299601
+      spriteID: e6afa72be077f91d0800000000000000
+      internalID: -3341821493477967250
       vertices: []
       indices: 
       edges: []
@@ -188,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8468bd34a071b224e8ef95a4f3bc07f1
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ControlMode_0: 9166860728367804406
-      ControlMode_1: -2012446271463619551
-      ControlMode_2: -1420973507192299601
+      MenuButtons_0: -4331849829665928538
+      MenuButtons_1: -3172522754301639175
+      MenuButtons_2: 9060215553278879933
+      MenuButtons_3: -3341821493477967250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

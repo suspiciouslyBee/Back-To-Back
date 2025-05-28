@@ -789,6 +789,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doc: {fileID: 1520220830}
+  rB: {fileID: -3341821493477967250, guid: dc9e1107b3e372d418f38304ec5100b5, type: 3}
+  qB: {fileID: -3172522754301639175, guid: dc9e1107b3e372d418f38304ec5100b5, type: 3}
 --- !u!1 &1757389919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1115,7 @@ MonoBehaviour:
   initInterval: 10
   initWaveWeight: 10
   waveWeightIncrease: 1.5
+  baseWaveWeightAdder: 1
   waveSizeDeviation: 0.25
   wavesSpawned: 0
   initialized: 0

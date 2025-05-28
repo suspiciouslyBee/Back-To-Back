@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 8462563a8c40aa84bb7bf994c686ceb8
+guid: b9973d830d0879c4188595733a3f3645
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9166860728367804406
-    second: ControlMode_0
-  - first:
-      213: -2012446271463619551
-    second: ControlMode_1
-  - first:
-      213: -1420973507192299601
-    second: ControlMode_2
+      213: -8867447717187184675
+    second: StartScreenBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,67 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ControlMode_0
+      name: StartScreenBG_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 93
-        height: 46
+        width: 512
+        height: 400
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ff67dba34b373f70800000000000000
-      internalID: 9166860728367804406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ControlMode_1
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 93
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1240adb47ca5214e0800000000000000
-      internalID: -2012446271463619551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ControlMode_2
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 93
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fafdf84bf10b74ce0800000000000000
-      internalID: -1420973507192299601
+      spriteID: dd795b0784f70f480800000000000000
+      internalID: -8867447717187184675
       vertices: []
       indices: 
       edges: []
@@ -188,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8468bd34a071b224e8ef95a4f3bc07f1
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ControlMode_0: 9166860728367804406
-      ControlMode_1: -2012446271463619551
-      ControlMode_2: -1420973507192299601
+      StartScreenBG_0: -8867447717187184675
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

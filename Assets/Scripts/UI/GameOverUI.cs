@@ -8,6 +8,8 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private UIDocument doc;
     private VisualElement gameOverUI;
 
+    [SerializeField] Sprite rB;
+    [SerializeField] Sprite qB;
 
     // handles GameOver document initialization
     public void InitGameOver()
@@ -51,9 +53,11 @@ public class GameOverUI : MonoBehaviour
     {
         restartButton = doc.rootVisualElement.Q<Button>("restart-button");
         restartButton.RegisterCallback<ClickEvent>(OnRestartPressed);
+        restartButton.style.backgroundImage = new StyleBackground(rB);
 
         quitButton = doc.rootVisualElement.Q<Button>("quit-button");
         quitButton.RegisterCallback<ClickEvent>(OnQuitPressed);
+        quitButton.style.backgroundImage = new StyleBackground(qB);
     }
 
     // disable all callbacks because good practice

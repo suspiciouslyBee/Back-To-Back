@@ -350,6 +350,7 @@ MonoBehaviour:
   gameOver: 0
   timeSurvived: 0
   enemyManager: {fileID: 0}
+  uM: {fileID: 1537896053}
 --- !u!4 &856752009
 Transform:
   m_ObjectHideFlags: 0
@@ -401,103 +402,99 @@ MonoBehaviour:
   buttonClickSFX: {fileID: 8300000, guid: 2089a472054858148811fda8bc159171, type: 3}
   initialized: 0
   mainMenu: {fileID: 856752010}
---- !u!82 &856752012
-AudioSource:
+  endlessButton: {fileID: 9060215553278879933, guid: dc9e1107b3e372d418f38304ec5100b5, type: 3}
+  tutorialButton: {fileID: -4331849829665928538, guid: dc9e1107b3e372d418f38304ec5100b5, type: 3}
+  lC: {fileID: -7233465588816652061, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
+  lPC: {fileID: 1063838670581136351, guid: 328750bc3754cd343b0662b1d5bc985e, type: 3}
+  rC: {fileID: 2568929768605938376, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
+  rPC: {fileID: -3250564378901791597, guid: 328750bc3754cd343b0662b1d5bc985e, type: 3}
+--- !u!1 &1293139567
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856752007}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1293139569}
+  - component: {fileID: 1293139568}
+  m_Layer: 0
+  m_Name: StartScreenBG_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1293139568
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293139567}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -8867447717187184675, guid: b9973d830d0879c4188595733a3f3645, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.12, y: 4}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1293139569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293139567}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1537896050
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +561,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mR: {fileID: -1420973507192299601, guid: 8462563a8c40aa84bb7bf994c686ceb8, type: 3}
   lR: {fileID: -2012446271463619551, guid: 8462563a8c40aa84bb7bf994c686ceb8, type: 3}
+  sPC: {fileID: -150617462623590385, guid: 328750bc3754cd343b0662b1d5bc985e, type: 3}
+  sC: {fileID: -1849072023636930481, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
+  box: {fileID: -3466982402196688065, guid: baeef92657849cf4f9a12a32efb27c35, type: 3}
 --- !u!1001 &401280085112249561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -650,3 +650,4 @@ SceneRoots:
   - {fileID: 856752009}
   - {fileID: 1537896052}
   - {fileID: 401280085112249561}
+  - {fileID: 1293139569}
