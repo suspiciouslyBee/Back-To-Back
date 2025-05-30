@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class TutorialManager : MonoBehaviour
@@ -46,6 +46,7 @@ public class TutorialManager : MonoBehaviour
             progress = InputSystem.actions.FindAction("SwapCharacters");
             Dialogue = gameObject.GetComponent<UIDocument>();
             dialogue = Dialogue.rootVisualElement.Q<Label>("Dialogue");
+            dialogue.enableRichText = true;
             reminder = Dialogue.rootVisualElement.Q<Label>("Reminder");
             clicker = Dialogue.rootVisualElement.Q<VisualElement>("Clicker");
             enemyManager.spawnPoints = new List<Vector2>();
@@ -194,7 +195,7 @@ public class TutorialManager : MonoBehaviour
                     dialogue.text = "That zombie's getting way too close, go ahead and deal with it.";
                     break;
                 case 8:
-                    dialogue.text = "Press A on the keyboard or Left trigger on the controller to use your melee attack.";
+                    dialogue.text = $"Press the A key or <sprite name=\"{"Controller Left Trigger"}\"> to use your melee attack.";
                     DeactivateClicker();
                     tutorialStage = 1.5f;
                     break;
@@ -240,7 +241,7 @@ public class TutorialManager : MonoBehaviour
                     dialogue.text = "Luckily for the both of us, you won’t have to wait for this zombie to approach.";
                     break;
                 case 2:
-                    dialogue.text = "Press D on the keyboard or Right trigger on the controller to use your ranged attack.";
+                    dialogue.text = $"Press the D key or <sprite name=\"{"Controller Right Trigger"}\"> to use your ranged attack.";
                     DeactivateClicker();
                     tutorialStage = 2.5f;
                     break;
@@ -275,7 +276,7 @@ public class TutorialManager : MonoBehaviour
                     break;
                 case 3:
                     tutorialStage = 2.75f;
-                    dialogue.text = "Press R on the keyboard or B on the controller to reload your weapon.";
+                    dialogue.text = $"Press the R key or <sprite name=\"{"Controller B"}\"> to reload your weapon.";
                     DeactivateClicker();
                     break;
             }
@@ -307,7 +308,7 @@ public class TutorialManager : MonoBehaviour
                     break;
                 case 2:
                     tutorialPause = false;
-                    dialogue.text = "Press D on the keyboard or Right trigger on the controller to use your ranged attack.";
+                    dialogue.text = $"Press the D key or <sprite name=\"{"Controller Right Trigger"}\"> to use your ranged attack.";
                     DeactivateClicker();
                     tutorialStage = 2.85f;
                     break;
@@ -366,7 +367,7 @@ public class TutorialManager : MonoBehaviour
                     tutorialPause = false;
                     yield return new WaitForSeconds(3.75f);
                     tutorialPause = true;
-                    dialogue.text = "Press Space on the keyboard or A on the controller to swap.";
+                    dialogue.text = $"Press the Space bar or <sprite name=\"{"Controller A"}\"> to swap.";
                     tutorialStage = 3.5f;
                     break;
             }
@@ -407,7 +408,7 @@ public class TutorialManager : MonoBehaviour
                     dialogue.text = "However, swapping can also affect your attack controls! Your attack settings can be changed in the main menu or the pause menu.";
                     break;
                 case 3:
-                    dialogue.text = "While you can't pause in this training session, during an actual shift you would press Enter on pc or Menu on controller to pause.";
+                    dialogue.text = $"While you can't pause in this training session, during an actual shift you would press Enter or <sprite name=\"{"Controller Menu"}\"> to pause.";
                     break;
                 case 4:
                     dialogue.text = "Now, with them pushed back from your swap, it's time to end this swarm.";
@@ -426,7 +427,7 @@ public class TutorialManager : MonoBehaviour
     {
         StartCoroutine(ActivateClicker());
         dialogue.text = "Not bad, not bad at all.";
-        for (int i = 0; i <= 9; i++)
+        for (int i = 0; i <= 10; i++)
         {
             while (!progress.IsPressed())
             {
@@ -469,13 +470,13 @@ public class TutorialManager : MonoBehaviour
                     dialogue.text = "The icons above your players will light up when you can use them, and darken when they are on cooldown.";
                     break;
                 case 7:
-                    dialogue.text = "You won't be able to act while using an ability, so be cautious when you deploy them.";
+                    dialogue.text = $" You'll press the H and K key, or <sprite name=\"{"Controller Left Bumper"}\"> and <sprite name=\"{"Controller Right Bumper"}\"> to use your abilities.";
                     break;
                 case 8:
-                    dialogue.text = "On keyboard; H and K are you ability buttons. On controller you'll use; Left and Right Bumber.";
+                    dialogue.text = "Be mindful, as ability controls will also be affected by your swap.";
                     break;
                 case 9:
-                    dialogue.text = "Now, show them what you got!";
+                    dialogue.text = "With that out of the way, show them what you got!";
                     break;
                 case 10:
                     PlayerManager.Instance.GiftPlayers(false);
@@ -526,7 +527,7 @@ public class TutorialManager : MonoBehaviour
     IEnumerator ActivateClicker()
     {
         idle = true;
-        reminder.text = "Press Space on the keyboard or A on the controller to progress dialogue.";
+        reminder.text = $"Press the Space bar or <sprite name=\"{"Controller A"}\"> to progress dialogue.";
         clicker.style.unityBackgroundImageTintColor = new Color(1, 1, 1, 1);
         while (idle)
         {

@@ -2,7 +2,7 @@
     <ui:VisualElement name="Box" style="flex-grow: 1; position: absolute; bottom: 0%; background-image: resource(&apos;Sprites/Textbox&apos;); width: 70%; height: 25%; right: 15%;">
         <ui:VisualElement name="PlayerBox" style="flex-grow: 1; width: 15%; height: 75%; position: absolute; top: 14%; left: 10%; background-image: resource(&apos;Sprites/CharGlitch&apos;);" />
         <ui:Label text="Press Space on the keyboard or A on the controller to progress dialogue." name="Reminder" style="color: rgb(255, 255, 255); font-size: 12%; right: 4%; bottom: 10%; -unity-text-align: lower-right; white-space: pre-wrap; width: 100%; height: 100%;" />
-        <ui:Label text="Test Test" name="Dialogue" style="white-space: normal; -unity-text-align: upper-right; width: 60%; height: 60%; top: 15%; left: auto; right: 10%; -unity-font-style: bold; color: rgb(255, 255, 255); position: absolute; font-size: 25%;" />
+        <ui:Label text="Test Test" name="Dialogue" emoji-fallback-support="true" style="white-space: normal; -unity-text-align: upper-right; width: 60%; height: 60%; top: 15%; left: auto; right: 10%; -unity-font-style: bold; color: rgb(255, 255, 255); position: absolute; font-size: 25%;" />
         <ui:VisualElement name="Clicker" style="flex-grow: 1; position: absolute; right: 5%; top: 45%; background-image: resource(&apos;Sprites/Clicker&apos;); width: 2.5%; height: 12.5%;" />
     </ui:VisualElement>
 </ui:UXML>
