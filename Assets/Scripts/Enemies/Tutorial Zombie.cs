@@ -47,8 +47,7 @@ public class TutorialZombie : Enemy
             TutorialManager.TMInstance.nextStage();
         }
         //for now, we just need this to dissapear
-        Destroy(gameObject);
-        EnemyManager.Instance.LoseEnemy(gameObject);
+        StartCoroutine(PlayDeathSequence());
     }
 
     // basic movement

@@ -25,12 +25,14 @@ public class TutorialPlayerManager : PlayerManager
             if (playerCount == 2)
             {
                 solo = false;
+                HUDManager.Instance.ChangeBars(7f, false);
             }
             else
             {
                 solo = true;
             }
             StartCoroutine(SwapTimer());
+            swappedDirection = !swappedDirection;
             bool p1Swap = false;
             bool p2Swap = false;
             if (player1 != null)
@@ -43,10 +45,11 @@ public class TutorialPlayerManager : PlayerManager
                 p2Swap = player2.Swap(solo);
             }
             StartCoroutine(knockback.Appear(0.1f));
-/*            if (!InputPreference.meleeRanged)
+            AudioManager.Instance.PlayAudio(swapSFX, 0.07f);
+            if (!InputPreference.meleeRanged)
             {
                 HUDManager.Instance.ChangeBars(5, false);
-            }*/
+            }
             return (p1Swap && p2Swap);
         }
         return false;
@@ -55,45 +58,72 @@ public class TutorialPlayerManager : PlayerManager
     // Call the player's attack function
     override public bool Attack(bool melee)
     {
-            /*
-        if (Left && player1.left || !Left && !player1.left)  // If the input is for left attack and player1 is on the left side or the-
-        {                                                   // input is right and player1 is on the right side, have player 1 attack
-            return player1.UseWeapon();
-        }
-        return player2.UseWeapon();
-        */
-
-            // Or can be changed to this if we want the inputs to be melee/range instead of left/right
-        if (melee)
+        if (InputPreference.meleeRanged)
         {
-            if (player1 != null && ((TutorialManager.TMInstance.tutorialStage > 1f && TutorialManager.TMInstance.tutorialStage < 2f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
+            if (melee)
             {
-                if (TutorialManager.TMInstance.tutorialStage == 1.5f)
+                if (player1 != null && ((TutorialManager.TMInstance.tutorialStage > 1f && TutorialManager.TMInstance.tutorialStage < 2f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
                 {
-                    TutorialManager.TMInstance.nextStage();
+                    if (TutorialManager.TMInstance.tutorialStage == 1.5f)
+                    {
+                        TutorialManager.TMInstance.nextStage();
+                    }
+                    return player1.UseWeapon().Item1;
                 }
-                return player1.UseWeapon().Item1;
+                return false;
             }
-            return false;
-        }
-        (bool, bool) needAmmo = (false, false);
-        if (player2 != null && (((TutorialManager.TMInstance.tutorialStage == 2.5f || TutorialManager.TMInstance.tutorialStage == 2.85f) && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
-        {
-            needAmmo = player2.UseWeapon();
-            if (needAmmo.Item1 && !needAmmo.Item2)
+            (bool, bool) needAmmo = (false, false);
+            if (player2 != null && (((TutorialManager.TMInstance.tutorialStage == 2.5f || TutorialManager.TMInstance.tutorialStage == 2.85f) && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
             {
-                if (TutorialManager.TMInstance.tutorialStage == 2.5f)
+                needAmmo = player2.UseWeapon();
+                if (needAmmo.Item1 && !needAmmo.Item2)
                 {
-                    TutorialManager.TMInstance.tutorialStage = 2.55f;
-                    TutorialManager.TMInstance.nextStage();
-                }
-                else
-                {
-                    Reload(true);
+                    if (TutorialManager.TMInstance.tutorialStage == 2.5f)
+                    {
+                        TutorialManager.TMInstance.tutorialStage = 2.55f;
+                        TutorialManager.TMInstance.nextStage();
+                    }
+                    else
+                    {
+                        Reload(true);
+                    }
                 }
             }
+            return needAmmo.Item1;
         }
-        return needAmmo.Item1;
+        else
+        {
+            if (melee && player1.left || !melee && !player1.left)  // If the input is for left attack and player1 is on the left side or the-
+            {                                                      // input is right and player1 is on the right side, have player 1 attack
+                if (player1 != null && ((TutorialManager.TMInstance.tutorialStage > 1f && TutorialManager.TMInstance.tutorialStage < 2f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
+                {
+                    if (TutorialManager.TMInstance.tutorialStage == 1.5f)
+                    {
+                        TutorialManager.TMInstance.nextStage();
+                    }
+                    return player1.UseWeapon().Item1;
+                }
+                return false;
+            }
+            (bool, bool) needAmmo = (false, false);
+            if (player2 != null && (((TutorialManager.TMInstance.tutorialStage == 2.5f || TutorialManager.TMInstance.tutorialStage == 2.85f) && TutorialManager.TMInstance.tutorialStage < 3f) || TutorialManager.TMInstance.tutorialStage == 3.75f || TutorialManager.TMInstance.tutorialStage == 4.5f))
+            {
+                needAmmo = player2.UseWeapon();
+                if (needAmmo.Item1 && !needAmmo.Item2)
+                {
+                    if (TutorialManager.TMInstance.tutorialStage == 2.5f)
+                    {
+                        TutorialManager.TMInstance.tutorialStage = 2.55f;
+                        TutorialManager.TMInstance.nextStage();
+                    }
+                    else
+                    {
+                        Reload(true);
+                    }
+                }
+            }
+            return needAmmo.Item1;
+        }
     }
 
     // Because player2 will be the ranged individual, simply call player2 to always reload
