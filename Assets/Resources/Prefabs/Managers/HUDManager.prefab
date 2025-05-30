@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8541fff91711eff46baff16c09127b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1A1: {fileID: -6297846103194970497, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
+  p1A1: {fileID: -7312252029852053250, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   p2A1: {fileID: 4557577659295867294, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   leftAttackButton: {fileID: -7233465588816652061, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
   rightAttackButton: {fileID: 2568929768605938376, guid: e5013d0f2ead2004389985b773aecedf, type: 3}
@@ -58,7 +58,7 @@ MonoBehaviour:
   rangedIcon: {fileID: -3594672465257244376, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   reloadIcon: {fileID: -3334098486080132323, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   swapIcon: {fileID: 4773031513114947462, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
-  leftAbility1Icon: {fileID: -6297846103194970497, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
+  leftAbility1Icon: {fileID: -7312252029852053250, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   rightAbility1Icon: {fileID: 4557577659295867294, guid: dcaa086d1203769439ee5cfeca99883e, type: 3}
   menuIcon: {fileID: 2229510944716738450, guid: 45c71100cc62b9c4498d6bee48837db8, type: 3}
   initialized: 0
