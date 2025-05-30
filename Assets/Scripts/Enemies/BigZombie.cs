@@ -18,7 +18,7 @@ public class BigZombie : Enemy
     // perform an attack
     public override void Attack(GameObject player)
     {
-        Debug.Log("[BigZombie] attacking!");
+        //Debug.Log("[BigZombie] attacking!");
         player.GetComponent<Player>().Hurt(attackDamage);
         // ApplyForce(new Vector2(-10 * transform.localScale.x, 0));
     }

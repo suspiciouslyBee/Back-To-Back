@@ -55,7 +55,7 @@ public class CaltropHitbox : MonoBehaviour
             // Deal damage to the enemy
             Enemy enemyScript = other.GetComponent<Enemy>();
             enemyScript.ChangeHP(-1 * damage);
-            Debug.Log("Hurt Enemy");
+            //Debug.Log("Hurt Enemy");
         }
     }
 }

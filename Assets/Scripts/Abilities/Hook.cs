@@ -132,7 +132,7 @@ public class Hook : Ability
         GameObject enemy = FindEnemy(direction);
         if (enemy != null)
         {
-            Debug.Log("Pulling enemy");
+            //Debug.Log("Pulling enemy");
             PullEnemyIn(enemy, forceToEnemy);
         }
     }

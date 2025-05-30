@@ -50,7 +50,7 @@ public class MainManager : MonoBehaviour
         //bounds check
         if (0 > newIndex || newIndex > SceneManager.sceneCountInBuildSettings - 1)
         {
-            Debug.Log("No more scenes!");
+            //Debug.Log("No more scenes!");
             return;
         }
 

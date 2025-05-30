@@ -163,11 +163,11 @@ public class EnemyManager : MonoBehaviour
 
                 waveQueue.Add(tentativeIndex);
                 totalWeight += allEnemyWeights - enemyWeights[tentativeIndex];
-                Debug.Log($"[GenerateWave] Adding enemy of index {tentativeIndex} to waveQueue; adding {allEnemyWeights - enemyWeights[tentativeIndex]} to totalWeight!");
+                //Debug.Log($"[GenerateWave] Adding enemy of index {tentativeIndex} to waveQueue; adding {allEnemyWeights - enemyWeights[tentativeIndex]} to totalWeight!");
             }
             if (totalWeight > actualWeight)
             {
-                Debug.Log($"[GenerateWave] totalweight of {totalWeight} > actualweight {actualWeight}");
+                //Debug.Log($"[GenerateWave] totalweight of {totalWeight} > actualweight {actualWeight}");
                 break;
             }
         }
@@ -218,15 +218,15 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < enemyWeights.Length; i++)
         {
             cumulativeWeight += enemyWeights[i];
-            Debug.Log($"[GetRandomEnemyWeighted] random = {random}; cumulativeWeight = {cumulativeWeight}");
+            //Debug.Log($"[GetRandomEnemyWeighted] random = {random}; cumulativeWeight = {cumulativeWeight}");
             if (cumulativeWeight > random)
             {
-                Debug.Log($"[GetRandomEnemyWeighted] returning {i}");
+                //Debug.Log($"[GetRandomEnemyWeighted] returning {i}");
                 return i;
             }
         }
 
-        Debug.Log($"[GetRandomEnemyWeighted] returning {0}!");
+        //Debug.Log($"[GetRandomEnemyWeighted] returning {0}!");
         return 0;
     }
     virtual public int GetEnemyCount()
@@ -335,7 +335,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemies.Count >= spawnCap)
         {
-            Debug.Log($"[EnemyManager] attempting to spawn enemy, but spawn cap reached!");
+            //Debug.Log($"[EnemyManager] attempting to spawn enemy, but spawn cap reached!");
             return;
         }
         int type;
