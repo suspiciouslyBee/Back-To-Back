@@ -7,13 +7,12 @@
     <title>Back 2 Back | Unity Web Player</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div id="unity-container" class="unity-desktop">
-        <div>
-            <a href="index.html">Back to Main Page</a>
-        </div>
+
         <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
         <div id="unity-loading-bar">
             <div id="unity-logo"></div>
@@ -25,8 +24,14 @@
         <div id="unity-footer">
             <div id="unity-logo-title-footer"></div>
             <div id="unity-fullscreen-button"></div>
-            <div id="unity-build-title">Back-To-Back</div>
+            <div id="unity-build-title">Back-2-Back</div>
         </div>
+        <div class="small-div">
+            <a href="index.html">
+                <h1 class="big-header">Back to main page</h1>
+            </a>
+        </div>
+
     </div>
     <script>
         var canvas = document.querySelector("#unity-canvas");
@@ -158,6 +163,7 @@
         document.body.appendChild(script);
 
     </script>
+
 </body>
 
 </html>
