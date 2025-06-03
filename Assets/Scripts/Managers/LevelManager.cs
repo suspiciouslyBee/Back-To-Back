@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
 
     public float timeSurvived;
 
-    [SerializeField] private EnemyManager enemyManager;
+    [SerializeField] protected EnemyManager enemyManager;
 
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()

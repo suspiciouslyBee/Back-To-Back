@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TutorialLevelManager : LevelManager
 {
-    [SerializeField] private EnemyManager enemyManager;
+
 
     //The extra checks are here incase there is a duplicate by any means
     private void Awake()
@@ -103,7 +103,7 @@ public class TutorialLevelManager : LevelManager
 
     public override void Pause()
     {
-        
+
     }
 
     public override void Up()
