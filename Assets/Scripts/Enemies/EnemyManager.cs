@@ -177,7 +177,7 @@ public class EnemyManager : MonoBehaviour
 
         foreach (int i in waveQueue)
         {
-            if (Random.Range(0f, 1.0f) < 0.0f)
+            if (Random.Range(0f, 1.0f) < 0.5f)
             {
                 primaryQueue.Add(i);
             }
@@ -192,8 +192,8 @@ public class EnemyManager : MonoBehaviour
 
     protected void TrailerSpawnOneZombie()
     {
-        Vector2 primaryPos = spawnPoints[1];
-        Vector2 secondaryPos = spawnPoints[0];
+        Vector2 primaryPos = spawnPoints[0];
+        Vector2 secondaryPos = spawnPoints[1];
         primaryQueue.Add(0);
         StartCoroutine(SpawnAllInList(primaryQueue, primaryPos));
         StartCoroutine(SpawnAllInList(secondaryQueue, secondaryPos));
