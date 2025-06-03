@@ -1,6 +1,16 @@
+:root {
+    --main-background: #332E46;
+    --div-background: #3F21C5;
+    --credit-background: #1A61F0;
+    --playlink: #423870;
+}
+
 /* containers */
+
 body {
-    background-color: red;
+    background-color: var(--main-background);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
 }
 
 .small-div {
@@ -9,7 +19,7 @@ body {
     height: 10%;
     min-height: 100px;
     /* Debug-color only */
-    background-color: aquamarine;
+    background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
     padding: 10px;
@@ -25,7 +35,7 @@ body {
     height: 80%;
     min-height: 640px;
     /* Debug-color only */
-    background-color: aquamarine;
+    background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
     padding: 10px;
@@ -41,7 +51,7 @@ body {
     max-width: 1200px;
     margin-top: 10px;
     padding: 10px;
-    background-color: aquamarine;
+    background-color: var(--div-background);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +82,7 @@ body {
     height: 80%;
     min-height: 640px;
     /* Debug-color only */
-    background-color: aquamarine;
+    background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
     padding: 10px;
@@ -88,7 +98,7 @@ body {
     max-width: 1200px;
     height: 100px;
     margin: auto;
-    background-color: green;
+    background-color: var(--playlink);
     position: sticky;
     top: 0;
     padding: 10px;
@@ -109,7 +119,7 @@ body {
     flex-shrink: 0;
     flex-basis: 400px;
     padding: 10px;
-    background-color: beige;
+    background-color: var(--credit-background);
 }
 
 /* Non-containers */
@@ -121,18 +131,18 @@ body {
 }
 
 .screenshot {
-    width: 400px;
+    width: 300px;
     display: block;
     margin: 30px;
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 400px;
+    flex-basis: 300px;
     padding: 30px
 }
 
 .screenshot:hover {
-    width: 450px;
-    flex-basis: 450px;
+    width: 600px;
+    flex-basis: 600px;
 }
 
 .big-header {
@@ -141,7 +151,16 @@ body {
 
 a {
     text-decoration: none;
+    font-size: 18px;
+    color: orange;
+}
 
+a:hover {
+    font-size: 20px;
+}
+
+p {
+    font-size: 18px;
 }
 
 ul {
