@@ -5,7 +5,7 @@ body {
 
 .small-div {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1200px;
     height: 10%;
     min-height: 100px;
     /* Debug-color only */
@@ -21,7 +21,7 @@ body {
 
 .big-div {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1200px;
     height: 80%;
     min-height: 640px;
     /* Debug-color only */
@@ -31,6 +31,23 @@ body {
     padding: 10px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.column-div {
+    width: 100%;
+    max-width: 1200px;
+    height: 80%;
+    min-height: 640px;
+    /* Debug-color only */
+    background-color: aquamarine;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -55,13 +72,13 @@ body {
 
 .screenshots {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1200px;
     height: 80%;
     min-height: 640px;
     /* Debug-color only */
     background-color: aquamarine;
     margin: auto;
-
+    margin-top: 10px;
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -72,7 +89,7 @@ body {
 
 .top-nav {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1200px;
     height: 100px;
     margin: auto;
     background-color: green;

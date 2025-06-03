@@ -1,4 +1,3 @@
-###### Credits ######
 
 ### Weapon Related ###
 Classic Laser Pew sound effect: https://freesound.org/people/SeanSecret/sounds/440661/?
