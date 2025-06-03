@@ -545,10 +545,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6063310104159484725, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
+      propertyPath: startingWeapon
+      value: 
+      objectReference: {fileID: 6584704054352460258, guid: 29a92e3d7eede5c45bd5797e02132dd7, type: 3}
     - target: {fileID: 6100800838198820699, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
       propertyPath: m_Name
       value: PlayerHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 6226126905157109303, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
+      propertyPath: startingWeapon
+      value: 
+      objectReference: {fileID: 4877257763695872399, guid: b2a67e09c3a26654db931b0be59bfc82, type: 3}
     - target: {fileID: 7291840184277444212, guid: 6b4a38bd522e7cd40985404be8fbcadb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -915,13 +923,13 @@ MonoBehaviour:
   - {fileID: 51631112781799947, guid: 73c56d5257699374287f3f6ba09b0f8a, type: 3}
   - {fileID: 51631112781799947, guid: c773350539df7724d93cef5af7d2c717, type: 3}
   enemyWeights:
-  - 70
   - 20
-  - 10
+  - 20
+  - 20
   minWave:
   - 0
-  - 5
-  - 20
+  - 0
+  - 0
   enemies: []
   enemyScripts: []
   spawnPoints:
@@ -1057,6 +1065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUDManager
       objectReference: {fileID: 0}
+    - target: {fileID: 848067227085448131, guid: 7e2043826323e7b44bc4ecedf892b90d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1287910037936250298, guid: 7e2043826323e7b44bc4ecedf892b90d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.877661
@@ -1095,6 +1107,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1287910037936250298, guid: 7e2043826323e7b44bc4ecedf892b90d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2445242606465991419, guid: 7e2043826323e7b44bc4ecedf892b90d, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

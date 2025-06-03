@@ -324,7 +324,7 @@ MonoBehaviour:
   curHP: 0
   maxHP: 600
   attackDamage: 20
-  speed: 1.25
+  speed: 0.8
   jumpPower: 8
   knockbackMult: 0.75
   hitbox: {fileID: 5337627209299289075}

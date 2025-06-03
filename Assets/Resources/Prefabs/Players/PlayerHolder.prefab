@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalOutfit: {fileID: 3187071219573135304, guid: 8f135787e227cce49ba95a9ed84bccb3, type: 3}
   bonusOutfit: {fileID: 6623347770690642616, guid: f84d392ba4ee8ed48bddbc4314196f8d, type: 3}
-  startingWeapon: {fileID: 4877257763695872399, guid: 65d6e5d8ee52b7d489644fa62a2d4ab9, type: 3}
+  startingWeapon: {fileID: 4877257763695872399, guid: 49481b3e04504c941a8bf374c0060856, type: 3}
   curWeapon: {fileID: 0}
   fAPrefab: {fileID: 7573274594858252261, guid: a5b71eea361d1ca46af81126d3703946, type: 3}
   sAPrefab: {fileID: 0}
@@ -667,8 +667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f5307cbf02e02418033715283917ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIncreaseMult: 3
-  firstLevelUpExp: 20
+  levelIncreaseMult: 100
+  firstLevelUpExp: 100000
   Player1: {fileID: 5115879239757125922}
   Player2: {fileID: 7733958219954021406}
 --- !u!1 &7733958219954021406
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalOutfit: {fileID: 2426890910119273652, guid: 8f135787e227cce49ba95a9ed84bccb3, type: 3}
   bonusOutfit: {fileID: -5145282466274310738, guid: f84d392ba4ee8ed48bddbc4314196f8d, type: 3}
-  startingWeapon: {fileID: 6584704054352460258, guid: 3ada334a9ba42d74eb986aa4451eae18, type: 3}
+  startingWeapon: {fileID: 6584704054352460258, guid: 05b9cad899655a94dbd75a4d7ff4475a, type: 3}
   curWeapon: {fileID: 0}
   fAPrefab: {fileID: 6331778464711860266, guid: 9256268e594ef4d4abf8d3c473bf3d7c, type: 3}
   sAPrefab: {fileID: 0}

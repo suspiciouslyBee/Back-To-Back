@@ -61,7 +61,7 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] protected float waveSpawnTimeMult = 1f;      // controls how rapidly zombie waves spawn
 
-    [SerializeField] protected int spawnCap = 50;           // maximum number of zombies allowed on screen
+    [SerializeField] protected int spawnCap = 100;           // maximum number of zombies allowed on screen
 
     [SerializeField] protected float maxWaveDelay = 30f;                  // longest the player should wait between waves
 
@@ -102,28 +102,36 @@ public class EnemyManager : MonoBehaviour
     // Remove Update as needed
     protected void Update()
     {
-        timeSinceLastWave += Time.deltaTime;
-        if (GetEnemyCount() <= 0)
+        // timeSinceLastWave += Time.deltaTime;
+        // if (GetEnemyCount() <= 0)
+        // {
+        //     timeWithNoEnemies += Time.deltaTime;
+        // }
+        // else
+        // {
+        //     timeWithNoEnemies = 0f;
+        // }
+
+        // if (timeSinceLastWave >= maxWaveDelay || timeWithNoEnemies > interval)
+        // {
+        //     timeSinceLastWave = 0f;
+        //     timeWithNoEnemies = 0f;
+        //     GenerateWave();
+        //     interval *= 0.92f;
+        //     if (interval < minInterval)
+        //     {
+        //         interval = minInterval;
+        //     }
+        // }
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            timeWithNoEnemies += Time.deltaTime;
-        }
-        else
-        {
-            timeWithNoEnemies = 0f;
+            TrailerSpawnOneZombie();
         }
 
-        if (timeSinceLastWave >= maxWaveDelay || timeWithNoEnemies > interval)
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            timeSinceLastWave = 0f;
-            timeWithNoEnemies = 0f;
-            GenerateWave();
-            interval *= 0.92f;
-            if (interval < minInterval)
-            {
-                interval = minInterval;
-            }
+            TrailerSpawnHugeWave();
         }
-
 
 
     }
@@ -139,6 +147,57 @@ public class EnemyManager : MonoBehaviour
         }
     }
     // ###### WAVE LOGIC FUNCTIONS ######
+    protected void TrailerSpawnHugeWave()
+    {
+        Vector2 primaryPos = spawnPoints[1];
+        Vector2 secondaryPos = spawnPoints[0];
+        float actualWeight = 10000;
+        float totalWeight = 0;
+
+        for (int i = 0; i < spawnCap; i++)
+        {
+            // choose a random enemy from EnemyTypes
+            int tentativeIndex = GetRandomEnemyWeighted();
+
+            // TODO: add enemy weights (so basic zombies are more common)
+
+            if (wavesSpawned >= minWave[tentativeIndex])
+            {
+
+                waveQueue.Add(tentativeIndex);
+                totalWeight += allEnemyWeights - enemyWeights[tentativeIndex];
+                //Debug.Log($"[GenerateWave] Adding enemy of index {tentativeIndex} to waveQueue; adding {allEnemyWeights - enemyWeights[tentativeIndex]} to totalWeight!");
+            }
+            if (totalWeight > actualWeight)
+            {
+                //Debug.Log($"[GenerateWave] totalweight of {totalWeight} > actualweight {actualWeight}");
+                break;
+            }
+        }
+
+        foreach (int i in waveQueue)
+        {
+            if (Random.Range(0f, 1.0f) < 0.0f)
+            {
+                primaryQueue.Add(i);
+            }
+            else
+            {
+                secondaryQueue.Add(i);
+            }
+        }
+        StartCoroutine(SpawnAllInList(primaryQueue, primaryPos));
+        StartCoroutine(SpawnAllInList(secondaryQueue, secondaryPos));
+    }
+
+    protected void TrailerSpawnOneZombie()
+    {
+        Vector2 primaryPos = spawnPoints[1];
+        Vector2 secondaryPos = spawnPoints[0];
+        primaryQueue.Add(0);
+        StartCoroutine(SpawnAllInList(primaryQueue, primaryPos));
+        StartCoroutine(SpawnAllInList(secondaryQueue, secondaryPos));
+    }
     // function that masterminds a wave
     protected void GenerateWave()
     {
