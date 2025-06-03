@@ -37,15 +37,11 @@ body {
 }
 
 .column-div {
-    width: 100%;
-    max-width: 1200px;
-    height: 80%;
-    min-height: 640px;
-    /* Debug-color only */
-    background-color: aquamarine;
     margin: auto;
+    max-width: 1200px;
     margin-top: 10px;
     padding: 10px;
+    background-color: aquamarine;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,7 +79,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
@@ -107,11 +103,11 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 30px;
-    width: 300px;
-    height: 500px;
+    width: 400px;
+    height: 600px;
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 300px;
+    flex-basis: 400px;
     padding: 10px;
     background-color: beige;
 }
@@ -125,19 +121,18 @@ body {
 }
 
 .screenshot {
-    width: 30%;
-    height: 30%;
+    width: 400px;
     display: block;
     margin: 30px;
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 300px;
+    flex-basis: 400px;
     padding: 30px
 }
 
 .screenshot:hover {
-    width: 40%;
-    flex-basis: 400px;
+    width: 450px;
+    flex-basis: 450px;
 }
 
 .big-header {
@@ -147,4 +142,12 @@ body {
 a {
     text-decoration: none;
 
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    font-size: 24px;
 }
