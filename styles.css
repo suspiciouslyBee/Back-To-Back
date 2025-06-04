@@ -141,8 +141,8 @@ body {
 }
 
 .screenshot:hover {
-    width: 600px;
-    flex-basis: 600px;
+    width: 400px;
+    flex-basis: 400px;
 }
 
 .big-header {
@@ -169,4 +169,26 @@ ul {
 
 li {
     font-size: 24px;
+}
+
+.credit-image-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 250px;
+    height: 300px;
+    background-color: var(--main-background);
+
+}
+
+.credit-image {
+    width: 100%;
+    height: 100%;
+}
+
+.credit-cell>h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-decoration: underline;
 }
