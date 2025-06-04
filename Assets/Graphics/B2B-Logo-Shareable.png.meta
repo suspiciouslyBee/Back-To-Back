@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 68217f9b4911a3e4a8cccce9ae5f86d8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9047906755773342453
+    second: B2B-Logo-Shareable_0
+  - first:
+      213: -8824479873798463826
+    second: B2B-Logo-Shareable_1
+  - first:
+      213: -5866201883977263761
+    second: B2B-Logo-Shareable_2
+  - first:
+      213: 4918934338797901912
+    second: B2B-Logo-Shareable_3
+  - first:
+      213: -7436377343450383103
+    second: B2B-Logo-Shareable_4
+  - first:
+      213: 2142783022967186569
+    second: B2B-Logo-Shareable_5
+  - first:
+      213: 5614153041686532879
+    second: B2B-Logo-Shareable_6
+  - first:
+      213: 490261983633946011
+    second: B2B-Logo-Shareable_7
+  - first:
+      213: 5502037588957262993
+    second: B2B-Logo-Shareable_8
+  - first:
+      213: 7643265906785402420
+    second: B2B-Logo-Shareable_9
+  - first:
+      213: -5717608451353150524
+    second: B2B-Logo-Shareable_10
+  - first:
+      213: -3559094746517876744
+    second: B2B-Logo-Shareable_11
+  - first:
+      213: 3750230385253007262
+    second: B2B-Logo-Shareable_12
+  - first:
+      213: -101885918926203520
+    second: B2B-Logo-Shareable_13
+  - first:
+      213: -4854574933117373189
+    second: B2B-Logo-Shareable_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2699
+        width: 7000
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f22abaa14f909d70800000000000000
+      internalID: 9047906755773342453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1299
+        width: 601
+        height: 1302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eae98a21f46298580800000000000000
+      internalID: -8824479873798463826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_2
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 1299
+        width: 702
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f65decc8770179ea0800000000000000
+      internalID: -5866201883977263761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_3
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 1299
+        width: 702
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 858158138b0934440800000000000000
+      internalID: 4918934338797901912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_4
+      rect:
+        serializedVersion: 2
+        x: 2299
+        y: 1299
+        width: 1102
+        height: 1302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d70eba43eacc890800000000000000
+      internalID: -7436377343450383103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_5
+      rect:
+        serializedVersion: 2
+        x: 3599
+        y: 1299
+        width: 1102
+        height: 1302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98462b27ec1bcbd10800000000000000
+      internalID: 2142783022967186569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_6
+      rect:
+        serializedVersion: 2
+        x: 4799
+        y: 1299
+        width: 702
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f039764427a79ed40800000000000000
+      internalID: 5614153041686532879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_7
+      rect:
+        serializedVersion: 2
+        x: 5599
+        y: 1299
+        width: 702
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9531653da2cdc600800000000000000
+      internalID: 490261983633946011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_8
+      rect:
+        serializedVersion: 2
+        x: 6399
+        y: 1299
+        width: 601
+        height: 1302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 194f4ae390a2b5c40800000000000000
+      internalID: 5502037588957262993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1099
+        width: 3001
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e3cc1b8d5521a60800000000000000
+      internalID: 7643265906785402420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_10
+      rect:
+        serializedVersion: 2
+        x: 3199
+        y: 199
+        width: 602
+        height: 902
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cbf25c1869f6a0b0800000000000000
+      internalID: -5717608451353150524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_11
+      rect:
+        serializedVersion: 2
+        x: 3999
+        y: 1099
+        width: 3001
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ffc7d75f2e8b9ec0800000000000000
+      internalID: -3559094746517876744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 299
+        width: 3001
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9fb1e27aae7b0430800000000000000
+      internalID: 3750230385253007262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_13
+      rect:
+        serializedVersion: 2
+        x: 3999
+        y: 199
+        width: 3001
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0851acaeb47069ef0800000000000000
+      internalID: -101885918926203520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B2B-Logo-Shareable_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 7000
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4f508a1d511acb0800000000000000
+      internalID: -4854574933117373189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      B2B-Logo-Shareable_0: 9047906755773342453
+      B2B-Logo-Shareable_1: -8824479873798463826
+      B2B-Logo-Shareable_10: -5717608451353150524
+      B2B-Logo-Shareable_11: -3559094746517876744
+      B2B-Logo-Shareable_12: 3750230385253007262
+      B2B-Logo-Shareable_13: -101885918926203520
+      B2B-Logo-Shareable_14: -4854574933117373189
+      B2B-Logo-Shareable_2: -5866201883977263761
+      B2B-Logo-Shareable_3: 4918934338797901912
+      B2B-Logo-Shareable_4: -7436377343450383103
+      B2B-Logo-Shareable_5: 2142783022967186569
+      B2B-Logo-Shareable_6: 5614153041686532879
+      B2B-Logo-Shareable_7: 490261983633946011
+      B2B-Logo-Shareable_8: 5502037588957262993
+      B2B-Logo-Shareable_9: 7643265906785402420
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
