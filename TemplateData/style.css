@@ -1,7 +1,22 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: red;
+
+}
+
+#unity-game-wrapper {
+    margin: auto;
+    position: relative;
+
+    width: 1200px;
+
+    height: 800px;
+    /* Set the desired height for your game wrapper */
+    overflow: hidden;
+    /* Hide anything that overflows the wrapper */
+    background-color: #3F21C5;
+    /* Example background */
+    padding: 10px;
 }
 
 #unity-container {

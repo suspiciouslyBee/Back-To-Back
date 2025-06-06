@@ -122,6 +122,16 @@ body {
     background-color: var(--credit-background);
 }
 
+/* For divs within divs */
+.sub-div {
+    background-color: var(--credit-background);
+    width: 100%;
+    min-height: 0px;
+    padding: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
 /* Non-containers */
 
 #trailer {
@@ -159,18 +169,16 @@ a:hover {
     font-size: 20px;
 }
 
-p {
+p,
+li {
     font-size: 18px;
     margin-bottom: 5px;
 }
 
-ul {
+.dev-credit-list {
     list-style-type: none;
 }
 
-li {
-    font-size: 24px;
-}
 
 .credit-image-card {
     display: flex;
@@ -196,4 +204,15 @@ li {
 
 strong {
     color: orange;
+}
+
+.sub-div>* {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
