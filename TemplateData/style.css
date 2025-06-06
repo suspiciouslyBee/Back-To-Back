@@ -17,6 +17,8 @@ body {
     background-color: #3F21C5;
     /* Example background */
     padding: 10px;
+
+    border-radius: 20px;
 }
 
 #unity-container {
