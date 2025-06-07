@@ -18,7 +18,6 @@ body {
     max-width: 1200px;
     height: 10%;
     min-height: 100px;
-    /* Debug-color only */
     background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
@@ -30,11 +29,10 @@ body {
 }
 
 .big-div {
-    width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
+    width: 1200px;
     height: 80%;
     min-height: 640px;
-    /* Debug-color only */
     background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
@@ -129,11 +127,14 @@ body {
     border-radius: 10px;
 }
 
+#dev-credits {
+    padding: 0;
+}
+
 /* For divs within divs */
 .sub-div {
     background-color: var(--credit-background);
     width: 100%;
-    min-height: 0px;
     padding: 10px;
     margin-top: 4px;
     margin-bottom: 4px;
@@ -164,7 +165,8 @@ body {
 }
 
 .big-header {
-    font-size: 64px;
+    font-size: 32px;
+    max-height: 32px;
 }
 
 a {
@@ -231,4 +233,21 @@ strong {
 
 .first-element {
     margin-top: 10%;
+}
+
+/* Image centered in div */
+.generic-image {
+    margin: auto;
+    width: 300px;
+    display: block;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figcaption {
+    padding: 5px;
 }
