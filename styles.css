@@ -1,7 +1,7 @@
 :root {
     --main-background: #332E46;
     --div-background: #3F21C5;
-    --credit-background: #1A61F0;
+    --credit-background: #1449B3;
     --playlink: #423870;
 }
 
@@ -21,7 +21,7 @@ body {
     background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,7 +36,7 @@ body {
     background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -135,7 +135,7 @@ body {
 .sub-div {
     background-color: var(--credit-background);
     width: 100%;
-    padding: 10px;
+
     margin-top: 4px;
     margin-bottom: 4px;
     border-radius: 10px;
