@@ -50,7 +50,7 @@ body {
     margin: auto;
     max-width: 1200px;
     margin-top: 10px;
-    padding: 10px;
+    /* padding: 10px; */
     background-color: var(--div-background);
     display: flex;
     flex-direction: column;
@@ -60,6 +60,8 @@ body {
     border-radius: 20px;
     padding: 20px;
 }
+
+
 
 .half-div {
     height: 100%;
@@ -89,7 +91,7 @@ body {
     background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -230,11 +232,11 @@ strong {
 }
 
 .last-element {
-    margin-bottom: 20%;
+    margin-bottom: 10%;
 }
 
 .first-element {
-    margin-top: 10%;
+    margin-top: 2%;
 }
 
 /* Image centered in div */

@@ -17,9 +17,10 @@
     /* Hide anything that overflows the wrapper */
     background-color: #3F21C5;
     /* Example background */
-    padding: 10px;
+    padding: 20px;
 
     border-radius: 20px;
+    margin-top: 10px;
 }
 
 #unity-container {
