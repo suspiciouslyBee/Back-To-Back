@@ -26,6 +26,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    border-radius: 20px;
 }
 
 .big-div {
@@ -57,6 +58,7 @@ body {
     justify-content: space-evenly;
     flex-wrap: wrap;
     border-radius: 20px;
+    padding: 20px;
 }
 
 .half-div {
