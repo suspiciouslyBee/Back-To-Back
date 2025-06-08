@@ -1,7 +1,7 @@
 :root {
     --main-background: #332E46;
     --div-background: #3F21C5;
-    --credit-background: #1A61F0;
+    --credit-background: #1449B3;
     --playlink: #423870;
 }
 
@@ -18,11 +18,10 @@ body {
     max-width: 1200px;
     height: 10%;
     min-height: 100px;
-    /* Debug-color only */
     background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,20 +29,20 @@ body {
 }
 
 .big-div {
-    width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
+    width: 1200px;
     height: 80%;
     min-height: 640px;
-    /* Debug-color only */
     background-color: var(--div-background);
     margin: auto;
     margin-top: 10px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    border-radius: 20px;
 }
 
 .column-div {
@@ -57,6 +56,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    border-radius: 20px;
 }
 
 .half-div {
@@ -69,11 +69,13 @@ body {
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 0;
+    border-radius: 20px;
 }
 
 .text-div {
     width: 100%;
     height: 100%;
+    border-radius: 20px;
 }
 
 .screenshots {
@@ -91,6 +93,8 @@ body {
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+
+    border-radius: 20px;
 }
 
 .top-nav {
@@ -120,6 +124,21 @@ body {
     flex-basis: 400px;
     padding: 10px;
     background-color: var(--credit-background);
+    border-radius: 10px;
+}
+
+#dev-credits {
+    padding: 0;
+}
+
+/* For divs within divs */
+.sub-div {
+    background-color: var(--credit-background);
+    width: 100%;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-radius: 10px;
 }
 
 /* Non-containers */
@@ -146,7 +165,8 @@ body {
 }
 
 .big-header {
-    font-size: 64px;
+    font-size: 32px;
+    max-height: 32px;
 }
 
 a {
@@ -159,18 +179,16 @@ a:hover {
     font-size: 20px;
 }
 
-p {
+p,
+li {
     font-size: 18px;
     margin-bottom: 5px;
 }
 
-ul {
+.dev-credit-list {
     list-style-type: none;
 }
 
-li {
-    font-size: 24px;
-}
 
 .credit-image-card {
     display: flex;
@@ -196,4 +214,40 @@ li {
 
 strong {
     color: orange;
+}
+
+.sub-div>* {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.last-element {
+    margin-bottom: 20%;
+}
+
+.first-element {
+    margin-top: 10%;
+}
+
+/* Image centered in div */
+.generic-image {
+    margin: auto;
+    width: 300px;
+    display: block;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figcaption {
+    padding: 5px;
 }

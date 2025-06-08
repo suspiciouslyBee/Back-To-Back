@@ -6,21 +6,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Back 2 Back | Main Page</title>
   <link rel="stylesheet" href="styles.css">
-
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
 </head>
 
 <body>
-  <a href="game.html">
+  <!-- <a href="game.html">
     <div class="top-nav">
       <h1 class="big-header">Click to play now!</h1>
     </div>
 
-  </a>
+  </a> -->
+  <!-- The Game! -->
+  <div id="unity-game-wrapper" class="first-element">
+    <div id="unity-container" class="unity-desktop">
+
+      <canvas id="unity-canvas" width=960 height=800 tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-logo-title-footer"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Back-2-Back</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Game description -->
+  <div class="small-div">
+    <div class="sub-div">
+      <h2>About <i>Back 2 Back</i></h2>
+      <p><i>Back 2 Back</i> is a single player action survival game where you control two unique characters to kill off
+        hordes of
+        zombies.
+        One character is limited to close combat weaponry while the other has an arrisonal of ranged weapons such as
+        guns and
+        bows. Both characters can perform special abilities unique to them, slay zombies to get upgraded weapons, and
+        gain
+        special bonuses by performing certain actions. When both characters die, it’s game over.
+      </p>
+      <p>We wanted to create a survival game based on the flow and mindset of Fighting-Game’s puppet characters, where
+        you
+        control multiple bodies at once and constantly have to manage separate characters. Eventually, this led to a
+        gameplay
+        loop based on Terraria’s Old One’s Army event along with some visual inspiration coming from the popular zombie
+        games
+        Left4Dead2 and Plants vs Zombies in which zombies would try to approach the center of the screen and deal damage
+        to the
+        stagnant characters.
+        To balance this mix of titles and help prevent the game from being a mashing fest, our central game mechanic is
+        the
+        ability to swap the character’s and change which side they are attacking while keeping the zombies at bay. This
+        means
+        neither character can be on the same side at once, and the timing restriction on how quickly you can swap will
+        force you
+        to carefully manage your swapping, reloading, and abilities as the zombies arrive wave after wave. </p>
+
+      <p><i>Currently you can enjoy the game on any pc using our website and a keyboard or controller (We personally
+          suggest a
+          controller for ease of use).</i></p>
 
 
-
-
-
+    </div>
+  </div>
   <!-- trailer -->
   <div class="big-div">
     <iframe width="1022" height="575" src="https://www.youtube.com/embed/8rmtlBOwmRk" title="Back2Back - FULL TRAILER"
@@ -49,23 +103,121 @@
     <img class="screenshot" src="Screenshots/end.png">
   </div>
 
+  <!-- Team Reflection -->
+  <div id="reflection" class="small-div column-div">
+    <div class="sub-div section-header">
+      <h1 class="big-header">Team Reflection</h1>
+    </div>
+    <div class="sub-div">
+      <p>One thing our team did really well was defining a set of goals to achieve each week. This would typically
+        contain 1
+        major change and a couple of minor changes, consisting of additions, bug fixes, or mechanic changes. This
+        allowed us to
+        easily see what changes our playtestsers liked, disliked, and didn’t notice. This strategy can be seen in a
+        couple of
+        places. First was our Kanban Board that tracked the implementation of each change over the week. This included
+        what was
+        involved with the change, who was working on it, and an expected completion date. There's also evidence of this
+        method
+        in our playtesting notes. During our playtests, we would pay particular attention to how users interact with the
+        changes
+        we made. This allowed us to go back and alter the changes if players didn’t like them, or ignored key features.
+      </p>
+      <p>If we had 2 more weeks to work on the game, the 3 items would mainly revolve around clearing up confusion and
+        polishing
+        the game. First, we would refine the UI to make navigation of menus and indicators for controls more obvious.
+        Second, we
+        would find a better way to let the player choose which control scheme they like better, as well as including
+        keyboard
+        icons. Finally, we want to fix minor bugs. These include, but are not limited to: able to open pause menu on
+        death
+        screen which breaks the game, NullPtrReference after a character is dead, and the tutorial has different
+        abilities from
+        endless mode.</p>
+    </div>
+  </div>
+  <!-- Playtesting Reports -->
+  <div class="big-div">
+
+    <div class="sub-div section-header">
+      <h1 class="big-header">Playtesting Reports</h1>
+    </div>
+    <!-- Digital Prototype 1 -->
+    <div class="sub-div">
+      <h1>Digital Prototype 1</h1>
+      <p>This test was the very first unveiling of <i>Back 2 Back</i> to an audience. Testing was conducted in the
+        classroom on laptops.
+        Controllers were provided as requested by testers. </p>
+      <p>Testers generally approved of the concept and controller support.
+        However, some issues were present with the controls and players desired more clear instructions.</p>
+      <h2>Key decisions</h2>
+
+      <ul>
+        <li>Add a tutorial</li>
+        <li>Improve placement of controls (particularly on keyboard)</li>
+        <li>Add more UI and HUD elements</li>
+      </ul>
+    </div>
+
+    <div class="sub-div">
+      <h1>Digital Prototype 2</h1>
+      <p>In Digital Prototype 2, we continued to improve the game with UI to enable health, time survived, and a Lose
+        condition.
+        During this time, we also began to establish the world and art style of Back-To-Back</p>
+      <figure>
+
+        <img src="Screenshots/discord_msg1.png" class="generic-image">
+        <figcaption><i>Worldbuilding: It’s kind of fun.</i></figcaption>
+      </figure>
+
+      <p>Users were shadowed and observed while playing. Players found the art charming but were still confused about
+        how to
+        play. Many players found our UI too easily ignorable, even when it has pertinent game information such as health
+        or a Swap bar. There was no strategy, as many players would just button mash.</p>
+      <h2>Key decisions</h2>
+      <ul>
+        <li>Making UI easier for players to track</li>
+        <li>Revising Controls</li>
+        <li>Making a special tutorial stage</li>
+        <li>Brainstorming ways to counteract button mashing</li>
+      </ul>
+    </div>
+
+    <!-- Alpha -->
+    <div class="sub-div">
+      <h1>Alpha</h1>
+      <p>For alpha, we implemented a tutorial with custom dialog. We added a new wave system and added healing
+        mechanics. We also
+        introduced an option for users to choose whether to have the button direction correspond to the player or not.
+        We also
+        added a start menu to allow users to access the tutorial, sounds, and a basic weapon upgrade system. We also
+        attempted
+        to add a manual reload bonus system. </p>
+      <p>Users were not finding the tutorial as helpful as we had expected. They also found our reloading system
+        unrewarding and
+        unresponsive. Also, our characters quickly became imbalanced as our ranged character got a semi-auto rifle.</p>
+      <h2>Key decisions</h2>
+
+      <ul>
+        <li>Animations/particles</li>
+        <li>Enemy types</li>
+        <li>Improved wave system</li>
+        <li>Trailer storyboard</li>
+        <li>Weapon balancing</li>
+        <li>Sound effects</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- Developer Credits -->
   <div class="column-div">
-    <h1 class="big-header">Developer Credits</h1>
+    <div class="sub-div section-header">
+      <h1 class="big-header">Developer Credits</h1>
+    </div>
+
     <div id="dev-credits" class="big-div">
 
-      <!-- June -->
-      <div class="credit-cell" id="susbee">
-        <h2>june</h2>
-        <div class="credit-image-card"><img src="CreditSprites/June.png" alt="June"></div>
-        <p>suspiciously@bee.movie</p>
-        <ul>
-          <li>Creative Director</li>
-          <li>Talent Coordinator</li>
-          <li>Trailer Artist & Director</li>
-          <li>Architecture Engineer</li>
-        </ul>
-      </div>
+
 
       <!-- Alex -->
       <div class="credit-cell" id="alex">
@@ -74,22 +226,9 @@
         <div class="credit-image-card"><img src="CreditSprites/Alex.png" alt="Alex"></div>
 
         <p>abridgesfam05@gmail.com</p>
-        <ul>
+        <ul class="dev-credit-list">
           <li>Soundtrack Composer</li>
           <li>UI Designer</li>
-          <li>Programmer</li>
-        </ul>
-      </div>
-
-      <!-- Chloe -->
-      <div class="credit-cell" id="chloe">
-        <h2>Chloe Beal</h2>
-        <div class="credit-image-card"><img src="CreditSprites/Chloe.png" alt="Chloe"></div>
-
-        <p>rjbeal1@uw.edu</p>
-        <ul>
-          <li>Artist</li>
-          <li>Mechanic Engineer</li>
           <li>Programmer</li>
         </ul>
       </div>
@@ -101,21 +240,50 @@
 
         <p>cshort3@uw.edu</p>
         <a href="https://github.com/Spudoku">GitHub</a>
-        <ul>
+        <ul class="dev-credit-list">
           <li>Systems Engineering</li>
           <li>Sound Design</li>
           <li>Enemy Behaviors</li>
           <li>Web Developer</li>
         </ul>
       </div>
+
+      <!-- Chloe -->
+      <div class="credit-cell" id="chloe">
+        <h2>Chloe Beal</h2>
+        <div class="credit-image-card"><img src="CreditSprites/Chloe.png" alt="Chloe"></div>
+
+        <p>rjbeal1@uw.edu</p>
+        <ul class="dev-credit-list">
+          <li>Artist</li>
+          <li>Mechanic Engineer</li>
+          <li>Programmer</li>
+        </ul>
+      </div>
+
+      <!-- June -->
+      <div class="credit-cell" id="susbee">
+        <h2>june</h2>
+        <div class="credit-image-card"><img src="CreditSprites/June.png" alt="June"></div>
+        <p>suspiciously@bee.movie</p>
+        <ul class="dev-credit-list">
+          <li>Creative Director</li>
+          <li>Talent Coordinator</li>
+          <li>Trailer Artist & Director</li>
+          <li>Architecture Engineer</li>
+        </ul>
+      </div>
+
+
     </div>
   </div>
 
+  <!-- UV credit -->
   <div class="small-div column-div">
-    <h2>Special Thanks to <strong>UV</strong> for guest voice acting</h2>
+    <h2>Special Thanks to <strong>UV</strong> for guest voice acting in the trailer</h2>
   </div>
   <!-- Asset credits-->
-  <div class="column-div">
+  <div class="column-div last-element">
     <h1 class>Asset Credits</h1>
     <!-- Reference text -->
     <div>
@@ -124,104 +292,130 @@
       <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-gray-700">Weapon Related</h3>
       <p class="mb-2">Classic Laser Pew sound effect: <a href="https://freesound.org/people/SeanSecret/sounds/440661/"
           target="_blank" rel="noopener noreferrer"
-          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/people/SeanSecret/sounds/440661/</a></p>
+          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/people/SeanSecret/sounds/440661/</a>
+      </p>
       <p class="mb-2">GunClick.mp3 by Yap_Audio_Production -- <a href="https://freesound.org/s/218482/" target="_blank"
           rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/218482/</a> --
         License: Attribution 4.0</p>
       <p class="mb-2">Empty Gun Shot by KlawyKogut -- <a href="https://freesound.org/s/154934/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/154934/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/154934/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">Gun cock.wav by RoozyDB -- <a href="https://freesound.org/s/421794/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/421794/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/421794/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">Machine Gun 002 - single shot.ogg by pgi -- <a href="https://freesound.org/s/212607/"
           target="_blank" rel="noopener noreferrer"
           class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/212607/</a> --
         License: Creative Commons 0</p>
       <p class="mb-2">Layered Gunshot 3.WAV by Xenonn -- <a href="https://freesound.org/s/128293/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/128293/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/128293/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">SWSH_Swish Of Heavy Stick.Artificial 1_EM by newlocknew -- <a
           href="https://freesound.org/s/794818/" target="_blank" rel="noopener noreferrer"
-          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/794818/</a> -- License: Creative Commons
+          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/794818/</a> -- License: Creative
+        Commons
         0
       </p>
       <p class="mb-2">ding4.wav by suzenako -- <a href="https://freesound.org/s/320901/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/320901/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/320901/</a>
+        --
         License: Attribution 4.0</p>
       <p class="mb-2">Sheet Metal 2.wav by ingudios -- <a href="https://freesound.org/s/119486/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/119486/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/119486/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">8 Whip Cracks.wav by Aerny -- <a href="https://freesound.org/s/616225/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/616225/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/616225/</a>
+        --
         License: Attribution NonCommercial 4.0</p>
       <p class="mb-2">Short Gunshot.wav by JohanDeecke -- <a href="https://freesound.org/s/369528/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/369528/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/369528/</a>
+        --
         License: Attribution 3.0</p>
       <p class="mb-2">Gunshot_01.sse.wav by snapssound -- <a href="https://freesound.org/s/536630/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/536630/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/536630/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">Gunshot01.wav by jeremysykes -- <a href="https://freesound.org/s/341258/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/341258/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/341258/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">Simple Gunshot Reverb Test.wav by morganpurkis -- <a href="https://freesound.org/s/399266/"
           target="_blank" rel="noopener noreferrer"
-          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/399266/</a> -- License: Creative Commons
+          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/399266/</a> -- License: Creative
+        Commons
         0
       </p>
       <p class="mb-2">slap.wav by SGAK -- <a href="https://freesound.org/s/467834/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/467834/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/467834/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">SXP_SHOTGUN_RACK_01 by dasBUTCHER84 -- <a href="https://freesound.org/s/449614/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/449614/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/449614/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">Weapon_Revolver_Hammer_Mono.wav by Nox_Sound -- <a href="https://freesound.org/s/540065/"
           target="_blank" rel="noopener noreferrer"
-          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/540065/</a> -- License: Creative Commons
+          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/540065/</a> -- License: Creative
+        Commons
         0
       </p>
       <p class="mb-2">OWI_Bow Srting 2.wav by matthewHoldenSound -- <a href="https://freesound.org/s/542517/"
           target="_blank" rel="noopener noreferrer"
-          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/542517/</a> -- License: Creative Commons
+          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/542517/</a> -- License: Creative
+        Commons
         0
       </p>
       <p class="mb-2">Zap.ogg by egomassive -- <a href="https://freesound.org/s/536741/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/536741/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/536741/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">PLASMA IMPACT ONE by johnjohnfm -- <a href="https://freesound.org/s/804681/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/804681/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/804681/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">Thunder_close_Boem.wav by hantorio -- <a href="https://freesound.org/s/121946/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/121946/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/121946/</a>
+        --
         License: Attribution 3.0</p>
       <p class="mb-2">Whoosh woow mk2.wav by Speedenza -- <a href="https://freesound.org/s/168176/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/168176/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/168176/</a>
+        --
         License: Attribution NonCommercial 4.0</p>
       <p class="mb-2">2770 1-FP-SWOOSH-SW-TMc 21 A-1.aif by The_Sample_Workshop -- <a
           href="https://freesound.org/s/629329/" target="_blank" rel="noopener noreferrer"
-          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/629329/</a> -- License: Attribution 4.0
+          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/629329/</a> -- License: Attribution
+        4.0
       </p>
 
       <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-4 text-gray-700">Enemy Related</h3>
       <p class="mb-2">Splat 1 by sebastientate -- <a href="https://freesound.org/s/719129/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/719129/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/719129/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">Snare Cloth Muted (Decent Mid) by Sounds-I-Found -- <a href="https://freesound.org/s/712362/"
           target="_blank" rel="noopener noreferrer"
-          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/712362/</a> -- License: Creative Commons
+          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/712362/</a> -- License: Creative
+        Commons
         0
       </p>
       <p class="mb-2">Steps-Dirt_1a.OGG by nuFF3 -- <a href="https://freesound.org/s/477392/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/477392/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/477392/</a>
+        --
         License: Attribution 4.0</p>
 
       <h3 class="text-xl sm:text-2xl font-semibold mt-6 mb-4 text-gray-700">Ambient</h3>
       <p class="mb-2">gust-mono.wav by hackerb9 -- <a href="https://freesound.org/s/555246/" target="_blank"
-          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/555246/</a> --
+          rel="noopener noreferrer" class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/555246/</a>
+        --
         License: Creative Commons 0</p>
       <p class="mb-2">ATM INT Wind Howl Cold Winter 09 (stereo).wav by Takkyi -- <a
           href="https://freesound.org/s/546871/" target="_blank" rel="noopener noreferrer"
-          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/546871/</a> -- License: Creative Commons
+          class="rounded-md px-2 py-1 hover:bg-blue-50">https://freesound.org/s/546871/</a> -- License: Creative
+        Commons
         0
       </p>
 
@@ -234,6 +428,137 @@
   </div>
 
 
+  <!-- Unity Scripts -->
+  <script>
+    var canvas = document.querySelector("#unity-canvas");
+
+    // Shows a temporary message banner/ribbon for a few seconds, or
+    // a permanent error message on top of the canvas if type=='error'.
+    // If type=='warning', a yellow highlight color is used.
+    // Modify or remove this function to customize the visually presented
+    // way that non-critical warnings and error messages are presented to the
+    // user.
+    function unityShowBanner(msg, type) {
+      var warningBanner = document.querySelector("#unity-warning");
+      function updateBannerVisibility() {
+        warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+      }
+      var div = document.createElement('div');
+      div.innerHTML = msg;
+      warningBanner.appendChild(div);
+      if (type == 'error') div.style = 'background: red; padding: 10px;';
+      else {
+        if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+        setTimeout(function () {
+          warningBanner.removeChild(div);
+          updateBannerVisibility();
+        }, 5000);
+      }
+      updateBannerVisibility();
+    }
+
+    var buildUrl = "Build";
+    var loaderUrl = buildUrl + "/Build.loader.js";
+    var config = {
+      arguments: [],
+      dataUrl: buildUrl + "/Build.data",
+      frameworkUrl: buildUrl + "/Build.framework.js",
+      codeUrl: buildUrl + "/Build.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "Refresh Studios",
+      productName: "Back-To-Back",
+      productVersion: "1.0",
+      showBanner: unityShowBanner,
+    };
+
+    // By default, Unity keeps WebGL canvas render target size matched with
+    // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+    // Set this to false if you want to decouple this synchronization from
+    // happening inside the engine, and you would instead like to size up
+    // the canvas DOM size and WebGL render target sizes yourself.
+    // config.matchWebGLToCanvasSize = false;
+
+    // If you would like all file writes inside Unity Application.persistentDataPath
+    // directory to automatically persist so that the contents are remembered when
+    // the user revisits the site the next time, uncomment the following line:
+    // config.autoSyncPersistentDataPath = true;
+    // This autosyncing is currently not the default behavior to avoid regressing
+    // existing user projects that might rely on the earlier manual
+    // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
+    // expected to change.
+
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      // Mobile device style: fill the whole browser client area with the game canvas:
+
+      var meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+      document.querySelector("#unity-container").className = "unity-mobile";
+      canvas.className = "unity-mobile";
+
+      // To lower canvas resolution on mobile devices to gain some
+      // performance, uncomment the following line:
+      // config.devicePixelRatio = 1;
+
+
+    } else {
+      // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+      canvas.style.width = "960px";
+      canvas.style.height = "600px";
+    }
+
+    canvas.style.background = "url('" + buildUrl + "/Build.jpg') center / cover";
+    document.querySelector("#unity-loading-bar").style.display = "block";
+
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+        document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
+      }).then((unityInstance) => {
+        document.querySelector("#unity-loading-bar").style.display = "none";
+        document.querySelector("#unity-fullscreen-button").onclick = () => {
+          unityInstance.SetFullscreen(1);
+        };
+
+        // Unloading web content from DOM so that browser GC can run can be tricky to get right.
+        // This code snippet shows how to correctly implement a Unity content Unload mechanism to a web page.
+
+        // Unloading Unity content enables a web page to reclaim the memory used by Unity, e.g. for
+        // the purpose of later loading another Unity content instance on the _same_ web page.
+
+        // When using this functionality, take caution to carefully make sure to clear all JavaScript code,
+        // DOM element and event handler references to the old content you may have retained, or
+        // otherwise the browser's garbage collector will be unable to reclaim the old page.
+
+        // N.b. Unity content does _not_ need to be manually unloaded when the user is navigating away from
+        // the current page to another web page. The browser will take care to clear memory of old visited
+        // pages automatically. This functionality is only needed if you want to switch between loading
+        // multiple Unity builds on a single web page.
+        var quit = document.createElement("button");
+        quit.style = "margin-left: 5px; background-color: lightgray; border: none; padding: 5px; cursor: pointer";
+        quit.innerHTML = "Unload";
+        document.querySelector("#unity-build-title").appendChild(quit);
+        quit.onclick = () => {
+          // Quit Unity application execution
+          unityInstance.Quit().then(() => {
+            // Remove DOM elements from the page so GC can run
+            document.querySelector("#unity-container").remove();
+            canvas = null;
+            // Remover script elements from the page so GC can run
+            script.remove();
+            script = null;
+          });
+        };
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+
+    document.body.appendChild(script);
+
+  </script>
 </body>
 
 </html>
